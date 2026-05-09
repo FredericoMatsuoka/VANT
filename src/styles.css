@@ -1,0 +1,99 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Anton&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-impact: "Impact", "Anton", sans-serif;
+  
+  --color-brand-green: #034b2c;
+  --color-brand-light-green: #03d86b;
+  --color-brand-mint: #46f49a;
+  --color-brand-cream: #ffe9c3;
+  --color-white: #ffe9c3;
+  --color-brand-pink: #ff6bc8;
+  --color-brand-orange: #ff7b22;
+  --color-brand-blue: #86a3ff;
+  --color-brand-darkblue: #2547d8;
+  --color-brand-black: #050505;
+}
+
+:root {
+  background-color: var(--color-brand-green);
+  color: var(--color-brand-cream);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-brand-green);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Webkit Scrollbar for Apple feel */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-green); 
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2); 
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3); 
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: radial-gradient(#fff_1px,transparent_1px);
+  background-size: 16px 16px;
+}
+
+@keyframes coin-fall {
+  0% { transform: translateY(-300px) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(120vh) rotate(540deg); opacity: 0; }
+}
+
+.coin-fall {
+  animation-name: coin-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.glass-pill {
+  @apply px-4 py-2 rounded-full border border-white/10 hover:border-white/30 hover:bg-white/20 text-brand-cream hover:text-white text-[10px] font-black uppercase tracking-widest transition-all backdrop-blur-md bg-white/10;
+}
+
+.service-card {
+  @apply w-[85vw] md:w-[480px] shrink-0 p-8 rounded-3xl bg-brand-green border-[12px] border-white shadow-[0_40px_100px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform duration-500 relative overflow-hidden;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}
