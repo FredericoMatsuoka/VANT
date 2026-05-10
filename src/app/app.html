@@ -1,7 +1,99 @@
+<!-- LOADING SCREEN -->
+<div id="loader" class="loader">
+  <div class="loader-content">
+    <span class="loader-logo">VANT</span>
+    <span class="loader-sub">Digital Studio</span>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+</div>
+
+<!-- CONTACT MODAL -->
+@if (isModalOpen()) {
+  <div class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" (click)="closeModal()">
+    <div class="modal-card" (click)="$event.stopPropagation()">
+
+      @if (!formSubmitted()) {
+        <!-- Header -->
+        <div class="flex items-start justify-between mb-8">
+          <div>
+            <p class="text-brand-mint text-[10px] font-black uppercase tracking-widest mb-1">Novo Projeto</p>
+            <h2 id="modal-title" class="text-3xl font-impact italic uppercase text-brand-cream tracking-tight leading-none">Vamos criar<br><span class="text-brand-light-green">algo incrível?</span></h2>
+          </div>
+          <button (click)="closeModal()" aria-label="Fechar" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-brand-cream/60 hover:text-brand-cream hover:border-white/40 transition-all text-lg">✕</button>
+        </div>
+
+        <!-- Form -->
+        <form (submit)="submitForm($event)" class="flex flex-col gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1.5">
+              <label class="modal-label">Nome *</label>
+              <input name="nome" type="text" required placeholder="Seu nome completo" class="form-field" autocomplete="name">
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="modal-label">E-mail *</label>
+              <input name="email" type="email" required placeholder="seu@email.com" class="form-field" autocomplete="email">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1.5">
+              <label class="modal-label">WhatsApp</label>
+              <input name="whatsapp" type="tel" placeholder="(11) 99999-9999" class="form-field" autocomplete="tel">
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="modal-label">Tipo de projeto *</label>
+              <select name="tipo" required class="form-field">
+                <option value="" disabled selected>Selecione...</option>
+                <option value="Landing Page de Alta Conversão">Landing Page</option>
+                <option value="Site Institucional">Site Institucional</option>
+                <option value="UI/UX Premium">UI/UX Premium</option>
+                <option value="Full-stack Web">Full-stack Web</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label class="modal-label">Conte um pouco sobre o projeto</label>
+            <textarea name="mensagem" rows="4" placeholder="O que você precisa? Qual é o objetivo do site? Tem referências?" class="form-field resize-none"></textarea>
+          </div>
+
+          <div class="flex items-center gap-3 mt-2">
+            <button type="submit" class="magnetic-btn flex-1 h-12 bg-brand-light-green text-brand-black text-xs font-black uppercase tracking-widest rounded-xl hover:bg-brand-mint transition-colors">
+              Enviar pelo WhatsApp ✦
+            </button>
+            <button type="button" (click)="closeModal()" class="h-12 px-6 border border-white/20 text-brand-cream/60 hover:text-brand-cream hover:border-white/40 text-xs font-black uppercase tracking-widest rounded-xl transition-all">
+              Cancelar
+            </button>
+          </div>
+          <p class="text-center text-brand-cream/30 text-[10px] mt-1">Você será redirecionado ao WhatsApp para enviar a mensagem.</p>
+        </form>
+      }
+
+      @if (formSubmitted()) {
+        <!-- Success state -->
+        <div class="flex flex-col items-center justify-center py-12 text-center gap-6">
+          <div class="w-20 h-20 rounded-full bg-brand-light-green/15 border-2 border-brand-light-green flex items-center justify-center text-4xl text-brand-light-green">✦</div>
+          <div>
+            <h3 class="text-3xl font-impact italic uppercase text-brand-cream tracking-tight mb-2">Mensagem enviada!</h3>
+            <p class="text-brand-mint/80 text-sm leading-relaxed max-w-xs mx-auto">Continue a conversa no WhatsApp. Respondemos em até 24h.</p>
+          </div>
+          <button (click)="closeModal()" class="magnetic-btn h-12 px-8 bg-brand-cream text-brand-black text-xs font-black uppercase tracking-widest rounded-xl">
+            Fechar
+          </button>
+        </div>
+      }
+
+    </div>
+  </div>
+}
+
 <div class="grain"></div>
+
 <header class="fixed top-6 left-6 right-6 z-50 flex items-center justify-between pointer-events-none">
   <nav class="flex items-center gap-2 pointer-events-auto">
     <a class="glass-pill" href="#servicos">Serviços</a>
+    <a class="glass-pill" href="#portfolio">Cases</a>
     <a class="glass-pill" href="#motion">Motion</a>
     <a class="glass-pill" href="#contato">Contato</a>
   </nav>
@@ -12,21 +104,21 @@
   </div>
 
   <nav class="flex items-center gap-2 pointer-events-auto hidden md:flex">
-    <a class="px-6 py-2 bg-brand-cream text-brand-black rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl hover:scale-105 transition-transform" href="#contato">Solicitar orçamento</a>
+    <button (click)="openModal()" class="magnetic-btn px-6 py-2 bg-brand-cream text-brand-black rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl transition-colors hover:bg-brand-mint cursor-pointer">
+      Solicitar orçamento
+    </button>
   </nav>
 </header>
 
 <main class="text-white selection:bg-white/20">
-  
+
   <!-- HERO -->
   <section id="hero-section" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20">
     <div class="absolute inset-0 z-0 flex items-center justify-center pointer-events-none opacity-40">
-       <div class="w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[120px]"></div>
+      <div class="w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[120px]"></div>
     </div>
-    
+
     <div class="relative z-10 w-full max-w-7xl mx-auto text-center px-6">
-      
-      <!-- Glass Stickers -->
       <div id="sticker-1" class="absolute left-[5%] md:left-[10%] top-[20%] md:top-[30%] z-20 w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-brand-pink border-4 border-brand-black rotate-[12deg] flex items-center justify-center shadow-2xl">
         <span class="text-brand-black font-impact text-3xl md:text-5xl italic">UX</span>
       </div>
@@ -34,36 +126,34 @@
         <span class="text-brand-black font-impact text-xl md:text-3xl italic">3D</span>
       </div>
 
-      <!-- Hero text and image overlapping issue fix -->
       <h1 class="text-[clamp(3.5rem,10vw,140px)] font-impact text-brand-light-green uppercase tracking-tighter italic leading-[0.85] z-20 relative">
         SITES QUE <br/>
         <span class="text-brand-cream md:pl-24">VENDEM MAIS</span>
       </h1>
 
-      <div id="hero-image" class="relative mx-auto mt-4 md:mt-12 mb-8 w-[clamp(280px,80vw,640px)] aspect-[16/9] bg-brand-cream rounded-3xl border-[8px] md:border-[12px] border-white shadow-[0_40px_100px_rgba(0,0,0,0.5)] overflow-hidden rotate-[-2deg] z-10 group">
-        <img src="/imagehero.png" class="w-full h-full object-cover">
+      <div id="hero-image" class="relative mx-auto mt-4 md:mt-12 mb-8 w-[clamp(280px,80vw,640px)] aspect-[16/9] bg-brand-cream rounded-3xl border-[8px] md:border-[12px] border-white shadow-[0_40px_100px_rgba(0,0,0,0.5)] overflow-hidden rotate-[-2deg] z-10">
+        <img src="/imagehero.png" alt="Projeto VANT Digital Studio" width="640" height="360" class="w-full h-full object-cover" fetchpriority="high">
       </div>
 
       <p class="relative z-20 max-w-2xl mx-auto text-brand-mint opacity-80 text-lg md:text-xl font-medium leading-relaxed">
         Criamos landing pages, sites institucionais e experiências digitais com precisão técnica, microinterações e design focado em conversão.
       </p>
 
-      <div class="relative z-20 mt-10 flex justify-center hover:scale-105 transition-transform">
-        <a href="#contato" class="flex items-center cursor-pointer">
+      <div class="relative z-20 mt-10 flex justify-center">
+        <button (click)="openModal()" class="magnetic-btn flex items-center cursor-pointer">
           <div class="h-14 px-8 bg-brand-cream text-brand-black flex items-center text-xs font-black uppercase tracking-widest rounded-l-xl border-r border-black/10">Criar Meu Site</div>
           <div class="h-14 w-14 bg-brand-cream text-brand-black flex items-center justify-center text-xl font-bold rounded-r-xl">✦</div>
-        </a>
+        </button>
       </div>
     </div>
   </section>
 
   <!-- SHOWCASE -->
   <section id="showcase-section" class="relative h-[200vh]">
-    <div class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden bg-brand-green object-cover">
-      <img id="showcase-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover opacity-40 scale-125">
+    <div class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden bg-brand-green">
+      <img id="showcase-img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop" alt="Design com presença" width="2000" height="1125" loading="lazy" decoding="async" class="w-full h-full object-cover opacity-20 scale-125">
       <div class="absolute inset-0 bg-gradient-to-b from-brand-green/80 via-transparent to-brand-green"></div>
-      
-      <h2 id="showcase-text" class="absolute z-10 text-[clamp(2.5rem,8vw,140px)] leading-[0.8] font-impact text-brand-cream uppercase tracking-tighter italic text-center">
+      <h2 id="showcase-text" class="absolute z-10 text-[clamp(2.5rem,8vw,140px)] leading-[0.8] font-impact text-brand-cream uppercase tracking-tighter italic text-center opacity-0">
         DESIGN<br>COM PRESENÇA
       </h2>
     </div>
@@ -73,46 +163,38 @@
   <section id="servicos" class="h-[300vh] relative bg-brand-green">
     <div class="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
       <div class="px-6 md:px-10 mb-12 flex items-end justify-between">
-         <h2 class="text-5xl md:text-7xl font-impact text-brand-cream uppercase tracking-tighter italic leading-none">Nossos <br/><span class="text-brand-light-green pl-12">Serviços</span></h2>
-         <p class="text-brand-mint opacity-80 max-w-sm text-right hidden lg:block text-lg font-medium">Soluções de ponta a ponta para elevar sua presença digital com altíssimo padrão.</p>
+        <h2 class="text-5xl md:text-7xl font-impact text-brand-cream uppercase tracking-tighter italic leading-none">Nossos <br/><span class="text-brand-light-green pl-12">Serviços</span></h2>
+        <p class="text-brand-mint opacity-80 max-w-sm text-right hidden lg:block text-lg font-medium">Soluções de ponta a ponta para elevar sua presença digital com altíssimo padrão.</p>
       </div>
-
       <div id="cards-track" class="flex gap-6 md:gap-8 px-6 md:px-[10vw] w-max">
-        <!-- Card 1 -->
         <article class="service-card group">
           <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-8 shadow-2xl relative">
-             <img src="/image1.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <img src="/image1.png" loading="lazy" decoding="async" alt="Landing Pages de alta conversão" width="480" height="360" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           </div>
           <h3 class="text-3xl font-impact uppercase italic text-brand-light-green tracking-tight mb-4">Landing Pages</h3>
           <p class="text-brand-cream opacity-80 text-lg leading-relaxed">Páginas construídas para prender atenção, explicar sua oferta e converter visitantes em clientes de forma implacável.</p>
         </article>
-
-        <!-- Card 2 -->
         <article class="service-card group">
           <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-8 shadow-2xl relative">
-             <img src="/image2.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <img src="/image2.png" loading="lazy" decoding="async" alt="UI/UX Premium" width="480" height="360" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           </div>
           <h3 class="text-3xl font-impact uppercase italic text-brand-light-green tracking-tight mb-4">UI/UX Premium</h3>
           <p class="text-brand-cream opacity-80 text-lg leading-relaxed">Visual imaculado, identidade forte, hierarquia limpa e acabamento digno das maiores empresas do mundo.</p>
         </article>
-
-        <!-- Card 3 -->
         <article class="service-card group">
           <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-8 shadow-2xl relative">
-             <img src="/image3.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <img src="/image3.png" loading="lazy" decoding="async" alt="Scroll Motion" width="480" height="360" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           </div>
           <h3 class="text-3xl font-impact uppercase italic text-brand-light-green tracking-tight mb-4">Scroll Motion</h3>
           <p class="text-brand-cream opacity-80 text-lg leading-relaxed">Animações controladas pelo scroll, 3D e transições fluidas que tornam a navegação uma experiência.</p>
         </article>
-
-        <!-- Card 4 -->
         <article class="service-card group">
           <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden mb-8 shadow-2xl relative">
-             <img src="/image4.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
-             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <img src="/image4.png" loading="lazy" decoding="async" alt="Full-stack Web" width="480" height="360" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           </div>
           <h3 class="text-3xl font-impact uppercase italic text-brand-light-green tracking-tight mb-4">Full-stack Web</h3>
           <p class="text-brand-cream opacity-80 text-lg leading-relaxed">Código responsivo, ultrarrápido e pronto para escalar com as melhores integrações do mercado.</p>
@@ -121,74 +203,518 @@
     </div>
   </section>
 
-  <!-- GAME / BIG NUMBER SECTION -->
+  <!-- PORTFOLIO / CASES -->
+  <section id="portfolio" class="relative py-32 bg-brand-green overflow-hidden">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 mb-6">
+      <div class="flex items-end justify-between">
+        <h2 class="text-5xl md:text-7xl font-impact text-brand-cream uppercase tracking-tighter italic leading-none">Cases <br/><span class="text-brand-light-green pl-12">Reais</span></h2>
+        <p class="text-brand-mint opacity-80 max-w-xs text-right hidden lg:block text-lg font-medium">Projetos que geraram resultados mensuráveis para nossos clientes.</p>
+      </div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6" style="padding-bottom:220px">
+
+      <!-- Drive Motors -->
+      <div class="case-wrapper">
+        <div class="case-splash" style="background:linear-gradient(306deg,hsl(0,70%,28%),hsl(20,80%,33%))"></div>
+        <div class="case-card-inner">
+          <article class="portfolio-card group relative rounded-3xl overflow-hidden cursor-pointer" style="aspect-ratio:3/1">
+            <img src="/case1.png" loading="lazy" decoding="async" alt="Drive Motors" width="896" height="299" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-transparent to-brand-black/80 flex flex-col justify-between p-7">
+              <div>
+                <span class="text-brand-mint text-[10px] font-black uppercase tracking-widest">Automotivo</span>
+                <h3 class="text-2xl font-impact italic text-brand-cream uppercase tracking-tight mt-1">Drive Motors</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/80 text-xs font-bold">E-commerce</span>
+                <span class="px-3 py-1 rounded-full bg-brand-light-green/25 backdrop-blur-sm text-brand-mint text-xs font-bold">+280% leads</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Bella Estética -->
+      <div class="case-wrapper">
+        <div class="case-splash" style="background:linear-gradient(306deg,hsl(325,65%,32%),hsl(345,75%,37%))"></div>
+        <div class="case-card-inner">
+          <article class="portfolio-card group relative rounded-3xl overflow-hidden cursor-pointer" style="aspect-ratio:3/1">
+            <img src="/case2.png" loading="lazy" decoding="async" alt="Bella Estética" width="896" height="299" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-transparent to-brand-black/80 flex flex-col justify-between p-7">
+              <div>
+                <span class="text-brand-mint text-[10px] font-black uppercase tracking-widest">Estética & Beleza</span>
+                <h3 class="text-2xl font-impact italic text-brand-cream uppercase tracking-tight mt-1">Bella Estética</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/80 text-xs font-bold">Landing Page</span>
+                <span class="px-3 py-1 rounded-full bg-brand-light-green/25 backdrop-blur-sm text-brand-mint text-xs font-bold">+410% agendamentos</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Líder Consultoria -->
+      <div class="case-wrapper">
+        <div class="case-splash" style="background:linear-gradient(306deg,hsl(215,70%,28%),hsl(235,80%,33%))"></div>
+        <div class="case-card-inner">
+          <article class="portfolio-card group relative rounded-3xl overflow-hidden cursor-pointer" style="aspect-ratio:3/1">
+            <img src="/case3.png" loading="lazy" decoding="async" alt="Líder Consultoria" width="896" height="299" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-transparent to-brand-black/80 flex flex-col justify-between p-7">
+              <div>
+                <span class="text-brand-mint text-[10px] font-black uppercase tracking-widest">Consultoria</span>
+                <h3 class="text-2xl font-impact italic text-brand-cream uppercase tracking-tight mt-1">Líder Consultoria</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/80 text-xs font-bold">Institucional</span>
+                <span class="px-3 py-1 rounded-full bg-brand-light-green/25 backdrop-blur-sm text-brand-mint text-xs font-bold">+120 clientes</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Viver Imóveis -->
+      <div class="case-wrapper">
+        <div class="case-splash" style="background:linear-gradient(306deg,hsl(100,60%,22%),hsl(140,70%,27%))"></div>
+        <div class="case-card-inner">
+          <article class="portfolio-card group relative rounded-3xl overflow-hidden cursor-pointer" style="aspect-ratio:3/1">
+            <img src="/case4.png" loading="lazy" decoding="async" alt="Viver Imóveis" width="896" height="299" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-transparent to-brand-black/80 flex flex-col justify-between p-7">
+              <div>
+                <span class="text-brand-mint text-[10px] font-black uppercase tracking-widest">Imobiliário</span>
+                <h3 class="text-2xl font-impact italic text-brand-cream uppercase tracking-tight mt-1">Viver Imóveis</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/80 text-xs font-bold">Portal Web</span>
+                <span class="px-3 py-1 rounded-full bg-brand-light-green/25 backdrop-blur-sm text-brand-mint text-xs font-bold">3x captações</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Sorriso Odontológica -->
+      <div class="case-wrapper">
+        <div class="case-splash" style="background:linear-gradient(306deg,hsl(168,65%,22%),hsl(188,75%,27%))"></div>
+        <div class="case-card-inner">
+          <article class="portfolio-card group relative rounded-3xl overflow-hidden cursor-pointer" style="aspect-ratio:3/1">
+            <img src="/case5.png" loading="lazy" decoding="async" alt="Sorriso Odontológica" width="896" height="299" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-transparent to-brand-black/80 flex flex-col justify-between p-7">
+              <div>
+                <span class="text-brand-mint text-[10px] font-black uppercase tracking-widest">Odontologia</span>
+                <h3 class="text-2xl font-impact italic text-brand-cream uppercase tracking-tight mt-1">Sorriso Odontológica</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/80 text-xs font-bold">Landing Page</span>
+                <span class="px-3 py-1 rounded-full bg-brand-light-green/25 backdrop-blur-sm text-brand-mint text-xs font-bold">+320% avaliações</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- ZenFlow -->
+      <div class="case-wrapper">
+        <div class="case-splash" style="background:linear-gradient(306deg,hsl(258,70%,30%),hsl(278,80%,35%))"></div>
+        <div class="case-card-inner">
+          <article class="portfolio-card group relative rounded-3xl overflow-hidden cursor-pointer" style="aspect-ratio:3/1">
+            <img src="/case6.png" loading="lazy" decoding="async" alt="ZenFlow" width="896" height="299" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-transparent to-brand-black/80 flex flex-col justify-between p-7">
+              <div>
+                <span class="text-brand-mint text-[10px] font-black uppercase tracking-widest">SaaS & Tecnologia</span>
+                <h3 class="text-2xl font-impact italic text-brand-cream uppercase tracking-tight mt-1">ZenFlow</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/80 text-xs font-bold">App Web</span>
+                <span class="px-3 py-1 rounded-full bg-brand-light-green/25 backdrop-blur-sm text-brand-mint text-xs font-bold">+8k usuários/mês</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Exatos Contabilidade -->
+      <div class="case-wrapper">
+        <div class="case-splash" style="background:linear-gradient(306deg,hsl(148,60%,20%),hsl(168,70%,25%))"></div>
+        <div class="case-card-inner">
+          <article class="portfolio-card group relative rounded-3xl overflow-hidden cursor-pointer" style="aspect-ratio:3/1">
+            <img src="/case7.png" loading="lazy" decoding="async" alt="Exatos Contabilidade" width="896" height="299" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-transparent to-brand-black/80 flex flex-col justify-between p-7">
+              <div>
+                <span class="text-brand-mint text-[10px] font-black uppercase tracking-widest">Contabilidade</span>
+                <h3 class="text-2xl font-impact italic text-brand-cream uppercase tracking-tight mt-1">Exatos Contabilidade</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/80 text-xs font-bold">Institucional</span>
+                <span class="px-3 py-1 rounded-full bg-brand-light-green/25 backdrop-blur-sm text-brand-mint text-xs font-bold">+95% conversão</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Moraes & Silva -->
+      <div class="case-wrapper">
+        <div class="case-splash" style="background:linear-gradient(306deg,hsl(40,65%,25%),hsl(52,75%,30%))"></div>
+        <div class="case-card-inner">
+          <article class="portfolio-card group relative rounded-3xl overflow-hidden cursor-pointer" style="aspect-ratio:3/1">
+            <img src="/case8.png" loading="lazy" decoding="async" alt="Moraes & Silva Advogados" width="896" height="299" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-transparent to-brand-black/80 flex flex-col justify-between p-7">
+              <div>
+                <span class="text-brand-mint text-[10px] font-black uppercase tracking-widest">Jurídico</span>
+                <h3 class="text-2xl font-impact italic text-brand-cream uppercase tracking-tight mt-1">Moraes & Silva</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/80 text-xs font-bold">Institucional</span>
+                <span class="px-3 py-1 rounded-full bg-brand-light-green/25 backdrop-blur-sm text-brand-mint text-xs font-bold">+220% consultas</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- ARQ Projetos -->
+      <div class="case-wrapper">
+        <div class="case-splash" style="background:linear-gradient(306deg,hsl(200,45%,20%),hsl(220,55%,25%))"></div>
+        <div class="case-card-inner">
+          <article class="portfolio-card group relative rounded-3xl overflow-hidden cursor-pointer" style="aspect-ratio:3/1">
+            <img src="/case9.png" loading="lazy" decoding="async" alt="ARQ Projetos" width="896" height="299" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-transparent to-brand-black/80 flex flex-col justify-between p-7">
+              <div>
+                <span class="text-brand-mint text-[10px] font-black uppercase tracking-widest">Arquitetura</span>
+                <h3 class="text-2xl font-impact italic text-brand-cream uppercase tracking-tight mt-1">ARQ Projetos</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/80 text-xs font-bold">Portfólio</span>
+                <span class="px-3 py-1 rounded-full bg-brand-light-green/25 backdrop-blur-sm text-brand-mint text-xs font-bold">+15 projetos/mês</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Construir Engenharia -->
+      <div class="case-wrapper">
+        <div class="case-splash" style="background:linear-gradient(306deg,hsl(32,65%,24%),hsl(46,75%,29%))"></div>
+        <div class="case-card-inner">
+          <article class="portfolio-card group relative rounded-3xl overflow-hidden cursor-pointer" style="aspect-ratio:3/1">
+            <img src="/case10.png" loading="lazy" decoding="async" alt="Construir Engenharia" width="896" height="299" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-transparent to-brand-black/80 flex flex-col justify-between p-7">
+              <div>
+                <span class="text-brand-mint text-[10px] font-black uppercase tracking-widest">Engenharia Civil</span>
+                <h3 class="text-2xl font-impact italic text-brand-cream uppercase tracking-tight mt-1">Construir Engenharia</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/80 text-xs font-bold">Institucional</span>
+                <span class="px-3 py-1 rounded-full bg-brand-light-green/25 backdrop-blur-sm text-brand-mint text-xs font-bold">+350 obras</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GAME / BIG NUMBER -->
   <section id="motion" class="relative h-[200vh] bg-brand-green">
     <div class="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden border-y border-white/10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-darkblue/20 via-brand-green to-brand-green">
-      
-      <!-- Falling 3D Coins -->
+
+      <!-- 3D SVG Coins -->
       <div id="falling-coins" class="absolute inset-0 pointer-events-none z-10 overflow-hidden">
-        <div class="coin-fall absolute top-[-150px] left-[10%] w-24 h-24 rounded-full bg-[#ffd429] border-4 border-brand-black flex items-center justify-center text-brand-black text-2xl font-impact italic shadow-[inset_-4px_-4px_0_rgba(0,0,0,0.15),_6px_6px_0_#050505]" style="animation-duration: 4.5s; animation-delay: 0s;">R$</div>
-        <div class="coin-fall absolute top-[-150px] left-[30%] w-24 h-24 rounded-full bg-[#03d86b] border-4 border-brand-black flex items-center justify-center text-brand-black text-2xl font-impact italic shadow-[inset_-4px_-4px_0_rgba(0,0,0,0.15),_6px_6px_0_#050505]" style="animation-duration: 5s; animation-delay: 1.2s;">UX</div>
-        <div class="coin-fall absolute top-[-150px] left-[50%] w-24 h-24 rounded-full bg-[#ff7b22] border-4 border-brand-black flex items-center justify-center text-brand-black text-2xl font-impact italic shadow-[inset_-4px_-4px_0_rgba(0,0,0,0.15),_6px_6px_0_#050505]" style="animation-duration: 4.2s; animation-delay: 2.4s;">UI</div>
-        <div class="coin-fall absolute top-[-150px] left-[70%] w-24 h-24 rounded-full bg-[#46f49a] border-4 border-brand-black flex items-center justify-center text-brand-black text-2xl font-impact italic shadow-[inset_-4px_-4px_0_rgba(0,0,0,0.15),_6px_6px_0_#050505]" style="animation-duration: 5.5s; animation-delay: 0.8s;">3D</div>
-        <div class="coin-fall absolute top-[-150px] left-[85%] w-24 h-24 rounded-full bg-[#86a3ff] border-4 border-brand-black flex items-center justify-center text-brand-black text-2xl font-impact italic shadow-[inset_-4px_-4px_0_rgba(0,0,0,0.15),_6px_6px_0_#050505]" style="animation-duration: 4.8s; animation-delay: 3s;">$$$</div>
-        <div class="coin-fall absolute top-[-150px] left-[20%] w-24 h-24 rounded-full bg-brand-cream border-4 border-brand-black flex items-center justify-center text-brand-black text-2xl font-impact italic shadow-[inset_-4px_-4px_0_rgba(0,0,0,0.15),_6px_6px_0_#050505]" style="animation-duration: 6s; animation-delay: 2s;">VANT</div>
-        <div class="coin-fall absolute top-[-150px] left-[60%] w-24 h-24 rounded-full bg-[#ff6bc8] border-4 border-brand-black flex items-center justify-center text-brand-black text-2xl font-impact italic shadow-[inset_-4px_-4px_0_rgba(0,0,0,0.15),_6px_6px_0_#050505]" style="animation-duration: 5.2s; animation-delay: 0.4s;">ROI</div>
-      </div>
+
+        <!-- R$ — Gold -->
+        <div class="coin-fall absolute" style="top:-150px;left:10%;animation-duration:4.5s;animation-delay:0s;">
+          <svg width="96" height="96" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="ec1"><circle cx="52" cy="50" r="40"/></clipPath>
+              <linearGradient id="eg1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c99200"/><stop offset="100%" stop-color="#7a5800"/></linearGradient>
+            </defs>
+            <circle cx="52" cy="50" r="40" fill="url(#eg1)" stroke="#050505" stroke-width="2.5"/>
+            <g clip-path="url(#ec1)" opacity="0.55">
+              <line x1="0" y1="18" x2="100" y2="18" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="26" x2="100" y2="26" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="34" x2="100" y2="34" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="42" x2="100" y2="42" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="50" x2="100" y2="50" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="58" x2="100" y2="58" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="66" x2="100" y2="66" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="74" x2="100" y2="74" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="82" x2="100" y2="82" stroke="#050505" stroke-width="1.4"/>
+            </g>
+            <circle cx="42" cy="50" r="40" fill="#ffd429" stroke="#050505" stroke-width="4"/>
+            <circle cx="42" cy="50" r="32" fill="none" stroke="#050505" stroke-width="2" opacity="0.4"/>
+            <ellipse cx="28" cy="28" rx="9" ry="5" fill="white" opacity="0.22" transform="rotate(-35 28 28)"/>
+            <text x="42" y="64" text-anchor="middle" font-family="Impact,Anton,sans-serif" font-size="28" font-style="italic" fill="#050505">R$</text>
+          </svg>
+        </div>
+
+        <!-- UX — Green -->
+        <div class="coin-fall absolute" style="top:-150px;left:30%;animation-duration:5s;animation-delay:1.2s;">
+          <svg width="96" height="96" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="ec2"><circle cx="52" cy="50" r="40"/></clipPath>
+              <linearGradient id="eg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#027a40"/><stop offset="100%" stop-color="#014820"/></linearGradient>
+            </defs>
+            <circle cx="52" cy="50" r="40" fill="url(#eg2)" stroke="#050505" stroke-width="2.5"/>
+            <g clip-path="url(#ec2)" opacity="0.55">
+              <line x1="0" y1="18" x2="100" y2="18" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="26" x2="100" y2="26" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="34" x2="100" y2="34" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="42" x2="100" y2="42" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="50" x2="100" y2="50" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="58" x2="100" y2="58" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="66" x2="100" y2="66" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="74" x2="100" y2="74" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="82" x2="100" y2="82" stroke="#050505" stroke-width="1.4"/>
+            </g>
+            <circle cx="42" cy="50" r="40" fill="#03d86b" stroke="#050505" stroke-width="4"/>
+            <circle cx="42" cy="50" r="32" fill="none" stroke="#050505" stroke-width="2" opacity="0.4"/>
+            <ellipse cx="28" cy="28" rx="9" ry="5" fill="white" opacity="0.22" transform="rotate(-35 28 28)"/>
+            <text x="42" y="64" text-anchor="middle" font-family="Impact,Anton,sans-serif" font-size="28" font-style="italic" fill="#050505">UX</text>
+          </svg>
+        </div>
+
+        <!-- UI — Orange -->
+        <div class="coin-fall absolute" style="top:-150px;left:50%;animation-duration:4.2s;animation-delay:2.4s;">
+          <svg width="96" height="96" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="ec3"><circle cx="52" cy="50" r="40"/></clipPath>
+              <linearGradient id="eg3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#b85500"/><stop offset="100%" stop-color="#7a3200"/></linearGradient>
+            </defs>
+            <circle cx="52" cy="50" r="40" fill="url(#eg3)" stroke="#050505" stroke-width="2.5"/>
+            <g clip-path="url(#ec3)" opacity="0.55">
+              <line x1="0" y1="18" x2="100" y2="18" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="26" x2="100" y2="26" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="34" x2="100" y2="34" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="42" x2="100" y2="42" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="50" x2="100" y2="50" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="58" x2="100" y2="58" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="66" x2="100" y2="66" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="74" x2="100" y2="74" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="82" x2="100" y2="82" stroke="#050505" stroke-width="1.4"/>
+            </g>
+            <circle cx="42" cy="50" r="40" fill="#ff7b22" stroke="#050505" stroke-width="4"/>
+            <circle cx="42" cy="50" r="32" fill="none" stroke="#050505" stroke-width="2" opacity="0.4"/>
+            <ellipse cx="28" cy="28" rx="9" ry="5" fill="white" opacity="0.22" transform="rotate(-35 28 28)"/>
+            <text x="42" y="64" text-anchor="middle" font-family="Impact,Anton,sans-serif" font-size="30" font-style="italic" fill="#050505">UI</text>
+          </svg>
+        </div>
+
+        <!-- 3D — Mint -->
+        <div class="coin-fall absolute" style="top:-150px;left:70%;animation-duration:5.5s;animation-delay:0.8s;">
+          <svg width="96" height="96" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="ec4"><circle cx="52" cy="50" r="40"/></clipPath>
+              <linearGradient id="eg4" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1aaa5e"/><stop offset="100%" stop-color="#0d6e3c"/></linearGradient>
+            </defs>
+            <circle cx="52" cy="50" r="40" fill="url(#eg4)" stroke="#050505" stroke-width="2.5"/>
+            <g clip-path="url(#ec4)" opacity="0.55">
+              <line x1="0" y1="18" x2="100" y2="18" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="26" x2="100" y2="26" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="34" x2="100" y2="34" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="42" x2="100" y2="42" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="50" x2="100" y2="50" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="58" x2="100" y2="58" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="66" x2="100" y2="66" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="74" x2="100" y2="74" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="82" x2="100" y2="82" stroke="#050505" stroke-width="1.4"/>
+            </g>
+            <circle cx="42" cy="50" r="40" fill="#46f49a" stroke="#050505" stroke-width="4"/>
+            <circle cx="42" cy="50" r="32" fill="none" stroke="#050505" stroke-width="2" opacity="0.4"/>
+            <ellipse cx="28" cy="28" rx="9" ry="5" fill="white" opacity="0.22" transform="rotate(-35 28 28)"/>
+            <text x="42" y="64" text-anchor="middle" font-family="Impact,Anton,sans-serif" font-size="28" font-style="italic" fill="#050505">3D</text>
+          </svg>
+        </div>
+
+        <!-- $$$ — Blue -->
+        <div class="coin-fall absolute" style="top:-150px;left:85%;animation-duration:4.8s;animation-delay:3s;">
+          <svg width="96" height="96" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="ec5"><circle cx="52" cy="50" r="40"/></clipPath>
+              <linearGradient id="eg5" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3450cc"/><stop offset="100%" stop-color="#1a2888"/></linearGradient>
+            </defs>
+            <circle cx="52" cy="50" r="40" fill="url(#eg5)" stroke="#050505" stroke-width="2.5"/>
+            <g clip-path="url(#ec5)" opacity="0.55">
+              <line x1="0" y1="18" x2="100" y2="18" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="26" x2="100" y2="26" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="34" x2="100" y2="34" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="42" x2="100" y2="42" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="50" x2="100" y2="50" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="58" x2="100" y2="58" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="66" x2="100" y2="66" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="74" x2="100" y2="74" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="82" x2="100" y2="82" stroke="#050505" stroke-width="1.4"/>
+            </g>
+            <circle cx="42" cy="50" r="40" fill="#86a3ff" stroke="#050505" stroke-width="4"/>
+            <circle cx="42" cy="50" r="32" fill="none" stroke="#050505" stroke-width="2" opacity="0.4"/>
+            <ellipse cx="28" cy="28" rx="9" ry="5" fill="white" opacity="0.22" transform="rotate(-35 28 28)"/>
+            <text x="42" y="64" text-anchor="middle" font-family="Impact,Anton,sans-serif" font-size="22" font-style="italic" fill="#050505">$$$</text>
+          </svg>
+        </div>
+
+        <!-- VANT — Cream -->
+        <div class="coin-fall absolute" style="top:-150px;left:20%;animation-duration:6s;animation-delay:2s;">
+          <svg width="96" height="96" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="ec6"><circle cx="52" cy="50" r="40"/></clipPath>
+              <linearGradient id="eg6" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c9a850"/><stop offset="100%" stop-color="#8a6e20"/></linearGradient>
+            </defs>
+            <circle cx="52" cy="50" r="40" fill="url(#eg6)" stroke="#050505" stroke-width="2.5"/>
+            <g clip-path="url(#ec6)" opacity="0.55">
+              <line x1="0" y1="18" x2="100" y2="18" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="26" x2="100" y2="26" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="34" x2="100" y2="34" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="42" x2="100" y2="42" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="50" x2="100" y2="50" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="58" x2="100" y2="58" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="66" x2="100" y2="66" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="74" x2="100" y2="74" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="82" x2="100" y2="82" stroke="#050505" stroke-width="1.4"/>
+            </g>
+            <circle cx="42" cy="50" r="40" fill="#ffe9c3" stroke="#050505" stroke-width="4"/>
+            <circle cx="42" cy="50" r="32" fill="none" stroke="#050505" stroke-width="2" opacity="0.4"/>
+            <ellipse cx="28" cy="28" rx="9" ry="5" fill="white" opacity="0.22" transform="rotate(-35 28 28)"/>
+            <text x="42" y="64" text-anchor="middle" font-family="Impact,Anton,sans-serif" font-size="19" font-style="italic" fill="#050505">VANT</text>
+          </svg>
+        </div>
+
+        <!-- ROI — Pink -->
+        <div class="coin-fall absolute" style="top:-150px;left:60%;animation-duration:5.2s;animation-delay:0.4s;">
+          <svg width="96" height="96" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="ec7"><circle cx="52" cy="50" r="40"/></clipPath>
+              <linearGradient id="eg7" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#b83090"/><stop offset="100%" stop-color="#7a1a60"/></linearGradient>
+            </defs>
+            <circle cx="52" cy="50" r="40" fill="url(#eg7)" stroke="#050505" stroke-width="2.5"/>
+            <g clip-path="url(#ec7)" opacity="0.55">
+              <line x1="0" y1="18" x2="100" y2="18" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="26" x2="100" y2="26" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="34" x2="100" y2="34" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="42" x2="100" y2="42" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="50" x2="100" y2="50" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="58" x2="100" y2="58" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="66" x2="100" y2="66" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="74" x2="100" y2="74" stroke="#050505" stroke-width="1.4"/>
+              <line x1="0" y1="82" x2="100" y2="82" stroke="#050505" stroke-width="1.4"/>
+            </g>
+            <circle cx="42" cy="50" r="40" fill="#ff6bc8" stroke="#050505" stroke-width="4"/>
+            <circle cx="42" cy="50" r="32" fill="none" stroke="#050505" stroke-width="2" opacity="0.4"/>
+            <ellipse cx="28" cy="28" rx="9" ry="5" fill="white" opacity="0.22" transform="rotate(-35 28 28)"/>
+            <text x="42" y="64" text-anchor="middle" font-family="Impact,Anton,sans-serif" font-size="26" font-style="italic" fill="#050505">ROI</text>
+          </svg>
+        </div>
+
+      </div><!-- /falling-coins -->
 
       <div id="big-number" class="absolute inset-0 flex items-center justify-center text-[clamp(5rem,20vw,300px)] font-impact italic uppercase tracking-tighter text-brand-light-green/10 select-none z-0">
         R$ 0
       </div>
 
       <div id="game-copy" class="text-center z-20 max-w-3xl px-6">
-        <h2 class="text-[clamp(2.5rem,6vw,120px)] leading-[0.8] font-impact text-brand-cream uppercase tracking-tighter italic mb-6 relative">
+        <h2 class="text-[clamp(2.5rem,6vw,120px)] leading-[0.8] font-impact text-brand-cream uppercase tracking-tighter italic mb-6">
           PREPARE SUA MARCA <br/>
           <span class="text-brand-light-green pl-12 md:pl-24">PARA O PRÓXIMO NÍVEL</span>
         </h2>
         <p class="text-lg md:text-xl text-brand-cream opacity-80 font-medium mb-10 max-w-lg mx-auto">
           Seu site não precisa ser apenas uma vitrine. Ele pode ser um motor de percepção de valor.
         </p>
-        <a href="#contato" class="flex justify-center hover:scale-105 transition-transform">
-          <div class="flex items-center cursor-pointer">
+        <div class="flex justify-center">
+          <button (click)="openModal()" class="magnetic-btn flex items-center cursor-pointer">
             <div class="h-14 px-8 bg-brand-cream text-brand-black flex items-center text-xs font-black uppercase tracking-widest rounded-l-xl border-r border-black/10">Acelerar crescimento</div>
             <div class="h-14 w-14 bg-brand-cream text-brand-black flex items-center justify-center text-xl font-bold rounded-r-xl">✦</div>
-          </div>
-        </a>
+          </button>
+        </div>
       </div>
-
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- CONTACT CTA -->
   <section id="contato" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-green pb-20 pt-32">
-    <!-- Background glow -->
     <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-30">
-       <div class="w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-brand-light-green/40 rounded-full blur-[140px]"></div>
+      <div class="w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-brand-light-green/40 rounded-full blur-[140px]"></div>
     </div>
-
-    <!-- Floating Tags -->
     <div class="absolute inset-0 pointer-events-none hidden md:block">
-       <div id="tag-1" class="absolute left-[15%] top-[20%] px-6 py-3 rounded-full border-2 border-white/20 text-brand-cream text-xs font-black uppercase tracking-widest shadow-xl backdrop-blur-md bg-white/10">Vite & Angular</div>
-       <div id="tag-2" class="absolute right-[15%] top-[30%] px-6 py-3 rounded-full border-2 border-white/20 text-brand-cream text-xs font-black uppercase tracking-widest shadow-xl backdrop-blur-md bg-white/10">Motion UI</div>
-       <div id="tag-3" class="absolute left-[20%] bottom-[25%] px-6 py-3 rounded-full border-2 border-white/20 text-brand-cream text-xs font-black uppercase tracking-widest shadow-xl backdrop-blur-md bg-white/10">Performance</div>
-       <div id="tag-4" class="absolute right-[25%] bottom-[20%] px-6 py-3 rounded-full border-2 border-white/20 text-brand-cream text-xs font-black uppercase tracking-widest shadow-xl backdrop-blur-md bg-white/10">Acessibilidade</div>
+      <div id="tag-1" class="absolute left-[15%] top-[20%] px-6 py-3 rounded-full border-2 border-white/20 text-brand-cream text-xs font-black uppercase tracking-widest shadow-xl backdrop-blur-md bg-white/10">Vite & Angular</div>
+      <div id="tag-2" class="absolute right-[15%] top-[30%] px-6 py-3 rounded-full border-2 border-white/20 text-brand-cream text-xs font-black uppercase tracking-widest shadow-xl backdrop-blur-md bg-white/10">Motion UI</div>
+      <div id="tag-3" class="absolute left-[20%] bottom-[25%] px-6 py-3 rounded-full border-2 border-white/20 text-brand-cream text-xs font-black uppercase tracking-widest shadow-xl backdrop-blur-md bg-white/10">Performance</div>
+      <div id="tag-4" class="absolute right-[25%] bottom-[20%] px-6 py-3 rounded-full border-2 border-white/20 text-brand-cream text-xs font-black uppercase tracking-widest shadow-xl backdrop-blur-md bg-white/10">Acessibilidade</div>
     </div>
-
     <div class="relative z-10 text-center max-w-4xl px-6">
       <h2 class="text-[clamp(3.5rem,8vw,140px)] font-impact text-brand-light-green uppercase tracking-tighter italic leading-[0.8] mb-8">
-        VAMOS CRIAR UM SITE  <br/> <span class="text-brand-cream md:pl-24">IMPOSSÍVEL DE IGNORAR?</span>
+        VAMOS CRIAR UM SITE <br/><span class="text-brand-cream md:pl-24">IMPOSSÍVEL DE IGNORAR?</span>
       </h2>
       <p class="text-xl text-brand-mint opacity-80 mb-12 max-w-2xl mx-auto leading-relaxed">
         Desenvolvemos a presença digital da sua empresa com estratégia, estética premium e tecnologia de ponta.
       </p>
-      
-      <a href="mailto:contato@vant.studio" class="flex justify-center hover:scale-105 transition-transform">
-        <div class="flex items-center cursor-pointer">
+      <div class="flex justify-center">
+        <button (click)="openModal()" class="magnetic-btn flex items-center cursor-pointer">
           <div class="h-14 px-8 bg-brand-cream text-brand-black flex items-center text-xs font-black uppercase tracking-widest rounded-l-xl border-r border-black/10">Iniciar Projeto</div>
           <div class="h-14 w-14 bg-brand-cream text-brand-black flex items-center justify-center text-xl font-bold rounded-r-xl">✦</div>
-        </div>
-      </a>
+        </button>
+      </div>
     </div>
   </section>
 </main>
+
+<!-- FOOTER -->
+<footer class="bg-brand-black border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 pt-16 pb-10">
+
+    <!-- Large VANT wordmark -->
+    <div class="mb-10 overflow-hidden">
+      <span class="block text-[clamp(5rem,18vw,160px)] font-impact italic leading-none text-brand-light-green/15 select-none tracking-tighter">VANT</span>
+    </div>
+
+    <!-- Links + Social -->
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 py-8 border-t border-white/10">
+      <nav class="flex flex-wrap gap-x-8 gap-y-3">
+        <a href="#servicos" class="footer-link">Serviços</a>
+        <a href="#portfolio" class="footer-link">Cases</a>
+        <a href="#motion"   class="footer-link">Motion</a>
+        <a href="#contato"  class="footer-link">Contato</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <!-- Instagram -->
+        <a href="#" aria-label="Instagram" class="social-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="#" aria-label="LinkedIn" class="social-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10V9h4v1.5A6 6 0 0 1 16 8z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        <!-- WhatsApp -->
+        <a href="#" aria-label="WhatsApp" class="social-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.52 3.48A11.77 11.77 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.18-1.62A11.93 11.93 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22a9.9 9.9 0 0 1-5.04-1.37l-.36-.22-3.72.98.99-3.62-.24-.38A9.92 9.92 0 0 1 2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm5.44-7.3c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51H7.2c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.09 3.18 5.06 4.46.7.3 1.25.48 1.68.62.7.22 1.34.19 1.85.11.57-.09 1.76-.72 2-1.41.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/>
+          </svg>
+        </a>
+        <!-- X / Twitter -->
+        <a href="#" aria-label="X (Twitter)" class="social-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-6 border-t border-white/10">
+      <p class="text-brand-cream/30 text-xs">© 2026 VANT Digital Studio · Todos os direitos reservados</p>
+      <a href="mailto:contato@vant.studio" class="text-brand-cream/30 hover:text-brand-mint text-xs transition-colors duration-200">contato@vant.studio</a>
+    </div>
+
+  </div>
+</footer>
+
 <router-outlet />
