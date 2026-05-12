@@ -175,6 +175,10 @@ export class App implements AfterViewInit {
     const mix = (from: number, to: number, progress: number) => from + (to - from) * progress;
 
     let ticking = false;
+    let lastScrollY = window.scrollY;
+    let lastTime = performance.now();
+    let targetVelocity = 0;
+    let smoothVelocity = 0;
 
     const update = () => {
       ticking = false;
@@ -185,6 +189,12 @@ export class App implements AfterViewInit {
       const isMobile = window.matchMedia('(max-width: 768px)').matches;
       const progressPower = isMobile ? 1.6 : 1;
       const progress = clamp(Math.pow(rawProgress, progressPower));
+      const velocityScale = isMobile ? 160 : 220;
+
+      smoothVelocity = smoothVelocity * 0.82 + targetVelocity * 0.18;
+      targetVelocity *= 0.6;
+
+      const velocityOffset = clamp(smoothVelocity * velocityScale, -80, 80);
 
       const revealSpan = 0.78;
       const step = revealSpan / cards.length;
@@ -192,7 +202,8 @@ export class App implements AfterViewInit {
       cards.forEach((card, index) => {
         const local = easeOut((progress + 0.03 - index * step) / (step * 1.25));
         const exit = clamp((progress - (index * step + step * 1.75)) / (step * 1.2));
-        const y = mix(115, 0, local) + mix(0, -96, exit);
+        const wave = Math.max(0.2, 1 - index * 0.12);
+        const y = mix(115, 0, local) + mix(0, -96, exit) + velocityOffset * wave;
         const scale = mix(1.035, 1, local);
         const opacity = local * (1 - exit * 0.18);
 
@@ -209,8 +220,19 @@ export class App implements AfterViewInit {
       }
     };
 
+    const onScroll = () => {
+      const now = performance.now();
+      const currentY = window.scrollY;
+      const dy = currentY - lastScrollY;
+      const dt = Math.max(16, now - lastTime);
+      targetVelocity = dy / dt;
+      lastScrollY = currentY;
+      lastTime = now;
+      requestUpdate();
+    };
+
     update();
-    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', requestUpdate);
   }
 
