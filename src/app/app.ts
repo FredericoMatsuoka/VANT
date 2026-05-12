@@ -185,25 +185,31 @@ export class App implements AfterViewInit {
 
       const rect = section.getBoundingClientRect();
       const scrollable = Math.max(1, rect.height - window.innerHeight);
-      const rawProgress = clamp(-rect.top / scrollable);
       const isMobile = window.matchMedia('(max-width: 768px)').matches;
-      const progressPower = isMobile ? 1.6 : 1;
+      const mobileStretch = 1;
+      const rawProgress = clamp(-rect.top / (scrollable * mobileStretch));
+      const progressPower = 1;
       const progress = clamp(Math.pow(rawProgress, progressPower));
-      const velocityScale = isMobile ? 160 : 220;
+      const velocityScale = isMobile ? 120 : 220;
 
       smoothVelocity = smoothVelocity * 0.82 + targetVelocity * 0.18;
       targetVelocity *= 0.6;
 
       const velocityOffset = clamp(smoothVelocity * velocityScale, -80, 80);
 
-      const revealSpan = 0.78;
+      const revealSpan = isMobile ? 0.9 : 0.82;
       const step = revealSpan / cards.length;
+      const exitStartFactor = isMobile ? 2.05 : 1.85;
+      const exitSpanFactor = isMobile ? 1.35 : 1.28;
 
       cards.forEach((card, index) => {
         const local = easeOut((progress + 0.03 - index * step) / (step * 1.25));
-        const exit = clamp((progress - (index * step + step * 1.75)) / (step * 1.2));
+        const isLastCard = index === cards.length - 1;
+        const exit = isMobile && isLastCard
+          ? 0
+          : clamp((progress - (index * step + step * exitStartFactor)) / (step * exitSpanFactor));
         const wave = Math.max(0.2, 1 - index * 0.12);
-        const y = mix(115, 0, local) + mix(0, -96, exit) + velocityOffset * wave;
+        const y = mix(96, 0, local) + mix(0, -74, exit) + velocityOffset * wave;
         const scale = mix(1.035, 1, local);
         const opacity = local * (1 - exit * 0.18);
 
@@ -302,4 +308,3 @@ export class App implements AfterViewInit {
     float('#hero-card-5', [-7, 9], 5.2, 0.6);
   }
 }
-
