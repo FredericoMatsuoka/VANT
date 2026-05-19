@@ -1,0 +1,261 @@
+<!-- PREMIUM: AlphaBeauty Clínica | Run: 2026-05-19-172944 | Gerado em: 2026-05-19 -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AlphaBeauty Clínica — Estética em Goiânia</title>
+  <meta name="description" content="Clínica premium no Setor Pedro Ludovico; harmonização facial e corporal; sem site próprio confirmado" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --c1: #D4AF37;
+      --c2: #1A1A1A;
+      --c3: #FFFFFF;
+      --dark: #111;
+      --text: #2C2C2C;
+      --text2: #666;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--dark); }
+    .nav-brand span { color: var(--c1); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text2); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--dark); }
+    .nav-cta { background: var(--c1); color: #fff; padding: 10px 24px; border-radius: 50px; font-size: 0.82rem; font-weight: 700; text-decoration: none; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero { min-height: 100vh; background: linear-gradient(160deg, #FFFFFF 0%, #1A1A1A 50%, #D4AF3722 100%); display: flex; align-items: center; padding: 100px 40px 60px; position: relative; overflow: hidden; }
+    .hero-deco { position: absolute; border-radius: 50%; background: #D4AF37; opacity: 0.07; }
+    .hero-deco-1 { width: 600px; height: 600px; top: -200px; right: -200px; }
+    .hero-deco-2 { width: 300px; height: 300px; bottom: -80px; left: -80px; }
+    .hero-inner { max-width: 1100px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 1; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: #D4AF371A; border: 1px solid #D4AF3740; border-radius: 50px; padding: 6px 16px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #D4AF37; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); color: var(--dark); line-height: 1.15; margin-bottom: 20px; }
+    .hero p { font-size: 1.05rem; color: var(--text2); line-height: 1.75; margin-bottom: 36px; max-width: 460px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 0.88rem; text-decoration: none; transition: all 0.2s; }
+    .btn-wa { background: #25D366; color: #fff; }
+    .btn-wa:hover { background: #1ebe5c; transform: translateY(-2px); }
+    .btn-ig { background: var(--dark); color: #fff; }
+    .btn-ig:hover { opacity: 0.85; transform: translateY(-2px); }
+    .hero-visual { background: linear-gradient(135deg, #D4AF3733, #FFFFFF); border-radius: 24px; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 5rem; color: #D4AF37; opacity: 0.6; box-shadow: 0 24px 64px #D4AF3720; }
+    .hero-stats { display: flex; gap: 32px; margin-top: 36px; }
+    .h-stat { }
+    .h-stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--dark); }
+    .h-stat-lbl { font-size: 0.72rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* SECTION BASE */
+    .section { padding: 88px 40px; }
+    .section-inner { max-width: 1100px; margin: auto; }
+    .s-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--c1); margin-bottom: 12px; }
+    .s-title { font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--dark); margin-bottom: 16px; line-height: 1.25; }
+    .s-sub { font-size: 1rem; color: var(--text2); max-width: 520px; line-height: 1.75; }
+
+    /* SERVICES */
+    .services-sec { background: var(--dark); }
+    .services-sec .s-tag { color: #D4AF37; }
+    .services-sec .s-title { color: #fff; }
+    .services-sec .s-sub { color: #888; }
+    .srv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 48px; }
+    .srv-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 28px; transition: border-color 0.2s; }
+    .srv-card:hover { border-color: #D4AF3760; }
+    .srv-icon { font-size: 1.4rem; color: #D4AF37; margin-bottom: 14px; }
+    .srv-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; font-family: 'Inter', sans-serif; }
+    .srv-card p { font-size: 0.83rem; color: #888; line-height: 1.65; }
+
+    /* ABOUT */
+    .about-sec { background: #FFFFFF; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-img { background: linear-gradient(135deg, #D4AF37, #FFFFFF); border-radius: 20px; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 6rem; color: rgba(0,0,0,0.15); }
+    .about-text .s-sub { max-width: 100%; }
+    .about-text p { font-size: 0.95rem; color: #555; line-height: 1.8; margin-top: 16px; }
+    .about-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+    .pill { background: #D4AF3718; color: var(--dark); border: 1px solid #D4AF3730; border-radius: 50px; padding: 6px 16px; font-size: 0.78rem; font-weight: 600; }
+
+    /* TESTIMONIALS */
+    .test-sec { background: #fff; }
+    .test-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 48px; }
+    .test-card { background: var(--c3); border: 1px solid #D4AF3720; border-radius: 16px; padding: 28px; }
+    .test-stars { color: #F59E0B; font-size: 0.9rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .test-text { font-size: 0.88rem; color: var(--text2); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+    .test-author { font-size: 0.8rem; font-weight: 700; color: var(--dark); }
+
+    /* CONTACT */
+    .contact-sec { background: #D4AF37; }
+    .contact-sec .s-tag { color: rgba(255,255,255,0.7); }
+    .contact-sec .s-title { color: #fff; }
+    .contact-sec .s-sub { color: rgba(255,255,255,0.8); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 48px; }
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+    .ci { display: flex; align-items: flex-start; gap: 16px; }
+    .ci-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .ci-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); margin-bottom: 4px; }
+    .ci-val { font-size: 0.95rem; color: #fff; font-weight: 600; }
+    .ci-val a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+    .contact-ctas { display: flex; flex-direction: column; gap: 12px; }
+    .btn-contact { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 32px; border-radius: 50px; font-weight: 700; font-size: 0.92rem; text-decoration: none; transition: all 0.2s; }
+    .btn-contact-wa { background: #25D366; color: #fff; }
+    .btn-contact-wa:hover { background: #1ebe5c; }
+    .btn-contact-ig { background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.4); color: #fff; }
+    .btn-contact-ig:hover { background: rgba(255,255,255,0.25); }
+
+    /* FOOTER */
+    footer { background: var(--dark); color: rgba(255,255,255,0.4); text-align: center; padding: 28px 40px; font-size: 0.78rem; }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 90px 20px 50px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero-visual { display: none; }
+      .section { padding: 56px 20px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-img { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">AlphaBeauty <span>·</span> Estética</div>
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5562992678341" class="nav-cta">Agendar</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">✦ Estética · Goiânia</div>
+      <h1>AlphaBeauty Clínica</h1>
+      <p>Transformamos sua autoestima com procedimentos estéticos seguros e personalizados.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5562992678341" class="btn-cta btn-wa">💬 WhatsApp</a>
+<a href="https://www.instagram.com/alphabeauty.goiania/" class="btn-cta btn-ig" target="_blank">📸 Instagram</a>
+
+      </div>
+      <div class="hero-stats">
+        <div class="h-stat"><div class="h-stat-num">2.1K</div><div class="h-stat-lbl">Seguidores</div></div>
+        <div class="h-stat"><div class="h-stat-num">GYN</div><div class="h-stat-lbl">Região</div></div>
+        <div class="h-stat"><div class="h-stat-num">✓</div><div class="h-stat-lbl">Ativo</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">★</div>
+  </div>
+</section>
+
+<section class="section services-sec" id="servicos">
+  <div class="section-inner">
+    <div class="s-tag">O Que Oferecemos</div>
+    <h2 class="s-title">Nossos Serviços</h2>
+    <p class="s-sub">Soluções completas e personalizadas para atender você com excelência.</p>
+    <div class="srv-grid">
+          <div class="srv-card">
+            <div class="srv-icon">◆</div>
+            <h3>Harmonização Facial</h3>
+            <p>Atendimento especializado com foco em resultados e satisfação.</p>
+          </div>
+          <div class="srv-card">
+            <div class="srv-icon">◆</div>
+            <h3>Botox e Preenchimento</h3>
+            <p>Atendimento especializado com foco em resultados e satisfação.</p>
+          </div>
+          <div class="srv-card">
+            <div class="srv-icon">◆</div>
+            <h3>Tratamentos Corporais</h3>
+            <p>Atendimento especializado com foco em resultados e satisfação.</p>
+          </div>
+          <div class="srv-card">
+            <div class="srv-icon">◆</div>
+            <h3>Limpeza de Pele</h3>
+            <p>Atendimento especializado com foco em resultados e satisfação.</p>
+          </div>
+          <div class="srv-card">
+            <div class="srv-icon">◆</div>
+            <h3>Microagulhamento</h3>
+            <p>Atendimento especializado com foco em resultados e satisfação.</p>
+          </div>
+          <div class="srv-card">
+            <div class="srv-icon">◆</div>
+            <h3>Laserterapia</h3>
+            <p>Atendimento especializado com foco em resultados e satisfação.</p>
+          </div>
+    </div>
+  </div>
+</section>
+
+<section class="section about-sec" id="sobre">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img">★</div>
+      <div class="about-text">
+        <div class="s-tag">Nossa História</div>
+        <h2 class="s-title">Sobre AlphaBeauty Clínica</h2>
+        <p class="s-sub">Clínica premium no Setor Pedro Ludovico.</p>
+        <p>Atuamos em Goiânia · Setor Pedro Ludovico, com compromisso total em oferecer a melhor experiência para nossos clientes.</p>
+        <div class="about-pills">
+          <span class="pill">Qualidade</span>
+          <span class="pill">Compromisso</span>
+          <span class="pill">Goiânia</span>
+          <span class="pill">Estética</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section test-sec">
+  <div class="section-inner">
+    <div class="s-tag">Depoimentos</div>
+    <h2 class="s-title">O Que Nossos Clientes Dizem</h2>
+    <div class="test-grid">
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"Atendimento incrível e resultado excelente. Profissionais muito dedicados e atenciosos."</p><div class="test-author">Cliente Satisfeito</div></div>
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"Melhor lugar da região! Recomendo a todos. Fui atendida com muito carinho e cuidado."</p><div class="test-author">Mariana R.</div></div>
+      <div class="test-card"><div class="test-stars">★★★★★</div><p class="test-text">"Super profissional, pontual e resultado perfeito. Com certeza voltarei sempre!"</p><div class="test-author">João Paulo S.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact-sec" id="contato">
+  <div class="section-inner">
+    <div class="s-tag">Fale Conosco</div>
+    <h2 class="s-title">Entre em Contato</h2>
+    <p class="s-sub">Estamos prontos para atender você. Escolha o canal de sua preferência!</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+<div class="ci"><span class="ci-icon">📞</span><div><div class="ci-label">Telefone</div><div class="ci-val">(62) 99267-8341</div></div></div>
+<div class="ci"><span class="ci-icon">💬</span><div><div class="ci-label">WhatsApp</div><div class="ci-val"><a href="https://wa.me/5562992678341">(62) 99267-8341</a></div></div></div>
+<div class="ci"><span class="ci-icon">📸</span><div><div class="ci-label">Instagram</div><div class="ci-val"><a href="https://www.instagram.com/alphabeauty.goiania/" target="_blank">@alphabeauty.goiania</a></div></div></div>
+<div class="ci"><span class="ci-icon">📍</span><div><div class="ci-label">Localização</div><div class="ci-val">Goiânia · Setor Pedro Ludovico</div></div></div>
+      </div>
+      <div class="contact-ctas">
+        <a href="https://wa.me/5562992678341" class="btn-contact btn-contact-wa">💬 Falar pelo WhatsApp</a>
+        <a href="https://www.instagram.com/alphabeauty.goiania/" class="btn-contact btn-contact-ig" target="_blank">📸 Ver no Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 AlphaBeauty Clínica · Goiânia · Setor Pedro Ludovico</p>
+  <p style="margin-top:8px">Protótipo desenvolvido por <a href="https://vant-studio.web.app/" target="_blank">VANT Digital Studio</a></p>
+</footer>
+
+</body>
+</html>
