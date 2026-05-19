@@ -1084,6 +1084,179 @@
 
     .float-ig { bottom: 20px; right: 20px; }
   }
+
+/* ===================================================
+   MOBILE RESPONSIVENESS — injected by mobile-fix.py
+   =================================================== */
+
+/* Hamburger button base (hidden on desktop, shown on mobile) */
+.hamburger, .menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+  z-index: 10001;
+  color: inherit;
+}
+.hamburger span, .menu-toggle span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.open span:nth-child(1),
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2),
+.menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3),
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Viewport meta safety */
+img, video, iframe { max-width: 100%; height: auto; }
+* { box-sizing: border-box; }
+
+/* ---- TABLET (≤900px) ---- */
+@media (max-width: 900px) {
+
+  /* Header */
+  header, #header { padding: 12px 20px !important; }
+  header .container, #header .container { padding: 0 !important; }
+
+  /* Show hamburger, hide desktop nav */
+  .hamburger, .menu-toggle { display: flex !important; }
+  header nav, #header nav,
+  .header-nav, .nav-links, .nav-menu, #nav-menu { display: none !important; }
+
+  /* Mobile nav open state */
+  header nav.open, #header nav.open,
+  .header-nav.open, .nav-links.open,
+  .nav-menu.open, #nav-menu.open {
+    display: flex !important;
+    flex-direction: column !important;
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(10,10,15,0.97) !important;
+    z-index: 9998 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 28px !important;
+    backdrop-filter: blur(8px);
+  }
+  header nav.open a, #header nav.open a,
+  .header-nav.open a, .nav-links.open a,
+  .nav-menu.open a, #nav-menu.open a {
+    font-size: 1.3rem !important;
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  /* Hero two-column → single */
+  .hero-inner, .hero-content, .hero-grid,
+  .sobre-inner, .sobre-grid, .about-grid,
+  .contact-grid, .contato-grid,
+  .footer-inner, .footer-cols { 
+    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
+  }
+
+  /* Services: 3→2 col on tablet */
+  .servicos-grid, .services-grid, .beneficios-grid, .cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Counters: keep 2 cols */
+  .counters-grid, .counters-row, .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* Testimonials: 2→1 */
+  .dep-grid, .depoimentos-grid, .depo-grid, .testimonials-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Portfolio/masonry: 3→2 */
+  .masonry-grid, .portfolio-grid, .galeria-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    column-count: 2 !important;
+  }
+
+  /* Footer: multi→2 */
+  .footer-grid, .footer-inner, .footer-cols, .footer-bottom-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    flex-direction: column !important;
+  }
+
+  /* Process steps: horizontal→vertical */
+  .processo-steps, .etapas-steps, .steps-row {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  .processo-steps::before, .etapas-steps::before, .steps-row::before { display: none !important; }
+
+  /* Typography */
+  h1 { font-size: clamp(1.8rem, 6vw, 3rem) !important; }
+  h2 { font-size: clamp(1.4rem, 5vw, 2.2rem) !important; }
+  h3 { font-size: clamp(1.1rem, 4vw, 1.5rem) !important; }
+
+  /* Sections */
+  section { padding: 52px 20px !important; }
+  .container, .container-sm { padding-left: 20px !important; padding-right: 20px !important; max-width: 100% !important; }
+
+  /* Text center on hero */
+  .hero-inner, .hero-content { text-align: center !important; }
+  .hero-inner img, .hero-content img { margin: 0 auto !important; }
+
+  /* Buttons full width */
+  .btn-group, .cta-group { flex-direction: column !important; align-items: center !important; }
+}
+
+/* ---- MOBILE (≤600px) ---- */
+@media (max-width: 600px) {
+
+  /* Services: 2→1 */
+  .servicos-grid, .services-grid, .beneficios-grid, .cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Portfolio/masonry: 1 col */
+  .masonry-grid, .portfolio-grid, .galeria-grid {
+    grid-template-columns: 1fr !important;
+    column-count: 1 !important;
+  }
+
+  /* Footer: 1 col */
+  .footer-grid, .footer-inner, .footer-cols { 
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Counters: 2 col still OK */
+  .counters-grid, .counters-row, .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Typography */
+  h1 { font-size: clamp(1.6rem, 7.5vw, 2.4rem) !important; }
+  h2 { font-size: clamp(1.2rem, 6vw, 1.8rem) !important; }
+
+  section { padding: 40px 16px !important; }
+  .container, .container-sm { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* CTA buttons */
+  .btn, .cta-btn, .nav-cta, a.btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+}
+/* ===== END MOBILE RESPONSIVENESS ===== */
+
 </style>
 </head>
 <body>
