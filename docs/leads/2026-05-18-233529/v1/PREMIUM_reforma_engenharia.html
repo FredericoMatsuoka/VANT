@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reforma Engenharia — Projetos e Execução em Goiânia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --amber: #F5A623;
+    --graphite: #2C2C2C;
+    --white: #FFFFFF;
+    --black: #1A1A1A;
+    --amber-dark: #C47D0A;
+    --amber-light: rgba(245,166,35,0.12);
+    --text-muted: #888;
+    --border: rgba(245,166,35,0.15);
+    --surface: #222222;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 22px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.4s ease;
+  }
+
+  header.scrolled {
+    background: rgba(26,26,26,0.96);
+    backdrop-filter: blur(16px);
+    padding: 14px 48px;
+    border-bottom: 1px solid rgba(245,166,35,0.1);
+  }
+
+  .logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo-badge {
+    width: 42px;
+    height: 42px;
+    background: var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--black);
+    letter-spacing: -1px;
+  }
+
+  .logo-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .logo-text span { color: var(--amber); }
+
+  nav { display: flex; gap: 32px; align-items: center; }
+
+  nav a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  nav a:hover { color: var(--amber); }
+
+  .nav-ig {
+    background: var(--amber) !important;
+    color: var(--black) !important;
+    padding: 10px 22px;
+    font-weight: 700 !important;
+    transition: all 0.3s !important;
+  }
+
+  .nav-ig:hover { background: var(--amber-dark) !important; transform: translateY(-2px); }
+
+  /* ===== HERO BLUEPRINT ===== */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+  }
+
+  /* Blueprint Background */
+  .blueprint-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(245,166,35,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,166,35,0.04) 1px, transparent 1px),
+      linear-gradient(rgba(245,166,35,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,166,35,0.02) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    z-index: 0;
+  }
+
+  .blueprint-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 30% 50%, rgba(26,26,26,0.7) 0%, transparent 80%);
+  }
+
+  .hero-image {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 55%;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    filter: grayscale(0.8);
+  }
+
+  .hero-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--black) 0%, transparent 50%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    padding: 140px 48px 100px;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border);
+    color: var(--amber);
+    padding: 8px 18px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .hero-title {
+    font-size: clamp(40px, 5.5vw, 80px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.02;
+    letter-spacing: -2px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+
+  .hero-title .amber { color: var(--amber); }
+
+  .hero-line {
+    width: 80px;
+    height: 3px;
+    background: var(--amber);
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s 0.25s ease both;
+  }
+
+  .hero-desc {
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.75;
+    margin-bottom: 44px;
+    max-width: 520px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+
+  .btn-amber {
+    background: var(--amber);
+    color: var(--black);
+    padding: 16px 36px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-amber:hover { background: var(--amber-dark); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(245,166,35,0.4); }
+
+  .btn-outline-amber {
+    background: transparent;
+    color: var(--amber);
+    padding: 16px 36px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 1.5px solid var(--amber);
+    transition: all 0.3s;
+  }
+
+  .btn-outline-amber:hover { background: var(--amber-light); }
+
+  .hero-crea {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 48px;
+    padding: 14px 20px;
+    border: 1px solid var(--border);
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+
+  .crea-icon { font-size: 24px; }
+
+  .crea-text { font-size: 12px; line-height: 1.4; }
+
+  .crea-text strong { display: block; color: var(--amber); font-size: 14px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== SECTION BASE ===== */
+  section { padding: 100px 48px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  .section-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-num::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .section-title {
+    font-size: clamp(28px, 3.5vw, 52px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .section-desc {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  /* ===== SERVIÇOS ===== */
+  #servicos { background: var(--graphite); }
+
+  .servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(245,166,35,0.08);
+    border: 1px solid rgba(245,166,35,0.08);
+    margin-top: 60px;
+  }
+
+  .serv-cell {
+    background: var(--graphite);
+    padding: 40px 32px;
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .serv-cell.visible { opacity: 1; transform: translateY(0); }
+
+  .serv-cell:hover { background: var(--surface); }
+
+  .serv-number {
+    font-size: 40px;
+    font-weight: 700;
+    color: rgba(245,166,35,0.15);
+    line-height: 1;
+    margin-bottom: 16px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .serv-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .serv-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--amber);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .serv-cell:hover .serv-title::after { transform: scaleX(1); }
+
+  .serv-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+  /* ===== PORTFÓLIO (Masonry) ===== */
+  #portfolio { background: var(--black); }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 200px;
+    gap: 3px;
+    margin-top: 56px;
+  }
+
+  .porto-item {
+    position: relative;
+    overflow: hidden;
+    grid-row: span 1;
+  }
+
+  .porto-item:nth-child(1) { grid-row: span 2; }
+  .porto-item:nth-child(4) { grid-row: span 2; grid-column: span 1; }
+
+  .porto-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.6) brightness(0.7);
+    transition: all 0.6s ease;
+    display: block;
+  }
+
+  .porto-item:hover img { filter: grayscale(0) brightness(0.85); transform: scale(1.05); }
+
+  .porto-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(26,26,26,0.95) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+  }
+
+  .porto-item:hover .porto-overlay { opacity: 1; }
+
+  .porto-specs {
+    font-size: 13px;
+    color: var(--amber);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .porto-specs small {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    font-size: 12px;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-top: 4px;
+    font-weight: 400;
+  }
+
+  /* ===== PROCESSO ===== */
+  #processo { background: var(--graphite); }
+
+  .processo-steps {
+    display: flex;
+    gap: 0;
+    margin-top: 60px;
+    position: relative;
+  }
+
+  .processo-steps::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 36px;
+    right: 36px;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--amber) 0px, var(--amber) 12px, transparent 12px, transparent 24px);
+  }
+
+  .step {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  .step.visible { opacity: 1; transform: translateY(0); }
+
+  .step-circle {
+    width: 72px;
+    height: 72px;
+    background: var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--black);
+    margin: 0 auto 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+  }
+
+  .step-desc { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+  /* ===== SOBRE ===== */
+  #sobre { background: var(--black); }
+
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .sobre-img {
+    position: relative;
+  }
+
+  .sobre-img img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    filter: grayscale(0.3);
+    display: block;
+  }
+
+  .sobre-img::after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: -16px;
+    bottom: -16px;
+    left: 16px;
+    border: 1px solid var(--amber);
+    z-index: -1;
+    opacity: 0.3;
+  }
+
+  .sobre-content p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+
+  .crea-highlight {
+    display: flex;
+    gap: 24px;
+    margin-top: 36px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    background: rgba(245,166,35,0.05);
+  }
+
+  .crea-h-icon { font-size: 36px; }
+
+  .crea-h-text strong { display: block; color: var(--amber); font-size: 16px; margin-bottom: 4px; }
+
+  .crea-h-text span { font-size: 14px; color: var(--text-muted); }
+
+  /* ===== DEPOIMENTOS ===== */
+  #depoimentos { background: var(--graphite); }
+
+  .dep-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(245,166,35,0.08);
+    border: 1px solid rgba(245,166,35,0.08);
+    margin-top: 56px;
+  }
+
+  .dep-card {
+    background: var(--graphite);
+    padding: 36px 28px;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: all 0.6s ease;
+  }
+
+  .dep-card.visible { opacity: 1; transform: translateY(0); }
+
+  .dep-card:hover { background: var(--surface); }
+
+  .stars { color: var(--amber); font-size: 16px; letter-spacing: 3px; margin-bottom: 18px; }
+
+  .dep-text {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    border-left: 2px solid var(--amber);
+    padding-left: 16px;
+  }
+
+  .dep-author { display: flex; align-items: center; gap: 12px; }
+
+  .dep-ava {
+    width: 44px;
+    height: 44px;
+    background: var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--black);
+    flex-shrink: 0;
+  }
+
+  .dep-name { font-size: 15px; font-weight: 700; color: var(--white); }
+
+  .dep-role { font-size: 13px; color: var(--text-muted); }
+
+  /* ===== CTA FINAL ===== */
+  #cta-final {
+    background: var(--black);
+    padding: 120px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #cta-final::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(245,166,35,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245,166,35,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-size: clamp(32px, 4vw, 58px);
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+
+  .cta-title span { color: var(--amber); }
+
+  .cta-desc {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  .cta-actions { display: flex; flex-direction: column; gap: 20px; }
+
+  .cta-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+
+  .cta-item:hover { border-color: var(--amber); background: var(--amber-light); }
+
+  .cta-item-icon { font-size: 28px; flex-shrink: 0; }
+
+  .cta-item-text strong { display: block; color: var(--white); font-size: 15px; margin-bottom: 2px; }
+
+  .cta-item-text span { font-size: 14px; color: var(--text-muted); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #0f0f0f;
+    border-top: 1px solid rgba(245,166,35,0.1);
+    padding: 60px 48px 28px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 48px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-about {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-top: 16px;
+  }
+
+  .footer-head {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .footer-list { list-style: none; }
+
+  .footer-list li { margin-bottom: 10px; }
+
+  .footer-list a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+
+  .footer-list a:hover { color: var(--amber); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(245,166,35,0.08);
+    padding-top: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ===== IG FLOAT ===== */
+  .ig-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    width: 62px;
+    height: 62px;
+    background: var(--amber);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(245,166,35,0.4);
+    text-decoration: none;
+    animation: igBounce 2.5s ease-in-out infinite;
+  }
+
+  .ig-float:hover { transform: scale(1.1); animation: none; }
+
+  .ig-float svg { width: 28px; height: 28px; fill: var(--black); }
+
+  @keyframes igBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  /* ===== REVEAL ===== */
+  .reveal { opacity: 0; transform: translateY(36px); transition: all 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 768px) {
+    header { padding: 16px 20px; }
+    nav { display: none; }
+    section { padding: 70px 20px; }
+    #hero { min-height: 100svh; }
+    .hero-content { padding: 100px 20px 70px; }
+    .hero-image { width: 100%; opacity: 0.1; }
+    .hero-title { font-size: 40px; }
+    .servicos-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+    .porto-item:nth-child(1),
+    .porto-item:nth-child(4) { grid-row: span 1; }
+    .processo-steps { flex-direction: column; gap: 32px; }
+    .processo-steps::before { display: none; }
+    .dep-grid { grid-template-columns: 1fr; }
+    .sobre-grid { grid-template-columns: 1fr; gap: 40px; }
+    .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <a href="#hero" class="logo">
+    <div class="logo-badge">RE</div>
+    <div class="logo-text">Reforma <span>Engenharia</span></div>
+  </a>
+  <nav>
+    <a href="#servicos">Serviços</a>
+    <a href="#portfolio">Portfólio</a>
+    <a href="#processo">Processo</a>
+    <a href="https://www.instagram.com/reforma.engenharia/" class="nav-ig" target="_blank"> Contato</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="blueprint-bg"></div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80" alt="Reforma Engenharia" id="heroImg">
+  </div>
+  <div class="hero-content container">
+    <div class="hero-tag">Goiânia, GO — Engenharia e Reformas</div>
+    <h1 class="hero-title">
+      Engenharia<br>com <span class="amber">precisão.</span><br>Reformas com<br>qualidade.
+    </h1>
+    <div class="hero-line"></div>
+    <p class="hero-desc">Projetos arquitetônicos, reformas residenciais e comerciais executados com excelência técnica e compromisso com o prazo em Goiânia, GO.</p>
+    <div class="hero-btns">
+      <a href="https://www.instagram.com/reforma.engenharia/" class="btn-amber" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21L21 3"/><path d="M3 21H21"/><path d="M3 21V3"/></svg> Solicitar Orçamento
+      </a>
+      <a href="#portfolio" class="btn-outline-amber">Ver Portfólio</a>
+    </div>
+    <div class="hero-crea">
+      <div class="crea-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22h20"/><path d="M3 18V9"/><path d="M21 18V9"/><path d="M8 18V9"/><path d="M16 18V9"/><path d="M12 18V9"/><path d="M2 9l10-6 10 6"/></svg>️</div>
+      <div class="crea-text">
+        <strong>Credenciado CREA-GO</strong>
+        Empresa registrada e regularizada
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-num">01 — O que fazemos</div>
+      <h2 class="section-title">Soluções completas<br>em engenharia</h2>
+      <p class="section-desc">Do projeto à entrega, cuidamos de cada detalhe com rigor técnico e atenção às necessidades do cliente.</p>
+    </div>
+    <div class="servicos-grid">
+      <div class="serv-cell">
+        <div class="serv-number">01</div>
+        <div class="serv-title">Projetos Arquitetônicos</div>
+        <div class="serv-desc">Desenvolvimento de projetos completos — plantas, elevações e perspectivas — com aprovação nos órgãos competentes.</div>
+      </div>
+      <div class="serv-cell">
+        <div class="serv-number">02</div>
+        <div class="serv-title">Reformas Residenciais</div>
+        <div class="serv-desc">Transformação de ambientes residenciais com acabamento premium e execução dentro do prazo estabelecido.</div>
+      </div>
+      <div class="serv-cell">
+        <div class="serv-number">03</div>
+        <div class="serv-title">Reformas Comerciais</div>
+        <div class="serv-desc">Adequação e modernização de espaços comerciais respeitando cronograma e operação do cliente.</div>
+      </div>
+      <div class="serv-cell">
+        <div class="serv-number">04</div>
+        <div class="serv-title">Consultoria de Engenharia</div>
+        <div class="serv-desc">Análise técnica especializada para tomada de decisões assertivas em obras e construções.</div>
+      </div>
+      <div class="serv-cell">
+        <div class="serv-number">05</div>
+        <div class="serv-title">Laudos e Vistorias</div>
+        <div class="serv-desc">Emissão de laudos técnicos e vistorias com validade jurídica, assinados por engenheiro responsável.</div>
+      </div>
+      <div class="serv-cell">
+        <div class="serv-number">06</div>
+        <div class="serv-title">Gestão de Obras</div>
+        <div class="serv-desc">Acompanhamento e gerenciamento completo de obras, garantindo qualidade, segurança e eficiência.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFÓLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-num">02 — Portfólio</div>
+      <h2 class="section-title">Obras que<br>falam por si</h2>
+      <p class="section-desc">Cada projeto entregue carrega nossa assinatura: precisão técnica e resultado acima do esperado.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Projeto 1">
+        <div class="porto-overlay">
+          <div class="porto-specs">
+            Reforma Corporativa
+            <small>2.400m² · Setor Bueno · 2025</small>
+          </div>
+        </div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80" alt="Projeto 2">
+        <div class="porto-overlay">
+          <div class="porto-specs">
+            Residência de Alto Padrão
+            <small>380m² · Setor Marista · 2024</small>
+          </div>
+        </div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Projeto 3">
+        <div class="porto-overlay">
+          <div class="porto-specs">
+            Loja Conceito
+            <small>180m² · Flamboyant · 2024</small>
+          </div>
+        </div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80" alt="Projeto 4">
+        <div class="porto-overlay">
+          <div class="porto-specs">
+            Apartamento Premium
+            <small>210m² · Jardim Goiás · 2025</small>
+          </div>
+        </div>
+      </div>
+      <div class="porto-item">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80" alt="Projeto 5">
+        <div class="porto-overlay">
+          <div class="porto-specs">
+            Clínica Médica
+            <small>320m² · Bueno · 2025</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section id="processo">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-num">03 — Metodologia</div>
+      <h2 class="section-title">Como<br>trabalhamos</h2>
+      <p class="section-desc">Processo estruturado para garantir resultados previsíveis e entrega dentro do prazo.</p>
+    </div>
+    <div class="processo-steps">
+      <div class="step">
+        <div class="step-circle">01</div>
+        <div class="step-title">Diagnóstico</div>
+        <div class="step-desc">Visita técnica e levantamento completo do escopo do projeto ou reforma.</div>
+      </div>
+      <div class="step">
+        <div class="step-circle">02</div>
+        <div class="step-title">Projeto</div>
+        <div class="step-desc">Desenvolvimento do projeto executivo com todos os detalhamentos necessários.</div>
+      </div>
+      <div class="step">
+        <div class="step-circle">03</div>
+        <div class="step-title">Orçamento</div>
+        <div class="step-desc">Proposta detalhada e transparente com cronograma físico-financeiro definido.</div>
+      </div>
+      <div class="step">
+        <div class="step-circle">04</div>
+        <div class="step-title">Execução</div>
+        <div class="step-desc">Obra gerenciada com equipe especializada e controle rigoroso de qualidade.</div>
+      </div>
+      <div class="step">
+        <div class="step-circle">05</div>
+        <div class="step-title">Entrega</div>
+        <div class="step-desc">Vistoria final, documentação e entrega da obra no prazo com garantia formal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container sobre-grid">
+    <div class="sobre-img reveal">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="Engenheiro Reforma Engenharia">
+    </div>
+    <div class="reveal">
+      <div class="section-num">04 — Sobre nós</div>
+      <h2 class="section-title">Engenheiros<br>comprometidos</h2>
+      <p>A Reforma Engenharia foi fundada em Goiânia com o propósito de elevar o padrão das obras e reformas na capital goiana. Nossa equipe é formada por engenheiros e arquitetos com sólida formação e vasta experiência no mercado.</p>
+      <p>Atuamos com rigor técnico em cada etapa, da concepção à entrega, garantindo obras seguras, duráveis e estéticamente impecáveis. Somos credenciados no CREA-GO e seguimos todas as normas técnicas vigentes.</p>
+      <div class="crea-highlight">
+        <div class="crea-h-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22h20"/><path d="M3 18V9"/><path d="M21 18V9"/><path d="M8 18V9"/><path d="M16 18V9"/><path d="M12 18V9"/><path d="M2 9l10-6 10 6"/></svg>️</div>
+        <div class="crea-h-text">
+          <strong>Credenciado CREA-GO</strong>
+          <span>Empresa regularizada e com responsável técnico habilitado para todos os serviços prestados.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-num">05 — Depoimentos</div>
+      <h2 class="section-title">Clientes que<br>confiam em nós</h2>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card">
+        <div class="stars">★★★★★</div>
+        <p class="dep-text">"A Reforma Engenharia transformou completamente meu escritório. Projeto preciso, execução impecável e entrega no prazo. Profissionalismo em cada detalhe."</p>
+        <div class="dep-author">
+          <div class="dep-ava">RB</div>
+          <div>
+            <div class="dep-name">Ricardo Borges</div>
+            <div class="dep-role">Reforma Comercial — 340m²</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="stars">★★★★★</div>
+        <p class="dep-text">"Fiz a reforma completa da minha casa e fiquei encantada com o resultado. A equipe é muito competente, organizada e respeitosa. Recomendo sem hesitar!"</p>
+        <div class="dep-author">
+          <div class="dep-ava">AM</div>
+          <div>
+            <div class="dep-name">Ana Maria Vieira</div>
+            <div class="dep-role">Reforma Residencial — 280m²</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="stars">★★★★★</div>
+        <p class="dep-text">"O laudo técnico foi entregue rapidamente e com toda a documentação necessária para legalização. Engenheiro muito competente e atencioso. Trabalho excelente!"</p>
+        <div class="dep-author">
+          <div class="dep-ava">FP</div>
+          <div>
+            <div class="dep-name">Felipe Prado</div>
+            <div class="dep-role">Laudo e Vistoria Técnica</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <div class="cta-inner">
+    <div class="reveal">
+      <h2 class="cta-title">Seu projeto<br>começa <span>agora</span></h2>
+      <p class="cta-desc">Entre em contato e receba um orçamento detalhado e sem compromisso para sua obra ou reforma em Goiânia.</p>
+    </div>
+    <div class="cta-actions reveal">
+      <a href="https://www.instagram.com/reforma.engenharia/" class="cta-item" target="_blank" style="text-decoration:none;">
+        <div class="cta-item-icon"></div>
+        <div class="cta-item-text">
+          <strong>Instagram</strong>
+          <span>@reforma.engenharia</span>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/reforma.engenharia/" class="cta-item" target="_blank" style="text-decoration:none;">
+        <div class="cta-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21L21 3"/><path d="M3 21H21"/><path d="M3 21V3"/></svg></div>
+        <div class="cta-item-text">
+          <strong>Solicitar Orçamento</strong>
+          <span>Resposta em até 24 horas</span>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/reforma.engenharia/" class="btn-amber" target="_blank" style="text-align:center;justify-content:center;">
+        Falar com Engenheiro
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="logo" style="color:white;">
+        <div class="logo-badge">RE</div>
+        <div class="logo-text">Reforma <span>Engenharia</span></div>
+      </div>
+      <p class="footer-about">Projetos arquitetônicos, reformas e consultoria de engenharia em Goiânia, GO. Precisão técnica e compromisso com resultado.</p>
+    </div>
+    <div>
+      <div class="footer-head">Serviços</div>
+      <ul class="footer-list">
+        <li><a href="#">Projetos Arquitetônicos</a></li>
+        <li><a href="#">Reformas Residenciais</a></li>
+        <li><a href="#">Reformas Comerciais</a></li>
+        <li><a href="#">Consultoria</a></li>
+        <li><a href="#">Laudos e Vistorias</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-head">Contato</div>
+      <ul class="footer-list">
+        <li><a href="https://www.instagram.com/reforma.engenharia/">@reforma.engenharia</a></li>
+        <li><a href="#">Goiânia, GO</a></li>
+        <li><a href="#">CREA-GO Credenciado</a></li>
+        <li><a href="#">Seg–Sex: 8h–18h</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Reforma Engenharia. Todos os direitos reservados. Engenharia com precisão em Goiânia, GO.</p>
+  </div>
+</footer>
+
+<!-- IG FLOAT -->
+<a href="https://www.instagram.com/reforma.engenharia/" class="ig-float" target="_blank" aria-label="Instagram">
+  <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+</a>
+
+<script>
+  // STICKY HEADER
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // PARALLAX
+  window.addEventListener('scroll', () => {
+    const img = document.getElementById('heroImg');
+    if (img) img.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+  });
+
+  // INTERSECTION OBSERVER
+  const allEls = document.querySelectorAll('.reveal, .serv-cell, .dep-card, .step, .porto-item');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  allEls.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

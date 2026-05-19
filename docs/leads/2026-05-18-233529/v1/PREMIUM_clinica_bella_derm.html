@@ -1,0 +1,2509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clínica Bella Derm — Estética & Harmonização Facial | Senador Canedo</title>
+  <meta name="description" content="9 anos transformando vidas. Botox, preenchimento labial, CO2 laser, harmonização facial e depilação a laser em Senador Canedo, GO. Agende sua avaliação." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cor-primaria:    #F4C2C2;
+      --cor-secundaria:  #C0A0A0;
+      --cor-creme:       #FDF6F0;
+      --cor-branco:      #FFFFFF;
+      --cor-texto:       #1A1A1A;
+      --cor-texto-suave: #5A5A5A;
+      --cor-dark:        #0F0D0D;
+      --cor-dark-2:      #1C1818;
+      --cor-accent:      #D4918F;
+      --cor-accent-2:    #E8B4B2;
+
+      --fonte-titulo:  'Playfair Display', Georgia, serif;
+      --fonte-corpo:   'Inter', system-ui, sans-serif;
+
+      --radius-card:   16px;
+      --radius-btn:    50px;
+      --shadow-card:   0 8px 40px rgba(0,0,0,0.10);
+      --shadow-hover:  0 20px 60px rgba(196,145,143,0.25);
+      --transition:    0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-fast: 0.3s ease;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--fonte-corpo);
+      color: var(--cor-texto);
+      background: var(--cor-creme);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ============================================================
+       TIPOGRAFIA UTILITÁRIA
+    ============================================================ */
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--fonte-corpo);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cor-accent);
+    }
+
+    .eyebrow--light { color: var(--cor-primaria); }
+
+    h1, h2, h3 { font-family: var(--fonte-titulo); font-weight: 500; line-height: 1.1; }
+
+    .h1-display {
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .h2-section {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -0.01em;
+    }
+
+    .h3-card { font-size: 1.4rem; }
+
+    .text-body {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--cor-texto-suave);
+      font-weight: 300;
+    }
+
+    /* ============================================================
+       BOTÕES
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      border-radius: var(--radius-btn);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: all var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.12);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+    .btn:hover::after { opacity: 1; }
+
+    .btn-primary {
+      background: var(--cor-primaria);
+      color: var(--cor-texto);
+      box-shadow: 0 4px 24px rgba(244,194,194,0.45);
+    }
+    .btn-primary:hover {
+      background: var(--cor-accent-2);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(244,194,194,0.55);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cor-branco);
+      border: 1.5px solid rgba(255,255,255,0.5);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: var(--cor-branco);
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: var(--cor-texto);
+      color: var(--cor-branco);
+    }
+    .btn-dark:hover {
+      background: var(--cor-dark-2);
+      transform: translateY(-2px);
+    }
+
+    .btn svg {
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      transition: transform var(--transition-fast);
+    }
+    .btn:hover svg { transform: translateX(3px); }
+
+    /* ============================================================
+       SCROLL ANIMATIONS — Intersection Observer classes
+    ============================================================ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(60px);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity var(--transition), transform var(--transition);
+    }
+
+    .is-visible {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    /* Delay escalonado */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    #header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 22px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background var(--transition-fast), padding var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    #header.scrolled {
+      background: rgba(253,246,240,0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 14px 5%;
+      box-shadow: 0 2px 30px rgba(0,0,0,0.07);
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo-name {
+      font-family: var(--fonte-titulo);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--cor-branco);
+      letter-spacing: 0.01em;
+      transition: color var(--transition-fast);
+    }
+
+    .logo-tag {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cor-primaria);
+      transition: color var(--transition-fast);
+    }
+
+    #header.scrolled .logo-name { color: var(--cor-texto); }
+    #header.scrolled .logo-tag  { color: var(--cor-accent); }
+
+    nav ul {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.85);
+      transition: color var(--transition-fast);
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--cor-primaria);
+      transition: width var(--transition-fast);
+    }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    nav a:hover { color: var(--cor-primaria); }
+
+    #header.scrolled nav a { color: var(--cor-texto-suave); }
+    #header.scrolled nav a:hover { color: var(--cor-accent); }
+
+    .nav-cta {
+      padding: 10px 24px !important;
+      background: var(--cor-primaria);
+      color: var(--cor-texto) !important;
+      border-radius: 50px;
+      font-weight: 600 !important;
+    }
+    .nav-cta::after { display: none; }
+    .nav-cta:hover { background: var(--cor-accent-2); transform: translateY(-1px); }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 26px; height: 2px;
+      background: var(--cor-branco);
+      border-radius: 2px;
+      transition: all var(--transition-fast);
+    }
+    #header.scrolled .menu-toggle span { background: var(--cor-texto); }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ============================================================
+       HERO — FULLSCREEN PARALLAX
+    ============================================================ */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: -15%; /* overflow extra para parallax */
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      filter: brightness(0.45) saturate(0.9);
+      object-position: center top;
+    }
+
+    /* Gradiente sobreposto */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        120deg,
+        rgba(15,13,13,0.75) 0%,
+        rgba(15,13,13,0.30) 50%,
+        rgba(196,145,143,0.15) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 5%;
+      display: grid;
+      grid-template-columns: 1fr 0.45fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-left {}
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .hero-eyebrow-line {
+      width: 40px; height: 1.5px;
+      background: var(--cor-primaria);
+    }
+
+    .hero-eyebrow span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cor-primaria);
+    }
+
+    .hero-headline {
+      color: var(--cor-branco);
+      margin-bottom: 24px;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--cor-primaria);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.72);
+      font-weight: 300;
+      max-width: 480px;
+      margin-bottom: 44px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 16px;
+    }
+
+    /* Cards flutuantes no hero */
+    .hero-stat-card {
+      background: rgba(253,246,240,0.10);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(244,194,194,0.25);
+      border-radius: 16px;
+      padding: 20px 28px;
+      text-align: right;
+      width: 200px;
+    }
+
+    .hero-stat-num {
+      font-family: var(--fonte-titulo);
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--cor-primaria);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.65);
+      margin-top: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: scrollBob 2.5s ease-in-out infinite;
+    }
+
+    .hero-scroll-line {
+      width: 1.5px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(244,194,194,0.8), transparent);
+    }
+
+    @keyframes scrollBob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ============================================================
+       SEÇÃO: SERVIÇOS
+    ============================================================ */
+    #servicos {
+      padding: 120px 5%;
+      background: var(--cor-creme);
+    }
+
+    .section-header {
+      max-width: 1280px;
+      margin: 0 auto 72px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .section-header-left { max-width: 580px; }
+
+    .section-header .eyebrow { margin-bottom: 16px; display: block; }
+
+    .section-header .h2-section { margin-bottom: 20px; }
+
+    .section-header .text-body { max-width: 480px; }
+
+    .section-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--cor-accent);
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      transition: gap var(--transition-fast);
+    }
+    .section-link:hover { gap: 14px; }
+    .section-link svg { width: 18px; height: 18px; }
+
+    /* Grid de serviços */
+    .servicos-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* Card flip */
+    .servico-card {
+      position: relative;
+      height: 420px;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+    }
+
+    .servico-card:hover .card-inner { transform: rotateY(180deg); }
+
+    .card-front, .card-back {
+      position: absolute;
+      inset: 0;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border-radius: var(--radius-card);
+    }
+
+    .card-front {
+      overflow: hidden;
+    }
+
+    .card-front-img {
+      width: 100%; height: 100%;
+      transition: transform 0.8s ease;
+    }
+    .servico-card:hover .card-front-img { transform: scale(1.06); }
+
+    .card-front-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,13,13,0.88) 0%, rgba(15,13,13,0.1) 60%);
+    }
+
+    .card-front-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 32px;
+    }
+
+    .card-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(244,194,194,0.15);
+      border: 1px solid rgba(244,194,194,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      font-size: 1.2rem;
+    }
+
+    .card-front-title {
+      font-family: var(--fonte-titulo);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--cor-branco);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .card-front-tag {
+      font-size: 0.72rem;
+      color: var(--cor-primaria);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    /* Card back */
+    .card-back {
+      background: linear-gradient(145deg, var(--cor-dark-2) 0%, #2A1F1F 100%);
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 36px;
+      border: 1px solid rgba(244,194,194,0.12);
+    }
+
+    .card-back-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .card-back-title {
+      font-family: var(--fonte-titulo);
+      font-size: 1.5rem;
+      color: var(--cor-primaria);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .card-back-desc {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 28px;
+    }
+
+    .card-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--cor-primaria);
+      color: var(--cor-texto);
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all var(--transition-fast);
+    }
+    .card-back-btn:hover {
+      background: var(--cor-accent-2);
+      transform: translateY(-2px);
+    }
+
+    /* Card destaque (maior) */
+    .servico-card--featured {
+      grid-column: span 2;
+    }
+
+    /* ============================================================
+       SEÇÃO: SOBRE — SPLIT LAYOUT
+    ============================================================ */
+    #sobre {
+      padding: 120px 5%;
+      background: var(--cor-branco);
+    }
+
+    .sobre-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .sobre-img-wrap {
+      position: relative;
+    }
+
+    .sobre-img-main {
+      border-radius: 24px;
+      overflow: hidden;
+      height: 580px;
+      position: relative;
+    }
+
+    /* Moldura decorativa */
+    .sobre-img-main::before {
+      content: '';
+      position: absolute;
+      top: -16px; left: -16px;
+      right: 16px; bottom: 16px;
+      border: 1.5px solid var(--cor-primaria);
+      border-radius: 24px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .sobre-img-main img {
+      position: relative;
+      z-index: 1;
+      border-radius: 24px;
+    }
+
+    /* Badge flutuante */
+    .sobre-badge {
+      position: absolute;
+      bottom: 40px;
+      right: -30px;
+      z-index: 10;
+      background: var(--cor-dark);
+      border-radius: 20px;
+      padding: 24px 30px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      border: 1px solid rgba(244,194,194,0.15);
+    }
+
+    .sobre-badge-num {
+      font-family: var(--fonte-titulo);
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--cor-primaria);
+      line-height: 1;
+    }
+
+    .sobre-badge-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Texto sobre */
+    .sobre-text .eyebrow { margin-bottom: 18px; display: block; }
+
+    .sobre-text .h2-section { margin-bottom: 24px; }
+
+    .sobre-text .text-body { margin-bottom: 20px; }
+
+    .sobre-text .text-body + .text-body { margin-bottom: 40px; }
+
+    /* Counters */
+    .counters-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .counter-item {
+      text-align: center;
+      padding: 20px 12px;
+      background: var(--cor-creme);
+      border-radius: 14px;
+      border: 1px solid rgba(244,194,194,0.2);
+    }
+
+    .counter-num {
+      font-family: var(--fonte-titulo);
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--cor-accent);
+      line-height: 1;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .counter-suffix {
+      font-size: 1.2rem;
+    }
+
+    .counter-label {
+      font-size: 0.72rem;
+      color: var(--cor-texto-suave);
+      margin-top: 6px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* Checklist */
+    .sobre-checks {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .sobre-check {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: var(--cor-texto-suave);
+    }
+
+    .check-dot {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cor-primaria), var(--cor-accent));
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      color: white;
+    }
+
+    /* ============================================================
+       SEÇÃO: RESULTADOS — GALERIA ANTES/DEPOIS
+    ============================================================ */
+    #resultados {
+      padding: 120px 5%;
+      background: var(--cor-creme);
+    }
+
+    .resultados-header {
+      max-width: 1280px;
+      margin: 0 auto 72px;
+      text-align: center;
+    }
+
+    .resultados-header .eyebrow { margin-bottom: 16px; }
+    .resultados-header .h2-section { margin-bottom: 20px; }
+    .resultados-header .text-body { max-width: 520px; margin: 0 auto; }
+
+    .galeria-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .galeria-item {
+      position: relative;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .galeria-item-inner {
+      position: relative;
+      height: 380px;
+    }
+
+    /* Hover reveal com slider antes/depois */
+    .galeria-antes,
+    .galeria-depois {
+      position: absolute;
+      inset: 0;
+      transition: clip-path 0.5s ease;
+    }
+
+    .galeria-antes img,
+    .galeria-depois img {
+      filter: saturate(0.85);
+    }
+
+    .galeria-antes {
+      clip-path: inset(0 50% 0 0);
+    }
+
+    .galeria-item:hover .galeria-antes {
+      clip-path: inset(0 0% 0 0);
+    }
+
+    /* Labels */
+    .galeria-label {
+      position: absolute;
+      bottom: 20px;
+      z-index: 5;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+    }
+
+    .galeria-label--antes {
+      left: 16px;
+      background: rgba(15,13,13,0.7);
+      color: rgba(255,255,255,0.7);
+    }
+
+    .galeria-label--depois {
+      right: 16px;
+      background: var(--cor-primaria);
+      color: var(--cor-texto);
+    }
+
+    .galeria-procedimento {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      padding: 20px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.55), transparent);
+      z-index: 5;
+    }
+
+    .galeria-procedimento-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cor-primaria);
+      background: rgba(15,13,13,0.5);
+      backdrop-filter: blur(6px);
+      padding: 6px 14px;
+      border-radius: 50px;
+      border: 1px solid rgba(244,194,194,0.2);
+    }
+
+    /* Galeria grande */
+    .galeria-item--large {
+      grid-row: span 2;
+    }
+    .galeria-item--large .galeria-item-inner {
+      height: 100%;
+      min-height: 400px;
+    }
+
+    /* ============================================================
+       SEÇÃO: DEPOIMENTOS — CAROUSEL
+    ============================================================ */
+    #depoimentos {
+      padding: 120px 5%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .depo-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .depo-bg img {
+      filter: brightness(0.18) saturate(0.5);
+    }
+
+    .depo-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(15,13,13,0.92) 0%,
+        rgba(28,24,24,0.88) 100%
+      );
+    }
+
+    .depo-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .depo-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .depo-header .eyebrow--light { margin-bottom: 16px; display: block; }
+
+    .depo-header .h2-section { color: var(--cor-branco); }
+
+    /* Carousel */
+    .carousel-track-wrap {
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .depo-card {
+      flex-shrink: 0;
+      width: calc(33.333% - 16px);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(244,194,194,0.12);
+      border-radius: 20px;
+      padding: 40px 36px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all var(--transition-fast);
+    }
+
+    .depo-card:hover {
+      background: rgba(244,194,194,0.07);
+      border-color: rgba(244,194,194,0.22);
+      transform: translateY(-4px);
+    }
+
+    .depo-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 22px;
+    }
+
+    .depo-star {
+      color: var(--cor-primaria);
+      font-size: 0.9rem;
+    }
+
+    .depo-text {
+      font-size: 0.97rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 28px;
+      font-style: italic;
+      font-family: var(--fonte-titulo);
+      font-weight: 400;
+    }
+
+    .depo-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .depo-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2px solid rgba(244,194,194,0.25);
+    }
+
+    .depo-avatar img { object-position: center top; }
+
+    .depo-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--cor-branco);
+    }
+
+    .depo-role {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 2px;
+    }
+
+    /* Controles carousel */
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .carousel-btn {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      color: var(--cor-branco);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .carousel-btn:hover {
+      border-color: var(--cor-primaria);
+      background: rgba(244,194,194,0.1);
+      color: var(--cor-primaria);
+    }
+    .carousel-btn svg { width: 20px; height: 20px; }
+
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .carousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .carousel-dot.active {
+      background: var(--cor-primaria);
+      transform: scale(1.3);
+    }
+
+    /* ============================================================
+       SEÇÃO: CTA FINAL — FAIXA DARK
+    ============================================================ */
+    #cta-final {
+      padding: 120px 5%;
+      background: var(--cor-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Elemento decorativo de fundo */
+    .cta-deco {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(244,194,194,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-deco-2 {
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,145,143,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-final-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-final-inner .eyebrow--light { margin-bottom: 20px; }
+
+    .cta-final-inner .h2-section {
+      color: var(--cor-branco);
+      margin-bottom: 24px;
+    }
+
+    .cta-final-inner .h2-section em {
+      font-style: italic;
+      color: var(--cor-primaria);
+    }
+
+    .cta-final-sub {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 48px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-final-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Urgência tag */
+    .urgencia-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(244,194,194,0.08);
+      border: 1px solid rgba(244,194,194,0.2);
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-size: 0.8rem;
+      color: var(--cor-primaria);
+      letter-spacing: 0.04em;
+      margin-bottom: 32px;
+    }
+
+    .urgencia-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--cor-primaria);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--cor-dark-2);
+      padding: 80px 5% 40px;
+      border-top: 1px solid rgba(244,194,194,0.08);
+    }
+
+    .footer-top {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-brand .logo-name { font-size: 1.7rem; }
+
+    .footer-brand .logo-tag { margin-bottom: 20px; display: block; margin-top: 2px; }
+
+    .footer-brand-desc {
+      font-size: 0.87rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 24px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-link {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 1rem;
+      transition: all var(--transition-fast);
+    }
+    .social-link:hover {
+      background: rgba(244,194,194,0.12);
+      border-color: rgba(244,194,194,0.2);
+      color: var(--cor-primaria);
+      transform: translateY(-2px);
+    }
+
+    .footer-col-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.55);
+      transition: color var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-links a:hover { color: var(--cor-primaria); }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .footer-contact-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: rgba(244,194,194,0.08);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--cor-primaria);
+    }
+
+    .footer-contact-text {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    .footer-contact-text a { color: rgba(255,255,255,0.5); }
+    .footer-contact-text a:hover { color: var(--cor-primaria); }
+
+    /* Footer bottom */
+    .footer-bottom {
+      max-width: 1280px;
+      margin: 32px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .footer-credits {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.25);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-credits a {
+      color: rgba(244,194,194,0.4);
+      transition: color var(--transition-fast);
+    }
+    .footer-credits a:hover { color: var(--cor-primaria); }
+
+    /* ============================================================
+       WHATSAPP FLOATING BUTTON
+    ============================================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 32px; right: 32px;
+      z-index: 999;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 30px rgba(37,211,102,0.45);
+      transition: all var(--transition-fast);
+      animation: floatIn 0.6s 1.5s both;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 12px 40px rgba(37,211,102,0.55);
+    }
+
+    .whatsapp-float svg {
+      width: 30px; height: 30px;
+      fill: white;
+    }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: scale(0) rotate(-20deg); }
+      to { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+
+    /* ============================================================
+       RESPONSIVO — 768px
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .servicos-grid { grid-template-columns: repeat(2, 1fr); }
+      .servico-card--featured { grid-column: span 1; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 768px) {
+      /* Header */
+      nav { display: none; }
+      nav.open { display: flex; }
+      .menu-toggle { display: flex; }
+
+      /* Nav mobile */
+      #header nav {
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(253,246,240,0.98);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        padding: 24px;
+        gap: 0;
+        border-top: 1px solid rgba(244,194,194,0.2);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      }
+
+      #header nav ul {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+      }
+
+      #header nav ul li { width: 100%; }
+
+      #header nav a {
+        color: var(--cor-texto-suave) !important;
+        display: block;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        font-size: 0.95rem;
+      }
+
+      .nav-cta {
+        background: var(--cor-primaria) !important;
+        color: var(--cor-texto) !important;
+        text-align: center;
+        border-radius: 12px;
+        margin-top: 12px;
+        padding: 14px 0 !important;
+      }
+
+      /* Hero */
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-top: 120px;
+      }
+
+      .hero-right {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .hero-stat-card { width: calc(50% - 8px); }
+
+      .h1-display { font-size: 2.4rem; }
+
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+
+      /* Serviços */
+      #servicos { padding: 80px 5%; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+      .servicos-grid { grid-template-columns: 1fr; }
+      .servico-card { height: 360px; }
+
+      /* Sobre */
+      #sobre { padding: 80px 5%; }
+      .sobre-container { grid-template-columns: 1fr; gap: 60px; }
+      .sobre-badge { right: 0; bottom: -30px; }
+      .sobre-img-main { height: 380px; }
+      .counters-grid { grid-template-columns: repeat(3, 1fr); }
+
+      /* Galeria */
+      #resultados { padding: 80px 5%; }
+      .galeria-grid { grid-template-columns: 1fr; }
+      .galeria-item--large { grid-row: span 1; }
+      .galeria-item-inner { height: 300px; }
+
+      /* Depoimentos */
+      #depoimentos { padding: 80px 5%; }
+      .depo-card { width: 100%; }
+
+      /* CTA */
+      #cta-final { padding: 80px 5%; }
+      .cta-final-actions { flex-direction: column; align-items: center; }
+
+      /* Footer */
+      footer { padding: 60px 5% 32px; }
+      .footer-top { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+
+      /* WhatsApp float */
+      .whatsapp-float { bottom: 20px; right: 20px; }
+    }
+
+    /* ============================================================
+       SCROLLBAR CUSTOMIZADA
+    ============================================================ */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--cor-creme); }
+    ::-webkit-scrollbar-thumb {
+      background: var(--cor-secundaria);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--cor-accent); }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header id="header">
+    <a href="#hero" class="logo" aria-label="Clínica Bella Derm">
+      <span class="logo-name">Bella Derm</span>
+      <span class="logo-tag">Clínica de Estética</span>
+    </a>
+
+    <nav id="main-nav">
+      <ul>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#resultados">Resultados</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li>
+          <a href="https://wa.me/5562849464006?text=Ol%C3%A1!+Vi+o+site+da+Bella+Derm+e+quero+saber+mais."
+             class="nav-cta"
+             target="_blank"
+             rel="noopener">
+            Agendar Avaliação
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- ============================================================
+       HERO — FULLSCREEN PARALLAX
+  ============================================================ -->
+  <section id="hero">
+    <div class="hero-bg" id="hero-bg">
+      <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1400&q=80"
+           alt="Tratamento estético facial — Clínica Bella Derm"
+           loading="eager" />
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <!-- Esquerda: headline + CTA -->
+      <div class="hero-left">
+        <div class="hero-eyebrow fade-up">
+          <div class="hero-eyebrow-line"></div>
+          <span>Senador Canedo · Goiás</span>
+        </div>
+
+        <h1 class="h1-display hero-headline fade-up delay-1">
+          Sua beleza<br />
+          <em>merece cuidado</em><br />
+          de especialistas.
+        </h1>
+
+        <p class="hero-sub fade-up delay-2">
+          Há 9 anos transformando a autoestima de mulheres com procedimentos estéticos seguros, personalizados e resultados que duram.
+        </p>
+
+        <div class="hero-actions fade-up delay-3">
+          <a href="https://wa.me/5562849464006?text=Ol%C3%A1!+Vi+o+site+da+Bella+Derm+e+quero+saber+mais."
+             class="btn btn-primary"
+             target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.08 6.08l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Agendar via WhatsApp
+          </a>
+          <a href="#servicos" class="btn btn-outline">
+            Conhecer Serviços
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Direita: cards de stats flutuantes -->
+      <div class="hero-right fade-up delay-4">
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">9</div>
+          <div class="hero-stat-label">Anos de Experiência</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">9.685</div>
+          <div class="hero-stat-label">Seguidores Instagram</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">5+</div>
+          <div class="hero-stat-label">Procedimentos Exclusivos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Indicador de scroll -->
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVIÇOS — GRID COM CARD FLIP
+  ============================================================ -->
+  <section id="servicos">
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="eyebrow fade-up">O que oferecemos</span>
+        <h2 class="h2-section fade-up delay-1">
+          Procedimentos que <br />
+          <em style="font-style:italic; color:var(--cor-accent);">elevam sua confiança</em>
+        </h2>
+        <p class="text-body fade-up delay-2">
+          Cada procedimento é realizado com protocolos clínicos seguros, tecnologia de ponta e olhar personalizado para o seu rosto.
+        </p>
+      </div>
+      <a href="https://wa.me/5562849464006?text=Ol%C3%A1!+Quero+saber+mais+sobre+os+procedimentos+da+Bella+Derm."
+         class="section-link fade-up delay-3"
+         target="_blank" rel="noopener">
+        Ver todos
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="servicos-grid">
+      <!-- Card 1: Botox (destaque) -->
+      <div class="servico-card servico-card--featured scale-in">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="card-front-img">
+              <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&q=80"
+                   alt="Aplicação de Botox" loading="lazy" />
+            </div>
+            <div class="card-front-overlay"></div>
+            <div class="card-front-content">
+              <div class="card-icon"></div>
+              <div class="card-front-title">Toxina Botulínica</div>
+              <div class="card-front-tag">Passe o mouse para saber mais →</div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-icon"></div>
+            <div class="card-back-title">Toxina Botulínica (Botox)</div>
+            <p class="card-back-desc">
+              Suaviza linhas de expressão e rugas com precisão milimétrica. Resultado natural, sem exageros — sua expressão, mais jovem e descansada. Efeito dura de 4 a 6 meses.
+            </p>
+            <a href="https://wa.me/5562849464006?text=Quero+saber+sobre+Botox+na+Bella+Derm."
+               class="card-back-btn" target="_blank" rel="noopener">
+              Agendar Avaliação →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Preenchimento -->
+      <div class="servico-card scale-in delay-1">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="card-front-img">
+              <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80"
+                   alt="Preenchimento labial" loading="lazy" />
+            </div>
+            <div class="card-front-overlay"></div>
+            <div class="card-front-content">
+              <div class="card-icon"></div>
+              <div class="card-front-title">Preenchimento Labial & Malar</div>
+              <div class="card-front-tag">Hover para detalhes →</div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-icon"></div>
+            <div class="card-back-title">Preenchimento Facial</div>
+            <p class="card-back-desc">
+              Volume e definição para lábios e maçãs do rosto com ácido hialurônico. Resultado imediato e natural, respeitando a harmonia do seu rosto.
+            </p>
+            <a href="https://wa.me/5562849464006?text=Quero+saber+sobre+Preenchimento+na+Bella+Derm."
+               class="card-back-btn" target="_blank" rel="noopener">
+              Agendar Avaliação →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: CO2 Laser -->
+      <div class="servico-card scale-in delay-2">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="card-front-img">
+              <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80"
+                   alt="CO2 Laser" loading="lazy" />
+            </div>
+            <div class="card-front-overlay"></div>
+            <div class="card-front-content">
+              <div class="card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+              <div class="card-front-title">CO2 Laser Fracionado</div>
+              <div class="card-front-tag">Hover para detalhes →</div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+            <div class="card-back-title">CO2 Laser Fracionado</div>
+            <p class="card-back-desc">
+              Renovação celular profunda para tratar manchas, cicatrizes, poros dilatados e flacidez cutânea. A tecnologia mais avançada em rejuvenescimento dérmico.
+            </p>
+            <a href="https://wa.me/5562849464006?text=Quero+saber+sobre+CO2+Laser+na+Bella+Derm."
+               class="card-back-btn" target="_blank" rel="noopener">
+              Agendar Avaliação →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Harmonização -->
+      <div class="servico-card scale-in delay-3">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="card-front-img">
+              <img src="https://images.unsplash.com/photo-1559599746-8823b38544c6?w=600&q=80"
+                   alt="Harmonização facial" loading="lazy" />
+            </div>
+            <div class="card-front-overlay"></div>
+            <div class="card-front-content">
+              <div class="card-icon"></div>
+              <div class="card-front-title">Harmonização Facial</div>
+              <div class="card-front-tag">Hover para detalhes →</div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-icon"></div>
+            <div class="card-back-title">Harmonização Facial</div>
+            <p class="card-back-desc">
+              Combinação estratégica de procedimentos para equilibrar as proporções do rosto. Planejamento individualizado para realçar sua beleza natural com elegância.
+            </p>
+            <a href="https://wa.me/5562849464006?text=Quero+saber+sobre+Harmoniza%C3%A7%C3%A3o+Facial+na+Bella+Derm."
+               class="card-back-btn" target="_blank" rel="noopener">
+              Agendar Avaliação →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Depilação a Laser -->
+      <div class="servico-card scale-in delay-4">
+        <div class="card-inner">
+          <div class="card-front">
+            <div class="card-front-img">
+              <img src="https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?w=600&q=80"
+                   alt="Depilação a laser" loading="lazy" />
+            </div>
+            <div class="card-front-overlay"></div>
+            <div class="card-front-content">
+              <div class="card-icon"></div>
+              <div class="card-front-title">Depilação a Laser</div>
+              <div class="card-front-tag">Hover para detalhes →</div>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="card-back-icon"></div>
+            <div class="card-back-title">Depilação a Laser</div>
+            <p class="card-back-desc">
+              Resultado definitivo e seguro com laser de última geração. Pele lisa e livre de pelos indesejados em qualquer região do corpo — com máximo conforto.
+            </p>
+            <a href="https://wa.me/5562849464006?text=Quero+saber+sobre+Depila%C3%A7%C3%A3o+a+Laser+na+Bella+Derm."
+               class="card-back-btn" target="_blank" rel="noopener">
+              Agendar Avaliação →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOBRE — SPLIT LAYOUT COM COUNTERS
+  ============================================================ -->
+  <section id="sobre">
+    <div class="sobre-container">
+      <!-- Imagem -->
+      <div class="sobre-img-wrap slide-in-left">
+        <div class="sobre-img-main">
+          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80"
+               alt="Clínica Bella Derm — ambiente premium de estética"
+               loading="lazy" />
+        </div>
+        <div class="sobre-badge">
+          <div class="sobre-badge-num">9</div>
+          <div class="sobre-badge-label">anos de excelência</div>
+        </div>
+      </div>
+
+      <!-- Texto -->
+      <div class="sobre-text slide-in-right">
+        <span class="eyebrow">Nossa história</span>
+        <h2 class="h2-section">
+          Mais de uma década <br />
+          <span style="font-style:italic; color:var(--cor-accent);">cuidando de você</span>
+        </h2>
+
+        <p class="text-body">
+          A Clínica Bella Derm nasceu do desejo genuíno de oferecer tratamentos estéticos de alto nível para as mulheres de Senador Canedo e região. Com 9 anos de atuação, construímos nossa reputação baseada em resultados reais e relacionamentos duradouros com nossas pacientes.
+        </p>
+
+        <p class="text-body">
+          Nossa equipe é altamente qualificada e atualizada com as mais recentes técnicas e protocolos do mercado. Cada procedimento é realizado com rigor clínico, materiais premium e, acima de tudo, respeito à individualidade de cada mulher.
+        </p>
+
+        <!-- Counters animados -->
+        <div class="counters-grid" id="counters">
+          <div class="counter-item fade-up">
+            <div class="counter-num">
+              <span class="counter" data-target="9">0</span>
+              <span class="counter-suffix">+</span>
+            </div>
+            <div class="counter-label">Anos de mercado</div>
+          </div>
+          <div class="counter-item fade-up delay-1">
+            <div class="counter-num">
+              <span class="counter" data-target="3200">0</span>
+              <span class="counter-suffix">+</span>
+            </div>
+            <div class="counter-label">Pacientes atendidas</div>
+          </div>
+          <div class="counter-item fade-up delay-2">
+            <div class="counter-num">
+              <span class="counter" data-target="98">0</span>
+              <span class="counter-suffix">%</span>
+            </div>
+            <div class="counter-label">Satisfação</div>
+          </div>
+        </div>
+
+        <!-- Diferenciais -->
+        <div class="sobre-checks">
+          <div class="sobre-check fade-up delay-1">
+            <div class="check-dot"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Profissionais certificados e em constante atualização</span>
+          </div>
+          <div class="sobre-check fade-up delay-2">
+            <div class="check-dot"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Protocolos personalizados para cada tipo de pele</span>
+          </div>
+          <div class="sobre-check fade-up delay-3">
+            <div class="check-dot"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Ambiente acolhedor e atendimento humanizado</span>
+          </div>
+          <div class="sobre-check fade-up delay-4">
+            <div class="check-dot"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span>Produtos e equipamentos de referência internacional</span>
+          </div>
+        </div>
+
+        <a href="https://wa.me/5562849464006?text=Ol%C3%A1!+Quero+agendar+uma+avalia%C3%A7%C3%A3o+na+Bella+Derm."
+           class="btn btn-dark fade-up delay-5"
+           target="_blank" rel="noopener">
+          Agendar Minha Avaliação
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RESULTADOS — GALERIA ANTES/DEPOIS
+  ============================================================ -->
+  <section id="resultados">
+    <div class="resultados-header">
+      <span class="eyebrow fade-up">Transformações reais</span>
+      <h2 class="h2-section fade-up delay-1">
+        Resultados que <em style="font-style:italic; color:var(--cor-accent);">falam por si</em>
+      </h2>
+      <p class="text-body fade-up delay-2">
+        Passe o mouse sobre as imagens para visualizar as transformações. Cada resultado é único e conquistado com cuidado.
+      </p>
+    </div>
+
+    <div class="galeria-grid">
+      <!-- Item grande -->
+      <div class="galeria-item galeria-item--large scale-in">
+        <div class="galeria-item-inner">
+          <div class="galeria-procedimento">
+            <span class="galeria-procedimento-tag">Harmonização Facial</span>
+          </div>
+          <div class="galeria-depois">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80"
+                 alt="Resultado após harmonização facial" loading="lazy" />
+          </div>
+          <div class="galeria-antes">
+            <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=600&q=80"
+                 alt="Antes da harmonização facial" loading="lazy" />
+          </div>
+          <span class="galeria-label galeria-label--antes">Antes</span>
+          <span class="galeria-label galeria-label--depois">Depois</span>
+        </div>
+      </div>
+
+      <!-- Item normal 1 -->
+      <div class="galeria-item scale-in delay-1">
+        <div class="galeria-item-inner">
+          <div class="galeria-procedimento">
+            <span class="galeria-procedimento-tag">Preenchimento Labial</span>
+          </div>
+          <div class="galeria-depois">
+            <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600&q=80"
+                 alt="Resultado preenchimento labial" loading="lazy" />
+          </div>
+          <div class="galeria-antes">
+            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80"
+                 alt="Antes preenchimento labial" loading="lazy" />
+          </div>
+          <span class="galeria-label galeria-label--antes">Antes</span>
+          <span class="galeria-label galeria-label--depois">Depois</span>
+        </div>
+      </div>
+
+      <!-- Item normal 2 -->
+      <div class="galeria-item scale-in delay-2">
+        <div class="galeria-item-inner">
+          <div class="galeria-procedimento">
+            <span class="galeria-procedimento-tag">CO2 Laser</span>
+          </div>
+          <div class="galeria-depois">
+            <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&q=80"
+                 alt="Resultado CO2 Laser" loading="lazy" />
+          </div>
+          <div class="galeria-antes">
+            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=80"
+                 alt="Antes CO2 Laser" loading="lazy" />
+          </div>
+          <span class="galeria-label galeria-label--antes">Antes</span>
+          <span class="galeria-label galeria-label--depois">Depois</span>
+        </div>
+      </div>
+
+      <!-- Item normal 3 -->
+      <div class="galeria-item scale-in delay-3">
+        <div class="galeria-item-inner">
+          <div class="galeria-procedimento">
+            <span class="galeria-procedimento-tag">Toxina Botulínica</span>
+          </div>
+          <div class="galeria-depois">
+            <img src="https://images.unsplash.com/photo-1550399105-c4db5fb85c18?w=600&q=80"
+                 alt="Resultado Botox" loading="lazy" />
+          </div>
+          <div class="galeria-antes">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80"
+                 alt="Antes Botox" loading="lazy" />
+          </div>
+          <span class="galeria-label galeria-label--antes">Antes</span>
+          <span class="galeria-label galeria-label--depois">Depois</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       DEPOIMENTOS — CAROUSEL JS PURO
+  ============================================================ -->
+  <section id="depoimentos">
+    <div class="depo-bg">
+      <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1200&q=80"
+           alt="" role="presentation" loading="lazy" />
+    </div>
+    <div class="depo-overlay"></div>
+
+    <div class="depo-content">
+      <div class="depo-header">
+        <span class="eyebrow eyebrow--light fade-up">Quem nos escolhe, fica</span>
+        <h2 class="h2-section fade-up delay-1">O que nossas pacientes dizem</h2>
+      </div>
+
+      <!-- Carousel -->
+      <div class="carousel-track-wrap" id="carousel-wrap">
+        <div class="carousel-track" id="carousel-track">
+
+          <div class="depo-card fade-up">
+            <div class="depo-stars">
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+            </div>
+            <p class="depo-text">
+              "Fiz harmonização facial na Bella Derm e o resultado superou todas as minhas expectativas. Me sinto mais jovem, mais bonita — mas, acima de tudo, ainda eu mesma. O atendimento é impecável do início ao fim."
+            </p>
+            <div class="depo-author">
+              <div class="depo-avatar">
+                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=80"
+                     alt="Mariana S." loading="lazy" />
+              </div>
+              <div>
+                <div class="depo-name">Mariana S.</div>
+                <div class="depo-role">Harmonização Facial · Goiânia</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="depo-card fade-up delay-1">
+            <div class="depo-stars">
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+            </div>
+            <p class="depo-text">
+              "Sempre tive medo de procedimentos estéticos, mas a equipe da Bella Derm me deixou super à vontade. O preenchimento labial ficou perfeito — natural, do jeito que eu queria. Com certeza voltarei!"
+            </p>
+            <div class="depo-author">
+              <div class="depo-avatar">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b17c?w=100&q=80"
+                     alt="Camila R." loading="lazy" />
+              </div>
+              <div>
+                <div class="depo-name">Camila R.</div>
+                <div class="depo-role">Preenchimento Labial · Senador Canedo</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="depo-card fade-up delay-2">
+            <div class="depo-stars">
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+            </div>
+            <p class="depo-text">
+              "Fiz o CO2 laser e minhas manchas sumiram completamente! A Lais explicou cada etapa com cuidado e paciência. Sinto que descobri um novo eu. A pele que eu sempre quis finalmente é minha realidade."
+            </p>
+            <div class="depo-author">
+              <div class="depo-avatar">
+                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&q=80"
+                     alt="Fernanda T." loading="lazy" />
+              </div>
+              <div>
+                <div class="depo-name">Fernanda T.</div>
+                <div class="depo-role">CO2 Laser · Aparecida de Goiânia</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="depo-card fade-up delay-3">
+            <div class="depo-stars">
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+            </div>
+            <p class="depo-text">
+              "Indico a Bella Derm para todas as minhas amigas! Faço depilação a laser há 2 anos e o resultado é incrível. Ambiente cheiroso, equipe gentil e resultado real. Clínica que cuida de verdade."
+            </p>
+            <div class="depo-author">
+              <div class="depo-avatar">
+                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80"
+                     alt="Juliana M." loading="lazy" />
+              </div>
+              <div>
+                <div class="depo-name">Juliana M.</div>
+                <div class="depo-role">Depilação a Laser · Senador Canedo</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="depo-card fade-up delay-4">
+            <div class="depo-stars">
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+              <span class="depo-star">★</span>
+            </div>
+            <p class="depo-text">
+              "O Botox na Bella Derm foi a melhor decisão que já tomei. Natural, sem aquele efeito 'congelado' que eu tanto temia. Vou indicar para toda a minha família. Atendimento acolhedor do início ao fim."
+            </p>
+            <div class="depo-author">
+              <div class="depo-avatar">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80"
+                     alt="Ana Paula O." loading="lazy" />
+              </div>
+              <div>
+                <div class="depo-name">Ana Paula O.</div>
+                <div class="depo-role">Toxina Botulínica · Trindade</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Controles -->
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="carousel-prev" aria-label="Anterior">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+
+        <div class="carousel-dots" id="carousel-dots">
+          <button class="carousel-dot active" data-index="0" aria-label="Slide 1"></button>
+          <button class="carousel-dot" data-index="1" aria-label="Slide 2"></button>
+          <button class="carousel-dot" data-index="2" aria-label="Slide 3"></button>
+        </div>
+
+        <button class="carousel-btn" id="carousel-next" aria-label="Próximo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA FINAL — FAIXA DARK COM URGÊNCIA
+  ============================================================ -->
+  <section id="cta-final">
+    <div class="cta-deco"></div>
+    <div class="cta-deco-2"></div>
+
+    <div class="cta-final-inner">
+      <span class="eyebrow eyebrow--light fade-up">Comece sua transformação</span>
+
+      <div class="urgencia-tag fade-up delay-1">
+        <div class="urgencia-dot"></div>
+        Agenda com vagas limitadas — agende já a sua
+      </div>
+
+      <h2 class="h2-section fade-up delay-2">
+        Sua <em>melhor versão</em> está<br />
+        a uma mensagem de distância.
+      </h2>
+
+      <p class="cta-final-sub fade-up delay-3">
+        Agende sua avaliação gratuita e descubra quais procedimentos são ideais para você. Sem compromisso — só cuidado, atenção e resultado.
+      </p>
+
+      <div class="cta-final-actions fade-up delay-4">
+        <a href="https://wa.me/5562849464006?text=Ol%C3%A1!+Vi+o+site+da+Bella+Derm+e+quero+agendar+minha+avalia%C3%A7%C3%A3o+gratuita."
+           class="btn btn-primary"
+           target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.08 6.08l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Agendar Avaliação Gratuita
+        </a>
+        <a href="https://www.instagram.com/clinica.belladerm/"
+           class="btn btn-outline"
+           target="_blank" rel="noopener">
+          Ver no Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="footer-top">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-name" style="color:var(--cor-branco)">Bella Derm</span>
+          <span class="logo-tag">Clínica de Estética</span>
+        </div>
+        <p class="footer-brand-desc">
+          Há 9 anos transformando a autoestima de mulheres em Senador Canedo e região. Beleza com segurança, cuidado e resultado real.
+        </p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/clinica.belladerm/"
+             class="social-link" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://wa.me/5562849464006?text=Ol%C3%A1!+Vi+o+site+da+Bella+Derm+e+quero+saber+mais."
+             class="social-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.08 6.08l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Serviços -->
+      <div>
+        <div class="footer-col-title">Serviços</div>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/5562849464006?text=Quero+saber+sobre+Botox" target="_blank" rel="noopener">Toxina Botulínica</a></li>
+          <li><a href="https://wa.me/5562849464006?text=Quero+saber+sobre+Preenchimento" target="_blank" rel="noopener">Preenchimento Labial</a></li>
+          <li><a href="https://wa.me/5562849464006?text=Quero+saber+sobre+Preenchimento+Malar" target="_blank" rel="noopener">Preenchimento Malar</a></li>
+          <li><a href="https://wa.me/5562849464006?text=Quero+saber+sobre+CO2+Laser" target="_blank" rel="noopener">CO2 Laser Fracionado</a></li>
+          <li><a href="https://wa.me/5562849464006?text=Quero+saber+sobre+Harmonizacao+Facial" target="_blank" rel="noopener">Harmonização Facial</a></li>
+          <li><a href="https://wa.me/5562849464006?text=Quero+saber+sobre+Depilacao+Laser" target="_blank" rel="noopener">Depilação a Laser</a></li>
+        </ul>
+      </div>
+
+      <!-- Links rápidos -->
+      <div>
+        <div class="footer-col-title">Navegação</div>
+        <ul class="footer-links">
+          <li><a href="#hero">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre a Clínica</a></li>
+          <li><a href="#resultados">Resultados</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li>
+            <a href="https://www.instagram.com/clinica.belladerm/" target="_blank" rel="noopener">
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contato -->
+      <div>
+        <div class="footer-col-title">Contato</div>
+
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="footer-contact-text">
+            Av. Aroeira, 173<br />
+            Jardim Sabiá<br />
+            Senador Canedo — GO
+          </div>
+        </div>
+
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <div class="footer-contact-text">
+            <a href="https://wa.me/5562849464006" target="_blank" rel="noopener">
+              (62) 8494-6406
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"></div>
+          <div class="footer-contact-text">
+            <a href="https://www.instagram.com/clinica.belladerm/" target="_blank" rel="noopener">
+              @clinica.belladerm
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="footer-contact-text">
+            Seg – Sex: 9h às 19h<br />
+            Sáb: 9h às 14h
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer bottom -->
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        © 2026 Clínica Bella Derm. Todos os direitos reservados.
+      </p>
+      <p class="footer-credits">
+        Site desenvolvido por
+        <a href="https://vant-studio.web.app" target="_blank" rel="noopener">VANT Digital Studio</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/5562849464006?text=Ol%C3%A1!+Vi+o+site+da+Bella+Derm+e+quero+saber+mais."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener"
+     aria-label="Fale conosco pelo WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ============================================================
+       JAVASCRIPT — Parallax, Scroll Animations, Counter, Carousel
+  ============================================================ -->
+  <script>
+    /* ============================================================
+       HEADER: scroll state
+    ============================================================ */
+    (function() {
+      var header = document.getElementById('header');
+
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 60) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }, { passive: true });
+    })();
+
+    /* ============================================================
+       MOBILE MENU
+    ============================================================ */
+    (function() {
+      var toggle = document.getElementById('menu-toggle');
+      var nav    = document.getElementById('main-nav');
+
+      toggle.addEventListener('click', function() {
+        toggle.classList.toggle('open');
+        nav.classList.toggle('open');
+      });
+
+      // Fecha ao clicar em link
+      nav.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          toggle.classList.remove('open');
+          nav.classList.remove('open');
+        });
+      });
+    })();
+
+    /* ============================================================
+       PARALLAX NO HERO — requestAnimationFrame
+    ============================================================ */
+    (function() {
+      var heroBg = document.getElementById('hero-bg');
+      var ticking = false;
+
+      function updateParallax() {
+        var scrollY = window.scrollY;
+        heroBg.style.transform = 'translateY(' + (scrollY * 0.35) + 'px)';
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+
+    /* ============================================================
+       INTERSECTION OBSERVER — Scroll animations
+    ============================================================ */
+    (function() {
+      var animatedEls = document.querySelectorAll(
+        '.fade-up, .slide-in-left, .slide-in-right, .scale-in'
+      );
+
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      animatedEls.forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+
+    /* ============================================================
+       COUNTERS ANIMADOS
+    ============================================================ */
+    (function() {
+      var counters = document.querySelectorAll('.counter');
+      var started  = false;
+
+      function animateCounter(el) {
+        var target   = parseInt(el.getAttribute('data-target'), 10);
+        var duration = 1800;
+        var start    = null;
+
+        function step(timestamp) {
+          if (!start) start = timestamp;
+          var progress = Math.min((timestamp - start) / duration, 1);
+          // Easing: easeOutExpo
+          var eased = 1 - Math.pow(2, -10 * progress);
+          var value  = Math.floor(eased * target);
+          el.textContent = value.toLocaleString('pt-BR');
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = target.toLocaleString('pt-BR');
+          }
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      var counterSection = document.getElementById('counters');
+      var counterObserver = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !started) {
+          started = true;
+          counters.forEach(function(counter) {
+            animateCounter(counter);
+          });
+        }
+      }, { threshold: 0.4 });
+
+      counterObserver.observe(counterSection);
+    })();
+
+    /* ============================================================
+       CAROUSEL DE DEPOIMENTOS
+    ============================================================ */
+    (function() {
+      var track      = document.getElementById('carousel-track');
+      var prevBtn    = document.getElementById('carousel-prev');
+      var nextBtn    = document.getElementById('carousel-next');
+      var dots       = document.querySelectorAll('.carousel-dot');
+      var cards      = document.querySelectorAll('.depo-card');
+      var current    = 0;
+      var autoPlay   = null;
+
+      // Slides por viewport
+      function getSlidesVisible() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
+      }
+
+      var totalSlides = 3; // número de posições de dot
+
+      function goToSlide(index) {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+
+        current = index;
+        var visible   = getSlidesVisible();
+        var cardWidth = track.offsetWidth / visible;
+        var gap       = 24;
+        var offset    = current * (cardWidth + gap);
+
+        track.style.transform = 'translateX(-' + offset + 'px)';
+
+        // Atualiza dots
+        dots.forEach(function(dot, i) {
+          dot.classList.toggle('active', i === current);
+        });
+      }
+
+      // Event listeners
+      prevBtn.addEventListener('click', function() {
+        goToSlide(current - 1);
+        resetAutoPlay();
+      });
+
+      nextBtn.addEventListener('click', function() {
+        goToSlide(current + 1);
+        resetAutoPlay();
+      });
+
+      dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+          goToSlide(parseInt(dot.getAttribute('data-index'), 10));
+          resetAutoPlay();
+        });
+      });
+
+      // Swipe touch support
+      var touchStartX = 0;
+      track.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+      }, { passive: true });
+
+      track.addEventListener('touchend', function(e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) goToSlide(current + 1);
+          else          goToSlide(current - 1);
+          resetAutoPlay();
+        }
+      });
+
+      // AutoPlay
+      function startAutoPlay() {
+        autoPlay = setInterval(function() {
+          goToSlide(current + 1);
+        }, 5000);
+      }
+
+      function resetAutoPlay() {
+        clearInterval(autoPlay);
+        startAutoPlay();
+      }
+
+      // Pausar ao hover
+      document.getElementById('carousel-wrap').addEventListener('mouseenter', function() {
+        clearInterval(autoPlay);
+      });
+      document.getElementById('carousel-wrap').addEventListener('mouseleave', function() {
+        startAutoPlay();
+      });
+
+      // Inicializa
+      startAutoPlay();
+
+      // Recalcula no resize
+      window.addEventListener('resize', function() {
+        goToSlide(current);
+      });
+    })();
+
+    /* ============================================================
+       SMOOTH SCROLL — links âncora
+    ============================================================ */
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          var headerH = document.getElementById('header').offsetHeight;
+          var top     = target.getBoundingClientRect().top + window.scrollY - headerH;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* ============================================================
+       ACTIVE NAV LINK — Highlight conforme seção visível
+    ============================================================ */
+    (function() {
+      var sections = document.querySelectorAll('section[id]');
+      var navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+      function onScroll() {
+        var scrollY = window.scrollY + 120;
+        sections.forEach(function(section) {
+          var top    = section.offsetTop;
+          var height = section.offsetHeight;
+          var id     = section.getAttribute('id');
+          if (scrollY >= top && scrollY < top + height) {
+            navLinks.forEach(function(link) {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+  </script>
+
+</body>
+</html>

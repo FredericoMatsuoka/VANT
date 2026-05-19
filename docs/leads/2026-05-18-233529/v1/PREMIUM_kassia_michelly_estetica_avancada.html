@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kassia Michelly — Estética Avançada | Senador Canedo, GO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cor-pessego: #F9E4D4;
+      --cor-cobre: #C88060;
+      --cor-cobre-dark: #A86040;
+      --cor-cobre-light: #E8A080;
+      --cor-branco: #FFFFFF;
+      --cor-preto: #1A0A00;
+      --cor-preto-soft: #2A1A10;
+      --cor-cinza: #F5EDE8;
+      --grad-cobre: linear-gradient(135deg, #C88060, #E8A080, #C88060);
+      --font: 'Outfit', sans-serif;
+      --transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: var(--font); background: var(--cor-branco); color: var(--cor-preto); overflow-x: hidden; }
+
+    /* ===================== HEADER ===================== */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 22px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all 0.45s ease;
+    }
+    .header.scrolled {
+      background: rgba(26, 10, 0, 0.97);
+      padding: 14px 48px;
+      box-shadow: 0 1px 40px rgba(0,0,0,0.3);
+    }
+    .header-logo {
+      display: flex; flex-direction: column;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--cor-branco); letter-spacing: 0.04em;
+    }
+    .header-logo span {
+      font-size: 0.55rem; font-weight: 400;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--cor-cobre-light); margin-top: 2px;
+    }
+    .header-nav { display: flex; gap: 36px; align-items: center; }
+    .header-nav a {
+      font-size: 0.75rem; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(255,255,255,0.65); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .header-nav a:hover { color: var(--cor-cobre-light); }
+    .header-btn {
+      padding: 10px 26px;
+      background: var(--cor-cobre);
+      color: var(--cor-branco) !important;
+      border-radius: 2px;
+      font-size: 0.72rem !important; font-weight: 600 !important;
+      letter-spacing: 0.12em !important;
+      transition: background 0.3s !important;
+    }
+    .header-btn:hover { background: var(--cor-cobre-dark) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: rgba(255,255,255,0.7); border-radius: 2px; }
+
+    /* ===================== HERO 50/50 ===================== */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .hero-img-side {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img-bg {
+      position: absolute; inset: -60px;
+      background: url('https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=1400&q=80') center/cover no-repeat;
+      will-change: transform;
+    }
+    .hero-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(26,10,0,0.15), rgba(26,10,0,0.02));
+    }
+    .hero-text-side {
+      background: var(--cor-preto);
+      display: flex; align-items: center;
+      padding: 120px 72px 80px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-text-side::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,128,96,0.12) 0%, transparent 65%);
+    }
+    .hero-text-inner { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(200,128,96,0.15);
+      border: 1px solid rgba(200,128,96,0.3);
+      border-radius: 40px;
+      padding: 7px 18px;
+      margin-bottom: 36px;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--cor-cobre); animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+    .hero-badge span {
+      font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--cor-cobre-light);
+    }
+    .hero-titulo {
+      font-size: clamp(2.4rem, 4vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.05;
+      color: var(--cor-branco);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    .hero-titulo .highlight {
+      display: block;
+      background: var(--grad-cobre);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitulo {
+      font-size: 0.95rem; font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8; margin-bottom: 48px;
+    }
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-bottom: 44px;
+    }
+    .hero-pill {
+      padding: 7px 16px;
+      border: 1px solid rgba(200,128,96,0.35);
+      border-radius: 40px;
+      font-size: 0.72rem; font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.06em;
+    }
+    .hero-btns { display: flex; gap: 14px; align-items: center; }
+    .hero-btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 36px;
+      background: var(--cor-cobre);
+      color: var(--cor-branco);
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px;
+      transition: all 0.35s ease;
+      border: 1px solid var(--cor-cobre);
+    }
+    .hero-btn-primary:hover { background: var(--cor-cobre-dark); border-color: var(--cor-cobre-dark); }
+    .hero-btn-secondary {
+      font-size: 0.75rem; font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none; letter-spacing: 0.08em;
+      transition: color 0.3s;
+    }
+    .hero-btn-secondary:hover { color: var(--cor-cobre-light); }
+    .hero-scroll-num {
+      position: absolute; bottom: 40px; left: 72px;
+      font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ===================== SERVIÇOS CARDS COM BORDA GRADIENTE ===================== */
+    .servicos {
+      background: var(--cor-pessego);
+      padding: 110px 48px;
+    }
+    .servicos-inner { max-width: 1200px; margin: 0 auto; }
+    .servicos-header {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: end;
+      margin-bottom: 70px;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--cor-cobre); margin-bottom: 14px;
+    }
+    .section-titulo {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 800; color: var(--cor-preto);
+      line-height: 1.1; letter-spacing: -0.02em;
+    }
+    .section-desc {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(26,10,0,0.6); line-height: 1.8;
+    }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .servico-card {
+      position: relative;
+      background: var(--cor-branco);
+      padding: 40px 32px;
+      cursor: default;
+      transition: transform 0.4s ease;
+      overflow: hidden;
+    }
+    .servico-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--cor-cobre), var(--cor-cobre-light), var(--cor-cobre));
+      padding: 2px;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .servico-card:hover::before { opacity: 1; }
+    .servico-card:hover { transform: translateY(-4px); }
+
+    .servico-card-num {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--cor-cobre); margin-bottom: 20px;
+    }
+    .servico-card-icon {
+      width: 52px; height: 52px;
+      background: rgba(200,128,96,0.12);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px;
+      font-size: 1.4rem;
+      transition: background 0.3s;
+    }
+    .servico-card:hover .servico-card-icon { background: rgba(200,128,96,0.22); }
+    .servico-card-nome {
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--cor-preto); margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .servico-card-desc {
+      font-size: 0.84rem; font-weight: 300;
+      color: rgba(26,10,0,0.6); line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .servico-card-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cor-cobre); text-decoration: none;
+      transition: gap 0.3s;
+    }
+    .servico-card:hover .servico-card-link { gap: 14px; }
+
+    /* ===================== RESULTADOS MASONRY ===================== */
+    .resultados {
+      background: var(--cor-preto);
+      padding: 110px 48px;
+    }
+    .resultados-inner { max-width: 1200px; margin: 0 auto; }
+    .resultados-header { margin-bottom: 60px; }
+    .resultados-header .section-tag { color: var(--cor-cobre-light); }
+    .resultados-header .section-titulo { color: var(--cor-branco); }
+
+    .masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 14px;
+    }
+    .masonry-item {
+      position: relative; overflow: hidden;
+      cursor: pointer;
+    }
+    .masonry-item img {
+      width: 100%; display: block;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      filter: grayscale(20%);
+    }
+    .masonry-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
+    .masonry-item.tall { grid-row: span 2; }
+    .masonry-item.tall img { height: 480px; }
+    .masonry-item:not(.tall) img { height: 220px; }
+    .masonry-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(200,128,96,0.85), transparent);
+      opacity: 0; transition: opacity 0.4s;
+      display: flex; align-items: flex-end;
+      padding: 24px;
+    }
+    .masonry-item:hover .masonry-overlay { opacity: 1; }
+    .masonry-label {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--cor-branco);
+    }
+    .resultados-cta {
+      margin-top: 50px; text-align: center;
+    }
+    .resultados-cta-text {
+      font-size: 0.85rem; font-weight: 300;
+      color: rgba(255,255,255,0.45); margin-bottom: 24px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ===================== SOBRE ===================== */
+    .sobre {
+      background: var(--cor-cinza);
+      padding: 110px 48px;
+    }
+    .sobre-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 100px; align-items: center;
+    }
+    .sobre-texto {}
+    .sobre-titulo {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 800; color: var(--cor-preto);
+      line-height: 1.15; letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .sobre-titulo em {
+      font-style: normal;
+      background: var(--grad-cobre);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .sobre-p {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(26,10,0,0.65); line-height: 1.85;
+      margin-bottom: 18px;
+    }
+    .sobre-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; margin-top: 50px;
+      border-top: 2px solid rgba(200,128,96,0.2);
+      padding-top: 40px;
+    }
+    .sobre-stat {
+      padding-right: 24px; border-right: 1px solid rgba(200,128,96,0.2);
+      padding-left: 24px;
+    }
+    .sobre-stat:first-child { padding-left: 0; }
+    .sobre-stat:last-child { border-right: none; }
+    .sobre-stat-num {
+      font-size: 2.6rem; font-weight: 800;
+      letter-spacing: -0.03em;
+      background: var(--grad-cobre);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .sobre-stat-label {
+      font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(26,10,0,0.45); margin-top: 6px;
+    }
+    .sobre-visual {}
+    .sobre-img-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .sobre-img-main {
+      grid-column: span 2;
+    }
+    .sobre-img-main img, .sobre-img-grid img {
+      width: 100%; display: block; object-fit: cover;
+    }
+    .sobre-img-main img { height: 280px; }
+    .sobre-img-grid .sub img { height: 150px; }
+    .sobre-img-tag {
+      background: var(--cor-cobre);
+      color: var(--cor-branco);
+      padding: 22px 24px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; text-align: center;
+    }
+    .sobre-img-tag strong {
+      font-size: 1.8rem; font-weight: 800;
+      letter-spacing: -0.02em; display: block;
+    }
+    .sobre-img-tag span {
+      font-size: 0.65rem; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      opacity: 0.8; margin-top: 4px;
+    }
+
+    /* ===================== DEPOIMENTOS ===================== */
+    .depoimentos {
+      background: var(--cor-branco);
+      padding: 110px 48px;
+    }
+    .depoimentos-inner { max-width: 1200px; margin: 0 auto; }
+    .depoimentos-header { margin-bottom: 60px; }
+    .depoimentos-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .depoimento-card {
+      padding: 40px 34px;
+      background: var(--cor-pessego);
+      position: relative; border-radius: 4px;
+      transition: transform 0.4s;
+    }
+    .depoimento-card:hover { transform: translateY(-6px); }
+    .depoimento-estrelas {
+      display: flex; gap: 4px; margin-bottom: 22px;
+    }
+    .depoimento-estrelas span {
+      color: var(--cor-cobre); font-size: 0.9rem;
+    }
+    .depoimento-texto {
+      font-size: 0.92rem; font-weight: 300;
+      color: rgba(26,10,0,0.75); line-height: 1.75;
+      margin-bottom: 28px;
+    }
+    .depoimento-sep {
+      width: 30px; height: 2px;
+      background: var(--cor-cobre);
+      margin-bottom: 22px;
+    }
+    .depoimento-autor { display: flex; align-items: center; gap: 14px; }
+    .depoimento-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--cor-cobre), var(--cor-cobre-light));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 700; color: var(--cor-branco);
+    }
+    .depoimento-nome {
+      font-size: 0.85rem; font-weight: 700; color: var(--cor-preto);
+    }
+    .depoimento-servico {
+      font-size: 0.72rem; font-weight: 400;
+      color: var(--cor-cobre); margin-top: 2px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===================== CTA ===================== */
+    .cta {
+      background: var(--cor-pessego);
+      padding: 110px 48px;
+    }
+    .cta-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.2fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .cta-titulo {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800; color: var(--cor-preto);
+      line-height: 1.08; letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    .cta-titulo em {
+      font-style: normal;
+      background: var(--grad-cobre);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cta-subtitulo {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(26,10,0,0.6); line-height: 1.8;
+    }
+    .cta-form-side {
+      background: var(--cor-preto);
+      padding: 48px 44px;
+      border-radius: 4px;
+    }
+    .cta-form-titulo {
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--cor-branco); margin-bottom: 8px;
+    }
+    .cta-form-sub {
+      font-size: 0.8rem; color: rgba(255,255,255,0.45);
+      margin-bottom: 32px; line-height: 1.6;
+    }
+    .cta-feature {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .cta-feature:last-of-type { border-bottom: none; margin-bottom: 36px; }
+    .cta-feature-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cor-cobre); flex-shrink: 0;
+    }
+    .cta-feature span {
+      font-size: 0.82rem; color: rgba(255,255,255,0.6);
+    }
+    .cta-btn {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      width: 100%; padding: 16px;
+      background: var(--cor-cobre);
+      color: var(--cor-branco);
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px;
+      transition: background 0.3s;
+    }
+    .cta-btn:hover { background: var(--cor-cobre-dark); }
+    .cta-nota {
+      text-align: center; margin-top: 14px;
+      font-size: 0.68rem; color: rgba(255,255,255,0.25);
+    }
+
+    /* ===================== FOOTER ===================== */
+    .footer {
+      background: var(--cor-preto);
+      padding: 70px 48px 30px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 70px; padding-bottom: 50px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 30px;
+    }
+    .footer-logo {
+      font-size: 1.3rem; font-weight: 800;
+      color: var(--cor-branco); margin-bottom: 6px;
+    }
+    .footer-logo-sub {
+      font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--cor-cobre); margin-bottom: 18px;
+    }
+    .footer-desc {
+      font-size: 0.82rem; font-weight: 300;
+      color: rgba(255,255,255,0.35); line-height: 1.8; margin-bottom: 24px;
+    }
+    .footer-insta {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.75rem; color: var(--cor-cobre-light);
+      text-decoration: none; font-weight: 500; transition: color 0.3s;
+    }
+    .footer-insta:hover { color: var(--cor-cobre); }
+    .footer-col-titulo {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); margin-bottom: 20px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a {
+      font-size: 0.83rem; color: rgba(255,255,255,0.4);
+      text-decoration: none; font-weight: 300;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--cor-cobre-light); }
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy { font-size: 0.73rem; color: rgba(255,255,255,0.2); }
+    .footer-city { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.15); }
+
+    /* INSTAGRAM FLOAT */
+    .insta-float {
+      position: fixed; bottom: 30px; right: 30px; z-index: 999;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 30px rgba(220,39,67,0.45);
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .insta-float:hover { transform: scale(1.1) translateY(-3px); box-shadow: 0 12px 40px rgba(220,39,67,0.5); }
+    .insta-float svg { width: 26px; height: 26px; }
+    .insta-tooltip {
+      position: absolute; right: 70px; white-space: nowrap;
+      background: rgba(26,10,0,0.95); color: var(--cor-branco);
+      font-size: 0.72rem; letter-spacing: 0.06em;
+      padding: 8px 14px; border-radius: 4px;
+      opacity: 0; transform: translateX(8px);
+      transition: all 0.3s; pointer-events: none;
+    }
+    .insta-float:hover .insta-tooltip { opacity: 1; transform: translateX(0); }
+
+    /* ANIMATIONS */
+    .fade-up { opacity:0; transform:translateY(40px); transition:opacity 0.8s ease,transform 0.8s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+    .slide-left { opacity:0; transform:translateX(-50px); transition:opacity 0.8s ease,transform 0.8s ease; }
+    .slide-left.visible { opacity:1; transform:translateX(0); }
+    .slide-right { opacity:0; transform:translateX(50px); transition:opacity 0.8s ease,transform 0.8s ease; }
+    .slide-right.visible { opacity:1; transform:translateX(0); }
+    .scale-in { opacity:0; transform:scale(0.92); transition:opacity 0.7s ease,transform 0.7s ease; }
+    .scale-in.visible { opacity:1; transform:scale(1); }
+    .delay-1 { transition-delay:0.1s; }
+    .delay-2 { transition-delay:0.2s; }
+    .delay-3 { transition-delay:0.3s; }
+    .delay-4 { transition-delay:0.4s; }
+    .delay-5 { transition-delay:0.5s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .header { padding: 18px 20px; }
+      .header.scrolled { padding: 12px 20px; }
+      .header-nav { display: none; }
+      .hamburger { display: flex; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-img-side { height: 50vh; }
+      .hero-text-side { padding: 60px 28px; }
+      .hero-scroll-num { display: none; }
+      .servicos { padding: 70px 20px; }
+      .servicos-header { grid-template-columns: 1fr; gap: 20px; }
+      .servicos-grid { grid-template-columns: 1fr; }
+      .resultados { padding: 70px 20px; }
+      .masonry-grid { grid-template-columns: 1fr 1fr; }
+      .masonry-item.tall { grid-row: span 1; }
+      .masonry-item.tall img, .masonry-item:not(.tall) img { height: 180px; }
+      .sobre { padding: 70px 20px; }
+      .sobre-inner { grid-template-columns: 1fr; gap: 40px; }
+      .sobre-stats { grid-template-columns: repeat(3, 1fr); }
+      .depoimentos { padding: 70px 20px; }
+      .depoimentos-grid { grid-template-columns: 1fr; }
+      .cta { padding: 70px 20px; }
+      .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer { padding: 60px 20px 24px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+      .insta-float { bottom: 20px; right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-logo">
+      Kassia Michelly
+      <span>Estética Avançada · Senador Canedo, GO</span>
+    </div>
+    <nav class="header-nav">
+      <a href="#servicos">Serviços</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#sobre">Sobre</a>
+      <a href="https://www.instagram.com/kassiamichelly_vitorio/" target="_blank" class="header-btn">Agendar</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <!-- HERO 50/50 -->
+  <section class="hero">
+    <div class="hero-img-side">
+      <div class="hero-img-bg" id="heroBg"></div>
+      <div class="hero-img-overlay"></div>
+    </div>
+    <div class="hero-text-side">
+      <div class="hero-text-inner">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          <span>Estética avançada</span>
+        </div>
+        <h1 class="hero-titulo">
+          Resultados<br />
+          <span class="highlight">visíveis.</span><br />
+          Ciência e arte.
+        </h1>
+        <p class="hero-subtitulo">
+          Procedimentos estéticos avançados que combinam técnica,
+          tecnologia e cuidado para transformar sua aparência com segurança.
+        </p>
+        <div class="hero-pills">
+          <span class="hero-pill">Botox</span>
+          <span class="hero-pill">Skinbooster</span>
+          <span class="hero-pill">Microagulhamento</span>
+          <span class="hero-pill">Bioestimuladores</span>
+          <span class="hero-pill">Fios de PDO</span>
+        </div>
+        <div class="hero-btns">
+          <a href="https://www.instagram.com/kassiamichelly_vitorio/" target="_blank" class="hero-btn-primary">
+            Agendar avaliação
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#servicos" class="hero-btn-secondary">Ver procedimentos →</a>
+        </div>
+        <div class="hero-scroll-num">Senador Canedo, GO</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="servicos" id="servicos">
+    <div class="servicos-inner">
+      <div class="servicos-header">
+        <div>
+          <span class="section-tag fade-up">Procedimentos</span>
+          <h2 class="section-titulo fade-up delay-1">Estética que<br />gera resultados reais</h2>
+        </div>
+        <p class="section-desc fade-up delay-2">
+          Cada procedimento é realizado com protocolos seguros, produtos de alta performance
+          e a expertise de quem entende de resultados. Sua transformação começa aqui.
+        </p>
+      </div>
+
+      <div class="servicos-grid">
+        <div class="servico-card fade-up delay-1">
+          <div class="servico-card-num">01</div>
+          <div class="servico-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4-14 14-4-4 14-14z"/><path d="m5 13-3 7"/><path d="m15 3 4 4"/></svg></div>
+          <div class="servico-card-nome">Botox</div>
+          <div class="servico-card-desc">Toxina botulínica aplicada com precisão para suavizar linhas de expressão e prevenir o envelhecimento precoce com naturalidade.</div>
+          <a href="https://www.instagram.com/kassiamichelly_vitorio/" target="_blank" class="servico-card-link">Saiba mais →</a>
+        </div>
+        <div class="servico-card fade-up delay-2">
+          <div class="servico-card-num">02</div>
+          <div class="servico-card-icon"></div>
+          <div class="servico-card-nome">Skinbooster</div>
+          <div class="servico-card-desc">Hidratação profunda com ácido hialurônico injetável que revitaliza, ilumina e devolvida o viço da pele de dentro para fora.</div>
+          <a href="https://www.instagram.com/kassiamichelly_vitorio/" target="_blank" class="servico-card-link">Saiba mais →</a>
+        </div>
+        <div class="servico-card fade-up delay-3">
+          <div class="servico-card-num">03</div>
+          <div class="servico-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 18-4 4h6"/><path d="M8 18 14 4"/><path d="m14 4 4 4"/><path d="m10 14 4-10"/><path d="m18 8-3.4 8.5"/><line x1="2" y1="22" x2="22" y2="22"/></svg></div>
+          <div class="servico-card-nome">Microagulhamento</div>
+          <div class="servico-card-desc">Estimulação de colágeno para reduzir cicatrizes, poros dilatados, manchas e rejuvenescer a pele com eficácia comprovada.</div>
+          <a href="https://www.instagram.com/kassiamichelly_vitorio/" target="_blank" class="servico-card-link">Saiba mais →</a>
+        </div>
+        <div class="servico-card fade-up delay-2">
+          <div class="servico-card-num">04</div>
+          <div class="servico-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22c1.5-1.5 10.5-1 11-10"/><path d="M2 22c1.5-1.5 2.5-9 10-9"/><path d="M6 15c1.5-1.5 5.5-3 8-3"/></svg></div>
+          <div class="servico-card-nome">Bioestimuladores</div>
+          <div class="servico-card-desc">Estimulação natural da produção de colágeno para pele mais firme, volumosa e jovial, com efeito progressivo e duradouro.</div>
+          <a href="https://www.instagram.com/kassiamichelly_vitorio/" target="_blank" class="servico-card-link">Saiba mais →</a>
+        </div>
+        <div class="servico-card fade-up delay-3">
+          <div class="servico-card-num">05</div>
+          <div class="servico-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <div class="servico-card-nome">Fios de PDO</div>
+          <div class="servico-card-desc">Lifting sem cirurgia com fios absorvíveis que reposicionam os tecidos, estimulam colágeno e definem o contorno facial.</div>
+          <a href="https://www.instagram.com/kassiamichelly_vitorio/" target="_blank" class="servico-card-link">Saiba mais →</a>
+        </div>
+        <div class="servico-card fade-up delay-4" style="background: var(--cor-cobre); cursor: pointer;" onclick="window.open('https://www.instagram.com/kassiamichelly_vitorio/','_blank')">
+          <div class="servico-card-num" style="color: rgba(255,255,255,0.6);">CTA</div>
+          <div class="servico-card-icon" style="background: rgba(255,255,255,0.15); font-size: 1.6rem;">→</div>
+          <div class="servico-card-nome" style="color: #fff;">Agende sua avaliação gratuita</div>
+          <div class="servico-card-desc" style="color: rgba(255,255,255,0.7);">Descubra qual procedimento é ideal para você. Atendimento personalizado no Instagram.</div>
+          <a href="https://www.instagram.com/kassiamichelly_vitorio/" target="_blank" class="servico-card-link" style="color: rgba(255,255,255,0.8);">Agendar agora →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS MASONRY -->
+  <section class="resultados" id="resultados">
+    <div class="resultados-inner">
+      <div class="resultados-header">
+        <span class="section-tag fade-up">Nossos resultados</span>
+        <h2 class="section-titulo fade-up delay-1" style="color: #fff;">Transformações <em style="font-style:normal; background: linear-gradient(135deg,#C88060,#E8A080); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">reais</em></h2>
+      </div>
+      <div class="masonry-grid">
+        <div class="masonry-item tall scale-in delay-1">
+          <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&q=80" alt="Resultado estética avançada" loading="lazy" />
+          <div class="masonry-overlay"><span class="masonry-label">Skinbooster</span></div>
+        </div>
+        <div class="masonry-item scale-in delay-2">
+          <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80" alt="Resultado botox" loading="lazy" />
+          <div class="masonry-overlay"><span class="masonry-label">Botox</span></div>
+        </div>
+        <div class="masonry-item scale-in delay-3">
+          <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&q=80" alt="Resultado microagulhamento" loading="lazy" />
+          <div class="masonry-overlay"><span class="masonry-label">Microagulhamento</span></div>
+        </div>
+        <div class="masonry-item scale-in delay-2">
+          <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&q=80" alt="Resultado bioestimuladores" loading="lazy" />
+          <div class="masonry-overlay"><span class="masonry-label">Bioestimuladores</span></div>
+        </div>
+        <div class="masonry-item scale-in delay-4">
+          <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80" alt="Resultado fios PDO" loading="lazy" />
+          <div class="masonry-overlay"><span class="masonry-label">Fios de PDO</span></div>
+        </div>
+      </div>
+      <div class="resultados-cta">
+        <p class="resultados-cta-text">Quer ver mais resultados? Acesse nosso perfil no Instagram</p>
+        <a href="https://www.instagram.com/kassiamichelly_vitorio/" target="_blank" class="hero-btn-primary" style="display:inline-flex;">
+          @kassiamichelly_vitorio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre">
+    <div class="sobre-inner">
+      <div class="sobre-texto slide-left">
+        <span class="section-tag">Sobre Kassia Michelly</span>
+        <h2 class="sobre-titulo">
+          Especialista em <em>estética avançada</em> com foco em resultados
+        </h2>
+        <p class="sobre-p">
+          Formada e especializada em procedimentos estéticos avançados, Kassia Michelly combina
+          conhecimento técnico profundo com sensibilidade artística para entregar resultados que
+          respeitam a individualidade de cada paciente.
+        </p>
+        <p class="sobre-p">
+          Cada atendimento começa por uma avaliação completa — porque não existe protocolo único.
+          Em Senador Canedo, é referência em Botox, Skinbooster e Microagulhamento para quem
+          busca transformação segura e natural.
+        </p>
+        <div class="sobre-stats">
+          <div class="sobre-stat">
+            <div class="sobre-stat-num" data-count="300">0</div>
+            <div class="sobre-stat-label">Procedimentos</div>
+          </div>
+          <div class="sobre-stat">
+            <div class="sobre-stat-num" data-count="5">0</div>
+            <div class="sobre-stat-label">Anos de expertise</div>
+          </div>
+          <div class="sobre-stat">
+            <div class="sobre-stat-num" data-count="98">0</div>
+            <div class="sobre-stat-label">% satisfação</div>
+          </div>
+        </div>
+      </div>
+      <div class="sobre-visual slide-right">
+        <div class="sobre-img-grid">
+          <div class="sobre-img-main">
+            <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=800&q=80" alt="Kassia Michelly Estética" loading="lazy" />
+          </div>
+          <div class="sub">
+            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80" alt="Procedimento estético" loading="lazy" />
+          </div>
+          <div class="sobre-img-tag">
+            <strong>+300</strong>
+            <span>Pacientes transformadas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos" id="depoimentos">
+    <div class="depoimentos-inner">
+      <div class="depoimentos-header">
+        <span class="section-tag fade-up">Quem já se transformou</span>
+        <h2 class="section-titulo fade-up delay-1">Resultados que <em style="font-style:normal; background: linear-gradient(135deg,#C88060,#E8A080); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">falam</em></h2>
+      </div>
+      <div class="depoimentos-grid">
+        <div class="depoimento-card scale-in delay-1">
+          <div class="depoimento-estrelas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="depoimento-texto">"Fiz Botox com a Kassia e o resultado ficou PERFEITO. Natural, sem aquele ar de artificial. Ela é extremamente técnica e me explicou tudo durante o procedimento. Amei!"</p>
+          <div class="depoimento-sep"></div>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">T</div>
+            <div>
+              <div class="depoimento-nome">Tânia Cristina Borges</div>
+              <div class="depoimento-servico">Botox · Resultado natural</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card scale-in delay-2">
+          <div class="depoimento-estrelas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="depoimento-texto">"Fiz o microagulhamento para tratar manchas e minhas cicatrizes de acne. Já na terceira sessão a diferença era enorme. Pele nova de verdade! Recomendo demais."</p>
+          <div class="depoimento-sep"></div>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">P</div>
+            <div>
+              <div class="depoimento-nome">Priscila Gonçalves Lima</div>
+              <div class="depoimento-servico">Microagulhamento · 3 sessões</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card scale-in delay-3">
+          <div class="depoimento-estrelas"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="depoimento-texto">"O Skinbooster mudou minha relação com a minha pele. Ela ficou hidratada, brilhosa e firme. A Kassia é super dedicada e o ambiente é muito bem cuidado. Voltarei sempre!"</p>
+          <div class="depoimento-sep"></div>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">F</div>
+            <div>
+              <div class="depoimento-nome">Fernanda Rezende Nunes</div>
+              <div class="depoimento-servico">Skinbooster · Hidratação profunda</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contato">
+    <div class="cta-inner">
+      <div class="slide-left">
+        <span class="section-tag">Comece sua transformação</span>
+        <h2 class="cta-titulo">
+          Sua versão<br /><em>mais bonita</em><br />começa agora
+        </h2>
+        <p class="cta-subtitulo">
+          Agende uma avaliação gratuita e descubra o procedimento ideal para
+          você. Atendimento personalizado com quem entende de resultados reais.
+        </p>
+      </div>
+      <div class="cta-form-side slide-right">
+        <div class="cta-form-titulo">Agende pelo Instagram</div>
+        <div class="cta-form-sub">Resposta rápida · Atendimento em Senador Canedo, GO</div>
+        <div class="cta-feature">
+          <div class="cta-feature-dot"></div>
+          <span>Avaliação gratuita e personalizada</span>
+        </div>
+        <div class="cta-feature">
+          <div class="cta-feature-dot"></div>
+          <span>Procedimentos com protocolos seguros</span>
+        </div>
+        <div class="cta-feature">
+          <div class="cta-feature-dot"></div>
+          <span>Resultados naturais e duradouros</span>
+        </div>
+        <div class="cta-feature">
+          <div class="cta-feature-dot"></div>
+          <span>Profissional certificada e experiente</span>
+        </div>
+        <a href="https://www.instagram.com/kassiamichelly_vitorio/" target="_blank" class="cta-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Chamar no Instagram
+        </a>
+        <p class="cta-nota">@kassiamichelly_vitorio · DM aberta</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Kassia Michelly</div>
+        <div class="footer-logo-sub">Estética Avançada</div>
+        <p class="footer-desc">Procedimentos estéticos com ciência e precisão para transformações reais e seguras em Senador Canedo, GO.</p>
+        <a href="https://www.instagram.com/kassiamichelly_vitorio/" target="_blank" class="footer-insta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @kassiamichelly_vitorio
+        </a>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Procedimentos</div>
+        <div class="footer-links">
+          <a href="#servicos">Botox</a>
+          <a href="#servicos">Skinbooster</a>
+          <a href="#servicos">Microagulhamento</a>
+          <a href="#servicos">Bioestimuladores</a>
+          <a href="#servicos">Fios de PDO</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Contato</div>
+        <div class="footer-links">
+          <a href="#">Senador Canedo, GO</a>
+          <a href="https://www.instagram.com/kassiamichelly_vitorio/" target="_blank">Instagram DM</a>
+          <a href="#resultados">Ver resultados</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Kassia Michelly Estética Avançada. Todos os direitos reservados.</span>
+      <span class="footer-city">Senador Canedo · GO</span>
+    </div>
+  </footer>
+
+  <!-- INSTAGRAM FLOAT -->
+  <a href="https://www.instagram.com/kassiamichelly_vitorio/" target="_blank" class="insta-float" aria-label="Instagram">
+    <span class="insta-tooltip">Agendar pelo Instagram</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+
+  <script>
+    // HEADER SCROLL
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); });
+
+    // PARALLAX HERO IMG
+    const heroBg = document.getElementById('heroBg');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // INTERSECTION OBSERVER
+    const animEls = document.querySelectorAll('.fade-up, .slide-left, .slide-right, .scale-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    animEls.forEach(el => observer.observe(el));
+
+    // COUNTERS
+    const counters = document.querySelectorAll('[data-count]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.count);
+          let current = 0;
+          const timer = setInterval(() => {
+            current += target / 60;
+            if (current >= target) { el.textContent = target; clearInterval(timer); }
+            else { el.textContent = Math.floor(current); }
+          }, 25);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObserver.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Matri Trindade — Medicina Avançada Multidisciplinar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #2E4057;
+    --light-blue: #A8C8E8;
+    --white: #FFFFFF;
+    --dark: #1A2535;
+    --accent: #A8C8E8;
+    --text-muted: #6b7a8d;
+    --border: rgba(168,200,232,0.2);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ===== STICKY HEADER ===== */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.4s ease;
+    background: transparent;
+  }
+
+  header.scrolled {
+    background: rgba(26,37,53,0.97);
+    backdrop-filter: blur(12px);
+    padding: 12px 40px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--light-blue);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .logo-text {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.3px;
+  }
+
+  .logo-text span { color: var(--light-blue); }
+
+  nav { display: flex; gap: 32px; align-items: center; }
+
+  nav a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.3s;
+  }
+
+  nav a:hover { color: var(--light-blue); }
+
+  .nav-cta {
+    background: var(--light-blue) !important;
+    color: var(--dark) !important;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 700 !important;
+    transition: all 0.3s !important;
+  }
+
+  .nav-cta:hover { background: var(--white) !important; transform: translateY(-1px); }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* ===== HERO ===== */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--dark);
+  }
+
+  .hero-geo {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(168,200,232,0.12) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 1;
+  }
+
+  .hero-geo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(46,64,87,0.6) 0%, transparent 70%);
+  }
+
+  .hero-image {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 55%;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.35) saturate(0.7);
+    transform: scale(1.05);
+    transition: transform 8s ease;
+  }
+
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--dark) 0%, transparent 60%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    padding: 120px 40px 80px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(168,200,232,0.15);
+    border: 1px solid rgba(168,200,232,0.3);
+    color: var(--light-blue);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeInUp 0.8s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--light-blue);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  .hero-title {
+    font-size: clamp(38px, 5vw, 68px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s 0.2s ease both;
+  }
+
+  .hero-title .highlight {
+    color: var(--light-blue);
+    position: relative;
+  }
+
+  .hero-desc {
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    margin-bottom: 40px;
+    max-width: 520px;
+    animation: fadeInUp 0.8s 0.4s ease both;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s 0.6s ease both;
+  }
+
+  .btn-primary {
+    background: var(--light-blue);
+    color: var(--dark);
+    padding: 16px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+    box-shadow: 0 8px 30px rgba(168,200,232,0.3);
+  }
+
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(168,200,232,0.4); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover { border-color: var(--light-blue); color: var(--light-blue); }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    animation: fadeInUp 0.8s 0.8s ease both;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-number {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--light-blue);
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== PARALLAX STRIP ===== */
+  .parallax-strip {
+    background: var(--primary);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .strip-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .strip-item span { color: var(--light-blue); font-size: 18px; }
+
+  /* ===== SECTION BASE ===== */
+  section { padding: 100px 40px; }
+
+  .section-label {
+    display: inline-block;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    position: relative;
+    padding-left: 24px;
+  }
+
+  .section-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 2px;
+    background: var(--primary);
+  }
+
+  .section-title {
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 800;
+    color: var(--dark);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .section-desc {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-width: 580px;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  /* ===== ESPECIALIDADES ===== */
+  #especialidades { background: #f8fafd; }
+
+  .section-header { margin-bottom: 60px; }
+
+  .especialidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .espec-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px 28px;
+    text-align: center;
+    border: 1px solid var(--border);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .espec-card.visible { opacity: 1; transform: translateY(0); }
+
+  .espec-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .espec-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(46,64,87,0.12); border-color: var(--light-blue); }
+
+  .espec-card:hover::before { transform: scaleX(1); }
+
+  .espec-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, rgba(168,200,232,0.2), rgba(46,64,87,0.1));
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin: 0 auto 20px;
+  }
+
+  .espec-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .espec-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ===== COUNTERS ===== */
+  #counters {
+    background: var(--primary);
+    padding: 80px 40px;
+  }
+
+  .counters-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .counter-item { padding: 20px; }
+
+  .counter-number {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--light-blue);
+    line-height: 1;
+    display: block;
+  }
+
+  .counter-suffix { color: var(--light-blue); }
+
+  .counter-label {
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 8px;
+    font-weight: 500;
+  }
+
+  /* ===== SOBRE ===== */
+  #sobre { background: var(--white); }
+
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .sobre-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .sobre-image img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+  }
+
+  .sobre-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 50%;
+    background: linear-gradient(0deg, rgba(26,37,53,0.6), transparent);
+    border-radius: 0 0 20px 20px;
+  }
+
+  .sobre-badge {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    z-index: 2;
+    background: var(--white);
+    border-radius: 14px;
+    padding: 16px 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  }
+
+  .sobre-badge .num {
+    display: block;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+  }
+
+  .sobre-badge .lbl {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .sobre-content { padding: 20px 0; }
+
+  .sobre-content p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .sobre-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: #f8fafd;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .feature-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--primary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .feature-text { font-size: 14px; font-weight: 600; color: var(--dark); }
+
+  /* ===== DIFERENCIAIS ===== */
+  #diferenciais {
+    background: linear-gradient(135deg, var(--light-blue) 0%, rgba(168,200,232,0.4) 100%);
+    padding: 80px 40px;
+  }
+
+  .diferenciais-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .dif-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px 28px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  .dif-card.visible { opacity: 1; transform: translateY(0); }
+
+  .dif-num {
+    font-size: 48px;
+    font-weight: 800;
+    color: rgba(46,64,87,0.08);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .dif-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+
+  .dif-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ===== DEPOIMENTOS ===== */
+  #depoimentos { background: var(--white); }
+
+  .depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 48px;
+  }
+
+  .dep-card {
+    background: #f8fafd;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid var(--border);
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  .dep-card.visible { opacity: 1; transform: translateY(0); }
+
+  .dep-card::before {
+    content: '"';
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    font-size: 80px;
+    color: var(--light-blue);
+    font-family: Georgia, serif;
+    line-height: 1;
+    opacity: 0.5;
+  }
+
+  .stars {
+    color: #f59e0b;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .dep-text {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .dep-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .dep-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--light-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .dep-name { font-size: 15px; font-weight: 700; color: var(--dark); }
+
+  .dep-role { font-size: 13px; color: var(--text-muted); }
+
+  /* ===== CTA FINAL ===== */
+  #cta-final {
+    background: var(--dark);
+    padding: 100px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #cta-final::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(168,200,232,0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .cta-content { position: relative; z-index: 1; }
+
+  .cta-title {
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .cta-title span { color: var(--light-blue); }
+
+  .cta-desc {
+    font-size: 18px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 60px 40px 30px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 50px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-brand .logo-text { font-size: 22px; }
+
+  .footer-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 16px;
+    line-height: 1.7;
+  }
+
+  .footer-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--light-blue);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .footer-links { list-style: none; }
+
+  .footer-links li { margin-bottom: 12px; }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--light-blue); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ===== WA FLOAT ===== */
+  .wa-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+    text-decoration: none;
+    animation: waFloat 3s ease-in-out infinite;
+    transition: transform 0.3s;
+  }
+
+  .wa-float:hover { transform: scale(1.1); }
+
+  .wa-float svg { width: 32px; height: 32px; fill: white; }
+
+  @keyframes waFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  /* ===== SCROLL ANIMATION ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 768px) {
+    header { padding: 16px 20px; }
+    nav { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 70px 20px; }
+    #hero { min-height: 100svh; }
+    .hero-content { padding: 100px 20px 60px; }
+    .hero-image { width: 100%; opacity: 0.15; }
+    .hero-title { font-size: 36px; }
+    .hero-stats { gap: 24px; flex-wrap: wrap; }
+    .sobre-grid { grid-template-columns: 1fr; gap: 40px; }
+    .especialidades-grid { grid-template-columns: repeat(2, 1fr); }
+    .diferenciais-grid { grid-template-columns: 1fr; }
+    .depoimentos-grid { grid-template-columns: 1fr; }
+    .counters-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .parallax-strip { display: none; }
+    .sobre-features { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <a href="#hero" class="logo">
+    <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 8v8M8 12h8"/></svg></div>
+    <div class="logo-text">Clínica <span>Matri</span></div>
+  </a>
+  <nav>
+    <a href="#especialidades">Especialidades</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="https://wa.me/5562999570000?text=Olá!+Vi+o+site+da+Clínica+Matri+e+gostaria+de+agendar." class="nav-cta" target="_blank">Agendar Consulta</a>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-geo"></div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1400&q=80" alt="Clínica Matri" id="heroImg">
+  </div>
+  <div class="hero-content container">
+    <div class="hero-badge">Trindade, GO — Medicina Avançada</div>
+    <h1 class="hero-title">
+      Cuidado médico<br>de <span class="highlight">excelência</span><br>para sua saúde
+    </h1>
+    <p class="hero-desc">Clínica multidisciplinar com especialistas em Cardiologia, Ginecologia, Pediatria e Clínica Geral. Tecnologia de ponta e humanização no atendimento.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562999570000?text=Olá!+Vi+o+site+da+Clínica+Matri+e+gostaria+de+agendar." class="btn-primary" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Agendar via WhatsApp
+      </a>
+      <a href="#especialidades" class="btn-secondary">Ver Especialidades</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number" id="hero-stat-1">0</span>
+        <span class="stat-label">Pacientes Atendidos</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="hero-stat-2">0</span>
+        <span class="stat-label">Anos de Atuação</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="hero-stat-3">0</span>
+        <span class="stat-label">Especialidades</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="parallax-strip">
+  <div class="strip-item"><span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Atendimento Humanizado</div>
+  <div class="strip-item"><span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Equipamentos Modernos</div>
+  <div class="strip-item"><span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Equipe Especializada</div>
+  <div class="strip-item"><span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Exames Laboratoriais</div>
+  <div class="strip-item"><span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Trindade, GO</div>
+  <div class="strip-item"><span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Agendamento Rápido</div>
+</div>
+
+<!-- ESPECIALIDADES -->
+<section id="especialidades">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Nossas Especialidades</span>
+      <h2 class="section-title">Medicina completa<br>sob um mesmo teto</h2>
+      <p class="section-desc">Contamos com profissionais altamente qualificados para oferecer o melhor cuidado médico a você e sua família.</p>
+    </div>
+    <div class="especialidades-grid">
+      <div class="espec-card">
+        <div class="espec-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 9a3.5 3.5 0 0 0 7 0V4a1 1 0 0 0-1-1H5.5a1 1 0 0 0-1 1v5z"/><path d="M8 9v3a4 4 0 0 0 8 0v-1"/><circle cx="17" cy="11" r="2"/></svg></div>
+        <div class="espec-name">Clínica Geral</div>
+        <div class="espec-desc">Atendimento integral e preventivo para adultos e idosos com cuidado personalizado.</div>
+      </div>
+      <div class="espec-card">
+        <div class="espec-icon">️</div>
+        <div class="espec-name">Cardiologia</div>
+        <div class="espec-desc">Diagnóstico e tratamento de doenças cardiovasculares com tecnologia avançada.</div>
+      </div>
+      <div class="espec-card">
+        <div class="espec-icon"></div>
+        <div class="espec-name">Ginecologia</div>
+        <div class="espec-desc">Saúde feminina em todas as fases da vida com acolhimento e expertise.</div>
+      </div>
+      <div class="espec-card">
+        <div class="espec-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M3 21v-2a7 7 0 0 1 14 0v2"/></svg></div>
+        <div class="espec-name">Pediatria</div>
+        <div class="espec-desc">Cuidado especializado para crianças do nascimento à adolescência.</div>
+      </div>
+      <div class="espec-card">
+        <div class="espec-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v10l-4 6a1 1 0 0 0 .8 1.6h12.4a1 1 0 0 0 .8-1.6l-4-6V2"/><path d="M9 2h6"/></svg></div>
+        <div class="espec-name">Exames Laboratoriais</div>
+        <div class="espec-desc">Resultados precisos e rápidos com laboratório moderno e confiável.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTERS -->
+<section id="counters">
+  <div class="counters-grid container">
+    <div class="counter-item reveal">
+      <span class="counter-number"><span class="count" data-target="8500">0</span><span class="counter-suffix">+</span></span>
+      <div class="counter-label">Pacientes Atendidos</div>
+    </div>
+    <div class="counter-item reveal">
+      <span class="counter-number"><span class="count" data-target="12">0</span><span class="counter-suffix">+</span></span>
+      <div class="counter-label">Anos de Atuação</div>
+    </div>
+    <div class="counter-item reveal">
+      <span class="counter-number"><span class="count" data-target="5">0</span></span>
+      <div class="counter-label">Especialidades</div>
+    </div>
+    <div class="counter-item reveal">
+      <span class="counter-number"><span class="count" data-target="98">0</span><span class="counter-suffix">%</span></span>
+      <div class="counter-label">Satisfação dos Pacientes</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container sobre-grid">
+    <div class="sobre-image reveal">
+      <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&q=80" alt="Clínica Matri — Equipe médica">
+      <div class="sobre-badge">
+        <span class="num">12+</span>
+        <span class="lbl">Anos de<br>Experiência</span>
+      </div>
+    </div>
+    <div class="sobre-content reveal">
+      <span class="section-label">Sobre a Clínica</span>
+      <h2 class="section-title">Referência médica<br>em Trindade</h2>
+      <p>A Clínica Matri nasceu do compromisso de oferecer medicina de qualidade à população de Trindade e região. Com mais de uma década de história, construímos nossa reputação sobre pilares fundamentais: competência técnica, tecnologia avançada e cuidado humano.</p>
+      <p>Nossa equipe multidisciplinar trabalha de forma integrada para garantir o melhor diagnóstico e tratamento para cada paciente, com agilidade e precisão.</p>
+      <div class="sobre-features">
+        <div class="feature-item">
+          <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 18-4 4h6"/><path d="M8 18 14 4"/><path d="m14 4 4 4"/><path d="m10 14 4-10"/><path d="m18 8-3.4 8.5"/><line x1="2" y1="22" x2="22" y2="22"/></svg></div>
+          <span class="feature-text">Equipamentos de última geração</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg></div>
+          <span class="feature-text">Prontuário eletrônico integrado</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">⏰</div>
+          <span class="feature-text">Agendamento flexível</span>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>️</div>
+          <span class="feature-text">Convênios aceitos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="section-label" style="color:var(--dark);">Por que nos escolher</span>
+      <h2 class="section-title" style="margin:0 auto 12px;">Diferenciais que<br>fazem a diferença</h2>
+    </div>
+    <div class="diferenciais-grid">
+      <div class="dif-card">
+        <div class="dif-num">01</div>
+        <div class="dif-title">Medicina Multidisciplinar</div>
+        <div class="dif-desc">Integração entre especialidades para um cuidado completo, onde clínicos, cardiologistas e ginecologistas trabalham em equipe pelo seu bem-estar.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-num">02</div>
+        <div class="dif-title">Tecnologia de Ponta</div>
+        <div class="dif-desc">Investimos continuamente em equipamentos modernos e sistemas digitais para garantir diagnósticos precisos e tratamentos eficazes.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-num">03</div>
+        <div class="dif-title">Atendimento Humanizado</div>
+        <div class="dif-desc">Cada paciente é único. Nosso time é treinado para ouvir, acolher e tratar com empatia e respeito em cada consulta.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center; align-items:center;">
+      <span class="section-label">Depoimentos</span>
+      <h2 class="section-title">O que nossos<br>pacientes dizem</h2>
+    </div>
+    <div class="depoimentos-grid">
+      <div class="dep-card">
+        <div class="stars">★★★★★</div>
+        <p class="dep-text">"Atendimento excepcional! Os médicos são muito atenciosos e a estrutura da clínica é impecável. Me sinto segura em cada consulta. Recomendo a toda minha família!"</p>
+        <div class="dep-author">
+          <div class="dep-avatar">MR</div>
+          <div>
+            <div class="dep-name">Maria Rodrigues</div>
+            <div class="dep-role">Paciente há 5 anos</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="stars">★★★★★</div>
+        <p class="dep-text">"Fiz meu check-up cardiológico aqui e fiquei impressionado com a qualidade dos equipamentos e o profissionalismo do cardiologista. Clínica de alto nível em Trindade!"</p>
+        <div class="dep-author">
+          <div class="dep-avatar">JP</div>
+          <div>
+            <div class="dep-name">João Paulo Silva</div>
+            <div class="dep-role">Consulta de Cardiologia</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="stars">★★★★★</div>
+        <p class="dep-text">"Levo meus filhos à pediatria da Clínica Matri há anos. Os médicos são carinhosos com as crianças e sempre explicam tudo com clareza. Só tenho a agradecer!"</p>
+        <div class="dep-author">
+          <div class="dep-avatar">AC</div>
+          <div>
+            <div class="dep-name">Ana Carvalho</div>
+            <div class="dep-role">Mãe de paciente pediátrico</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <div class="cta-content container">
+    <h2 class="cta-title">Cuide da sua saúde<br><span>com quem entende</span></h2>
+    <p class="cta-desc">Agende sua consulta agora e dê o primeiro passo para uma vida mais saudável. Atendimento rápido e humanizado em Trindade, GO.</p>
+    <a href="https://wa.me/5562999570000?text=Olá!+Vi+o+site+da+Clínica+Matri+e+gostaria+de+agendar." class="btn-primary" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><path d="m15 8-3-3-3 3"/><path d="M12 5v6"/></svg> Agendar pelo WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 8v8M8 12h8"/></svg></div>
+        <div class="logo-text">Clínica <span>Matri</span></div>
+      </div>
+      <p class="footer-desc">Medicina avançada e multidisciplinar em Trindade, GO. Cuidando da saúde da sua família com excelência e humanização.</p>
+    </div>
+    <div>
+      <div class="footer-title">Especialidades</div>
+      <ul class="footer-links">
+        <li><a href="#">Clínica Geral</a></li>
+        <li><a href="#">Cardiologia</a></li>
+        <li><a href="#">Ginecologia</a></li>
+        <li><a href="#">Pediatria</a></li>
+        <li><a href="#">Laboratório</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title">Contato</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/5562999570000">WhatsApp: (62) 99957-0000</a></li>
+        <li><a href="#">Trindade, GO</a></li>
+        <li><a href="#">Seg–Sex: 7h–18h</a></li>
+        <li><a href="#">Sáb: 7h–12h</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Clínica Matri Trindade. Todos os direitos reservados. Medicina com excelência em Trindade, GO.</p>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/5562999570000?text=Olá!+Vi+o+site+da+Clínica+Matri+e+gostaria+de+agendar." class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // STICKY HEADER
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // PARALLAX HERO
+  const heroImg = document.getElementById('heroImg');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    if (heroImg) heroImg.style.transform = `scale(1.05) translateY(${scrolled * 0.15}px)`;
+  });
+
+  // HERO STATS COUNTER
+  function animateHeroStat(el, target, suffix) {
+    let current = 0;
+    const step = Math.ceil(target / 60);
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = current.toLocaleString('pt-BR') + (suffix || '');
+      if (current >= target) clearInterval(timer);
+    }, 30);
+  }
+
+  animateHeroStat(document.getElementById('hero-stat-1'), 8500, '+');
+  animateHeroStat(document.getElementById('hero-stat-2'), 12, '+');
+  animateHeroStat(document.getElementById('hero-stat-3'), 5, '');
+
+  // INTERSECTION OBSERVER
+  const revealEls = document.querySelectorAll('.reveal, .espec-card, .dif-card, .dep-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // COUNTER ANIMATION
+  const counts = document.querySelectorAll('.count');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target);
+        let current = 0;
+        const step = Math.ceil(target / 80);
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = current.toLocaleString('pt-BR');
+          if (current >= target) clearInterval(timer);
+        }, 25);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counts.forEach(c => counterObserver.observe(c));
+
+  // MOBILE MENU
+  function toggleMenu() {
+    const nav = document.querySelector('nav');
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  }
+</script>
+</body>
+</html>

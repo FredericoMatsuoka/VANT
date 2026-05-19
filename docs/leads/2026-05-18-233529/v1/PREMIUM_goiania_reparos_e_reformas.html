@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goiânia Reparos e Reformas — Reformas Residenciais e Comerciais</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #FF6600;
+  --orange-dark: #CC4D00;
+  --black: #1A1A1A;
+  --gray-light: #F5F5F5;
+  --gray-mid: #E0E0E0;
+  --white: #FFFFFF;
+  --gray-600: #555555;
+  --gray-800: #222222;
+  --font-head: 'Montserrat', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+  --radius: 8px;
+  --shadow: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-lg: 0 24px 64px rgba(0,0,0,0.16);
+  --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); overflow-x: hidden; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--gray-light); }
+::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+
+/* HEADER */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 5%; background: transparent; transition: var(--transition);
+}
+.header.scrolled {
+  background: rgba(26,26,26,0.97);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-icon {
+  width: 42px; height: 42px;
+  background: var(--orange); border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+}
+.logo-name { font-family: var(--font-head); font-size: 1rem; font-weight: 900; color: white; line-height: 1.2; }
+.logo-sub { font-size: 0.65rem; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase; font-weight: 500; }
+nav { display: flex; align-items: center; gap: 28px; }
+nav a {
+  font-family: var(--font-head); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.85); text-decoration: none; text-transform: uppercase; transition: color 0.3s;
+}
+nav a:hover { color: var(--orange); }
+.nav-cta {
+  background: var(--orange); color: white !important; padding: 10px 22px; border-radius: var(--radius);
+  transition: var(--transition) !important;
+}
+.nav-cta:hover { background: var(--orange-dark) !important; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,102,0,0.3); }
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; }
+.menu-toggle span { display: block; width: 24px; height: 2px; background: white; margin: 5px 0; border-radius: 2px; }
+
+/* HERO */
+.hero {
+  min-height: 100vh; position: relative; overflow: hidden;
+  display: flex; align-items: center;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80');
+  background-size: cover; background-position: center;
+  will-change: transform;
+}
+/* Diagonal orange overlay */
+.hero-diagonal {
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(26,26,26,0.92) 45%, rgba(255,102,0,0.75) 100%);
+}
+.hero-inner {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto; padding: 0 5%; padding-top: 76px;
+  width: 100%;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--orange); color: white;
+  padding: 8px 20px; border-radius: 4px;
+  font-family: var(--font-head); font-size: 0.7rem; font-weight: 800;
+  letter-spacing: 3px; text-transform: uppercase; margin-bottom: 28px;
+}
+.hero-title {
+  font-family: var(--font-head); font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 900; color: white; line-height: 1.05; margin-bottom: 24px;
+  text-transform: uppercase; letter-spacing: -1px;
+}
+.hero-title span { color: var(--orange); display: block; }
+.hero-desc {
+  font-size: 1.1rem; line-height: 1.7; color: rgba(255,255,255,0.7);
+  margin-bottom: 40px; max-width: 560px; font-family: var(--font-body);
+}
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-orange {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--orange); color: white; padding: 18px 36px; border-radius: var(--radius);
+  font-family: var(--font-head); font-size: 0.9rem; font-weight: 800;
+  text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
+  transition: var(--transition); box-shadow: 0 8px 24px rgba(255,102,0,0.35);
+}
+.btn-orange:hover { background: var(--orange-dark); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(255,102,0,0.45); }
+.btn-orange svg { width: 20px; height: 20px; fill: white; }
+.btn-ghost-white {
+  display: inline-flex; align-items: center; gap: 10px;
+  border: 2px solid rgba(255,255,255,0.4); color: white;
+  padding: 16px 32px; border-radius: var(--radius);
+  font-family: var(--font-head); font-size: 0.9rem; font-weight: 700;
+  text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
+  transition: var(--transition);
+}
+.btn-ghost-white:hover { border-color: var(--orange); background: rgba(255,102,0,0.15); }
+.hero-badges {
+  display: flex; gap: 24px; margin-top: 56px;
+  padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);
+  flex-wrap: wrap;
+}
+.badge-item {
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
+  padding: 12px 18px; border-radius: var(--radius);
+}
+.badge-icon { font-size: 1.4rem; }
+.badge-text { font-family: var(--font-head); font-size: 0.8rem; font-weight: 700; color: white; }
+.badge-sub { font-size: 0.7rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+/* COUNTERS */
+.counters { background: var(--black); padding: 60px 5%; }
+.counters-inner { max-width: 1200px; margin: 0 auto; }
+.counters-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.counter-item {
+  background: #222; padding: 36px 24px; text-align: center;
+  transition: var(--transition); border-bottom: 3px solid transparent;
+}
+.counter-item:hover { border-bottom-color: var(--orange); background: #2a2a2a; }
+.counter-number {
+  font-family: var(--font-head); font-size: 3rem; font-weight: 900; color: var(--orange);
+  display: inline-flex; align-items: baseline; gap: 2px; line-height: 1;
+}
+.counter-suffix { font-size: 1.8rem; }
+.counter-label { font-family: var(--font-head); font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 8px; }
+
+/* SERVIÇOS */
+.servicos { background: var(--gray-light); padding: 100px 5%; }
+.servicos-inner { max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-family: var(--font-head); font-size: 0.7rem; font-weight: 800; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-label::before { content: ''; width: 32px; height: 2px; background: var(--orange); display: block; }
+.section-title {
+  font-family: var(--font-head); font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 900; color: var(--black); line-height: 1.1; margin-bottom: 18px;
+  text-transform: uppercase; letter-spacing: -0.5px;
+}
+.section-title span { color: var(--orange); }
+.section-desc { font-size: 1rem; line-height: 1.75; color: var(--gray-600); max-width: 580px; margin-bottom: 56px; }
+.servicos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.servico-item {
+  background: white; padding: 36px 28px;
+  border-bottom: 4px solid transparent; transition: var(--transition);
+  position: relative;
+}
+.servico-item:hover { border-bottom-color: var(--orange); transform: translateY(-4px); box-shadow: var(--shadow); }
+.servico-num {
+  font-family: var(--font-head); font-size: 4rem; font-weight: 900;
+  color: var(--gray-mid); line-height: 1; margin-bottom: 16px;
+  transition: color 0.3s;
+}
+.servico-item:hover .servico-num { color: rgba(255,102,0,0.2); }
+.servico-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+.servico-item h4 { font-family: var(--font-head); font-size: 1rem; font-weight: 800; color: var(--black); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+.servico-item p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.65; }
+.servico-link { display: flex; align-items: center; gap: 8px; margin-top: 16px; color: var(--orange); font-family: var(--font-head); font-size: 0.78rem; font-weight: 800; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; transition: gap 0.3s; }
+.servico-link:hover { gap: 14px; }
+
+/* PORTFOLIO ANTES/DEPOIS */
+.portfolio { background: var(--black); padding: 100px 5%; }
+.portfolio-inner { max-width: 1200px; margin: 0 auto; }
+.portfolio .section-label { color: var(--orange); }
+.portfolio .section-title { color: white; }
+.portfolio .section-title span { color: var(--orange); }
+.portfolio .section-desc { color: rgba(255,255,255,0.55); }
+.slider-wrap {
+  position: relative; border-radius: var(--radius); overflow: hidden;
+  margin-top: 48px; box-shadow: var(--shadow-lg); max-width: 900px; margin-left: auto; margin-right: auto;
+}
+.slider-before-after {
+  position: relative; width: 100%; height: 440px; user-select: none;
+}
+.slider-img {
+  position: absolute; inset: 0; background-size: cover; background-position: center;
+}
+.slider-after {
+  background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&q=80');
+}
+.slider-before {
+  background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80');
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+  transition: clip-path 0.05s;
+}
+.slider-handle {
+  position: absolute; top: 0; bottom: 0; left: 50%; width: 3px;
+  background: var(--orange); cursor: ew-resize; z-index: 10;
+  transform: translateX(-50%);
+  transition: left 0.05s;
+}
+.slider-handle::before {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px; height: 44px;
+  background: var(--orange); border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+.slider-handle::after {
+  content: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="19 20 5 12 19 3 19 20"/></svg> <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>'; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; font-size: 0.7rem; white-space: nowrap; z-index: 1;
+}
+.slider-labels {
+  position: absolute; top: 20px; left: 0; right: 0;
+  display: flex; justify-content: space-between; padding: 0 20px; pointer-events: none; z-index: 5;
+}
+.slider-label {
+  background: rgba(0,0,0,0.6); color: white;
+  padding: 6px 14px; border-radius: 4px;
+  font-family: var(--font-head); font-size: 0.72rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 2px;
+}
+.slider-label.after { background: var(--orange); }
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 24px; }
+.portfolio-thumb {
+  height: 160px; background-size: cover; background-position: center; cursor: pointer;
+  transition: var(--transition); position: relative; overflow: hidden;
+}
+.portfolio-thumb::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,102,0,0.6); opacity: 0; transition: opacity 0.3s;
+}
+.portfolio-thumb:hover::after { opacity: 1; }
+.portfolio-thumb:hover { transform: scale(0.98); }
+
+/* ORÇAMENTO RÁPIDO */
+.orcamento { background: var(--orange); padding: 100px 5%; }
+.orcamento-inner { max-width: 900px; margin: 0 auto; }
+.orcamento .section-label { color: rgba(255,255,255,0.7); }
+.orcamento .section-label::before { background: rgba(255,255,255,0.5); }
+.orcamento .section-title { color: white; }
+.orcamento-form {
+  background: rgba(0,0,0,0.15); border-radius: var(--radius); padding: 48px;
+  margin-top: 48px;
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.form-field { display: flex; flex-direction: column; gap: 8px; }
+.form-field.full { grid-column: 1 / -1; }
+.form-field label { font-family: var(--font-head); font-size: 0.78rem; font-weight: 700; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 1px; }
+.form-field input, .form-field select, .form-field textarea {
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+  border-radius: var(--radius); padding: 14px 16px;
+  font-family: var(--font-body); font-size: 1rem; color: white;
+  outline: none; transition: var(--transition);
+}
+.form-field input::placeholder, .form-field textarea::placeholder { color: rgba(255,255,255,0.4); }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+  border-color: white; background: rgba(255,255,255,0.18);
+}
+.form-field select option { background: var(--black); color: white; }
+.form-field textarea { height: 100px; resize: vertical; }
+.btn-form {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: white; color: var(--orange);
+  padding: 18px 40px; border-radius: var(--radius);
+  font-family: var(--font-head); font-size: 1rem; font-weight: 900;
+  text-transform: uppercase; letter-spacing: 1px;
+  cursor: pointer; border: none; transition: var(--transition);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.btn-form:hover { background: var(--black); color: white; transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
+.btn-form svg { width: 20px; height: 20px; fill: currentColor; }
+.form-notice { font-size: 0.82rem; color: rgba(255,255,255,0.6); margin-top: 14px; display: flex; align-items: center; gap: 6px; }
+
+/* SOBRE */
+.sobre { background: var(--gray-light); padding: 100px 5%; }
+.sobre-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.sobre-img { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg); position: relative; }
+.sobre-img img { width: 100%; height: 520px; object-fit: cover; display: block; }
+.sobre-badge-abs {
+  position: absolute; top: 24px; left: 24px;
+  background: var(--orange); color: white; border-radius: var(--radius);
+  padding: 16px 20px; text-align: center;
+}
+.sobre-badge-abs .big { font-family: var(--font-head); font-size: 2rem; font-weight: 900; display: block; }
+.sobre-badge-abs .small { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; }
+.sobre-content .section-label { margin-bottom: 14px; }
+.sobre-content p { font-size: 1rem; line-height: 1.75; color: var(--gray-600); margin-bottom: 18px; }
+.garantias { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+.garantia {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: white; padding: 18px; border-radius: var(--radius);
+  border-left: 4px solid var(--orange); box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.garantia-icon { font-size: 1.3rem; flex-shrink: 0; }
+.garantia h5 { font-family: var(--font-head); font-size: 0.85rem; font-weight: 800; color: var(--black); margin-bottom: 4px; text-transform: uppercase; }
+.garantia p { font-size: 0.8rem; color: var(--gray-600); line-height: 1.5; margin: 0; }
+
+/* DEPOIMENTOS */
+.depoimentos { background: white; padding: 100px 5%; }
+.depoimentos-inner { max-width: 1200px; margin: 0 auto; }
+.depo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+.depo-card {
+  border: 1px solid var(--gray-mid); border-radius: var(--radius); padding: 32px;
+  transition: var(--transition); position: relative;
+}
+.depo-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: var(--orange); border-radius: var(--radius) var(--radius) 0 0;
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+}
+.depo-card:hover::before { transform: scaleX(1); }
+.depo-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.stars { color: var(--orange); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 16px; }
+.depo-text { font-size: 0.95rem; line-height: 1.7; color: var(--gray-600); margin-bottom: 20px; font-style: italic; }
+.depo-author { display: flex; align-items: center; gap: 12px; }
+.author-av-o {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--orange); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-weight: 900; font-size: 0.95rem;
+}
+.author-name { font-family: var(--font-head); font-weight: 800; font-size: 0.9rem; color: var(--black); }
+.author-info { font-size: 0.78rem; color: var(--gray-600); }
+
+/* CTA FINAL */
+.cta-final {
+  background: var(--black); padding: 100px 5%; text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta-final::before {
+  content: ''; position: absolute; top: 0; left: -5%; right: -5%; height: 6px;
+  background: var(--orange);
+}
+.cta-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-final .section-label { color: var(--orange); justify-content: center; }
+.cta-title {
+  font-family: var(--font-head); font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 900; color: white; text-transform: uppercase;
+  line-height: 1.05; margin-bottom: 20px; letter-spacing: -0.5px;
+}
+.cta-title span { color: var(--orange); display: block; }
+.cta-desc { font-size: 1.05rem; color: rgba(255,255,255,0.6); margin-bottom: 40px; line-height: 1.7; }
+.cta-features { display: flex; gap: 28px; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
+.cta-feat { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7); font-family: var(--font-head); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.cta-feat::before { content: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>'; color: var(--orange); }
+
+/* FOOTER */
+footer { background: #111; padding: 60px 5% 28px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.footer-name { font-family: var(--font-head); font-size: 1.1rem; font-weight: 900; color: white; margin-bottom: 14px; display: block; text-transform: uppercase; }
+.footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 300px; margin-bottom: 20px; }
+.footer-contact a { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.55); font-size: 0.85rem; text-decoration: none; margin-bottom: 8px; transition: color 0.3s; }
+.footer-contact a:hover { color: var(--orange); }
+footer h5 { font-family: var(--font-head); font-size: 0.8rem; font-weight: 800; color: white; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 18px; }
+footer ul { list-style: none; }
+footer ul li { margin-bottom: 10px; }
+footer ul a { color: rgba(255,255,255,0.4); font-size: 0.85rem; text-decoration: none; transition: color 0.3s; }
+footer ul a:hover { color: var(--orange); }
+.footer-bottom { padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-bottom p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+/* WA FLOAT */
+.wa-float {
+  position: fixed; bottom: 32px; right: 32px; z-index: 999;
+  width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+  animation: wa-pulse 2.5s infinite; transition: var(--transition);
+}
+.wa-float:hover { transform: scale(1.1); }
+.wa-float svg { width: 30px; height: 30px; fill: white; }
+@keyframes wa-pulse {
+  0%, 100% { box-shadow: 0 8px 24px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.3); }
+  50% { box-shadow: 0 8px 24px rgba(37,211,102,0.4), 0 0 0 12px rgba(37,211,102,0); }
+}
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal-l { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-l.active { opacity: 1; transform: translateX(0); }
+.reveal-r { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-r.active { opacity: 1; transform: translateX(0); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { display: none; }
+  .menu-toggle { display: block; }
+  nav.open {
+    display: flex; flex-direction: column;
+    position: fixed; top: 76px; left: 0; right: 0;
+    background: var(--black); padding: 16px 0; z-index: 999;
+  }
+  nav.open a { padding: 14px 5%; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .hero-title { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+  .counters-grid { grid-template-columns: repeat(2, 1fr); }
+  .servicos-grid { grid-template-columns: 1fr; }
+  .sobre-inner { grid-template-columns: 1fr; }
+  .sobre-badge-abs { display: none; }
+  .depo-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .orcamento-form { padding: 28px; }
+  .garantias { grid-template-columns: 1fr; }
+  .hero-badges { flex-direction: column; }
+  .portfolio-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/5562985850000?text=Olá!+Vi+o+site+de+Goiânia+Reparos+e+gostaria+de+um+orçamento." class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+      <div>
+        <div class="logo-name">Goiânia Reparos</div>
+        <div class="logo-sub">e Reformas</div>
+      </div>
+    </a>
+    <nav id="nav">
+      <a href="#servicos">Serviços</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#orcamento" class="nav-cta">Orçamento Grátis</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-diagonal"></div>
+  <div class="hero-inner">
+    <div class="hero-tag reveal"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Goiânia, GO — Desde 2018</div>
+    <h1 class="hero-title reveal">
+      Do planejamento
+      <span>à entrega.</span>
+    </h1>
+    <p class="hero-desc reveal">Reformas residenciais e comerciais com qualidade garantida, prazo cumprido e resultado que supera expectativas. Orçamento sem compromisso.</p>
+    <div class="hero-btns reveal">
+      <a href="https://wa.me/5562985850000?text=Olá!+Vi+o+site+de+Goiânia+Reparos+e+gostaria+de+um+orçamento." class="btn-orange" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Pedir Orçamento
+      </a>
+      <a href="#portfolio" class="btn-ghost-white">Ver Portfólio</a>
+    </div>
+    <div class="hero-badges reveal">
+      <div class="badge-item">
+        <span class="badge-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg></span>
+        <div>
+          <div class="badge-text">+500 obras</div>
+          <div class="badge-sub">Concluídas com sucesso</div>
+        </div>
+      </div>
+      <div class="badge-item">
+        <span class="badge-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+        <div>
+          <div class="badge-text">Prazo garantido</div>
+          <div class="badge-sub">Contratual e cumprido</div>
+        </div>
+      </div>
+      <div class="badge-item">
+        <span class="badge-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/><circle cx="12" cy="16" r="1"/></svg></span>
+        <div>
+          <div class="badge-text">Garantia de 2 anos</div>
+          <div class="badge-sub">Em serviços executados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTERS -->
+<section class="counters">
+  <div class="counters-inner">
+    <div class="counters-grid">
+      <div class="counter-item reveal">
+        <div class="counter-number"><span data-target="500">0</span><span class="counter-suffix">+</span></div>
+        <div class="counter-label">Obras Entregues</div>
+      </div>
+      <div class="counter-item reveal">
+        <div class="counter-number"><span data-target="6">0</span><span class="counter-suffix"> anos</span></div>
+        <div class="counter-label">No Mercado</div>
+      </div>
+      <div class="counter-item reveal">
+        <div class="counter-number"><span data-target="98">0</span><span class="counter-suffix">%</span></div>
+        <div class="counter-label">Clientes Satisfeitos</div>
+      </div>
+      <div class="counter-item reveal">
+        <div class="counter-number"><span data-target="2">0</span><span class="counter-suffix"> anos</span></div>
+        <div class="counter-label">Garantia nos Serviços</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos" id="servicos">
+  <div class="servicos-inner">
+    <div class="reveal">
+      <div class="section-label">Nossos Serviços</div>
+      <h2 class="section-title">Tudo que sua obra<br>precisa em <span>um lugar</span></h2>
+      <p class="section-desc">Equipe especializada em cada etapa, do diagnóstico ao acabamento. Qualidade em cada detalhe.</p>
+    </div>
+    <div class="servicos-grid">
+      <div class="servico-item reveal">
+        <div class="servico-num">01</div>
+        <span class="servico-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+        <h4>Reformas Residenciais</h4>
+        <p>Transformamos sua casa com reforma completa ou parcial — cozinha, banheiro, sala, quartos. Do projeto ao acabamento, com materiais de qualidade e mão de obra especializada.</p>
+        <a href="https://wa.me/5562985850000?text=Quero+orçamento+para+reforma+residencial." class="servico-link" target="_blank">Solicitar orçamento →</a>
+      </div>
+      <div class="servico-item reveal">
+        <div class="servico-num">02</div>
+        <span class="servico-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22V12h6v10"/><line x1="8" y1="7" x2="8" y2="7.01"/><line x1="16" y1="7" x2="16" y2="7.01"/><line x1="8" y1="11" x2="8" y2="11.01"/><line x1="16" y1="11" x2="16" y2="11.01"/></svg></span>
+        <h4>Reformas Comerciais</h4>
+        <p>Lojas, consultórios, escritórios e estabelecimentos comerciais. Planejamos a obra para minimizar impacto no seu negócio, com execução rápida e resultado profissional.</p>
+        <a href="https://wa.me/5562985850000?text=Quero+orçamento+para+reforma+comercial." class="servico-link" target="_blank">Solicitar orçamento →</a>
+      </div>
+      <div class="servico-item reveal">
+        <div class="servico-num">03</div>
+        <span class="servico-icon"></span>
+        <h4>Pintura Profissional</h4>
+        <p>Pintura interna e externa com acabamento impecável. Preparação de superfície, correção de imperfeições e aplicação profissional com as melhores tintas do mercado.</p>
+        <a href="https://wa.me/5562985850000?text=Quero+orçamento+para+pintura." class="servico-link" target="_blank">Solicitar orçamento →</a>
+      </div>
+      <div class="servico-item reveal">
+        <div class="servico-num">04</div>
+        <span class="servico-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+        <h4>Elétrica e Hidráulica</h4>
+        <p>Instalações e reparos elétricos e hidráulicos com profissionais certificados. Atendemos emergências e realizamos projetos completos de instalação conforme normas técnicas.</p>
+        <a href="https://wa.me/5562985850000?text=Preciso+de+serviço+elétrico+ou+hidráulico." class="servico-link" target="_blank">Solicitar orçamento →</a>
+      </div>
+      <div class="servico-item reveal">
+        <div class="servico-num">05</div>
+        <span class="servico-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+        <h4>Manutenção Preventiva</h4>
+        <p>Programa de manutenção preventiva para residências e estabelecimentos comerciais. Identificamos e solucionamos problemas antes que se tornem obras maiores e caras.</p>
+        <a href="https://wa.me/5562985850000?text=Quero+contratar+manutenção+preventiva." class="servico-link" target="_blank">Saber mais →</a>
+      </div>
+      <div class="servico-item reveal" style="background: var(--orange);">
+        <div class="servico-num" style="color:rgba(255,255,255,0.2);">+</div>
+        <span class="servico-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg></span>
+        <h4 style="color:white;">Orçamento em 24h</h4>
+        <p style="color:rgba(255,255,255,0.8);">Enviamos seu orçamento detalhado em até 24 horas. Transparência total nos valores, materiais e prazo de execução. Sem surpresas no final.</p>
+        <a href="https://wa.me/5562985850000?text=Olá!+Quero+orçamento+rápido." class="servico-link" style="color:white;" target="_blank">Pedir agora →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFÓLIO ANTES/DEPOIS -->
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-inner">
+    <div class="reveal">
+      <div class="section-label">Portfólio</div>
+      <h2 class="section-title">Antes e <span>depois</span></h2>
+      <p class="section-desc">Arraste o controle para ver a transformação que fazemos em cada projeto.</p>
+    </div>
+    <div class="slider-wrap reveal">
+      <div class="slider-before-after" id="sliderBA">
+        <div class="slider-img slider-after"></div>
+        <div class="slider-img slider-before" id="sliderBefore"></div>
+        <div class="slider-handle" id="sliderHandle"></div>
+        <div class="slider-labels">
+          <div class="slider-label">Antes</div>
+          <div class="slider-label after">Depois</div>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-thumb reveal" style="background-image:url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=400&q=80')"></div>
+      <div class="portfolio-thumb reveal" style="background-image:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80')"></div>
+      <div class="portfolio-thumb reveal" style="background-image:url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80')"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ORÇAMENTO RÁPIDO -->
+<section class="orcamento" id="orcamento">
+  <div class="orcamento-inner">
+    <div class="reveal">
+      <div class="section-label">Orçamento Grátis</div>
+      <h2 class="section-title" style="color:white; font-size:clamp(1.8rem,3.5vw,2.8rem);">Receba seu orçamento<br>em até 24 horas</h2>
+    </div>
+    <div class="orcamento-form reveal">
+      <div class="form-grid">
+        <div class="form-field">
+          <label>Seu nome *</label>
+          <input type="text" id="fName" placeholder="Como podemos te chamar?">
+        </div>
+        <div class="form-field">
+          <label>WhatsApp *</label>
+          <input type="tel" id="fPhone" placeholder="(62) 9 9999-9999">
+        </div>
+        <div class="form-field">
+          <label>Tipo de serviço *</label>
+          <select id="fService">
+            <option value="">Selecione o serviço</option>
+            <option value="Reforma Residencial">Reforma Residencial</option>
+            <option value="Reforma Comercial">Reforma Comercial</option>
+            <option value="Pintura">Pintura</option>
+            <option value="Elétrica">Elétrica</option>
+            <option value="Hidráulica">Hidráulica</option>
+            <option value="Manutenção Preventiva">Manutenção Preventiva</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Cidade / Bairro *</label>
+          <input type="text" id="fCity" placeholder="Onde fica o imóvel?">
+        </div>
+        <div class="form-field full">
+          <label>Descreva o projeto</label>
+          <textarea id="fDesc" placeholder="Conte mais sobre o que precisa (metragem, cômodos, situação atual...)"></textarea>
+        </div>
+      </div>
+      <button class="btn-form" id="btnOrcamento">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enviar para WhatsApp
+      </button>
+      <p class="form-notice"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Seus dados são confidenciais. Respondemos em até 24 horas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="sobre-inner">
+    <div class="reveal-l">
+      <div class="sobre-img">
+        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80" alt="Equipe Goiânia Reparos" loading="lazy">
+        <div class="sobre-badge-abs">
+          <span class="big">+500</span>
+          <span class="small">Obras entregues</span>
+        </div>
+      </div>
+    </div>
+    <div class="sobre-content reveal-r">
+      <div class="section-label">Sobre a Empresa</div>
+      <h2 class="section-title">Competência e<br><span>compromisso</span></h2>
+      <p>A Goiânia Reparos e Reformas é referência em serviços de construção e manutenção em Goiânia. Com mais de 6 anos de experiência e 500 obras concluídas, construímos nossa reputação entregando projetos no prazo e com qualidade superior.</p>
+      <p>Nossa equipe é formada por profissionais certificados, apaixonados pelo que fazem. Cada obra recebe atenção individual, planejamento detalhado e acompanhamento do início ao fim para garantir sua satisfação total.</p>
+      <div class="garantias">
+        <div class="garantia">
+          <span class="garantia-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></span>
+          <div>
+            <h5>Garantia de 2 Anos</h5>
+            <p>Todos os serviços executados têm garantia formal de 2 anos.</p>
+          </div>
+        </div>
+        <div class="garantia">
+          <span class="garantia-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg></span>
+          <div>
+            <h5>Contrato Formal</h5>
+            <p>Tudo documentado: prazo, materiais, valores e escopo.</p>
+          </div>
+        </div>
+        <div class="garantia">
+          <span class="garantia-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+          <div>
+            <h5>Profissionais Certificados</h5>
+            <p>Equipe com qualificação técnica e NR's atualizadas.</p>
+          </div>
+        </div>
+        <div class="garantia">
+          <span class="garantia-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+          <div>
+            <h5>Prazo Cumprido</h5>
+            <p>98% das obras entregues no prazo ou antes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos" id="depoimentos">
+  <div class="depoimentos-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label" style="justify-content:center;">Depoimentos</div>
+      <h2 class="section-title" style="text-align:center;">O que nossos clientes<br>falam da <span>gente</span></h2>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="depo-text">"Contratei a Goiânia Reparos para reformar minha cozinha e banheiro. O resultado ficou incrível! Entregaram no prazo combinado, a equipe foi muito profissional e o orçamento foi cumprido à risca. Recomendo muito!"</p>
+        <div class="depo-author">
+          <div class="author-av-o">JC</div>
+          <div>
+            <div class="author-name">Jorge Costa</div>
+            <div class="author-info">Reforma Residencial — Setor Bueno</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="depo-text">"Precisei reformar minha clínica com urgência e a equipe foi incrível. Trabalharam no final de semana para minimizar o impacto no atendimento. Qualidade excelente e prazo cumprido. Com certeza vou contratar novamente."</p>
+        <div class="depo-author">
+          <div class="author-av-o">RP</div>
+          <div>
+            <div class="author-name">Renata Pires</div>
+            <div class="author-info">Reforma Comercial — Jardim Goiás</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="depo-text">"Tive problema elétrico sério num final de semana e eles atenderam a emergência. Profissionais sérios, identificaram o problema rapidamente e resolveram com segurança. Preço justo e serviço de primeira. Parabéns!"</p>
+        <div class="depo-author">
+          <div class="author-av-o">MO</div>
+          <div>
+            <div class="author-name">Marcos Oliveira</div>
+            <div class="author-info">Elétrica Emergencial — Goiânia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="cta-inner">
+    <div class="section-label reveal">Comece Agora</div>
+    <h2 class="cta-title reveal">
+      Sua obra
+      <span>começa aqui.</span>
+    </h2>
+    <p class="cta-desc reveal">Não perca mais tempo. Solicite agora seu orçamento gratuito e sem compromisso. Nossa equipe está pronta para transformar seu projeto em realidade.</p>
+    <a href="https://wa.me/5562985850000?text=Olá!+Vi+o+site+de+Goiânia+Reparos+e+gostaria+de+um+orçamento." class="btn-orange reveal" target="_blank" style="font-size:1.1rem; padding:20px 48px;">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar no WhatsApp
+    </a>
+    <div class="cta-features reveal">
+      <span class="cta-feat">Orçamento grátis</span>
+      <span class="cta-feat">Garantia 2 anos</span>
+      <span class="cta-feat">Prazo cumprido</span>
+      <span class="cta-feat">Profissionais certificados</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-name">Goiânia Reparos e Reformas</span>
+        <p>Especialistas em reformas residenciais e comerciais em Goiânia, GO. Qualidade, prazo e garantia em cada obra.</p>
+        <div class="footer-contact">
+          <a href="https://wa.me/5562985850000" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> (62) 98585-0000</a>
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Goiânia, GO — Atendemos toda a região</a>
+        </div>
+      </div>
+      <div>
+        <h5>Serviços</h5>
+        <ul>
+          <li><a href="#servicos">Reformas Residenciais</a></li>
+          <li><a href="#servicos">Reformas Comerciais</a></li>
+          <li><a href="#servicos">Pintura</a></li>
+          <li><a href="#servicos">Elétrica & Hidráulica</a></li>
+          <li><a href="#servicos">Manutenção Preventiva</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Links Rápidos</h5>
+        <ul>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#sobre">Sobre a Empresa</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#orcamento">Solicitar Orçamento</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Goiânia Reparos e Reformas. Todos os direitos reservados.</p>
+      <p>Goiânia, GO — (62) 98585-0000</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// HEADER
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 60));
+
+// MENU
+const menuToggle = document.getElementById('menuToggle');
+const nav = document.getElementById('nav');
+menuToggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+// PARALLAX
+const heroBg = document.getElementById('heroBg');
+window.addEventListener('scroll', () => {
+  if (heroBg) heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+}, { passive: true });
+
+// REVEAL
+const reveals = document.querySelectorAll('.reveal, .reveal-l, .reveal-r');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('active'), i * 80);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => obs.observe(el));
+
+// COUNTER
+function animateCount(el, target) {
+  let val = 0; const step = target / 60;
+  const t = setInterval(() => {
+    val += step;
+    if (val >= target) { el.textContent = target; clearInterval(t); return; }
+    el.textContent = Math.floor(val);
+  }, 24);
+}
+const cObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCount(e.target, parseInt(e.target.dataset.target));
+      cObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => cObs.observe(el));
+
+// BEFORE/AFTER SLIDER
+const sliderBA = document.getElementById('sliderBA');
+const sliderBefore = document.getElementById('sliderBefore');
+const sliderHandle = document.getElementById('sliderHandle');
+if (sliderBA) {
+  let isDragging = false;
+  function updateSlider(x) {
+    const rect = sliderBA.getBoundingClientRect();
+    let pct = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100));
+    sliderBefore.style.clipPath = `polygon(0 0, ${pct}% 0, ${pct}% 100%, 0 100%)`;
+    sliderHandle.style.left = pct + '%';
+  }
+  sliderBA.addEventListener('mousedown', e => { isDragging = true; updateSlider(e.clientX); });
+  window.addEventListener('mousemove', e => { if (isDragging) updateSlider(e.clientX); });
+  window.addEventListener('mouseup', () => isDragging = false);
+  sliderBA.addEventListener('touchstart', e => { isDragging = true; updateSlider(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchmove', e => { if (isDragging) updateSlider(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchend', () => isDragging = false);
+}
+
+// FORM → WA
+document.getElementById('btnOrcamento').addEventListener('click', () => {
+  const name = document.getElementById('fName').value || '';
+  const phone = document.getElementById('fPhone').value || '';
+  const service = document.getElementById('fService').value || '';
+  const city = document.getElementById('fCity').value || '';
+  const desc = document.getElementById('fDesc').value || '';
+  if (!name || !phone) { alert('Por favor, preencha seu nome e WhatsApp.'); return; }
+  const msg = `Olá! Gostaria de um orçamento.\n\n Nome: ${name}\n<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> Contato: ${phone}\n<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Serviço: ${service || 'Não informado'}\n<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Local: ${city || 'Não informado'}\n<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Descrição: ${desc || 'Não informado'}`;
+  window.open('https://wa.me/5562985850000?text=' + encodeURIComponent(msg), '_blank');
+});
+</script>
+</body>
+</html>

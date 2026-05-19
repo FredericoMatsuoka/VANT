@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advogado Gilberto José — Direito Civil, Família e Previdenciário | Trindade, GO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --petroleo: #1B3A5C;
+    --petroleo-escuro: #0D2236;
+    --dourado: #C0A060;
+    --dourado-claro: #D4BA88;
+    --off-white: #F5F5F5;
+    --branco: #FFFFFF;
+    --cinza: #E8E8E8;
+    --texto: #333;
+    --muted: #777;
+    --trans: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: var(--branco);
+    color: var(--texto);
+    overflow-x: hidden;
+    line-height: 1.75;
+    font-size: 16px;
+  }
+
+  /*  HEADER  */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    height: 80px;
+    transition: var(--trans);
+    background: transparent;
+  }
+
+  header.scrolled {
+    background: var(--petroleo-escuro);
+    height: 66px;
+    box-shadow: 0 4px 40px rgba(13,34,54,0.5);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  .logo-seal {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--dourado);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  }
+
+  .logo-seal svg { width: 26px; height: 26px; fill: var(--dourado); }
+
+  .logo-text-wrap { line-height: 1.25; }
+  .logo-name {
+    font-family: 'Merriweather', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--branco);
+    letter-spacing: 0.03em;
+  }
+
+  .logo-title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dourado);
+  }
+
+  nav { display: flex; align-items: center; gap: 28px; }
+
+  nav a {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  nav a:hover { color: var(--dourado); }
+
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--dourado);
+    color: var(--dourado) !important;
+    padding: 9px 22px;
+    transition: var(--trans) !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--dourado) !important;
+    color: var(--petroleo-escuro) !important;
+  }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--branco); border-radius: 2px; }
+
+  /*  HERO SPLIT  */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-left {
+    background: var(--petroleo-escuro);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 6% 80px;
+    overflow: hidden;
+  }
+
+  /* Decorative lines */
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent 10%, var(--dourado) 50%, transparent 90%);
+  }
+
+  .hero-left::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 0% 100%, rgba(192,160,96,0.08) 0%, transparent 60%);
+  }
+
+  .hero-left-content { position: relative; z-index: 1; }
+
+  .hero-region {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: aUp 0.8s 0.3s forwards;
+  }
+
+  .hero-region svg { width: 14px; height: 14px; fill: var(--dourado); }
+
+  .hero-region span {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dourado);
+  }
+
+  .hero-h1 {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    font-weight: 900;
+    color: var(--branco);
+    line-height: 1.15;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: aUp 0.9s 0.5s forwards;
+  }
+
+  .hero-h1 em {
+    font-style: italic;
+    color: var(--dourado);
+    font-weight: 300;
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.85;
+    margin-bottom: 44px;
+    max-width: 420px;
+    opacity: 0;
+    animation: aUp 0.9s 0.7s forwards;
+  }
+
+  .hero-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 300px;
+    opacity: 0;
+    animation: aUp 0.9s 0.9s forwards;
+  }
+
+  .btn-gold {
+    background: var(--dourado);
+    color: var(--petroleo-escuro);
+    padding: 16px 32px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: var(--trans);
+  }
+
+  .btn-gold:hover {
+    background: var(--dourado-claro);
+    transform: translateX(4px);
+  }
+
+  .btn-outline-w {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7);
+    padding: 16px 32px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: var(--trans);
+  }
+
+  .btn-outline-w:hover {
+    border-color: var(--dourado);
+    color: var(--dourado);
+  }
+
+  .hero-stats-row {
+    display: flex;
+    gap: 36px;
+    margin-top: 60px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    opacity: 0;
+    animation: aUp 0.9s 1.1s forwards;
+  }
+
+  .hero-stat-n {
+    font-family: 'Merriweather', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--dourado);
+    line-height: 1;
+  }
+
+  .hero-stat-l {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 6px;
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: brightness(0.75) saturate(0.7);
+    transition: transform 10s ease;
+  }
+
+  .hero-right img:hover { transform: scale(1.05); }
+
+  .hero-right-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(13,34,54,0.5) 0%, transparent 50%),
+                linear-gradient(to top, rgba(13,34,54,0.8) 0%, transparent 40%);
+  }
+
+  .hero-right-caption {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    right: 40px;
+  }
+
+  .hero-right-caption h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--branco);
+    margin-bottom: 8px;
+  }
+
+  .hero-right-caption p {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.08em;
+  }
+
+  @keyframes aUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /*  SECTION UTILS  */
+  section { padding: 100px 5%; }
+
+  .sec-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .sec-label::before {
+    content: '';
+    width: 32px;
+    height: 2px;
+    background: var(--dourado);
+  }
+
+  .sec-label span {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dourado);
+  }
+
+  .sec-title {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: var(--petroleo-escuro);
+    line-height: 1.25;
+    margin-bottom: 18px;
+  }
+
+  .sec-title.light { color: var(--branco); }
+
+  .sec-desc {
+    font-size: 0.92rem;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.85;
+  }
+
+  .sec-desc.light { color: rgba(255,255,255,0.55); }
+
+  /*  ESPECIALIDADES  */
+  .especialidades { background: var(--off-white); }
+
+  .espec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .espec-card {
+    background: var(--branco);
+    padding: 40px 32px;
+    border-bottom: 3px solid transparent;
+    transition: var(--trans);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .espec-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--dourado);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+
+  .espec-card:hover::before { transform: scaleX(1); }
+  .espec-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(27,58,92,0.12); }
+
+  .espec-svg {
+    width: 56px;
+    height: 56px;
+    background: rgba(27,58,92,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 24px;
+    transition: background 0.3s;
+  }
+
+  .espec-card:hover .espec-svg { background: var(--petroleo-escuro); }
+  .espec-svg svg { width: 26px; height: 26px; fill: none; stroke: var(--petroleo); stroke-width: 1.5; transition: stroke 0.3s; }
+  .espec-card:hover .espec-svg svg { stroke: var(--dourado); }
+
+  .espec-title {
+    font-family: 'Merriweather', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--petroleo-escuro);
+    margin-bottom: 12px;
+  }
+
+  .espec-desc {
+    font-size: 0.87rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  /*  REGIÕES  */
+  .regioes { background: var(--petroleo-escuro); }
+
+  .regioes-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+  /* SVG Map styled */
+  .map-container {
+    position: relative;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(192,160,96,0.15);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .map-title {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dourado);
+    margin-bottom: 30px;
+  }
+
+  .map-svg-area {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Fake map with CSS shapes */
+  .map-go {
+    width: 280px;
+    height: 280px;
+    background: rgba(27,58,92,0.5);
+    border: 2px solid rgba(192,160,96,0.25);
+    border-radius: 20px 40px 30px 50px / 30px 20px 50px 30px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .map-city {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--branco);
+    letter-spacing: 0.06em;
+  }
+
+  .map-city .dot {
+    width: 10px;
+    height: 10px;
+    background: var(--dourado);
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .map-city .dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid var(--dourado);
+    opacity: 0.4;
+    animation: ripple 2s infinite;
+  }
+
+  @keyframes ripple {
+    0% { transform: scale(0.8); opacity: 0.6; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+
+  .map-state-label {
+    font-family: 'Merriweather', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgba(192,160,96,0.15);
+    letter-spacing: 0.2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+  }
+
+  .regioes-content { }
+
+  .region-item {
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    transition: var(--trans);
+  }
+
+  .region-item:hover { padding-left: 12px; }
+
+  .region-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(192,160,96,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: var(--trans);
+  }
+
+  .region-item:hover .region-icon {
+    background: var(--dourado);
+    border-color: var(--dourado);
+  }
+
+  .region-icon svg { width: 16px; height: 16px; fill: var(--dourado); transition: fill 0.3s; }
+  .region-item:hover .region-icon svg { fill: var(--petroleo-escuro); }
+
+  .region-name {
+    font-family: 'Merriweather', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--branco);
+    margin-bottom: 4px;
+  }
+
+  .region-desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+  }
+
+  /*  SOBRE  */
+  .sobre { background: var(--off-white); }
+
+  .sobre-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+  .sobre-img {
+    position: relative;
+  }
+
+  .sobre-img img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  .sobre-img-frame {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: -20px;
+    bottom: -20px;
+    border: 2px solid var(--dourado);
+    z-index: -1;
+    opacity: 0.4;
+  }
+
+  .sobre-content { }
+
+  .exp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--petroleo-escuro);
+    color: var(--branco);
+    padding: 20px 28px;
+    margin-top: 36px;
+  }
+
+  .exp-badge strong {
+    font-family: 'Merriweather', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--dourado);
+    line-height: 1;
+  }
+
+  .exp-badge span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    max-width: 120px;
+    line-height: 1.4;
+  }
+
+  .sobre-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    list-style: none;
+  }
+
+  .sobre-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .sobre-list li::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--dourado);
+    flex-shrink: 0;
+  }
+
+  /*  DEPOIMENTOS  */
+  .depoimentos { background: var(--branco); }
+
+  .dep-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+  }
+
+  .dep-card {
+    border: 1px solid var(--cinza);
+    padding: 40px 34px;
+    position: relative;
+    transition: var(--trans);
+  }
+
+  .dep-card:hover {
+    border-color: var(--dourado);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(27,58,92,0.1);
+  }
+
+  .dep-big-quote {
+    font-family: 'Merriweather', serif;
+    font-size: 5rem;
+    color: var(--petroleo-escuro);
+    line-height: 0.7;
+    margin-bottom: 22px;
+    opacity: 0.06;
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    font-style: italic;
+  }
+
+  .dep-stars { display: flex; gap: 4px; margin-bottom: 18px; }
+  .dep-stars svg { width: 14px; height: 14px; fill: var(--dourado); }
+
+  .dep-text {
+    font-family: 'Merriweather', serif;
+    font-size: 0.92rem;
+    font-style: italic;
+    color: var(--texto);
+    line-height: 1.9;
+    margin-bottom: 28px;
+  }
+
+  .dep-sep { width: 24px; height: 2px; background: var(--dourado); margin-bottom: 20px; }
+
+  .dep-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--petroleo-escuro);
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+
+  .dep-role {
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  /*  CTA FINAL  */
+  .cta-final {
+    background: var(--petroleo-escuro);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-bg-text {
+    position: absolute;
+    font-family: 'Merriweather', serif;
+    font-size: 18rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.02);
+    white-space: nowrap;
+    line-height: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    letter-spacing: 0.05em;
+  }
+
+  .cta-inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .cta-inner h2 {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 700;
+    color: var(--branco);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .cta-inner h2 em {
+    font-style: italic;
+    color: var(--dourado);
+  }
+
+  .cta-inner p {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+    max-width: 480px;
+  }
+
+  .cta-btn-wrap { flex-shrink: 0; }
+
+  /*  FOOTER  */
+  footer {
+    background: #050F18;
+    padding: 70px 5% 36px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 48px;
+  }
+
+  .footer-logo-area .logo-name { font-size: 1rem; }
+
+  .footer-about-text {
+    font-size: 0.83rem;
+    font-weight: 300;
+    line-height: 1.85;
+    margin-top: 18px;
+    max-width: 280px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .footer-col h5 {
+    font-family: 'Merriweather', serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--dourado);
+    margin-bottom: 20px;
+    letter-spacing: 0.04em;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-col ul li a:hover { color: var(--dourado); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /*  FLOAT IG  */
+  .float-ig {
+    position: fixed;
+    bottom: 30px; right: 30px;
+    z-index: 999;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 28px rgba(131,58,180,0.5);
+    text-decoration: none;
+    transition: var(--trans);
+  }
+
+  .float-ig:hover { transform: scale(1.12) translateY(-4px); }
+  .float-ig svg { width: 24px; height: 24px; fill: none; stroke: white; stroke-width: 2; }
+
+  /*  COUNTERS BAR  */
+  .counters-bar { background: var(--branco); padding: 70px 5%; }
+
+  .counters-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--cinza);
+  }
+
+  .cnt-item {
+    padding: 40px 28px;
+    text-align: center;
+    border-right: 1px solid var(--cinza);
+    transition: background 0.3s;
+  }
+
+  .cnt-item:last-child { border-right: none; }
+  .cnt-item:hover { background: var(--off-white); }
+
+  .cnt-num {
+    font-family: 'Merriweather', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--petroleo);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .cnt-num span { color: var(--dourado); }
+
+  .cnt-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /*  ANIMATIONS  */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.7s, transform 0.7s;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  .fade-left {
+    opacity: 0;
+    transform: translateX(-36px);
+    transition: opacity 0.7s, transform 0.7s;
+  }
+  .fade-left.visible { opacity: 1; transform: translateX(0); }
+
+  .fade-right {
+    opacity: 0;
+    transform: translateX(36px);
+    transition: opacity 0.7s, transform 0.7s;
+  }
+  .fade-right.visible { opacity: 1; transform: translateX(0); }
+
+  /*  MOBILE  */
+  @media (max-width: 768px) {
+    nav { display: none; }
+    nav.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      inset: 0;
+      background: var(--petroleo-escuro);
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      z-index: 999;
+    }
+    nav.open a { font-size: 1.1rem; }
+    .hamburger { display: flex; z-index: 1001; }
+
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { height: 50vh; }
+    .hero-left { padding: 100px 6% 60px; }
+
+    .espec-grid { grid-template-columns: 1fr; }
+    .regioes-layout { grid-template-columns: 1fr; }
+    .sobre-layout { grid-template-columns: 1fr; }
+    .dep-grid { grid-template-columns: 1fr; }
+    .counters-row { grid-template-columns: repeat(2, 1fr); }
+    .cnt-item:nth-child(2) { border-right: none; }
+    .cnt-item:nth-child(3) { border-top: 1px solid var(--cinza); border-right: 1px solid var(--cinza); }
+    .cnt-item:last-child { border-top: 1px solid var(--cinza); }
+    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    .cta-inner { grid-template-columns: 1fr; }
+    .float-ig { bottom: 20px; right: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <a href="#" class="logo">
+    <div class="logo-seal">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <div class="logo-text-wrap">
+      <div class="logo-name">Dr. Gilberto José</div>
+      <div class="logo-title">Advogado · OAB/GO</div>
+    </div>
+  </a>
+
+  <nav id="nav">
+    <a href="#especialidades">Especialidades</a>
+    <a href="#regioes">Regiões</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="https://www.instagram.com/p/DNQwo5Wxhtl/" target="_blank" class="nav-cta">Consulta Gratuita</a>
+  </nav>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- HERO SPLIT -->
+<div class="hero" id="hero">
+  <div class="hero-left">
+    <div class="hero-left-content">
+      <div class="hero-region">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Trindade · Goiânia · Aparecida de Goiânia</span>
+      </div>
+
+      <h1 class="hero-h1">
+        Advocacia de<br>resultados<br><em>concretos</em>
+      </h1>
+
+      <p class="hero-sub">Mais de duas décadas defendendo direitos em Trindade e na Grande Goiânia. Experiência, tradição e dedicação a cada cliente.</p>
+
+      <div class="hero-btns">
+        <a href="https://www.instagram.com/p/DNQwo5Wxhtl/" target="_blank" class="btn-gold">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Falar com o Advogado
+        </a>
+        <a href="#especialidades" class="btn-outline-w">Ver Especialidades</a>
+      </div>
+
+      <div class="hero-stats-row">
+        <div>
+          <div class="hero-stat-n">20+</div>
+          <div class="hero-stat-l">Anos de atuação</div>
+        </div>
+        <div>
+          <div class="hero-stat-n">3</div>
+          <div class="hero-stat-l">Cidades atendidas</div>
+        </div>
+        <div>
+          <div class="hero-stat-n">800+</div>
+          <div class="hero-stat-l">Casos resolvidos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80" alt="Dr. Gilberto José Advogado" id="heroImg">
+    <div class="hero-right-overlay"></div>
+    <div class="hero-right-caption">
+      <h3>Dr. Gilberto José</h3>
+      <p>OAB/GO · Advogado há mais de 20 anos · Trindade, GO</p>
+    </div>
+  </div>
+</div>
+
+<!-- ESPECIALIDADES -->
+<section class="especialidades" id="especialidades">
+  <div class="sec-label"><span>Áreas de Atuação</span></div>
+  <h2 class="sec-title fade-in">Especialidades jurídicas<br>com profundidade técnica</h2>
+  <p class="sec-desc fade-in">Cada área de atuação é trabalhada com dedicação total. Não somos um escritório de volume — somos um escritório de resultados.</p>
+
+  <div class="espec-grid">
+    <div class="espec-card fade-in">
+      <div class="espec-svg">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h3 class="espec-title">Direito Civil</h3>
+      <p class="espec-desc">Contratos, responsabilidade civil, cobranças, indenizações e posse de bens. Defesa dos seus interesses na esfera cível.</p>
+    </div>
+
+    <div class="espec-card fade-in">
+      <div class="espec-svg">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h3 class="espec-title">Direito de Família</h3>
+      <p class="espec-desc">Divórcio, guarda, pensão alimentícia, inventário, partilha de bens e adoção. Sensibilidade e técnica no que importa.</p>
+    </div>
+
+    <div class="espec-card fade-in">
+      <div class="espec-svg">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h3 class="espec-title">Direito Previdenciário</h3>
+      <p class="espec-desc">Aposentadoria, auxílio-doença, pensão por morte, BPC/LOAS e revisão de benefícios. Seu futuro bem protegido.</p>
+    </div>
+
+    <div class="espec-card fade-in">
+      <div class="espec-svg">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3 class="espec-title">Direito Criminal</h3>
+      <p class="espec-desc">Defesa criminal em todas as fases do processo. Do inquérito ao recurso, com rigor técnico e estratégia sólida.</p>
+    </div>
+
+    <div class="espec-card fade-in">
+      <div class="espec-svg">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <h3 class="espec-title">Consultoria Jurídica</h3>
+      <p class="espec-desc">Análise preventiva de situações jurídicas, contratos, riscos legais e orientação estratégica para pessoas físicas e jurídicas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REGIÕES -->
+<section class="regioes" id="regioes">
+  <div class="regioes-layout">
+    <div class="fade-left">
+      <div class="sec-label" style="--dourado:#C0A060"><span style="color:var(--dourado)">Atuação Regional</span></div>
+      <h2 class="sec-title light">Presente onde<br>você precisa</h2>
+      <p class="sec-desc light" style="margin-bottom:0">Atendimento presencial em três cidades da Grande Goiânia. Onde quer que você esteja, estamos perto.</p>
+
+      <div style="margin-top:50px">
+        <div class="region-item">
+          <div class="region-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="region-name">Trindade, GO</div>
+            <div class="region-desc">Sede principal do escritório. Atendimento presencial completo.</div>
+          </div>
+        </div>
+
+        <div class="region-item">
+          <div class="region-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="region-name">Goiânia, GO</div>
+            <div class="region-desc">Atendimento e acompanhamento em processos na capital.</div>
+          </div>
+        </div>
+
+        <div class="region-item">
+          <div class="region-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="region-name">Aparecida de Goiânia, GO</div>
+            <div class="region-desc">Atendimento regular com agendamento prévio.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-container fade-right">
+      <div class="map-title">Goiás — Área de Atuação</div>
+      <div class="map-go">
+        <div class="map-state-label">GO</div>
+        <div class="map-city">
+          <div class="dot"></div>
+          Goiânia
+        </div>
+        <div class="map-city">
+          <div class="dot"></div>
+          Aparecida de Goiânia
+        </div>
+        <div class="map-city">
+          <div class="dot" style="animation-delay:0.5s"></div>
+          Trindade ★ Sede
+        </div>
+      </div>
+      <p style="font-size:0.72rem;color:rgba(255,255,255,0.3);margin-top:24px;letter-spacing:0.08em">Atendimento presencial e por agendamento</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="sobre-layout">
+    <div class="fade-left" style="position:relative">
+      <div class="sobre-img-frame"></div>
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=800&q=80" alt="Sobre Dr. Gilberto José" style="position:relative;z-index:1">
+    </div>
+
+    <div class="fade-right">
+      <div class="sec-label"><span>O Advogado</span></div>
+      <h2 class="sec-title">Tradição, experiência<br>e dedicação genuína</h2>
+
+      <p style="font-size:0.92rem;color:var(--muted);line-height:1.9;margin-bottom:20px">O Dr. Gilberto José é advogado há mais de 20 anos, com ampla atuação em Trindade e na Grande Goiânia. Ao longo da sua trajetória, construiu uma reputação baseada em honestidade, profundidade técnica e atenção individualizada a cada cliente.</p>
+
+      <p style="font-size:0.92rem;color:var(--muted);line-height:1.9;margin-bottom:30px">Formado em Direito e com especializações nas áreas de atuação, o Dr. Gilberto acredita que um bom advogado não é apenas aquele que conhece a lei, mas aquele que entende a realidade do seu cliente.</p>
+
+      <ul class="sobre-list">
+        <li>Mais de 20 anos de experiência jurídica</li>
+        <li>Formado e pós-graduado em Direito</li>
+        <li>Inscrito na OAB/GO</li>
+        <li>Atuação em Trindade, Goiânia e Aparecida</li>
+        <li>Atendimento humanizado e personalizado</li>
+      </ul>
+
+      <div class="exp-badge">
+        <strong>20+</strong>
+        <span>Anos dedicados ao Direito</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTERS -->
+<section class="counters-bar">
+  <div class="counters-row">
+    <div class="cnt-item fade-in">
+      <div class="cnt-num"><span class="count" data-target="20">0</span><span>+</span> anos</div>
+      <div class="cnt-label">De Experiência</div>
+    </div>
+    <div class="cnt-item fade-in">
+      <div class="cnt-num"><span class="count" data-target="800">0</span><span>+</span></div>
+      <div class="cnt-label">Casos Resolvidos</div>
+    </div>
+    <div class="cnt-item fade-in">
+      <div class="cnt-num"><span class="count" data-target="3">0</span></div>
+      <div class="cnt-label">Cidades Atendidas</div>
+    </div>
+    <div class="cnt-item fade-in">
+      <div class="cnt-num"><span class="count" data-target="5">0</span></div>
+      <div class="cnt-label">Áreas de Atuação</div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos" id="depoimentos">
+  <div class="sec-label"><span>Depoimentos</span></div>
+  <h2 class="sec-title fade-in">O que nossos clientes<br>dizem sobre nós</h2>
+
+  <div class="dep-grid">
+    <div class="dep-card fade-in">
+      <div class="dep-big-quote">"</div>
+      <div class="dep-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="dep-text">O Dr. Gilberto resolveu meu processo de divórcio de forma rápida e sem estresse. Explica tudo com clareza e é muito humano no trato. Indico de olhos fechados para quem mora em Trindade.</p>
+      <div class="dep-sep"></div>
+      <div class="dep-name">Sônia Ribeiro</div>
+      <div class="dep-role">Professora — Trindade, GO</div>
+    </div>
+
+    <div class="dep-card fade-in">
+      <div class="dep-big-quote">"</div>
+      <div class="dep-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="dep-text">Tive minha aposentadoria negada pelo INSS. O Dr. Gilberto entrou com o recurso e em 6 meses eu estava aposentado com direito a todos os atrasados. Experiência e competência incomparáveis.</p>
+      <div class="dep-sep"></div>
+      <div class="dep-name">José Carlos Faria</div>
+      <div class="dep-role">Agricultor — Aparecida de Goiânia</div>
+    </div>
+
+    <div class="dep-card fade-in">
+      <div class="dep-big-quote">"</div>
+      <div class="dep-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="dep-text">Passei por uma situação difícil e o Dr. Gilberto foi minha âncora. Advogado sério, honesto e dedicado. Conseguiu reverter uma condenação de primeira instância no recurso. Eterno grato.</p>
+      <div class="dep-sep"></div>
+      <div class="dep-name">Marcelo Lima</div>
+      <div class="dep-role">Empresário — Goiânia, GO</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="contato">
+  <div class="cta-bg-text">DIREITO</div>
+  <div class="cta-inner fade-in">
+    <div>
+      <div class="sec-label"><span style="color:var(--dourado)">Atendimento</span></div>
+      <h2>Seu problema jurídico<br>tem <em>solução</em>. Vamos conversar?</h2>
+      <p>Consulta inicial gratuita. Atendimento presencial em Trindade, Goiânia e Aparecida de Goiânia. Entre em contato agora pelo Instagram.</p>
+    </div>
+    <div class="cta-btn-wrap">
+      <a href="https://www.instagram.com/p/DNQwo5Wxhtl/" target="_blank" class="btn-gold" style="white-space:nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Agendar Consulta
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-logo-area">
+      <a href="#" class="logo">
+        <div class="logo-seal">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="logo-text-wrap">
+          <div class="logo-name">Dr. Gilberto José</div>
+          <div class="logo-title">Advogado · OAB/GO</div>
+        </div>
+      </a>
+      <p class="footer-about-text">Advocacia com tradição, experiência e resultados em Trindade e Grande Goiânia há mais de 20 anos.</p>
+    </div>
+
+    <div class="footer-col">
+      <h5>Especialidades</h5>
+      <ul>
+        <li><a href="#">Direito Civil</a></li>
+        <li><a href="#">Direito de Família</a></li>
+        <li><a href="#">Direito Previdenciário</a></li>
+        <li><a href="#">Direito Criminal</a></li>
+        <li><a href="#">Consultoria Jurídica</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Cidades</h5>
+      <ul>
+        <li><a href="#">Trindade, GO</a></li>
+        <li><a href="#">Goiânia, GO</a></li>
+        <li><a href="#">Aparecida de Goiânia, GO</a></li>
+        <li><a href="https://www.instagram.com/p/DNQwo5Wxhtl/" target="_blank">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2025 Dr. Gilberto José · Advogado. OAB/GO. Todos os direitos reservados.</span>
+    <span>Site informativo. Não constitui consulta jurídica.</span>
+  </div>
+</footer>
+
+<!-- FLOAT IG -->
+<a href="https://www.instagram.com/p/DNQwo5Wxhtl/" target="_blank" class="float-ig">
+  <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+</a>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  function toggleNav() {
+    document.getElementById('nav').classList.toggle('open');
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        entry.target.querySelectorAll('.count').forEach(el => {
+          const target = parseInt(el.dataset.target);
+          let current = 0;
+          const step = target / 80;
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              el.textContent = target;
+              clearInterval(timer);
+            } else {
+              el.textContent = Math.floor(current);
+            }
+          }, 16);
+        });
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in, .fade-left, .fade-right').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 4) * 0.1}s`;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

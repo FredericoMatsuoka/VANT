@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VANT — Painel de Prospecção · 20 Leads</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0A0A0F;
+      --bg2: #111118;
+      --bg3: #18181F;
+      --bg4: #1E1E28;
+      --border: rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.12);
+      --text: #F0F0F5;
+      --text2: #9090A8;
+      --text3: #5A5A72;
+      --accent: #6C63FF;
+      --accent2: #8B84FF;
+      --green: #22C55E;
+      --yellow: #F59E0B;
+      --red: #EF4444;
+      --blue: #3B82F6;
+      --pink: #EC4899;
+      --r: 10px;
+      --font: 'Inter', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,15,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .header-brand { display: flex; align-items: center; gap: 12px; }
+    .header-logo {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 800; color: #fff;
+    }
+    .header-title { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+    .header-sub { font-size: 0.72rem; color: var(--text3); margin-left: 4px; }
+    .header-meta { display: flex; align-items: center; gap: 20px; }
+    .header-run {
+      font-size: 0.7rem; color: var(--text3);
+      background: var(--bg3); border: 1px solid var(--border);
+      padding: 5px 12px; border-radius: 20px;
+    }
+    .header-run span { color: var(--text2); }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 1px; background: var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-item {
+      background: var(--bg2); padding: 18px 24px;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .stat-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); }
+    .stat-value { font-size: 1.6rem; font-weight: 800; color: var(--text); line-height: 1; }
+    .stat-value.green { color: var(--green); }
+    .stat-value.yellow { color: var(--yellow); }
+    .stat-value.blue { color: var(--blue); }
+    .stat-value.accent { color: var(--accent2); }
+
+    /* ===== TOOLBAR ===== */
+    .toolbar {
+      padding: 16px 32px;
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+    }
+    .search-wrap {
+      flex: 1; min-width: 220px;
+      position: relative;
+    }
+    .search-wrap svg {
+      position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+      color: var(--text3); pointer-events: none;
+    }
+    .search-input {
+      width: 100%; background: var(--bg3);
+      border: 1px solid var(--border); border-radius: var(--r);
+      padding: 9px 12px 9px 36px; font-family: var(--font);
+      font-size: 0.83rem; color: var(--text);
+      outline: none; transition: border 0.2s;
+    }
+    .search-input:focus { border-color: var(--accent); }
+    .search-input::placeholder { color: var(--text3); }
+    .filter-btn {
+      padding: 9px 16px; background: var(--bg3);
+      border: 1px solid var(--border); border-radius: var(--r);
+      font-family: var(--font); font-size: 0.78rem; font-weight: 500;
+      color: var(--text2); cursor: pointer; transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .filter-btn:hover, .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .toolbar-right { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+    .count-badge {
+      font-size: 0.72rem; color: var(--text3);
+      background: var(--bg3); border: 1px solid var(--border);
+      padding: 6px 12px; border-radius: 20px;
+    }
+    .count-badge span { color: var(--accent2); font-weight: 700; }
+
+    /* ===== GRID ===== */
+    .leads-grid {
+      padding: 24px 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+    }
+
+    /* ===== LEAD CARD ===== */
+    .lead-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .lead-card:hover { border-color: var(--border2); box-shadow: 0 4px 30px rgba(108,99,255,0.08); }
+    .lead-card.hidden { display: none; }
+
+    .card-header {
+      padding: 16px 20px 12px;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-num {
+      font-size: 0.65rem; font-weight: 700; color: var(--text3);
+      background: var(--bg3); border: 1px solid var(--border);
+      width: 26px; height: 26px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-title-wrap { flex: 1; }
+    .card-name { font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 4px; line-height: 1.3; }
+    .card-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+    .badge {
+      font-size: 0.63rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 3px 8px; border-radius: 4px;
+    }
+    .badge-nicho { background: rgba(108,99,255,0.15); color: var(--accent2); }
+    .badge-cidade { background: rgba(255,255,255,0.06); color: var(--text3); }
+    .badge-seg { background: rgba(34,197,94,0.12); color: var(--green); }
+
+    .card-body { padding: 14px 20px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+
+    .card-contatos { display: flex; flex-direction: column; gap: 6px; }
+    .contato-row {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; color: var(--text2);
+    }
+    .contato-row svg { color: var(--text3); flex-shrink: 0; }
+    .contato-row a { color: var(--accent2); text-decoration: none; transition: color 0.2s; }
+    .contato-row a:hover { color: #fff; }
+
+    .card-status-row {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 4px;
+    }
+    .status-label { font-size: 0.7rem; color: var(--text3); white-space: nowrap; }
+    .status-select {
+      flex: 1; background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 6px; padding: 6px 10px; font-family: var(--font);
+      font-size: 0.75rem; font-weight: 600; color: var(--text2);
+      outline: none; cursor: pointer; transition: border 0.2s;
+    }
+    .status-select:focus { border-color: var(--accent); }
+    .status-select.s-pendente { color: var(--text3); }
+    .status-select.s-contatado { color: var(--yellow); }
+    .status-select.s-respondeu { color: var(--blue); }
+    .status-select.s-negociando { color: var(--accent2); }
+    .status-select.s-fechado { color: var(--green); }
+    .status-select.s-sem-interesse { color: var(--red); }
+
+    .card-actions {
+      padding: 12px 20px;
+      border-top: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      gap: 8px;
+    }
+    .card-actions-row { display: flex; gap: 8px; }
+    .btn {
+      padding: 8px 12px; border-radius: 7px;
+      font-family: var(--font); font-size: 0.75rem; font-weight: 600;
+      cursor: pointer; border: none; display: flex; align-items: center;
+      justify-content: center; gap: 6px; transition: all 0.2s; text-decoration: none;
+      flex: 1;
+    }
+    .btn-prototype {
+      background: rgba(108,99,255,0.12); color: var(--accent2);
+      border: 1px solid rgba(108,99,255,0.25);
+    }
+    .btn-prototype:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn-download {
+      background: rgba(255,255,255,0.04); color: var(--text3);
+      border: 1px solid var(--border);
+    }
+    .btn-download:hover { background: var(--bg4); color: var(--text2); border-color: var(--border2); }
+    .btn-outreach {
+      background: rgba(34,197,94,0.1); color: var(--green);
+      border: 1px solid rgba(34,197,94,0.2);
+    }
+    .btn-outreach:hover { background: var(--green); color: #000; border-color: var(--green); }
+    .btn-wa {
+      background: rgba(37,211,102,0.12); color: #25D366;
+      border: 1px solid rgba(37,211,102,0.25);
+    }
+    .btn-wa:hover { background: #25D366; color: #fff; border-color: #25D366; }
+    .btn-mail {
+      background: rgba(59,130,246,0.1); color: var(--blue);
+      border: 1px solid rgba(59,130,246,0.2);
+    }
+    .btn-mail:hover { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .btn-send-modal {
+      font-size: 0.65rem; font-weight: 700; padding: 3px 10px;
+      border-radius: 4px; cursor: pointer; transition: all 0.2s;
+      display: flex; align-items: center; gap: 4px; text-decoration: none;
+    }
+    .btn-send-wa { background: rgba(37,211,102,0.15); color: #25D366; border: 1px solid rgba(37,211,102,0.3); }
+    .btn-send-wa:hover { background: #25D366; color: #fff; }
+    .btn-send-email { background: rgba(59,130,246,0.15); color: var(--blue); border: 1px solid rgba(59,130,246,0.3); }
+    .btn-send-email:hover { background: var(--blue); color: #fff; }
+    .modal-attach-note {
+      background: rgba(108,99,255,0.07); border: 1px solid rgba(108,99,255,0.18);
+      border-radius: 8px; padding: 10px 14px; margin-bottom: 16px;
+      font-size: 0.74rem; color: var(--text2);
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .modal-attach-note strong { color: var(--text); }
+    .btn-attach-dl {
+      margin-left: auto; font-size: 0.69rem; color: var(--accent2);
+      text-decoration: none; padding: 4px 10px;
+      border: 1px solid rgba(108,99,255,0.3); border-radius: 4px;
+      white-space: nowrap; transition: all 0.2s;
+    }
+    .btn-attach-dl:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--bg2); border: 1px solid var(--border2);
+      border-radius: 14px; width: 100%; max-width: 640px;
+      max-height: 88vh; display: flex; flex-direction: column;
+      transform: scale(0.95); transition: transform 0.25s;
+    }
+    .modal-overlay.open .modal { transform: scale(1); }
+    .modal-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: flex-start; justify-content: space-between;
+    }
+    .modal-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .modal-sub { font-size: 0.75rem; color: var(--text3); }
+    .modal-close {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--bg3); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--text2); flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .modal-close:hover { background: var(--red); color: #fff; border-color: var(--red); }
+
+    .modal-tabs {
+      padding: 12px 24px 0;
+      display: flex; gap: 4px;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-tab {
+      padding: 8px 16px; font-size: 0.75rem; font-weight: 600;
+      color: var(--text3); cursor: pointer; border-radius: 6px 6px 0 0;
+      border-bottom: 2px solid transparent; transition: all 0.2s;
+    }
+    .modal-tab.active { color: var(--accent2); border-bottom-color: var(--accent); }
+    .modal-tab:hover:not(.active) { color: var(--text2); }
+
+    .modal-body {
+      padding: 20px 24px;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .outreach-stage { margin-bottom: 28px; }
+    .stage-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .stage-title {
+      font-size: 0.78rem; font-weight: 700; color: var(--text);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .stage-num {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; font-weight: 800;
+    }
+    .stage-date { font-size: 0.7rem; color: var(--text3); }
+    .msg-block { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+    .msg-block-header {
+      padding: 8px 14px;
+      background: var(--bg4); border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .msg-channel { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); }
+    .copy-btn {
+      font-size: 0.65rem; font-weight: 700; padding: 3px 10px;
+      background: rgba(108,99,255,0.15); color: var(--accent2);
+      border: 1px solid rgba(108,99,255,0.25); border-radius: 4px;
+      cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 4px;
+    }
+    .copy-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .copy-btn.copied { background: rgba(34,197,94,0.2); color: var(--green); border-color: var(--green); }
+    .msg-text {
+      padding: 12px 14px;
+      font-size: 0.8rem; line-height: 1.7; color: var(--text2);
+      white-space: pre-wrap; word-break: break-word;
+    }
+
+    /* ===== EMPTY ===== */
+    .empty-state {
+      grid-column: 1/-1;
+      text-align: center; padding: 80px 20px;
+      color: var(--text3);
+    }
+    .empty-state svg { margin-bottom: 16px; opacity: 0.3; }
+    .empty-state p { font-size: 0.85rem; }
+
+    /* ===== TOAST ===== */
+    .toast {
+      position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+      background: var(--green); color: #000;
+      padding: 12px 20px; border-radius: 8px;
+      font-size: 0.8rem; font-weight: 700;
+      transform: translateY(60px); opacity: 0;
+      transition: all 0.3s;
+      pointer-events: none;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .stats-bar { grid-template-columns: repeat(3, 1fr); }
+      .leads-grid { padding: 16px; grid-template-columns: 1fr; }
+      .toolbar { padding: 12px 16px; }
+      .header { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="header-logo">V</div>
+      <span class="header-title">VANT Digital Studio</span>
+      <span class="header-sub">/ Painel de Prospecção</span>
+    </div>
+    <div class="header-meta">
+      <span class="header-run">Run <span>#2026-05-18-233529</span></span>
+    </div>
+  </header>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-label">Total leads</span>
+      <span class="stat-value accent" id="statTotal">20</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Pendentes</span>
+      <span class="stat-value" id="statPendente">20</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Contatados</span>
+      <span class="stat-value yellow" id="statContatado">0</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Responderam</span>
+      <span class="stat-value blue" id="statRespondeu">0</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Fechados</span>
+      <span class="stat-value green" id="statFechado">0</span>
+    </div>
+  </div>
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <div class="search-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Buscar lead, nicho, cidade..." />
+    </div>
+    <button class="filter-btn active" data-filter="todos">Todos</button>
+    <button class="filter-btn" data-filter="estetica">Estética</button>
+    <button class="filter-btn" data-filter="dentista">Odontologia</button>
+    <button class="filter-btn" data-filter="medico">Médico</button>
+    <button class="filter-btn" data-filter="advogado">Jurídico</button>
+    <button class="filter-btn" data-filter="mecanica">Mecânica</button>
+    <button class="filter-btn" data-filter="construcao">Construção</button>
+    <div class="toolbar-right">
+      <span class="count-badge">Exibindo <span id="countVisible">20</span> de 20</span>
+    </div>
+  </div>
+
+  <!-- LEADS GRID -->
+  <div class="leads-grid" id="leadsGrid"></div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title" id="modalTitle">Outreach</div>
+          <div class="modal-sub" id="modalSub"></div>
+        </div>
+        <button class="modal-close" id="modalClose">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">Copiado!</div>
+
+  <script>
+  // ===================== LEAD DATA =====================
+  const LEADS = [
+    {
+      id: 1, slug: 'clinica_bella_derm',
+      nome: 'Clínica Bella Derm',
+      nicho: 'Estética', nichoFilter: 'estetica',
+      cidade: 'Senador Canedo', seguidores: 9685,
+      contatos: [
+        { tipo: 'whatsapp', label: '(62) 8494-6406', url: 'https://wa.me/5562849464060' },
+        { tipo: 'email', label: 'lais_dayanne@hotmail.com', url: 'mailto:lais_dayanne@hotmail.com' },
+        { tipo: 'instagram', label: '@clinica.belladerm', url: 'https://www.instagram.com/clinica.belladerm/' }
+      ],
+      outreach: {
+        sub: 'WhatsApp + E-mail · Lais Dayanne',
+        stages: [
+          {
+            num: 1, titulo: 'Primeiro Contato', data: '19/05/2026',
+            msgs: [
+              { canal: 'WhatsApp', texto: `Oi! Tudo bem? Sou o Frederico, da VANT Digital Studio\nMontei um protótipo de site pensado especialmente para a Clínica Bella Derm — moderno, focado em conversão e pronto pra atrair mais pacientes.\nPosso te enviar o link pra você dar uma olhada? É rápido e sem compromisso\nQualquer dúvida, estou por aqui: (62) 98468-3116` },
+              { canal: 'E-mail', texto: `Assunto: Protótipo exclusivo para a Clínica Bella Derm\n\nOlá, Lais! Tudo bem?\n\nMe chamo Frederico, sou da VANT Digital Studio, e desenvolvemos um protótipo de site criado especialmente para a Clínica Bella Derm.\n\nO projeto foi pensado para transmitir profissionalismo, destacar os serviços da clínica e converter mais visitantes em pacientes — sem enrolação.\n\nGostaria de te enviar o link para você dar uma olhada com calma. É apenas um convite para você ver como ficou, sem nenhum compromisso.\n\nSe quiser, pode me chamar também pelo WhatsApp: (62) 98468-3116.\n\nAguardo seu retorno!\n\nFrederico Matsuoka\nVANT Digital Studio\nWhatsApp: (62) 98468-3116\nSite: vant-studio.web.app` }
+            ]
+          },
+          {
+            num: 2, titulo: 'Follow-up', data: '22/05/2026',
+            msgs: [
+              { canal: 'WhatsApp', texto: `Oi, Lais! Passando só pra saber se você teve chance de ver o protótipo da Clínica Bella Derm\nAlém do site, estamos trabalhando com automações que ajudam clínicas a organizar agendamentos e nunca perder um contato.\nPosso te explicar rapidinho como funciona?` }
+            ]
+          },
+          {
+            num: 3, titulo: 'Encerramento', data: '26/05/2026',
+            msgs: [
+              { canal: 'WhatsApp', texto: `Oi, Lais! Entendo que a rotina é corrida\nFico à disposição sempre que quiser conversar sobre a Clínica Bella Derm. É só me chamar: (62) 98468-3116. Abraço!` }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      id: 2, slug: 'clinica_meire_linhares',
+      nome: 'Clínica Meire Linhares',
+      nicho: 'Estética', nichoFilter: 'estetica',
+      cidade: 'Senador Canedo', seguidores: 4526,
+      contatos: [
+        { tipo: 'instagram', label: '@meirelinhares_centroestetico', url: 'https://www.instagram.com/meirelinhares_centroestetico/' }
+      ],
+      outreach: {
+        sub: 'Instagram DM · @meirelinhares_centroestetico',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Oi, Meire! Tudo bem? Sou o Frederico, da VANT Digital Studio\nCriei um protótipo de site pensado especificamente para a Clínica Meire Linhares — clean, profissional e feito pra atrair mais clientes.\nPosso te mandar o link pra você dar uma olhada? Sem compromisso nenhum\nQualquer dúvida: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Meire, oi! Passando pra ver se você viu o protótipo da Clínica Meire Linhares\nAh, além do site, trabalhamos também com chatbot de atendimento — ótimo pra centros estéticos que recebem muitas mensagens.\nPosso te contar mais?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Oi, Meire! Sem problemas, sei que a agenda aperta\nQuando quiser conversar sobre a Clínica Meire Linhares, é só me chamar aqui ou no (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 3, slug: 'kassia_michelly_estetica_avancada',
+      nome: 'Kassia Michelly Estética Avançada',
+      nicho: 'Estética', nichoFilter: 'estetica',
+      cidade: 'Senador Canedo', seguidores: 1300,
+      contatos: [
+        { tipo: 'instagram', label: '@kassiamichelly_vitorio', url: 'https://www.instagram.com/kassiamichelly_vitorio/' }
+      ],
+      outreach: {
+        sub: 'Instagram DM · @kassiamichelly_vitorio',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Oi, Kassia! Tudo certo? Sou o Frederico, da VANT Digital Studio\nDesenvolvi um protótipo de site exclusivo para a Kassia Michelly Estética Avançada — sofisticado, moderno e pensado para converter visitantes em clientes.\nPosso te enviar o link pra você dar uma olhada? Sem compromisso\nMe chama se quiser: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Kassia, oi! Só passando pra saber se você viu o protótipo da Kassia Michelly Estética Avançada\nPra curiosidade: também trabalhamos com automação de agendamentos — bem útil pra estéticas movimentadas!\nPosso te explicar como funciona?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Oi, Kassia! Sem problema nenhum\nSe um dia quiser conversar sobre a Kassia Michelly Estética Avançada, pode me chamar aqui ou em (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 4, slug: 'garage27gyn',
+      nome: 'Garage27gyn',
+      nicho: 'Mecânica', nichoFilter: 'mecanica',
+      cidade: 'Goiânia', seguidores: 3085,
+      contatos: [
+        { tipo: 'whatsapp', label: '(62) 98420-2630', url: 'https://wa.me/5562984202630' },
+        { tipo: 'instagram', label: '@garage27gyn', url: 'https://www.instagram.com/garage27gyn/' }
+      ],
+      outreach: {
+        sub: 'WhatsApp · (62) 98420-2630',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'WhatsApp', texto: `E aí! Tudo certo? Sou o Frederico, da VANT Digital Studio\nMontei um protótipo de site especialmente para a Garage27gyn — com cara de marca forte e foco em atrair mais clientes.\nPosso te mandar o link pra você dar uma olhada? É rápido e sem compromisso\nQualquer dúvida: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'WhatsApp', texto: `E aí! Passando pra ver se você teve tempo de ver o protótipo da Garage27gyn\nCuriosidade: também trabalhamos com integração de CRM — ajuda muito na gestão de clientes e ordens de serviço.\nQuer saber mais?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Fala! Sem estresse, sei que a rotina atropela\nQuando quiser conversar sobre a Garage27gyn, é só me chamar: (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 5, slug: 'kadosh_manutencao_automotiva',
+      nome: 'Kadosh Manutenção Automotiva',
+      nicho: 'Mecânica', nichoFilter: 'mecanica',
+      cidade: 'Aparecida de Goiânia', seguidores: 0,
+      contatos: [
+        { tipo: 'instagram', label: '@kadosh.manutencao', url: 'https://www.instagram.com/kadosh.manutencao/' }
+      ],
+      outreach: {
+        sub: 'Instagram DM · @kadosh.manutencao',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'Instagram DM', texto: `E aí! Tudo bem? Sou o Frederico, da VANT Digital Studio\nDesenvolvi um protótipo de site pensado especialmente para a Kadosh Manutenção Automotiva — visual forte, direto ao ponto e feito pra atrair mais clientes.\nPosso te enviar o link pra dar uma olhada? Sem compromisso nenhum\nSe preferir: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Oi! Passando pra saber se você viu o protótipo da Kadosh Manutenção Automotiva\nAh, também trabalhamos com CRM — ajuda muito a organizar clientes, histórico de serviços e retornos.\nQuer saber como funciona?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Sem problema! Quando quiser conversar sobre a Kadosh Manutenção Automotiva, pode me chamar aqui ou em (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 6, slug: 'psiomed_clinica_medica',
+      nome: 'PsicoMed Clínica Médica',
+      nicho: 'Médico', nichoFilter: 'medico',
+      cidade: 'Goianira', seguidores: 3751,
+      contatos: [
+        { tipo: 'whatsapp', label: '(62) 98289-5004', url: 'https://wa.me/5562982895004' },
+        { tipo: 'instagram', label: '@psicomedgoianira', url: 'https://www.instagram.com/psicomedgoianira/' }
+      ],
+      outreach: {
+        sub: 'WhatsApp · (62) 98289-5004',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá! Tudo bem? Sou o Frederico, da VANT Digital Studio\nPreparei um protótipo de site desenvolvido especialmente para a PsicoMed Clínica Médica — profissional, humanizado e com foco em atrair mais pacientes.\nPosso te enviar o link pra você dar uma olhada? Sem nenhum compromisso\nQualquer dúvida: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá! Passando pra saber se você teve a chance de ver o protótipo da PsicoMed Clínica Médica\nUma coisa interessante: também oferecemos IA para atendimento ao cliente — muito útil para triagem inicial e agendamentos de clínicas.\nPosso explicar rapidinho?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá! Entendo, sei que a agenda é cheia\nQuando quiser retomar sobre a PsicoMed Clínica Médica, estou à disposição: (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 7, slug: 'psicologa_dra_edneusa_rodrigues',
+      nome: 'Psicóloga Dra. Edneusa Rodrigues',
+      nicho: 'Psicólogo', nichoFilter: 'medico',
+      cidade: 'Aparecida de Goiânia', seguidores: 0,
+      contatos: [
+        { tipo: 'whatsapp', label: '(62) 99107-6681', url: 'https://wa.me/5562991076681' },
+        { tipo: 'email', label: 'edneusapsicologia@gmail.com', url: 'mailto:edneusapsicologia@gmail.com' }
+      ],
+      outreach: {
+        sub: 'WhatsApp + E-mail · Dra. Edneusa',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [
+            { canal: 'WhatsApp', texto: `Olá, Dra. Edneusa! Tudo bem? Sou o Frederico, da VANT Digital Studio\nCriei um protótipo de site especialmente para sua clínica de psicologia — acolhedor, profissional e pensado para atrair mais pacientes.\nPosso te enviar o link pra você dar uma olhada? Sem compromisso nenhum\nEstou por aqui: (62) 98468-3116` },
+            { canal: 'E-mail', texto: `Assunto: Protótipo de site para Dra. Edneusa Rodrigues\n\nOlá, Dra. Edneusa! Tudo bem?\n\nMe chamo Frederico, sou da VANT Digital Studio. Desenvolvemos um protótipo de site criado especialmente para sua clínica de psicologia.\n\nO projeto foi pensado para transmitir acolhimento e profissionalismo, destacar sua abordagem e facilitar que novos pacientes entrem em contato com você.\n\nGostaria apenas de te enviar o link para você conhecer, sem nenhum compromisso. Se preferir, pode me chamar pelo WhatsApp: (62) 98468-3116.\n\nAguardo seu retorno!\n\nFrederico Matsuoka\nVANT Digital Studio\nWhatsApp: (62) 98468-3116\nSite: vant-studio.web.app` }
+          ] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá, Dra. Edneusa! Passando pra saber se você viu o protótipo do seu site de psicologia\nCuriosidade: também trabalhamos com chatbot de atendimento — ótimo pra gerenciar primeiros contatos e agendamentos.\nQuer saber mais?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá, Dra. Edneusa! Entendo, sei que o tempo é escasso\nQuando quiser conversar sobre o site da sua clínica, é só me chamar: (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 8, slug: 'integralis_psicologia',
+      nome: 'Integralis Psicologia',
+      nicho: 'Psicólogo', nichoFilter: 'medico',
+      cidade: 'Aparecida de Goiânia', seguidores: 0,
+      contatos: [
+        { tipo: 'instagram', label: '@integralisgopsicologia', url: 'https://www.instagram.com/integralisgopsicologia/' }
+      ],
+      outreach: {
+        sub: 'Instagram DM · @integralisgopsicologia',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Tudo bem? Sou o Frederico, da VANT Digital Studio\nMontei um protótipo de site pensado especialmente para a Integralis Psicologia — acolhedor, profissional e com foco em atrair mais pacientes.\nPosso te enviar o link pra você dar uma olhada? Sem compromisso nenhum\nSe quiser, me chame em (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Passando pra saber se você viu o protótipo da Integralis Psicologia\nAh, também trabalhamos com IA para atendimento — uma forma moderna de gerenciar primeiros contatos de pacientes.\nPosso te contar como funciona?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Sem problemas, entendo que a rotina aperta\nQuando quiser retomar sobre a Integralis Psicologia, pode me chamar aqui ou em (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 9, slug: 'goiania_reparos_e_reformas',
+      nome: 'Goiânia Reparos e Reformas',
+      nicho: 'Construção', nichoFilter: 'construcao',
+      cidade: 'Goiânia', seguidores: 3919,
+      contatos: [
+        { tipo: 'whatsapp', label: '(62) 98585-0000', url: 'https://wa.me/5562985850000' },
+        { tipo: 'instagram', label: '@goianiareparosereformas', url: 'https://www.instagram.com/goianiareparosereformas/' }
+      ],
+      outreach: {
+        sub: 'WhatsApp · (62) 98585-0000',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Oi! Tudo certo? Sou o Frederico, da VANT Digital Studio\nDesenvolvi um protótipo de site especialmente para a Goiânia Reparos e Reformas — visual de marca forte, direto ao ponto e com foco em gerar mais orçamentos.\nPosso te mandar o link pra dar uma olhada? Rápido e sem compromisso\nQualquer dúvida: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Oi! Passando pra saber se você viu o protótipo da Goiânia Reparos e Reformas\nPor curiosidade: também oferecemos automações de tarefas — ajuda bastante a organizar solicitações de orçamento e acompanhamento de clientes.\nQuer entender melhor?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Oi! Sem estresse, entendo que a obra nunca para\nSe quiser conversar sobre a Goiânia Reparos e Reformas, é só me chamar: (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 10, slug: 'construtora_godinho_mariano',
+      nome: 'Construtora Godinho Mariano',
+      nicho: 'Construtora', nichoFilter: 'construcao',
+      cidade: 'Goiânia', seguidores: 0,
+      contatos: [
+        { tipo: 'instagram', label: '@construtora.gm', url: 'https://www.instagram.com/construtora.gm/' }
+      ],
+      outreach: {
+        sub: 'Instagram DM · @construtora.gm',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Tudo bem? Sou o Frederico, da VANT Digital Studio\nMontei um protótipo de site pensado especialmente para a Construtora Godinho Mariano — sólido, profissional e com foco em atrair novos clientes e projetos.\nPosso te enviar o link pra você dar uma olhada? Sem compromisso nenhum\nSe quiser: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Passando pra saber se você viu o protótipo da Construtora Godinho Mariano\nAh, também trabalhamos com dashboard financeiro — ótimo pra acompanhar custos e margens de obra em tempo real.\nPosso explicar como funciona?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Entendo, a obra é intensa\nQuando quiser conversar sobre a Construtora Godinho Mariano, pode me chamar aqui ou em (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 11, slug: 'escritorio_silva_dias_advogados',
+      nome: 'Escritório Silva Dias Advogados',
+      nicho: 'Advogado', nichoFilter: 'advogado',
+      cidade: 'Goiânia', seguidores: 0,
+      contatos: [
+        { tipo: 'instagram', label: '@escritoriosilvadias', url: 'https://www.instagram.com/escritoriosilvadias/' }
+      ],
+      outreach: {
+        sub: 'Instagram DM · @escritoriosilvadias',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Tudo bem? Sou o Frederico, da VANT Digital Studio\nDesenvolvi um protótipo de site criado especialmente para o Escritório Silva Dias Advogados — sóbrio, moderno e pensado para gerar mais credibilidade e contatos de clientes.\nPosso te enviar o link pra você dar uma olhada? Sem compromisso nenhum\nSe quiser: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Passando pra saber se você viu o protótipo do Escritório Silva Dias Advogados\nCuriosidade: também trabalhamos com CRM — ajuda muito escritórios a organizar clientes, prazos e acompanhamentos de processos.\nQuer saber mais?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Sem problemas, sei que a pauta jurídica é intensa\nQuando quiser retomar sobre o Escritório Silva Dias Advogados, é só me chamar aqui ou em (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 12, slug: 'larissa_martins_advogada',
+      nome: 'Larissa Martins Advogada',
+      nicho: 'Advogado', nichoFilter: 'advogado',
+      cidade: 'Goiânia', seguidores: 0,
+      contatos: [
+        { tipo: 'instagram', label: '@larissamartins_adv', url: 'https://www.instagram.com/larissamartins_adv/' }
+      ],
+      outreach: {
+        sub: 'Instagram DM · @larissamartins_adv',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá, Larissa! Tudo bem? Sou o Frederico, da VANT Digital Studio\nCriei um protótipo de site especialmente para você — elegante, profissional e pensado para atrair mais clientes para o seu escritório.\nPosso te enviar o link pra dar uma olhada? Sem compromisso nenhum\nSe quiser conversar: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Larissa, oi! Passando pra saber se você viu o protótipo do seu site de advocacia\nPra curiosidade: também oferecemos CRM — muito útil pra advogados autônomos organizarem clientes e prazos.\nPosso te explicar?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Oi, Larissa! Entendo que a demanda é grande\nQuando quiser conversar sobre o site da Larissa Martins Advogada, pode me chamar aqui ou em (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 13, slug: 'advogado_gilberto_jose',
+      nome: 'Advogado Gilberto José',
+      nicho: 'Advogado', nichoFilter: 'advogado',
+      cidade: 'Trindade', seguidores: 0,
+      contatos: [
+        { tipo: 'instagram', label: 'Instagram DM', url: 'https://www.instagram.com/p/DNQwo5Wxhtl/' }
+      ],
+      outreach: {
+        sub: 'Instagram DM · Gilberto José',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá, Gilberto! Tudo bem? Sou o Frederico, da VANT Digital Studio\nDesenvolvi um protótipo de site criado especialmente para você — profissional, sóbrio e com foco em transmitir autoridade e atrair clientes.\nPosso te enviar o link pra você dar uma olhada? Sem compromisso nenhum\nSe quiser: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Oi, Gilberto! Passando pra saber se você viu o protótipo do site do Advogado Gilberto José\nCuriosidade: também oferecemos CRM — ótimo pra organizar clientes, prazos e histórico de atendimentos.\nQuer saber como funciona?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Oi, Gilberto! Sem problema nenhum\nQuando quiser conversar sobre o Advogado Gilberto José, é só me chamar aqui ou em (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 14, slug: 'dr_luis_gustavo_odontoqualit',
+      nome: 'Dr. Luís Gustavo OdontoQualit',
+      nicho: 'Dentista', nichoFilter: 'dentista',
+      cidade: 'Senador Canedo', seguidores: 21000,
+      contatos: [
+        { tipo: 'instagram', label: '@drluisgustavo_odontoqualit', url: 'https://www.instagram.com/drluisgustavo_odontoqualit/' }
+      ],
+      outreach: {
+        sub: 'Instagram DM · @drluisgustavo_odontoqualit · 21K seg',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá, Dr. Luís Gustavo! Tudo bem? Sou o Frederico, da VANT Digital Studio\nCriei um protótipo de site exclusivo para a OdontoQualit — sofisticado, confiável e pensado para atrair mais pacientes.\nPosso te enviar o link pra dar uma olhada? Sem compromisso nenhum\nMe chame quando quiser: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Oi, Dr. Luís Gustavo! Passando pra saber se você viu o protótipo da OdontoQualit\nCuriosidade: também trabalhamos com chatbot de atendimento — ótimo pra clínicas que recebem muitos contatos por mensagem.\nPosso explicar como funciona?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Oi, Dr. Luís Gustavo! Entendo, sei que a agenda é cheia\nQuando quiser conversar sobre a OdontoQualit, é só me chamar aqui ou em (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 15, slug: 'odonto_canedo',
+      nome: 'Odonto Canedo',
+      nicho: 'Dentista', nichoFilter: 'dentista',
+      cidade: 'Senador Canedo', seguidores: 0,
+      contatos: [
+        { tipo: 'instagram', label: '@odonto_canedo', url: 'https://www.instagram.com/odonto_canedo/' }
+      ],
+      outreach: {
+        sub: 'Instagram DM · @odonto_canedo',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Tudo bem? Sou o Frederico, da VANT Digital Studio\nDesenvolvi um protótipo de site pensado especialmente para a Odonto Canedo — limpo, confiável e com foco em converter visitantes em pacientes.\nPosso te enviar o link pra você dar uma olhada? Sem compromisso\nSe quiser conversar: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Passando pra saber se você viu o protótipo da Odonto Canedo\nAh, também oferecemos chatbot de atendimento — muitas clínicas usam pra automatizar perguntas frequentes e agendamentos.\nQuer saber mais?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Entendo, sem problemas\nQuando quiser conversar sobre a Odonto Canedo, me chame aqui ou em (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 16, slug: 'clinica_matri_trindade',
+      nome: 'Clínica Matri Trindade',
+      nicho: 'Médico', nichoFilter: 'medico',
+      cidade: 'Trindade', seguidores: 7295,
+      contatos: [
+        { tipo: 'whatsapp', label: '(62) 99957-0000', url: 'https://wa.me/5562999570000' },
+        { tipo: 'instagram', label: '@clinicamatritrindade', url: 'https://www.instagram.com/clinicamatritrindade/' }
+      ],
+      outreach: {
+        sub: 'WhatsApp · (62) 99957-0000',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá! Tudo bem? Sou o Frederico, da VANT Digital Studio\nMontei um protótipo de site desenvolvido especialmente para a Clínica Matri Trindade — sofisticado, acolhedor e pensado para atrair mais pacientes.\nPosso te enviar o link pra você dar uma olhada? Sem compromisso nenhum\nQualquer dúvida: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá! Passando pra saber se você teve a chance de ver o protótipo da Clínica Matri Trindade\nPor curiosidade: também trabalhamos com IA para atendimento ao cliente — muito útil para triagem inicial e agendamentos de clínicas.\nPosso te explicar?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá! Entendo, sei que a agenda médica não para\nQuando quiser conversar sobre a Clínica Matri Trindade, estou à disposição: (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 17, slug: 'clinica_mulher_trindade',
+      nome: 'Clínica Mulher Trindade',
+      nicho: 'Médico', nichoFilter: 'medico',
+      cidade: 'Trindade', seguidores: 0,
+      contatos: [
+        { tipo: 'whatsapp', label: '(62) 99957-8917', url: 'https://wa.me/5562999578917' },
+        { tipo: 'instagram', label: '@clinicamulhertrindade', url: 'https://www.instagram.com/clinicamulhertrindade/' }
+      ],
+      outreach: {
+        sub: 'WhatsApp · (62) 99957-8917',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá! Tudo bem? Sou o Frederico, da VANT Digital Studio\nCriei um protótipo de site pensado especialmente para a Clínica Mulher Trindade — elegante, acolhedor e com foco em atrair mais pacientes.\nPosso te enviar o link pra você dar uma olhada? Sem compromisso nenhum\nQualquer dúvida: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá! Passando pra saber se você viu o protótipo da Clínica Mulher Trindade\nPra curiosidade: também trabalhamos com chatbot de atendimento — muitas clínicas usam pra automatizar agendamentos e dúvidas frequentes.\nQuer saber mais?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá! Entendo, sei que a agenda é corrida\nQuando quiser conversar sobre a Clínica Mulher Trindade, é só me chamar: (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 18, slug: 'esteticface_setor_bueno',
+      nome: 'Esteticface Setor Bueno',
+      nicho: 'Estética', nichoFilter: 'estetica',
+      cidade: 'Goiânia', seguidores: 0,
+      contatos: [
+        { tipo: 'instagram', label: '@esteticface.setorbueno', url: 'https://www.instagram.com/esteticface.setorbueno/' }
+      ],
+      outreach: {
+        sub: 'Instagram DM · @esteticface.setorbueno',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Oi! Tudo bem? Sou o Frederico, da VANT Digital Studio\nDesenvolvi um protótipo de site exclusivo para a Esteticface Setor Bueno — moderno, sofisticado e com foco em converter visitantes em clientes.\nPosso te enviar o link pra você dar uma olhada? Sem compromisso\nMe chame quando quiser: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Oi! Passando pra saber se você viu o protótipo da Esteticface Setor Bueno\nCuriosidade: também trabalhamos com automações de agendamento — ótimo pra clínicas que recebem muitas mensagens no dia a dia.\nQuer saber mais?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Oi! Sem problemas, entendo que a rotina é corrida\nQuando quiser conversar sobre a Esteticface Setor Bueno, me chame aqui ou em (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 19, slug: 'reforma_engenharia',
+      nome: 'Reforma Engenharia',
+      nicho: 'Engenheiro', nichoFilter: 'construcao',
+      cidade: 'Goiânia', seguidores: 0,
+      contatos: [
+        { tipo: 'instagram', label: '@reforma.engenharia', url: 'https://www.instagram.com/reforma.engenharia/' }
+      ],
+      outreach: {
+        sub: 'Instagram DM · @reforma.engenharia',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Tudo bem? Sou o Frederico, da VANT Digital Studio\nCriei um protótipo de site pensado especialmente para a Reforma Engenharia — sólido, profissional e com foco em atrair novos projetos e clientes.\nPosso te enviar o link pra você dar uma olhada? Sem compromisso nenhum\nSe quiser conversar: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Passando pra saber se você viu o protótipo da Reforma Engenharia\nPor curiosidade: também trabalhamos com dashboard financeiro — ótimo pra acompanhar custos e rentabilidade de obras em tempo real.\nQuer entender melhor?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'Instagram DM', texto: `Olá! Entendo, sem problemas\nQuando quiser conversar sobre a Reforma Engenharia, me chame aqui ou em (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    },
+    {
+      id: 20, slug: 'viva_odonto_goiania',
+      nome: 'Viva Odonto Goiânia',
+      nicho: 'Dentista', nichoFilter: 'dentista',
+      cidade: 'Goiânia', seguidores: 0,
+      contatos: [
+        { tipo: 'whatsapp', label: '(62) 99983-9130', url: 'https://wa.me/5562999839130' },
+        { tipo: 'instagram', label: '@vivaodonto.goiania', url: 'https://www.instagram.com/vivaodonto.goiania/' }
+      ],
+      outreach: {
+        sub: 'WhatsApp · (62) 99983-9130',
+        stages: [
+          { num: 1, titulo: 'Primeiro Contato', data: '19/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá! Tudo bem? Sou o Frederico, da VANT Digital Studio\nMontei um protótipo de site desenvolvido especialmente para a Viva Odonto Goiânia — moderno, confiável e feito pra atrair mais pacientes.\nPosso te enviar o link pra você dar uma olhada? Rápido e sem compromisso\nQualquer dúvida: (62) 98468-3116` }] },
+          { num: 2, titulo: 'Follow-up', data: '22/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá! Passando pra saber se você viu o protótipo da Viva Odonto Goiânia\nPra curiosidade: também oferecemos chatbot de atendimento — ótimo pra clínicas odontológicas que recebem muitas mensagens.\nPosso te contar mais?` }] },
+          { num: 3, titulo: 'Encerramento', data: '26/05/2026', msgs: [{ canal: 'WhatsApp', texto: `Olá! Entendo, a agenda de clínica não para\nQuando quiser conversar sobre a Viva Odonto Goiânia, é só me chamar: (62) 98468-3116. Abraço!` }] }
+        ]
+      }
+    }
+  ];
+
+  // ===================== ICONS =====================
+  const ICONS = {
+    whatsapp: `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>`,
+    email: `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`,
+    instagram: `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>`
+  };
+
+  // ===================== STATE =====================
+  const STATE_KEY = 'vant_leads_status_v1';
+  let statuses = JSON.parse(localStorage.getItem(STATE_KEY) || '{}');
+  let activeFilter = 'todos';
+
+  // ===================== SEND LINK HELPERS =====================
+  function getWALink(lead, texto) {
+    const c = lead.contatos.find(c => c.tipo === 'whatsapp');
+    if (!c) return null;
+    const phone = c.url.replace('https://wa.me/', '');
+    return 'https://wa.me/' + phone + '?text=' + encodeURIComponent(texto);
+  }
+
+  function getEmailLink(lead, texto) {
+    const c = lead.contatos.find(c => c.tipo === 'email');
+    if (!c) return null;
+    const lines = texto.split('\n');
+    const subjectLine = lines[0];
+    const subject = subjectLine.startsWith('Assunto:')
+      ? subjectLine.replace('Assunto:', '').trim()
+      : 'Protótipo exclusivo para ' + lead.nome;
+    const body = lines.slice(2).join('\n');
+    return 'mailto:' + c.label + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+
+  function saveStatuses() {
+    localStorage.setItem(STATE_KEY, JSON.stringify(statuses));
+    updateStats();
+  }
+
+  function getStatus(id) { return statuses[id] || 'pendente'; }
+
+  function updateStats() {
+    const counts = { pendente: 0, contatado: 0, respondeu: 0, negociando: 0, fechado: 0 };
+    LEADS.forEach(l => {
+      const s = getStatus(l.id);
+      if (counts[s] !== undefined) counts[s]++;
+      else counts.pendente++;
+    });
+    document.getElementById('statPendente').textContent = counts.pendente;
+    document.getElementById('statContatado').textContent = counts.contatado;
+    document.getElementById('statRespondeu').textContent = counts.respondeu;
+    document.getElementById('statFechado').textContent = counts.fechado;
+  }
+
+  // ===================== RENDER CARDS =====================
+  function renderCards() {
+    const grid = document.getElementById('leadsGrid');
+    grid.innerHTML = '';
+
+    LEADS.forEach(lead => {
+      const status = getStatus(lead.id);
+      const card = document.createElement('div');
+      card.className = 'lead-card';
+      card.dataset.nicho = lead.nichoFilter;
+      card.dataset.id = lead.id;
+
+      const contatosHTML = lead.contatos.map(c => `
+        <div class="contato-row">
+          ${ICONS[c.tipo] || ''}
+          <a href="${c.url}" target="_blank">${c.label}</a>
+        </div>
+      `).join('');
+
+      const day1 = lead.outreach.stages[0];
+      const day1WA  = day1?.msgs.find(m => m.canal === 'WhatsApp');
+      const day1Email = day1?.msgs.find(m => m.canal === 'E-mail');
+      const waLink    = day1WA    ? getWALink(lead, day1WA.texto)    : null;
+      const emailLink = day1Email ? getEmailLink(lead, day1Email.texto) : null;
+
+      const sendRow = [
+        waLink    ? `<a href="${waLink}" target="_blank" class="btn btn-wa"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Enviar WA</a>` : '',
+        emailLink ? `<a href="${emailLink}" class="btn btn-mail"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Enviar E-mail</a>` : '',
+        `<button class="btn btn-outreach" onclick="openOutreach(${lead.id})"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>Mensagens</button>`
+      ].filter(Boolean).join('');
+
+      const segBadge = lead.seguidores > 0
+        ? `<span class="badge badge-seg">${lead.seguidores >= 1000 ? (lead.seguidores/1000).toFixed(1)+'K' : lead.seguidores} seg.</span>`
+        : '';
+
+      card.innerHTML = `
+        <div class="card-header">
+          <div class="card-num">${String(lead.id).padStart(2,'0')}</div>
+          <div class="card-title-wrap">
+            <div class="card-name">${lead.nome}</div>
+            <div class="card-badges">
+              <span class="badge badge-nicho">${lead.nicho}</span>
+              <span class="badge badge-cidade">${lead.cidade}</span>
+              ${segBadge}
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-contatos">${contatosHTML}</div>
+          <div class="card-status-row">
+            <span class="status-label">Status:</span>
+            <select class="status-select s-${status}" onchange="changeStatus(${lead.id}, this)">
+              <option value="pendente" ${status==='pendente'?'selected':''}>Pendente</option>
+              <option value="contatado" ${status==='contatado'?'selected':''}>Contatado</option>
+              <option value="respondeu" ${status==='respondeu'?'selected':''}>Respondeu</option>
+              <option value="negociando" ${status==='negociando'?'selected':''}>Em negociação</option>
+              <option value="fechado" ${status==='fechado'?'selected':''}>Fechado</option>
+              <option value="sem-interesse" ${status==='sem-interesse'?'selected':''}>Sem interesse</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-actions">
+          <div class="card-actions-row">
+            <a href="v1/PREMIUM_${lead.slug}.html" target="_blank" class="btn btn-prototype">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+              Ver protótipo
+            </a>
+            <a href="v1/PREMIUM_${lead.slug}.html" download class="btn btn-download">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Baixar
+            </a>
+          </div>
+          <div class="card-actions-row">${sendRow}</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    applyFilter();
+    updateStats();
+  }
+
+  // ===================== STATUS CHANGE =====================
+  window.changeStatus = function(id, select) {
+    const val = select.value;
+    statuses[id] = val;
+    saveStatuses();
+    select.className = `status-select s-${val}`;
+  };
+
+  // ===================== FILTER / SEARCH =====================
+  function applyFilter() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.lead-card');
+    let visible = 0;
+
+    cards.forEach(card => {
+      const id = parseInt(card.dataset.id);
+      const lead = LEADS.find(l => l.id === id);
+      const matchFilter = activeFilter === 'todos' || card.dataset.nicho === activeFilter;
+      const matchSearch = !search ||
+        lead.nome.toLowerCase().includes(search) ||
+        lead.nicho.toLowerCase().includes(search) ||
+        lead.cidade.toLowerCase().includes(search) ||
+        lead.contatos.some(c => c.label.toLowerCase().includes(search));
+
+      if (matchFilter && matchSearch) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    document.getElementById('countVisible').textContent = visible;
+
+    // Show empty state
+    const existing = document.querySelector('.empty-state');
+    if (existing) existing.remove();
+    if (visible === 0) {
+      const em = document.createElement('div');
+      em.className = 'empty-state';
+      em.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><p>Nenhum lead encontrado para os filtros selecionados.</p>`;
+      document.getElementById('leadsGrid').appendChild(em);
+    }
+  }
+
+  document.getElementById('searchInput').addEventListener('input', applyFilter);
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      applyFilter();
+    });
+  });
+
+  // ===================== MODAL / OUTREACH =====================
+  window.openOutreach = function(id) {
+    const lead = LEADS.find(l => l.id === id);
+    if (!lead) return;
+
+    document.getElementById('modalTitle').textContent = lead.nome;
+    document.getElementById('modalSub').textContent = lead.outreach.sub;
+
+    const waContact    = lead.contatos.find(c => c.tipo === 'whatsapp');
+    const emailContact = lead.contatos.find(c => c.tipo === 'email');
+
+    const body = document.getElementById('modalBody');
+
+    const attachNote = `<div class="modal-attach-note">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+      <span>Lembre-se de <strong>anexar o arquivo</strong> <code style="background:rgba(255,255,255,0.07);padding:1px 6px;border-radius:3px;font-size:0.7rem;">PREMIUM_${lead.slug}.html</code> junto com a mensagem</span>
+      <a href="v1/PREMIUM_${lead.slug}.html" download class="btn-attach-dl">
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;margin-right:3px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Baixar arquivo
+      </a>
+    </div>`;
+
+    body.innerHTML = attachNote + lead.outreach.stages.map(stage => `
+      <div class="outreach-stage">
+        <div class="stage-header">
+          <div class="stage-title">
+            <div class="stage-num">${stage.num}</div>
+            ${stage.titulo}
+          </div>
+          <span class="stage-date">${stage.data}</span>
+        </div>
+        ${stage.msgs.map((msg, mi) => {
+          const isWA    = msg.canal === 'WhatsApp' && waContact;
+          const isEmail = (msg.canal === 'E-mail' || msg.canal === 'Email') && emailContact;
+          const sendLink = isWA
+            ? getWALink(lead, msg.texto)
+            : isEmail ? getEmailLink(lead, msg.texto) : null;
+          const sendBtn = sendLink
+            ? (isWA
+                ? `<a href="${sendLink}" target="_blank" class="btn-send-modal btn-send-wa"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Enviar WA</a>`
+                : `<a href="${sendLink}" class="btn-send-modal btn-send-email"><svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Enviar E-mail</a>`)
+            : '';
+          return `
+          <div class="msg-block">
+            <div class="msg-block-header">
+              <span class="msg-channel">${msg.canal}</span>
+              <div style="display:flex;gap:5px;align-items:center;">
+                ${sendBtn}
+                <button class="copy-btn" onclick="copyMsg(this, \`${msg.texto.replace(/`/g,'\\`')}\`)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  Copiar
+                </button>
+              </div>
+            </div>
+            <div class="msg-text">${msg.texto.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    `).join('');
+
+    document.getElementById('modalOverlay').classList.add('open');
+  };
+
+  window.copyMsg = function(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      btn.classList.add('copied');
+      btn.textContent = 'Copiado!';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar`;
+        showToast('Mensagem copiada!');
+      }, 1200);
+    });
+  };
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  document.getElementById('modalClose').addEventListener('click', () => {
+    document.getElementById('modalOverlay').classList.remove('open');
+  });
+  document.getElementById('modalOverlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('modalOverlay')) {
+      document.getElementById('modalOverlay').classList.remove('open');
+    }
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.getElementById('modalOverlay').classList.remove('open');
+  });
+
+  // ===================== INIT =====================
+  renderCards();
+  </script>
+</body>
+</html>

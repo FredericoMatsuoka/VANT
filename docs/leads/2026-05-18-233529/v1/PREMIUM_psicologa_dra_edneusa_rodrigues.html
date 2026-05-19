@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Edneusa Rodrigues — Psicóloga TEA & ABA — Aparecida de Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --violet: #7B5EA7;
+  --violet-light: #F0E8F8;
+  --violet-dark: #2D1B5A;
+  --white: #FFFFFF;
+  --gray-100: #FAF8FF;
+  --gray-200: #EDE8F5;
+  --gray-600: #6B5A8A;
+  --gray-800: #2D2040;
+  --font-head: 'DM Serif Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --radius: 20px;
+  --shadow: 0 8px 32px rgba(123,94,167,0.12);
+  --shadow-lg: 0 24px 64px rgba(123,94,167,0.18);
+  --transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); overflow-x: hidden; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--gray-100); }
+::-webkit-scrollbar-thumb { background: var(--violet); border-radius: 3px; }
+
+/* HEADER */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 5%; transition: var(--transition);
+}
+.header.scrolled {
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(24px);
+  box-shadow: 0 2px 24px rgba(123,94,167,0.1);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 84px;
+}
+.logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.logo-mark {
+  width: 46px; height: 46px;
+  background: var(--violet-light); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  transition: var(--transition);
+}
+.header.scrolled .logo-mark { background: var(--violet); }
+.logo-name { font-family: var(--font-head); font-size: 1.15rem; color: white; transition: var(--transition); }
+.header.scrolled .logo-name { color: var(--violet-dark); }
+.logo-cred { font-size: 0.7rem; color: rgba(255,255,255,0.65); letter-spacing: 1.5px; text-transform: uppercase; transition: var(--transition); }
+.header.scrolled .logo-cred { color: var(--gray-600); }
+nav { display: flex; align-items: center; gap: 28px; }
+nav a {
+  font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.85);
+  text-decoration: none; transition: color 0.3s;
+}
+nav a:hover { color: white; }
+.header.scrolled nav a { color: var(--gray-800); }
+.header.scrolled nav a:hover { color: var(--violet); }
+.nav-cta {
+  background: var(--violet) !important; color: white !important;
+  padding: 10px 24px; border-radius: 50px;
+  font-weight: 600 !important; font-size: 0.85rem !important;
+  transition: var(--transition) !important; text-decoration: none;
+}
+.nav-cta:hover { background: var(--violet-dark) !important; transform: translateY(-2px); box-shadow: var(--shadow); }
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+.menu-toggle span { display: block; width: 24px; height: 2px; background: white; margin: 5px 0; border-radius: 2px; transition: var(--transition); }
+.header.scrolled .menu-toggle span { background: var(--violet-dark); }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  background: var(--violet-dark); position: relative; overflow: hidden;
+}
+/* Organic SVG shapes */
+.hero-blob1 {
+  position: absolute; top: -100px; right: -100px;
+  width: 600px; height: 600px; opacity: 0.2;
+  animation: blob-float 8s ease-in-out infinite;
+}
+.hero-blob2 {
+  position: absolute; bottom: -80px; left: -80px;
+  width: 400px; height: 400px; opacity: 0.15;
+  animation: blob-float 10s ease-in-out infinite reverse;
+}
+.hero-blob3 {
+  position: absolute; top: 40%; left: 30%; transform: translate(-50%, -50%);
+  width: 300px; height: 300px; opacity: 0.1;
+  animation: blob-float 12s ease-in-out infinite 2s;
+}
+@keyframes blob-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-20px) rotate(5deg); }
+  66% { transform: translateY(10px) rotate(-3deg); }
+}
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 5%; padding-top: 84px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  position: relative; z-index: 2; width: 100%;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(240,232,248,0.12); border: 1px solid rgba(240,232,248,0.25);
+  color: #D4B8F0; padding: 7px 16px; border-radius: 50px;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.hero-title {
+  font-family: var(--font-head); font-size: clamp(2.5rem, 4.5vw, 4rem);
+  color: white; line-height: 1.15; margin-bottom: 24px;
+  font-weight: 400;
+}
+.hero-title em { font-style: italic; color: #C4A0E8; }
+.hero-desc { font-size: 1.05rem; line-height: 1.75; color: rgba(255,255,255,0.7); margin-bottom: 40px; }
+.hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+.chip {
+  padding: 7px 16px; background: rgba(123,94,167,0.4); border: 1px solid rgba(196,160,232,0.3);
+  color: #D4B8F0; border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+}
+.btn-wa-hero {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: #25D366; color: white;
+  padding: 17px 36px; border-radius: 50px;
+  font-size: 1rem; font-weight: 700; text-decoration: none;
+  transition: var(--transition); box-shadow: 0 12px 32px rgba(37,211,102,0.3);
+}
+.btn-wa-hero:hover { transform: translateY(-3px); box-shadow: 0 20px 48px rgba(37,211,102,0.4); }
+.btn-wa-hero svg { width: 22px; height: 22px; fill: white; }
+.hero-img-wrap {
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+  position: relative;
+}
+.hero-img-wrap::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(45,27,90,0.6) 0%, transparent 60%);
+  z-index: 1;
+}
+.hero-img-wrap img { width: 100%; height: 560px; object-fit: cover; object-position: top; display: block; }
+.hero-card-float {
+  position: absolute; bottom: 24px; left: 24px; right: 24px;
+  background: rgba(45,27,90,0.85); backdrop-filter: blur(16px);
+  border: 1px solid rgba(196,160,232,0.2); border-radius: 14px;
+  padding: 18px 20px; z-index: 2;
+}
+.hero-card-float h5 { font-family: var(--font-head); font-size: 1.1rem; color: white; margin-bottom: 4px; }
+.hero-card-float p { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
+.hero-card-tags { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+.hero-card-tags span {
+  padding: 4px 10px; background: rgba(123,94,167,0.5); border-radius: 50px;
+  font-size: 0.7rem; color: #C4A0E8; font-weight: 600;
+}
+
+/* PARA QUEM É */
+.para-quem { background: var(--gray-100); padding: 100px 5%; }
+.para-quem-inner { max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--violet); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::before { content: ''; width: 28px; height: 2px; background: var(--violet); display: block; }
+.section-title {
+  font-family: var(--font-head); font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400; color: var(--gray-800); line-height: 1.2; margin-bottom: 16px;
+}
+.section-title em { font-style: italic; color: var(--violet); }
+.section-desc { font-size: 1.05rem; color: var(--gray-600); line-height: 1.7; max-width: 600px; margin-bottom: 56px; }
+.profiles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.profile-card {
+  background: white; border-radius: var(--radius); padding: 32px;
+  border: 1px solid var(--gray-200); transition: var(--transition);
+  position: relative; overflow: hidden;
+}
+.profile-card::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--violet), #C4A0E8);
+  transform: scaleX(0); transform-origin: left; transition: var(--transition);
+}
+.profile-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.profile-card:hover::after { transform: scaleX(1); }
+.profile-emoji { font-size: 2.5rem; margin-bottom: 16px; display: block; }
+.profile-card h4 { font-family: var(--font-head); font-size: 1.2rem; color: var(--gray-800); margin-bottom: 12px; }
+.profile-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.7; }
+.profile-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.profile-tags span {
+  padding: 4px 12px; background: var(--violet-light); border-radius: 50px;
+  font-size: 0.75rem; color: var(--violet); font-weight: 600;
+}
+
+/* TIMELINE ESPECIALIDADES */
+.especialidades { background: white; padding: 100px 5%; }
+.especialidades-inner { max-width: 900px; margin: 0 auto; }
+.timeline { margin-top: 56px; position: relative; }
+.timeline::before {
+  content: ''; position: absolute; left: 28px; top: 0; bottom: 0;
+  width: 2px; background: linear-gradient(180deg, var(--violet) 0%, var(--violet-light) 100%);
+}
+.timeline-item {
+  display: flex; gap: 32px; margin-bottom: 48px; position: relative;
+  opacity: 0; transform: translateX(-30px); transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.timeline-item.active { opacity: 1; transform: translateX(0); }
+.timeline-dot {
+  width: 58px; height: 58px; background: var(--violet-light);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; flex-shrink: 0; border: 3px solid var(--violet);
+  position: relative; z-index: 1; transition: var(--transition);
+}
+.timeline-item:hover .timeline-dot { background: var(--violet); }
+.timeline-content { flex: 1; padding-top: 10px; }
+.timeline-content h4 { font-family: var(--font-head); font-size: 1.3rem; color: var(--gray-800); margin-bottom: 10px; }
+.timeline-content p { font-size: 0.95rem; color: var(--gray-600); line-height: 1.7; }
+.timeline-features { list-style: none; margin-top: 14px; }
+.timeline-features li {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.88rem; color: var(--gray-600); padding: 4px 0;
+}
+.timeline-features li::before {
+  content: ''; color: var(--violet); font-size: 0.5rem;
+}
+
+/* SOBRE */
+.sobre { background: var(--violet-dark); padding: 100px 5%; }
+.sobre-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.sobre-img-wrap { position: relative; }
+.sobre-img { border-radius: var(--radius); overflow: hidden; }
+.sobre-img img { width: 100%; height: 500px; object-fit: cover; display: block; }
+.sobre-deco {
+  position: absolute; bottom: -20px; right: -20px;
+  width: 120px; height: 120px; background: var(--violet);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; box-shadow: var(--shadow);
+}
+.sobre-content .section-label { color: #C4A0E8; }
+.sobre-content .section-label::before { background: #C4A0E8; }
+.sobre-content .section-title { color: white; }
+.sobre-content .section-title em { color: #C4A0E8; }
+.sobre-content p { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.7); margin-bottom: 18px; }
+.sobre-creds { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
+.cred-item {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 14px 18px;
+}
+.cred-icon { font-size: 1.3rem; }
+.cred-text { font-size: 0.9rem; color: rgba(255,255,255,0.85); font-weight: 500; }
+.cred-text strong { color: white; display: block; font-size: 0.95rem; }
+
+/* TESTIMONIALS */
+.depoimentos { background: var(--gray-100); padding: 100px 5%; }
+.depoimentos-inner { max-width: 1200px; margin: 0 auto; }
+.depo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+.depo-card {
+  background: white; border-radius: var(--radius); padding: 36px 28px;
+  box-shadow: var(--shadow); position: relative; overflow: hidden;
+  transition: var(--transition);
+}
+.depo-card::before {
+  content: ''; font-size: 5rem; color: var(--violet-light);
+  position: absolute; top: 8px; right: 20px; line-height: 1;
+  font-family: var(--font-head);
+}
+.depo-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.depo-type {
+  display: inline-block; padding: 5px 14px; background: var(--violet-light);
+  border-radius: 50px; font-size: 0.7rem; font-weight: 700; color: var(--violet);
+  letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px;
+}
+.stars { color: #F59E0B; font-size: 1rem; margin-bottom: 14px; letter-spacing: 1px; }
+.depo-text { font-size: 0.95rem; color: var(--gray-600); line-height: 1.75; font-style: italic; margin-bottom: 24px; }
+.depo-author { display: flex; align-items: center; gap: 12px; }
+.author-av {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--violet), #9B7FD4);
+  color: white; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-size: 1rem;
+}
+.author-name { font-weight: 600; font-size: 0.9rem; color: var(--gray-800); }
+.author-info { font-size: 0.78rem; color: var(--gray-600); }
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(135deg, var(--violet) 0%, var(--violet-dark) 100%);
+  padding: 120px 5%; text-align: center; position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute; top: -50%; left: -20%;
+  width: 600px; height: 600px;
+  background: rgba(255,255,255,0.04); border-radius: 50%;
+}
+.cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-section .section-label { color: #C4A0E8; justify-content: center; }
+.cta-section .section-label::before { background: #C4A0E8; }
+.cta-title {
+  font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3.2rem);
+  color: white; margin-bottom: 20px; line-height: 1.2; font-weight: 400;
+}
+.cta-title em { font-style: italic; color: #C4A0E8; }
+.cta-desc { font-size: 1.05rem; color: rgba(255,255,255,0.75); margin-bottom: 40px; line-height: 1.7; }
+.btn-wa-big {
+  display: inline-flex; align-items: center; gap: 14px;
+  background: #25D366; color: white;
+  padding: 20px 48px; border-radius: 50px;
+  font-size: 1.1rem; font-weight: 700; text-decoration: none;
+  transition: var(--transition); box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+}
+.btn-wa-big:hover { transform: translateY(-4px); box-shadow: 0 24px 64px rgba(0,0,0,0.25); background: #1aad52; }
+.btn-wa-big svg { width: 26px; height: 26px; fill: white; }
+.cta-contact {
+  display: flex; justify-content: center; gap: 40px; margin-top: 48px; flex-wrap: wrap;
+}
+.cta-contact-item { color: rgba(255,255,255,0.7); font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+.cta-contact-item a { color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.3s; }
+.cta-contact-item a:hover { color: white; }
+
+/* FOOTER */
+footer { background: var(--violet-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 64px 5% 32px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 20px; max-width: 300px; }
+.footer-brand-name { font-family: var(--font-head); font-size: 1.3rem; color: white; display: block; margin-bottom: 14px; }
+.footer-contact { display: flex; flex-direction: column; gap: 8px; }
+.footer-contact a { color: rgba(255,255,255,0.6); font-size: 0.85rem; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.3s; }
+.footer-contact a:hover { color: #C4A0E8; }
+footer h5 { font-family: var(--font-head); color: white; font-size: 1rem; margin-bottom: 20px; font-weight: 400; }
+footer ul { list-style: none; }
+footer ul li { margin-bottom: 10px; }
+footer ul a { color: rgba(255,255,255,0.5); font-size: 0.88rem; text-decoration: none; transition: color 0.3s; }
+footer ul a:hover { color: #C4A0E8; }
+.footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+
+/* WA FLOAT */
+.wa-float {
+  position: fixed; bottom: 32px; right: 32px; z-index: 999;
+  width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+  animation: wa-pulse 2.5s infinite; transition: var(--transition);
+}
+.wa-float:hover { transform: scale(1.1); }
+.wa-float svg { width: 30px; height: 30px; fill: white; }
+@keyframes wa-pulse {
+  0%, 100% { box-shadow: 0 8px 24px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.3); }
+  50% { box-shadow: 0 8px 24px rgba(37,211,102,0.4), 0 0 0 14px rgba(37,211,102,0); }
+}
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal-l { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-l.active { opacity: 1; transform: translateX(0); }
+.reveal-r { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-r.active { opacity: 1; transform: translateX(0); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { display: none; }
+  .menu-toggle { display: block; }
+  nav.open {
+    display: flex; flex-direction: column; gap: 0;
+    position: fixed; top: 84px; left: 0; right: 0;
+    background: white; box-shadow: var(--shadow); padding: 16px 0; z-index: 999;
+  }
+  nav.open a { color: var(--gray-800); padding: 14px 5%; border-bottom: 1px solid var(--gray-200); }
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; padding-top: 120px; padding-bottom: 80px; }
+  .hero-img-wrap { display: none; }
+  .profiles-grid { grid-template-columns: 1fr; }
+  .sobre-inner { grid-template-columns: 1fr; }
+  .sobre-img-wrap { display: none; }
+  .depo-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .timeline::before { display: none; }
+  .timeline-item { flex-direction: column; gap: 16px; }
+  .cta-contact { flex-direction: column; align-items: center; gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/5562991076681?text=Olá!+Vi+o+site+da+Dra.+Edneusa+e+gostaria+de+agendar." class="wa-float" target="_blank" aria-label="WhatsApp Dra. Edneusa">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-5-1v-1A2.5 2.5 0 0 1 4.5 15a2.5 2.5 0 0 1 1-4.5 2.5 2.5 0 0 1 0-4A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 5-1v-1a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1-4.5 2.5 2.5 0 0 0 0-4A2.5 2.5 0 0 0 14.5 2z"/></svg></div>
+      <div>
+        <div class="logo-name">Dra. Edneusa Rodrigues</div>
+        <div class="logo-cred">CRP · Psicóloga · TEA & ABA</div>
+      </div>
+    </a>
+    <nav id="nav">
+      <a href="#para-quem">Para Quem</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="https://wa.me/5562991076681?text=Olá!+Vi+o+site+da+Dra.+Edneusa+e+gostaria+de+agendar." class="nav-cta" target="_blank">Agendar Sessão</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <svg class="hero-blob1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#7B5EA7" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.5,90,-16.3,89.3,-0.4C88.6,15.5,84.6,30.9,77.2,44.7C69.8,58.5,59,70.6,45.6,77.8C32.2,85,16.1,87.3,0.2,87C-15.7,86.7,-31.4,83.8,-44.6,76.6C-57.8,69.4,-68.5,57.8,-76.1,44.1C-83.7,30.4,-88.2,14.7,-88.1,-0.1C-88,-14.9,-83.3,-30,-74.8,-42.7C-66.3,-55.4,-54,-65.7,-40.6,-73C-27.2,-80.3,-12.7,-84.6,1.7,-87.4C16.1,-90.2,30.5,-83.6,44.7,-76.4Z" transform="translate(100 100)"/>
+  </svg>
+  <svg class="hero-blob2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#C4A0E8" d="M39.3,-67.1C50.9,-60.3,60.5,-49.9,68.1,-37.7C75.7,-25.5,81.3,-11.5,81.5,2.6C81.7,16.7,76.5,30.9,68.7,43.3C60.9,55.7,50.5,66.3,38.1,72.7C25.7,79.1,11.3,81.3,-2.6,80.1C-16.5,78.9,-30.1,74.3,-42.2,67.1C-54.3,59.9,-64.9,50.1,-72.3,37.7C-79.7,25.3,-83.9,10.3,-83.8,-4.8C-83.7,-19.9,-79.3,-35.1,-71.3,-47.9C-63.3,-60.7,-51.7,-71.1,-38.7,-77.4C-25.7,-83.7,-11.3,-85.9,1.5,-88C14.3,-90.1,27.7,-73.9,39.3,-67.1Z" transform="translate(100 100)"/>
+  </svg>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag reveal"> Aparecida de Goiânia, GO</div>
+      <h1 class="hero-title reveal">Cuidado que<br><em>transforma</em><br>vidas</h1>
+      <p class="hero-desc reveal">Psicóloga especialista em TEA, ABA e avaliação neuropsicológica. Atendimento acolhedor para crianças, adolescentes e adultos em busca de bem-estar emocional.</p>
+      <div class="hero-chips reveal">
+        <span class="chip">TEA — Autismo</span>
+        <span class="chip">Terapia ABA</span>
+        <span class="chip">Neuropsicologia</span>
+        <span class="chip">Orientação Familiar</span>
+      </div>
+      <a href="https://wa.me/5562991076681?text=Olá!+Vi+o+site+da+Dra.+Edneusa+e+gostaria+de+agendar." class="btn-wa-hero reveal" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar via WhatsApp
+      </a>
+    </div>
+    <div class="reveal-r">
+      <div class="hero-img-wrap">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1400&q=80" alt="Dra. Edneusa Rodrigues — Psicóloga">
+        <div class="hero-card-float">
+          <h5>Dra. Edneusa Rodrigues</h5>
+          <p>Psicóloga Clínica | CRP Registro Ativo</p>
+          <div class="hero-card-tags">
+            <span>TEA</span><span>ABA</span><span>Neuropsicologia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUEM É -->
+<section class="para-quem" id="para-quem">
+  <div class="para-quem-inner">
+    <div class="reveal">
+      <div class="section-label">Para Quem é o Atendimento</div>
+      <h2 class="section-title">Se você se identifica<br>com algum <em>perfil</em></h2>
+      <p class="section-desc">A Dra. Edneusa oferece atendimento especializado e acolhedor para diferentes necessidades e fases da vida.</p>
+    </div>
+    <div class="profiles-grid">
+      <div class="profile-card reveal">
+        <span class="profile-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M3 21v-2a7 7 0 0 1 14 0v2"/></svg></span>
+        <h4>Crianças com TEA</h4>
+        <p>Diagnóstico de autismo ou suspeita? Oferecemos avaliação e acompanhamento especializado para desenvolvimento de habilidades sociais, comunicação e autonomia.</p>
+        <div class="profile-tags"><span>TEA</span><span>ABA</span><span>Desenvolvimento</span></div>
+      </div>
+      <div class="profile-card reveal">
+        <span class="profile-emoji">‍‍</span>
+        <h4>Pais e Familiares</h4>
+        <p>Orientação e suporte para famílias que convivem com TEA ou outras condições. Aprender a lidar com cada situação faz toda a diferença no desenvolvimento do filho.</p>
+        <div class="profile-tags"><span>Orientação</span><span>Suporte</span><span>Família</span></div>
+      </div>
+      <div class="profile-card reveal">
+        <span class="profile-emoji"></span>
+        <h4>Adultos em Psicoterapia</h4>
+        <p>Ansiedade, depressão, autoconhecimento ou transições de vida. O espaço terapêutico é seguro para explorar, entender e transformar padrões emocionais e comportamentais.</p>
+        <div class="profile-tags"><span>Psicoterapia</span><span>Ansiedade</span><span>Bem-estar</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES TIMELINE -->
+<section class="especialidades" id="especialidades">
+  <div class="especialidades-inner">
+    <div class="reveal" style="text-align:center; margin-bottom: 16px;">
+      <div class="section-label" style="justify-content:center;">Especialidades</div>
+      <h2 class="section-title" style="text-align:center;">Áreas de <em>atuação</em></h2>
+      <p class="section-desc" style="margin: 0 auto 0; text-align:center;">Abordagem científica e humanizada em cada especialidade.</p>
+    </div>
+    <div class="timeline" id="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 18-4 4h6"/><path d="M8 18 14 4"/><path d="m14 4 4 4"/><path d="m10 14 4-10"/><path d="m18 8-3.4 8.5"/><line x1="2" y1="22" x2="22" y2="22"/></svg></div>
+        <div class="timeline-content">
+          <h4>Avaliação Neuropsicológica</h4>
+          <p>Avaliação completa das funções cognitivas — memória, atenção, linguagem, funções executivas — para diagnóstico preciso de TDAH, TEA, dificuldades de aprendizagem e outras condições.</p>
+          <ul class="timeline-features">
+            <li>Relatório técnico completo</li>
+            <li>Devolutiva para pais e escola</li>
+            <li>Orientações pós-avaliação</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Terapia ABA</h4>
+          <p>Análise do Comportamento Aplicada (ABA) para crianças e adolescentes com TEA. Abordagem baseada em evidências científicas para desenvolvimento de habilidades funcionais e redução de comportamentos desafiadores.</p>
+          <ul class="timeline-features">
+            <li>Programa individualizado</li>
+            <li>Generalização de habilidades</li>
+            <li>Envolvimento familiar no processo</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>Atendimento TEA</h4>
+          <p>Suporte psicológico especializado para pessoas com Transtorno do Espectro Autista em todas as idades. Foco em qualidade de vida, inclusão e desenvolvimento de potencialidades.</p>
+          <ul class="timeline-features">
+            <li>Adaptações individuais</li>
+            <li>Comunicação aumentativa/alternativa</li>
+            <li>Integração social e escolar</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M12 20v-9"/><path d="M12 11C12 8 9.5 5 6 5c0 4.5 2.5 7 6 7z"/><path d="M12 11C12 8 14.5 5 18 5c0 4.5-2.5 7-6 7z"/></svg></div>
+        <div class="timeline-content">
+          <h4>Psicoterapia para Adultos</h4>
+          <p>Acompanhamento psicológico individual para adultos que buscam autoconhecimento, superação de traumas, manejo da ansiedade, depressão e melhora nas relações interpessoais.</p>
+          <ul class="timeline-features">
+            <li>Abordagem cognitivo-comportamental</li>
+            <li>Sessões online e presenciais</li>
+            <li>Sigilo e ética profissional</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">‍‍</div>
+        <div class="timeline-content">
+          <h4>Orientação Familiar</h4>
+          <p>Suporte e orientação para famílias que enfrentam desafios emocionais, relacionais ou de desenvolvimento. Sessões práticas com ferramentas aplicáveis no cotidiano familiar.</p>
+          <ul class="timeline-features">
+            <li>Dinâmicas familiares</li>
+            <li>Estratégias de comunicação</li>
+            <li>Manejo de comportamentos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="sobre-inner container" style="max-width:1200px; margin:0 auto;">
+    <div class="reveal-l">
+      <div class="sobre-img-wrap">
+        <div class="sobre-img">
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80" alt="Consultório Dra. Edneusa" loading="lazy">
+        </div>
+        <div class="sobre-deco"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-5-1v-1A2.5 2.5 0 0 1 4.5 15a2.5 2.5 0 0 1 1-4.5 2.5 2.5 0 0 1 0-4A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 5-1v-1a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-1-4.5 2.5 2.5 0 0 0 0-4A2.5 2.5 0 0 0 14.5 2z"/></svg></div>
+      </div>
+    </div>
+    <div class="sobre-content reveal-r">
+      <div class="section-label">Sobre a Psicóloga</div>
+      <h2 class="section-title">Dra. Edneusa<br><em>Rodrigues</em></h2>
+      <p>Psicóloga com formação sólida e especialização em neuropsicologia e comportamento aplicado. Dedica sua prática ao atendimento de pessoas com TEA e suas famílias, acreditando no potencial transformador da psicologia.</p>
+      <p>Atua em Aparecida de Goiânia com abordagem científica, empática e individualizada. Cada paciente recebe um plano de cuidado construído de forma colaborativa, respeitando sua singularidade e contexto.</p>
+      <div class="sobre-creds">
+        <div class="cred-item">
+          <span class="cred-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+          <div class="cred-text"><strong>Especialização em Neuropsicologia</strong>Avaliação e reabilitação neuropsicológica</div>
+        </div>
+        <div class="cred-item">
+          <span class="cred-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg></span>
+          <div class="cred-text"><strong>Certificação em ABA</strong>Análise do Comportamento Aplicada ao TEA</div>
+        </div>
+        <div class="cred-item">
+          <span class="cred-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div class="cred-text"><strong>Praça da Igualdade, Qd 104 Lt 13</strong>Aparecida de Goiânia, GO</div>
+        </div>
+        <div class="cred-item">
+          <span class="cred-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+          <div class="cred-text"><strong>edneusapsicologia@gmail.com</strong>E-mail para informações</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos" id="depoimentos">
+  <div class="depoimentos-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label" style="justify-content:center;">Depoimentos</div>
+      <h2 class="section-title" style="text-align:center;">Histórias de <em>transformação</em></h2>
+      <p class="section-desc" style="text-align:center; margin: 0 auto; max-width:580px;">O que famílias e pacientes dizem sobre o acompanhamento com a Dra. Edneusa.</p>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card reveal">
+        <div class="depo-type">Mãe de paciente TEA</div>
+        <div class="stars">★★★★★</div>
+        <p class="depo-text">"A Dra. Edneusa mudou a vida do meu filho e da nossa família. A avaliação neuropsicológica foi super detalhada e as sessões de ABA trouxeram avanços que a gente nem esperava. É uma profissional incrível, dedicada e humana."</p>
+        <div class="depo-author">
+          <div class="author-av">CS</div>
+          <div>
+            <div class="author-name">Carla Santos</div>
+            <div class="author-info">Mãe — Acompanhamento desde 2022</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal">
+        <div class="depo-type">Pai de paciente TEA</div>
+        <div class="stars">★★★★★</div>
+        <p class="depo-text">"Nossa filha tem autismo nível 2 e estamos na terapia ABA há 8 meses. Os resultados são visíveis: ela passou a se comunicar melhor, reduzimos comportamentos difíceis e hoje está sendo incluída na escola. A Dra. Edneusa é excepcional!"</p>
+        <div class="depo-author">
+          <div class="author-av">RM</div>
+          <div>
+            <div class="author-name">Ricardo Martins</div>
+            <div class="author-info">Pai — Acompanhamento TEA/ABA</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal">
+        <div class="depo-type">Paciente adulta</div>
+        <div class="stars">★★★★★</div>
+        <p class="depo-text">"Fiz avaliação neuropsicológica adulta e finalmente entendi por que tenho as dificuldades que tenho. A Dra. Edneusa foi extremamente cuidadosa na devolutiva e as orientações me ajudaram muito no trabalho e na vida pessoal."</p>
+        <div class="depo-author">
+          <div class="author-av">FL</div>
+          <div>
+            <div class="author-name">Fernanda Lima</div>
+            <div class="author-info">Paciente — Avaliação Neuropsicológica</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label reveal">Agende sua Sessão</div>
+    <h2 class="cta-title reveal">O primeiro passo<br>para o <em>cuidado</em></h2>
+    <p class="cta-desc reveal">Entre em contato agora e agende sua consulta ou sessão. Atendimento presencial em Aparecida de Goiânia e online para todo o Brasil.</p>
+    <a href="https://wa.me/5562991076681?text=Olá!+Vi+o+site+da+Dra.+Edneusa+e+gostaria+de+agendar." class="btn-wa-big reveal" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar com a Dra. Edneusa
+    </a>
+    <div class="cta-contact reveal">
+      <span class="cta-contact-item"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> <a href="https://wa.me/5562991076681" target="_blank">(62) 99107-6681</a></span>
+      <span class="cta-contact-item"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> <a href="mailto:edneusapsicologia@gmail.com">edneusapsicologia@gmail.com</a></span>
+      <span class="cta-contact-item"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Aparecida de Goiânia, GO</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-brand-name">Dra. Edneusa Rodrigues</span>
+        <p>Psicóloga especialista em TEA, ABA e avaliação neuropsicológica. Cuidado que transforma vidas em Aparecida de Goiânia, GO.</p>
+        <div class="footer-contact">
+          <a href="https://wa.me/5562991076681" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> (62) 99107-6681</a>
+          <a href="mailto:edneusapsicologia@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> edneusapsicologia@gmail.com</a>
+          <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Praça da Igualdade, Qd 104 Lt 13 — Aparecida de Goiânia</a>
+        </div>
+      </div>
+      <div>
+        <h5>Especialidades</h5>
+        <ul>
+          <li><a href="#especialidades">Avaliação Neuropsicológica</a></li>
+          <li><a href="#especialidades">Terapia ABA</a></li>
+          <li><a href="#especialidades">Atendimento TEA</a></li>
+          <li><a href="#especialidades">Psicoterapia Adultos</a></li>
+          <li><a href="#especialidades">Orientação Familiar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Links</h5>
+        <ul>
+          <li><a href="#para-quem">Para Quem É</a></li>
+          <li><a href="#sobre">Sobre a Psicóloga</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="https://wa.me/5562991076681" target="_blank">Agendar Sessão</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Dra. Edneusa Rodrigues — Psicóloga. Todos os direitos reservados.</p>
+      <p>CRP ativo | Aparecida de Goiânia, GO</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// HEADER
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 60));
+
+// MOBILE MENU
+const menuToggle = document.getElementById('menuToggle');
+const nav = document.getElementById('nav');
+menuToggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+// REVEAL ON SCROLL
+const reveals = document.querySelectorAll('.reveal, .reveal-l, .reveal-r');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('active'), i * 100);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => obs.observe(el));
+
+// TIMELINE REVEAL
+const timelineItems = document.querySelectorAll('.timeline-item');
+const tlObs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('active'), i * 150);
+      tlObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+timelineItems.forEach(el => tlObs.observe(el));
+</script>
+</body>
+</html>

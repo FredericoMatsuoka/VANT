@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garage27 — Mecânica Especializada | Goiânia, GO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cor-preta: #1A1A1A;
+      --cor-vermelho: #E63929;
+      --cor-vermelho-dark: #C02A1A;
+      --cor-vermelho-glow: rgba(230, 57, 41, 0.25);
+      --cor-cinza: #F5F5F5;
+      --cor-branco: #FFFFFF;
+      --cor-cinza-medio: #888888;
+      --cor-preta-soft: #242424;
+      --font-headline: 'Barlow Condensed', sans-serif;
+      --font-corpo: 'Barlow', sans-serif;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: var(--font-corpo); background: var(--cor-preta); color: var(--cor-branco); overflow-x: hidden; }
+
+    /* ===================== HEADER ===================== */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 22px 52px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all 0.4s ease;
+    }
+    .header.scrolled {
+      background: rgba(26, 26, 26, 0.97);
+      padding: 14px 52px;
+      box-shadow: 0 2px 40px rgba(0,0,0,0.5);
+      border-bottom: 1px solid rgba(230,57,41,0.15);
+    }
+    .header-logo {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .header-logo-icon {
+      width: 38px; height: 38px;
+      background: var(--cor-vermelho);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-headline);
+      font-size: 1rem; font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--cor-branco);
+    }
+    .header-logo-text {
+      font-family: var(--font-headline);
+      font-size: 1.4rem; font-weight: 900;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cor-branco);
+    }
+    .header-logo-text span { color: var(--cor-vermelho); }
+    .header-nav { display: flex; gap: 36px; align-items: center; }
+    .header-nav a {
+      font-family: var(--font-headline);
+      font-size: 0.88rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .header-nav a:hover { color: var(--cor-vermelho); }
+    .header-btn {
+      padding: 10px 24px;
+      background: var(--cor-vermelho);
+      color: var(--cor-branco) !important;
+      font-size: 0.82rem !important; font-weight: 700 !important;
+      letter-spacing: 0.18em !important;
+      clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+      transition: background 0.3s !important;
+    }
+    .header-btn:hover { background: var(--cor-vermelho-dark) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 26px; height: 2px; background: var(--cor-branco); }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: -80px;
+      background: url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1400&q=80') center/cover no-repeat;
+      will-change: transform;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(26,26,26,0.97) 0%,
+        rgba(26,26,26,0.85) 40%,
+        rgba(26,26,26,0.5) 70%,
+        rgba(26,26,26,0.2) 100%
+      );
+    }
+    /* Metal texture via CSS */
+    .hero-texture {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 2px,
+        rgba(255,255,255,0.012) 2px,
+        rgba(255,255,255,0.012) 4px
+      );
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 52px;
+      max-width: 900px;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 28px;
+    }
+    .hero-tag-line {
+      width: 40px; height: 2px;
+      background: var(--cor-vermelho);
+    }
+    .hero-tag-text {
+      font-family: var(--font-headline);
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--cor-vermelho);
+    }
+    .hero-titulo {
+      font-family: var(--font-headline);
+      font-size: clamp(4rem, 8vw, 9rem);
+      font-weight: 900;
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--cor-branco);
+      margin-bottom: 28px;
+    }
+    .hero-titulo .vermelho { color: var(--cor-vermelho); }
+    .hero-titulo .outline {
+      -webkit-text-stroke: 2px var(--cor-branco);
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitulo {
+      font-size: 1.1rem; font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7; margin-bottom: 50px;
+      max-width: 520px;
+      letter-spacing: 0.02em;
+    }
+    .hero-btns { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .hero-btn-primary {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 18px 44px;
+      background: var(--cor-vermelho);
+      color: var(--cor-branco);
+      font-family: var(--font-headline);
+      font-size: 0.95rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none;
+      clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .hero-btn-primary:hover { background: var(--cor-vermelho-dark); transform: translateX(4px); }
+    .hero-btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-headline);
+      font-size: 0.88rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .hero-btn-secondary:hover { color: var(--cor-branco); }
+
+    .hero-stats {
+      position: absolute; bottom: 50px; right: 52px;
+      display: flex; gap: 40px; z-index: 2;
+    }
+    .hero-stat {
+      text-align: right;
+      border-right: 2px solid var(--cor-vermelho);
+      padding-right: 20px;
+    }
+    .hero-stat-num {
+      font-family: var(--font-headline);
+      font-size: 2.6rem; font-weight: 900;
+      color: var(--cor-branco); line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .hero-stat-label {
+      font-family: var(--font-corpo);
+      font-size: 0.65rem; font-weight: 400;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-top: 4px;
+    }
+
+    /* ===================== SERVIÇOS HORIZONTAL ===================== */
+    .servicos {
+      background: var(--cor-preta-soft);
+      padding: 100px 52px;
+    }
+    .servicos-inner { max-width: 1280px; margin: 0 auto; }
+    .servicos-header { margin-bottom: 60px; }
+    .section-tag {
+      font-family: var(--font-headline);
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--cor-vermelho); margin-bottom: 12px;
+    }
+    .section-titulo {
+      font-family: var(--font-headline);
+      font-size: clamp(2.2rem, 5vw, 5rem);
+      font-weight: 900; text-transform: uppercase;
+      color: var(--cor-branco); line-height: 0.9;
+      letter-spacing: -0.01em;
+    }
+    .section-titulo .outline {
+      -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+      -webkit-text-fill-color: transparent;
+    }
+
+    .servicos-lista { display: flex; flex-direction: column; gap: 0; }
+    .servico-item {
+      display: flex; align-items: center; gap: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 30px 0; cursor: default;
+      transition: padding 0.3s;
+      position: relative;
+    }
+    .servico-item::before {
+      content: ''; position: absolute; left: -52px; right: -52px; top: 0; bottom: 0;
+      background: rgba(230,57,41,0.04);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s;
+    }
+    .servico-item:hover::before { transform: scaleX(1); }
+    .servico-item:hover { padding-left: 12px; }
+    .servico-item:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+    .servico-num {
+      font-family: var(--font-headline);
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.15em; color: var(--cor-vermelho);
+      min-width: 60px;
+    }
+    .servico-icon {
+      min-width: 52px; height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      margin-right: 24px;
+    }
+    .servico-icon svg { width: 28px; height: 28px; fill: none; stroke: rgba(255,255,255,0.5); stroke-width: 1.5; transition: stroke 0.3s; }
+    .servico-item:hover .servico-icon svg { stroke: var(--cor-vermelho); }
+    .servico-nome {
+      font-family: var(--font-headline);
+      font-size: 1.6rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--cor-branco); flex: 1;
+      transition: color 0.3s;
+    }
+    .servico-item:hover .servico-nome { color: var(--cor-cinza); }
+    .servico-desc-text {
+      font-size: 0.83rem; font-weight: 300;
+      color: rgba(255,255,255,0.35); line-height: 1.6;
+      max-width: 360px; text-align: right;
+    }
+    .servico-arrow {
+      font-family: var(--font-headline);
+      font-size: 1.4rem; color: rgba(255,255,255,0.2);
+      margin-left: 30px;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .servico-item:hover .servico-arrow { color: var(--cor-vermelho); transform: translateX(6px); }
+
+    .servicos-img-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px; margin-top: 60px;
+    }
+    .servicos-img-row img {
+      width: 100%; height: 280px; object-fit: cover;
+      filter: grayscale(40%) brightness(0.8);
+      transition: filter 0.5s;
+    }
+    .servicos-img-row img:hover { filter: grayscale(0%) brightness(1); }
+
+    /* ===================== POR QUE ESCOLHER ===================== */
+    .porque {
+      background: var(--cor-vermelho);
+      padding: 100px 52px;
+      position: relative; overflow: hidden;
+    }
+    .porque::before {
+      content: 'G27';
+      position: absolute; right: -30px; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-headline);
+      font-size: 20rem; font-weight: 900;
+      color: rgba(0,0,0,0.08);
+      letter-spacing: -0.05em;
+      pointer-events: none;
+    }
+    .porque-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+    .porque-header { margin-bottom: 70px; }
+    .porque-header .section-tag { color: rgba(255,255,255,0.6); }
+    .porque-titulo {
+      font-family: var(--font-headline);
+      font-size: clamp(2.5rem, 5vw, 5.5rem);
+      font-weight: 900; text-transform: uppercase;
+      color: var(--cor-branco); line-height: 0.92;
+      letter-spacing: -0.01em;
+    }
+    .porque-titulo .outline {
+      -webkit-text-stroke: 2px rgba(255,255,255,0.4);
+      -webkit-text-fill-color: transparent;
+    }
+    .porque-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .porque-item {
+      background: rgba(0,0,0,0.15);
+      padding: 44px 32px;
+      transition: background 0.3s;
+    }
+    .porque-item:hover { background: rgba(0,0,0,0.25); }
+    .porque-item-num {
+      font-family: var(--font-headline);
+      font-size: 4rem; font-weight: 900;
+      color: var(--cor-branco);
+      line-height: 1; margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+    .porque-item-num sup {
+      font-size: 1.5rem; vertical-align: super;
+    }
+    .porque-item-label {
+      font-family: var(--font-headline);
+      font-size: 1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.7); margin-bottom: 14px;
+    }
+    .porque-item-desc {
+      font-size: 0.82rem; font-weight: 300;
+      color: rgba(255,255,255,0.55); line-height: 1.7;
+    }
+
+    /* CONTADOR */
+    .contador {
+      background: var(--cor-preta);
+      padding: 80px 52px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .contador-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: rgba(255,255,255,0.06);
+    }
+    .contador-item {
+      background: var(--cor-preta);
+      padding: 44px 36px;
+      position: relative; overflow: hidden;
+    }
+    .contador-item::after {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+      background: var(--cor-vermelho);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s;
+    }
+    .contador-item:hover::after { transform: scaleX(1); }
+    .contador-num {
+      font-family: var(--font-headline);
+      font-size: 4.5rem; font-weight: 900;
+      color: var(--cor-branco); line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .contador-num span { color: var(--cor-vermelho); }
+    .contador-label {
+      font-family: var(--font-headline);
+      font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); margin-top: 10px;
+    }
+
+    /* ===================== SOBRE ===================== */
+    .sobre {
+      background: var(--cor-preta-soft);
+      padding: 100px 52px;
+    }
+    .sobre-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .sobre-visual { position: relative; }
+    .sobre-img-wrap {
+      position: relative;
+    }
+    .sobre-img-wrap img {
+      width: 100%; height: 520px;
+      object-fit: cover; display: block;
+      filter: grayscale(30%);
+    }
+    .sobre-img-deco {
+      position: absolute; bottom: -16px; right: -16px;
+      width: 120px; height: 120px;
+      background: var(--cor-vermelho);
+      z-index: -1;
+    }
+    .sobre-img-badge {
+      position: absolute; top: 30px; left: -30px;
+      background: var(--cor-vermelho);
+      padding: 20px 24px;
+    }
+    .sobre-img-badge strong {
+      font-family: var(--font-headline);
+      font-size: 2rem; font-weight: 900;
+      color: var(--cor-branco); display: block; line-height: 1;
+    }
+    .sobre-img-badge span {
+      font-size: 0.62rem; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7); margin-top: 4px; display: block;
+    }
+    .sobre-texto {}
+    .sobre-titulo {
+      font-family: var(--font-headline);
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      font-weight: 900; text-transform: uppercase;
+      color: var(--cor-branco); line-height: 0.95;
+      letter-spacing: -0.01em; margin-bottom: 28px;
+    }
+    .sobre-titulo .vermelho { color: var(--cor-vermelho); }
+    .sobre-p {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(255,255,255,0.5); line-height: 1.85;
+      margin-bottom: 18px;
+    }
+    .sobre-endereco {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 24px 22px;
+      background: rgba(230,57,41,0.08);
+      border-left: 3px solid var(--cor-vermelho);
+      margin-top: 36px;
+    }
+    .sobre-endereco-icon { color: var(--cor-vermelho); font-size: 1.1rem; flex-shrink: 0; }
+    .sobre-endereco-text {
+      font-size: 0.85rem; font-weight: 400;
+      color: rgba(255,255,255,0.6); line-height: 1.6;
+    }
+    .sobre-endereco-text strong { color: var(--cor-branco); display: block; margin-bottom: 4px; }
+
+    /* ===================== DEPOIMENTOS ===================== */
+    .depoimentos {
+      background: var(--cor-preta);
+      padding: 100px 52px;
+    }
+    .depoimentos-inner { max-width: 1280px; margin: 0 auto; }
+    .depoimentos-header { margin-bottom: 60px; }
+    .depoimentos-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .depoimento-card {
+      background: var(--cor-preta-soft);
+      padding: 44px 36px;
+      border-top: 3px solid var(--cor-preta-soft);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .depoimento-card:hover { border-top-color: var(--cor-vermelho); transform: translateY(-4px); }
+    .depoimento-stars {
+      display: flex; gap: 4px; margin-bottom: 24px;
+    }
+    .depoimento-stars span { color: var(--cor-vermelho); font-size: 1rem; }
+    .depoimento-texto {
+      font-size: 0.92rem; font-weight: 300;
+      color: rgba(255,255,255,0.6); line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    .depoimento-sep {
+      width: 30px; height: 2px;
+      background: var(--cor-vermelho);
+      margin-bottom: 22px;
+    }
+    .depoimento-autor { display: flex; align-items: center; gap: 14px; }
+    .depoimento-avatar {
+      width: 44px; height: 44px;
+      background: var(--cor-vermelho);
+      clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-headline); font-size: 1rem; font-weight: 700;
+      color: var(--cor-branco);
+    }
+    .depoimento-nome {
+      font-family: var(--font-headline);
+      font-size: 1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--cor-branco);
+    }
+    .depoimento-servico {
+      font-size: 0.72rem; color: rgba(255,255,255,0.3);
+      margin-top: 3px; letter-spacing: 0.06em;
+    }
+
+    /* ===================== CTA ===================== */
+    .cta {
+      background: var(--cor-preta);
+      padding: 100px 52px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(230,57,41,0.06) 0%, transparent 50%, rgba(230,57,41,0.06) 100%);
+    }
+    .cta-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+    .cta-pretitulo {
+      font-family: var(--font-headline);
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--cor-vermelho); margin-bottom: 20px;
+    }
+    .cta-titulo {
+      font-family: var(--font-headline);
+      font-size: clamp(2.5rem, 6vw, 6rem);
+      font-weight: 900; text-transform: uppercase;
+      color: var(--cor-branco); line-height: 0.9;
+      letter-spacing: -0.02em; margin-bottom: 28px;
+    }
+    .cta-titulo .vermelho { color: var(--cor-vermelho); }
+    .cta-titulo .outline {
+      -webkit-text-stroke: 2px rgba(255,255,255,0.25);
+      -webkit-text-fill-color: transparent;
+    }
+    .cta-subtitulo {
+      font-size: 1rem; font-weight: 300;
+      color: rgba(255,255,255,0.45); line-height: 1.7;
+      margin-bottom: 50px; max-width: 500px; margin-left: auto; margin-right: auto;
+    }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 14px;
+      padding: 20px 60px;
+      background: var(--cor-vermelho);
+      color: var(--cor-branco);
+      font-family: var(--font-headline);
+      font-size: 1.1rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      text-decoration: none;
+      clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .cta-btn:hover { background: var(--cor-vermelho-dark); transform: scale(1.04); }
+    .cta-endereco {
+      margin-top: 36px; font-size: 0.8rem;
+      color: rgba(255,255,255,0.25); letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ===================== FOOTER ===================== */
+    .footer {
+      background: #111111;
+      padding: 70px 52px 28px;
+      border-top: 2px solid var(--cor-vermelho);
+    }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 70px; padding-bottom: 50px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 28px;
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 18px;
+    }
+    .footer-logo-icon {
+      width: 36px; height: 36px; background: var(--cor-vermelho);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-headline); font-size: 1rem; font-weight: 900;
+    }
+    .footer-logo-name {
+      font-family: var(--font-headline);
+      font-size: 1.3rem; font-weight: 900;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .footer-logo-name span { color: var(--cor-vermelho); }
+    .footer-desc {
+      font-size: 0.83rem; font-weight: 300;
+      color: rgba(255,255,255,0.3); line-height: 1.8;
+      margin-bottom: 22px;
+    }
+    .footer-wa {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-headline);
+      font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: #25D366; text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .footer-wa:hover { opacity: 0.8; }
+    .footer-col-titulo {
+      font-family: var(--font-headline);
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(255,255,255,0.25); margin-bottom: 20px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a {
+      font-size: 0.84rem; font-weight: 300;
+      color: rgba(255,255,255,0.35); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--cor-vermelho); }
+    .footer-bottom {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy { font-size: 0.73rem; color: rgba(255,255,255,0.15); }
+    .footer-city {
+      font-family: var(--font-headline);
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+    }
+
+    /* WA FLOAT */
+    .wa-float {
+      position: fixed; bottom: 30px; right: 30px; z-index: 999;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 30px rgba(37,211,102,0.4);
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .wa-float:hover { transform: scale(1.1) translateY(-3px); box-shadow: 0 12px 40px rgba(37,211,102,0.5); }
+    .wa-float svg { width: 30px; height: 30px; }
+    .wa-tooltip {
+      position: absolute; right: 72px; white-space: nowrap;
+      background: rgba(26,26,26,0.95);
+      color: var(--cor-branco); font-size: 0.72rem;
+      letter-spacing: 0.06em; padding: 8px 14px; border-radius: 4px;
+      opacity: 0; transform: translateX(8px);
+      transition: all 0.3s; pointer-events: none;
+    }
+    .wa-float:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
+
+    /* ANIMATIONS */
+    .fade-up { opacity:0; transform:translateY(40px); transition:opacity 0.8s ease,transform 0.8s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+    .slide-left { opacity:0; transform:translateX(-50px); transition:opacity 0.8s ease,transform 0.8s ease; }
+    .slide-left.visible { opacity:1; transform:translateX(0); }
+    .slide-right { opacity:0; transform:translateX(50px); transition:opacity 0.8s ease,transform 0.8s ease; }
+    .slide-right.visible { opacity:1; transform:translateX(0); }
+    .scale-in { opacity:0; transform:scale(0.92); transition:opacity 0.7s ease,transform 0.7s ease; }
+    .scale-in.visible { opacity:1; transform:scale(1); }
+    .delay-1 { transition-delay:0.1s; }
+    .delay-2 { transition-delay:0.2s; }
+    .delay-3 { transition-delay:0.3s; }
+    .delay-4 { transition-delay:0.4s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .header { padding: 18px 20px; }
+      .header.scrolled { padding: 12px 20px; }
+      .header-nav { display: none; }
+      .hamburger { display: flex; }
+      .hero-content { padding: 0 20px; }
+      .hero-titulo { font-size: 3.5rem; }
+      .hero-stats { position: static; flex-wrap: wrap; padding: 30px 20px 0; }
+      .servicos { padding: 70px 20px; }
+      .servico-desc-text { display: none; }
+      .porque { padding: 70px 20px; }
+      .porque-grid { grid-template-columns: repeat(2, 1fr); }
+      .contador { padding: 60px 20px; }
+      .contador-inner { grid-template-columns: repeat(2, 1fr); }
+      .sobre { padding: 70px 20px; }
+      .sobre-inner { grid-template-columns: 1fr; gap: 40px; }
+      .sobre-img-badge { left: 0; }
+      .depoimentos { padding: 70px 20px; }
+      .depoimentos-grid { grid-template-columns: 1fr; }
+      .cta { padding: 70px 20px; }
+      .footer { padding: 60px 20px 24px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-logo">
+      <div class="header-logo-icon">G</div>
+      <div class="header-logo-text">Garage<span>27</span></div>
+    </div>
+    <nav class="header-nav">
+      <a href="#servicos">Serviços</a>
+      <a href="#porque">Por que nós</a>
+      <a href="#sobre">Sobre</a>
+      <a href="https://wa.me/5562984202630?text=Ol%C3%A1!+Vi+o+site+da+Garage27+e+quero+um+or%C3%A7amento." target="_blank" class="header-btn">Orçamento</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-texture"></div>
+    <div class="hero-content">
+      <div class="hero-tag">
+        <div class="hero-tag-line"></div>
+        <span class="hero-tag-text">Mecânica especializada · Goiânia, GO</span>
+      </div>
+      <h1 class="hero-titulo">
+        PRECISÃO<br />
+        <span class="vermelho">E</span><br />
+        <span class="outline">PERFORMANCE</span>
+      </h1>
+      <p class="hero-subtitulo">
+        Suspensão, injeção eletrônica e manutenção geral com a técnica e confiança
+        que o seu carro merece. Qualidade que você vê e sente na direção.
+      </p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5562984202630?text=Ol%C3%A1!+Vi+o+site+da+Garage27+e+quero+um+or%C3%A7amento." target="_blank" class="hero-btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Pedir orçamento
+        </a>
+        <a href="#servicos" class="hero-btn-secondary">Ver serviços ↓</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-count="1200">0</div>
+        <div class="hero-stat-label">Carros atendidos</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-count="10">0</div>
+        <div class="hero-stat-label">Anos de experiência</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="servicos" id="servicos">
+    <div class="servicos-inner">
+      <div class="servicos-header">
+        <span class="section-tag fade-up">O que fazemos</span>
+        <h2 class="section-titulo fade-up delay-1">
+          NOSSOS<br /><span class="outline">SERVIÇOS</span>
+        </h2>
+      </div>
+      <div class="servicos-lista">
+        <div class="servico-item fade-up delay-1">
+          <span class="servico-num">01</span>
+          <div class="servico-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="1"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+          </div>
+          <span class="servico-nome">Suspensão e Alinhamento</span>
+          <span class="servico-desc-text">Diagnóstico preciso e reparação completa do sistema de suspensão e direção do seu veículo.</span>
+          <span class="servico-arrow">→</span>
+        </div>
+        <div class="servico-item fade-up delay-2">
+          <span class="servico-num">02</span>
+          <div class="servico-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="8" width="20" height="8" rx="2"/><path d="M6 8V6a2 2 0 012-2h8a2 2 0 012 2v2"/><circle cx="8" cy="12" r="1"/><circle cx="16" cy="12" r="1"/></svg>
+          </div>
+          <span class="servico-nome">Injeção Eletrônica</span>
+          <span class="servico-desc-text">Scanner e diagnóstico computadorizado completo, reparo de bicos, bomba de combustível e sensores.</span>
+          <span class="servico-arrow">→</span>
+        </div>
+        <div class="servico-item fade-up delay-3">
+          <span class="servico-num">03</span>
+          <div class="servico-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <span class="servico-nome">Revisão Completa</span>
+          <span class="servico-desc-text">Checklist completo de todos os sistemas críticos do veículo com relatório detalhado.</span>
+          <span class="servico-arrow">→</span>
+        </div>
+        <div class="servico-item fade-up delay-2">
+          <span class="servico-num">04</span>
+          <div class="servico-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="servico-nome">Freios e Escapamento</span>
+          <span class="servico-desc-text">Troca de pastilhas, discos, lonas e reparo completo do sistema de escapamento.</span>
+          <span class="servico-arrow">→</span>
+        </div>
+        <div class="servico-item fade-up delay-3">
+          <span class="servico-num">05</span>
+          <div class="servico-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <span class="servico-nome">Troca de Óleo e Filtros</span>
+          <span class="servico-desc-text">Lubrificantes de alta performance e filtros originais para preservar o motor do seu veículo.</span>
+          <span class="servico-arrow">→</span>
+        </div>
+      </div>
+      <div class="servicos-img-row">
+        <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80" alt="Serviços Garage27" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=800&q=80" alt="Mecânica Garage27" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- POR QUE NÓS -->
+  <section class="porque" id="porque">
+    <div class="porque-inner">
+      <div class="porque-header">
+        <span class="section-tag fade-up">Por que nos escolher</span>
+        <h2 class="porque-titulo fade-up delay-1">
+          CONFIANÇA<br /><span class="outline">QUE MOVE</span>
+        </h2>
+      </div>
+      <div class="porque-grid">
+        <div class="porque-item scale-in delay-1">
+          <div class="porque-item-num" data-count="10"><sup>+</sup></div>
+          <div class="porque-item-label">Anos de experiência</div>
+          <div class="porque-item-desc">Uma década cuidando dos veículos dos goianienses com técnica e honestidade.</div>
+        </div>
+        <div class="porque-item scale-in delay-2">
+          <div class="porque-item-num" data-count="1200"><sup>+</sup></div>
+          <div class="porque-item-label">Carros atendidos</div>
+          <div class="porque-item-desc">Mais de mil clientes satisfeitos que voltam e indicam amigos e família.</div>
+        </div>
+        <div class="porque-item scale-in delay-3">
+          <div class="porque-item-num">Scanner<sup></sup></div>
+          <div class="porque-item-label">Diagnóstico digital</div>
+          <div class="porque-item-desc">Tecnologia de ponta para identificar qualquer falha com precisão antes de agir.</div>
+        </div>
+        <div class="porque-item scale-in delay-4">
+          <div class="porque-item-num" data-count="100"><sup>%</sup></div>
+          <div class="porque-item-label">Comprometimento</div>
+          <div class="porque-item-desc">Garantia nos serviços prestados. Seu veículo em boas mãos do início ao fim.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTADOR -->
+  <section class="contador">
+    <div class="contador-inner">
+      <div class="contador-item fade-up">
+        <div class="contador-num"><span data-count="1200">0</span>+</div>
+        <div class="contador-label">Carros atendidos</div>
+      </div>
+      <div class="contador-item fade-up delay-1">
+        <div class="contador-num"><span data-count="10">0</span>+</div>
+        <div class="contador-label">Anos no mercado</div>
+      </div>
+      <div class="contador-item fade-up delay-2">
+        <div class="contador-num"><span data-count="5">0</span></div>
+        <div class="contador-label">Especialidades</div>
+      </div>
+      <div class="contador-item fade-up delay-3">
+        <div class="contador-num"><span data-count="100">0</span>%</div>
+        <div class="contador-label">Satisfação garantida</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="sobre-inner">
+      <div class="sobre-visual slide-left">
+        <div class="sobre-img-wrap">
+          <div class="sobre-img-badge">
+            <strong>Garage<span style="color:rgba(255,255,255,0.7)">27</span></strong>
+            <span>Goiânia, GO</span>
+          </div>
+          <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=800&q=80" alt="Garage27 Mecânica" loading="lazy" />
+          <div class="sobre-img-deco"></div>
+        </div>
+      </div>
+      <div class="sobre-texto slide-right">
+        <span class="section-tag">Sobre a Garage27</span>
+        <h2 class="sobre-titulo">
+          MECÂNICA COM<br /><span class="vermelho">TÉCNICA</span><br />E HONESTIDADE
+        </h2>
+        <p class="sobre-p">
+          A Garage27 nasceu com uma missão: oferecer serviços mecânicos de qualidade real em Goiânia,
+          sem enrolação e com o diagnóstico correto na primeira visita.
+        </p>
+        <p class="sobre-p">
+          Nossa equipe de mecânicos especializados usa tecnologia de diagnóstico digital aliada
+          ao conhecimento técnico aprofundado para resolver qualquer problema com segurança e rapidez.
+          Do óleo ao motor, passando por suspensão e injeção eletrônica, a Garage27 resolve.
+        </p>
+        <div class="sobre-endereco">
+          <span class="sobre-endereco-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div class="sobre-endereco-text">
+            <strong>Encontre a Garage27</strong>
+            Rua Belo Horizonte, 1906 — Jardim Guanabara<br />
+            Goiânia, GO · Seg–Sáb: 8h às 18h
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos" id="depoimentos">
+    <div class="depoimentos-inner">
+      <div class="depoimentos-header">
+        <span class="section-tag fade-up">O que dizem os clientes</span>
+        <h2 class="section-titulo fade-up delay-1">
+          QUEM PASSOU<br /><span class="outline">APROVOU</span>
+        </h2>
+      </div>
+      <div class="depoimentos-grid">
+        <div class="depoimento-card scale-in delay-1">
+          <div class="depoimento-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="depoimento-texto">"Levei meu carro com um problema de suspensão que outras mecânicas não conseguiram identificar. A Garage27 achou e resolveu em um dia. Serviço impecável e preço justo!"</p>
+          <div class="depoimento-sep"></div>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">M</div>
+            <div>
+              <div class="depoimento-nome">Marcelo Vieira Santos</div>
+              <div class="depoimento-servico">Suspensão e Alinhamento</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card scale-in delay-2">
+          <div class="depoimento-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="depoimento-texto">"Minha injeção eletrônica estava dando problema fazia meses. A equipe fez o diagnóstico correto, trocou o sensor certo e ficou perfeito. Confiança total neles!"</p>
+          <div class="depoimento-sep"></div>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">R</div>
+            <div>
+              <div class="depoimento-nome">Roberto Almeida Cruz</div>
+              <div class="depoimento-servico">Injeção Eletrônica · Scanner</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card scale-in delay-3">
+          <div class="depoimento-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="depoimento-texto">"Já levo todos os meus carros na Garage27 faz mais de 3 anos. Equipe honesta, explica o que está fazendo, e os serviços têm garantia. Isso é raro de encontrar hoje em dia!"</p>
+          <div class="depoimento-sep"></div>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">A</div>
+            <div>
+              <div class="depoimento-nome">Anderson Lima Ferreira</div>
+              <div class="depoimento-servico">Cliente fiel há 3 anos</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-inner">
+      <p class="cta-pretitulo fade-up">Seu carro merece o melhor</p>
+      <h2 class="cta-titulo fade-up delay-1">
+        PEÇA SEU<br /><span class="vermelho">ORÇAMENTO</span><br /><span class="outline">AGORA</span>
+      </h2>
+      <p class="cta-subtitulo fade-up delay-2">
+        Fale com a gente pelo WhatsApp e agende seu atendimento.
+        Resposta rápida, diagnóstico preciso, solução garantida.
+      </p>
+      <a href="https://wa.me/5562984202630?text=Ol%C3%A1!+Vi+o+site+da+Garage27+e+quero+um+or%C3%A7amento." target="_blank" class="cta-btn fade-up delay-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        Chamar no WhatsApp
+      </a>
+      <p class="cta-endereco fade-up delay-4">Rua Belo Horizonte, 1906 · Jardim Guanabara · Goiânia, GO</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">
+          <div class="footer-logo-icon">G</div>
+          <div class="footer-logo-name">Garage<span>27</span></div>
+        </div>
+        <p class="footer-desc">Mecânica especializada em suspensão, injeção eletrônica e manutenção geral com precisão e performance em Goiânia, GO.</p>
+        <a href="https://wa.me/5562984202630?text=Ol%C3%A1!+Vi+o+site+da+Garage27+e+quero+um+or%C3%A7amento." target="_blank" class="footer-wa">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          (62) 98420-2630
+        </a>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Serviços</div>
+        <div class="footer-links">
+          <a href="#servicos">Suspensão e Alinhamento</a>
+          <a href="#servicos">Injeção Eletrônica</a>
+          <a href="#servicos">Revisão Completa</a>
+          <a href="#servicos">Freios e Escapamento</a>
+          <a href="#servicos">Troca de Óleo</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Localização</div>
+        <div class="footer-links">
+          <a href="#">R. Belo Horizonte, 1906</a>
+          <a href="#">Jd. Guanabara · Goiânia, GO</a>
+          <a href="#">Seg–Sáb: 8h às 18h</a>
+          <a href="https://wa.me/5562984202630" target="_blank">(62) 98420-2630</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Garage27. Todos os direitos reservados.</span>
+      <span class="footer-city">Goiânia · GO</span>
+    </div>
+  </footer>
+
+  <!-- WA FLOAT -->
+  <a href="https://wa.me/5562984202630?text=Ol%C3%A1!+Vi+o+site+da+Garage27+e+quero+um+or%C3%A7amento." target="_blank" class="wa-float" aria-label="WhatsApp">
+    <span class="wa-tooltip">Pedir orçamento</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+  </a>
+
+  <script>
+    // HEADER SCROLL
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); });
+
+    // PARALLAX HERO
+    const heroBg = document.getElementById('heroBg');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // INTERSECTION OBSERVER
+    const animEls = document.querySelectorAll('.fade-up, .slide-left, .slide-right, .scale-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    animEls.forEach(el => observer.observe(el));
+
+    // COUNTERS
+    const counters = document.querySelectorAll('[data-count]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.count);
+          let current = 0;
+          const timer = setInterval(() => {
+            current += target / 60;
+            if (current >= target) { el.textContent = target; clearInterval(timer); }
+            else { el.textContent = Math.floor(current); }
+          }, 25);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(el => counterObserver.observe(el));
+  </script>
+</body>
+</html>

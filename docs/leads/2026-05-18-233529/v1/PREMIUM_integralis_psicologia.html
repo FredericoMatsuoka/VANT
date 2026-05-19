@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integralis Psicologia — Saúde Mental Integrada — Aparecida de Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sage: #6A9E7F;
+  --sage-light: #D4EDE1;
+  --sage-dark: #1A3A2A;
+  --white: #FFFFFF;
+  --gray-50: #FAFCFB;
+  --gray-100: #F3F7F5;
+  --gray-200: #E0EDE6;
+  --gray-600: #4D6B58;
+  --gray-800: #1E332A;
+  --font-head: 'Libre Baskerville', serif;
+  --font-body: 'Source Sans Pro', sans-serif;
+  --radius: 16px;
+  --shadow: 0 6px 28px rgba(106,158,127,0.12);
+  --shadow-lg: 0 20px 60px rgba(106,158,127,0.16);
+  --transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--gray-800); background: var(--white); overflow-x: hidden; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--gray-50); }
+::-webkit-scrollbar-thumb { background: var(--sage); border-radius: 3px; }
+
+/* HEADER */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 0 5%; background: transparent; transition: var(--transition);
+}
+.header.scrolled {
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 1px 20px rgba(106,158,127,0.1);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 80px;
+}
+.logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.logo-leaf {
+  width: 42px; height: 42px;
+  background: var(--sage); border-radius: 12px 4px 12px 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; transition: var(--transition);
+}
+.header.scrolled .logo-leaf { background: var(--sage-dark); }
+.logo-name { font-family: var(--font-head); font-size: 1.1rem; color: var(--sage-dark); letter-spacing: -0.3px; transition: var(--transition); }
+.logo-sub { font-family: var(--font-body); font-size: 0.68rem; color: var(--gray-600); letter-spacing: 2px; text-transform: uppercase; }
+nav { display: flex; align-items: center; gap: 30px; }
+nav a {
+  font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+  color: var(--gray-800); text-decoration: none; transition: color 0.3s;
+}
+nav a:hover { color: var(--sage); }
+.nav-cta {
+  background: var(--sage-dark) !important; color: white !important;
+  padding: 10px 22px; border-radius: 8px; font-weight: 600 !important;
+  transition: var(--transition) !important;
+}
+.nav-cta:hover { background: var(--sage) !important; transform: translateY(-2px); box-shadow: var(--shadow); }
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+.menu-toggle span { display: block; width: 24px; height: 2px; background: var(--sage-dark); margin: 5px 0; border-radius: 2px; transition: var(--transition); }
+
+/* HERO — MINIMALISTA */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  background: var(--white); position: relative; overflow: hidden;
+  padding: 0 5%;
+}
+.hero-nature-bg {
+  position: absolute; top: 0; right: 0; width: 55%; height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1400&q=80');
+  background-size: cover; background-position: center left;
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.hero-nature-overlay {
+  position: absolute; top: 0; right: 0; width: 55%; height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0.2) 30%, rgba(26,58,42,0.3) 100%);
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+}
+/* decorative circles */
+.hero-circle1 {
+  position: absolute; bottom: -80px; left: -80px;
+  width: 300px; height: 300px;
+  background: var(--sage-light); border-radius: 50%; opacity: 0.4;
+}
+.hero-circle2 {
+  position: absolute; top: 80px; left: 30%;
+  width: 120px; height: 120px;
+  background: var(--sage-light); border-radius: 50%; opacity: 0.3;
+}
+.hero-inner {
+  max-width: 1200px; margin: 0 auto; padding-top: 80px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  position: relative; z-index: 2; width: 100%;
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 24px;
+}
+.hero-eyebrow-line { width: 32px; height: 1px; background: var(--sage); }
+.hero-eyebrow span { font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--sage); }
+.hero-title {
+  font-family: var(--font-head); font-size: clamp(2.5rem, 4vw, 3.8rem);
+  color: var(--sage-dark); line-height: 1.2; margin-bottom: 24px;
+  font-weight: 700;
+}
+.hero-title em { font-style: italic; color: var(--sage); font-weight: 400; }
+.hero-desc { font-size: 1.1rem; line-height: 1.8; color: var(--gray-600); margin-bottom: 40px; max-width: 460px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary-green {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--sage-dark); color: white;
+  padding: 15px 32px; border-radius: 8px;
+  font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+  text-decoration: none; transition: var(--transition);
+}
+.btn-primary-green:hover { background: var(--sage); transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn-outline-green {
+  display: inline-flex; align-items: center; gap: 10px;
+  border: 2px solid var(--sage-dark); color: var(--sage-dark);
+  padding: 13px 28px; border-radius: 8px;
+  font-family: var(--font-body); font-size: 1rem; font-weight: 600;
+  text-decoration: none; transition: var(--transition);
+}
+.btn-outline-green:hover { background: var(--sage-dark); color: white; }
+.hero-trust {
+  display: flex; gap: 32px; margin-top: 56px;
+  padding-top: 32px; border-top: 1px solid var(--gray-200);
+  flex-wrap: wrap;
+}
+.trust-item { display: flex; align-items: center; gap: 10px; }
+.trust-icon { font-size: 1.4rem; }
+.trust-text { font-size: 0.85rem; color: var(--gray-600); line-height: 1.4; }
+.trust-text strong { color: var(--gray-800); display: block; font-weight: 700; font-size: 0.9rem; }
+
+/* JORNADA — STEPS */
+.jornada { background: var(--sage-dark); padding: 100px 5%; }
+.jornada-inner { max-width: 1100px; margin: 0 auto; }
+.jornada .section-label { color: var(--sage-light); }
+.jornada .section-label::before { background: var(--sage-light); }
+.jornada .section-title { color: white; }
+.jornada .section-title em { color: #9ED4B5; font-style: italic; }
+.jornada .section-desc { color: rgba(255,255,255,0.65); margin-bottom: 64px; }
+.steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+.steps::before {
+  content: ''; position: absolute; top: 36px; left: 10%; right: 10%; height: 2px;
+  background: linear-gradient(90deg, var(--sage), #9ED4B5, var(--sage));
+  z-index: 0;
+}
+.step { text-align: center; position: relative; z-index: 1; padding: 0 10px; }
+.step-num {
+  width: 72px; height: 72px; margin: 0 auto 24px;
+  background: var(--sage); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-size: 1.4rem; color: white; font-weight: 700;
+  border: 3px solid rgba(255,255,255,0.2);
+  transition: var(--transition);
+}
+.step:hover .step-num { background: white; color: var(--sage-dark); transform: scale(1.1); }
+.step-icon { font-size: 1.5rem; margin-bottom: 12px; display: block; }
+.step h4 { font-family: var(--font-head); font-size: 0.95rem; color: white; margin-bottom: 8px; }
+.step p { font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+/* SERVIÇOS */
+.servicos { background: var(--gray-50); padding: 100px 5%; }
+.servicos-inner { max-width: 1200px; margin: 0 auto; }
+.servicos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+.servico-card {
+  background: white; border-radius: var(--radius); padding: 36px 28px;
+  border: 1px solid var(--gray-200); transition: var(--transition);
+  position: relative; overflow: hidden;
+}
+.servico-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--sage-light); }
+.servico-num {
+  font-family: var(--font-head); font-size: 3rem; color: var(--sage-light);
+  font-weight: 700; line-height: 1; margin-bottom: 16px;
+}
+.servico-card h4 { font-family: var(--font-head); font-size: 1.15rem; color: var(--sage-dark); margin-bottom: 12px; }
+.servico-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 16px; }
+.servico-tag {
+  display: inline-block; padding: 5px 14px; background: var(--sage-light);
+  border-radius: 50px; font-size: 0.75rem; color: var(--sage-dark); font-weight: 700;
+}
+
+/* SOBRE */
+.sobre { background: white; padding: 100px 5%; }
+.sobre-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.sobre-img-wrap { position: relative; }
+.sobre-img { border-radius: var(--radius); overflow: hidden; }
+.sobre-img img { width: 100%; height: 500px; object-fit: cover; display: block; }
+.sobre-badge {
+  position: absolute; bottom: -20px; left: 24px;
+  background: var(--sage-dark); color: white; border-radius: var(--radius);
+  padding: 18px 24px; box-shadow: var(--shadow);
+}
+.sobre-badge .big { font-family: var(--font-head); font-size: 1.8rem; font-weight: 700; }
+.sobre-badge .small { font-size: 0.75rem; opacity: 0.75; margin-top: 2px; display: block; }
+.sobre-content .section-label { margin-bottom: 14px; }
+.sobre-content p { font-size: 1rem; line-height: 1.8; color: var(--gray-600); margin-bottom: 18px; }
+.valores { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+.valor-item {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 16px; background: var(--gray-50); border-radius: 12px;
+  border-left: 3px solid var(--sage);
+}
+.valor-icon { font-size: 1.3rem; flex-shrink: 0; }
+.valor-text h5 { font-family: var(--font-head); font-size: 0.9rem; color: var(--sage-dark); margin-bottom: 4px; }
+.valor-text p { font-size: 0.83rem; color: var(--gray-600); line-height: 1.5; margin: 0; }
+
+/* BLOG / CONTEÚDO */
+.blog { background: var(--sage-light); padding: 100px 5%; }
+.blog-inner { max-width: 1200px; margin: 0 auto; }
+.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 56px; }
+.blog-card {
+  background: white; border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); transition: var(--transition);
+}
+.blog-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.blog-img { height: 180px; overflow: hidden; }
+.blog-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+.blog-card:hover .blog-img img { transform: scale(1.06); }
+.blog-body { padding: 24px; }
+.blog-cat {
+  display: inline-block; padding: 4px 12px; background: var(--sage-light);
+  border-radius: 50px; font-size: 0.7rem; font-weight: 700; color: var(--sage-dark);
+  letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px;
+}
+.blog-card h4 { font-family: var(--font-head); font-size: 1.05rem; color: var(--gray-800); margin-bottom: 10px; line-height: 1.4; }
+.blog-card p { font-size: 0.85rem; color: var(--gray-600); line-height: 1.6; margin-bottom: 16px; }
+.blog-meta { font-size: 0.78rem; color: var(--gray-600); display: flex; align-items: center; gap: 8px; }
+.blog-meta::before { content: ''; width: 20px; height: 1px; background: var(--sage); display: block; }
+
+/* DEPOIMENTOS */
+.depoimentos { background: white; padding: 100px 5%; }
+.depoimentos-inner { max-width: 1200px; margin: 0 auto; }
+.depo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+.depo-card {
+  background: var(--gray-50); border-radius: var(--radius); padding: 32px 24px;
+  border: 1px solid var(--gray-200); transition: var(--transition);
+}
+.depo-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); background: white; }
+.stars-green { color: #22A060; font-size: 1rem; letter-spacing: 2px; margin-bottom: 16px; }
+.depo-text { font-family: var(--font-head); font-size: 0.95rem; font-style: italic; color: var(--gray-800); line-height: 1.75; margin-bottom: 20px; }
+.depo-author { display: flex; align-items: center; gap: 12px; }
+.author-av-green {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+  color: white; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-size: 0.95rem;
+}
+.author-name { font-weight: 700; font-size: 0.9rem; color: var(--gray-800); }
+.author-info { font-size: 0.78rem; color: var(--gray-600); }
+
+/* INSTAGRAM CTA */
+.ig-cta { background: var(--sage-dark); padding: 80px 5%; text-align: center; }
+.ig-cta-inner { max-width: 680px; margin: 0 auto; }
+.ig-icon {
+  width: 64px; height: 64px; margin: 0 auto 24px;
+  background: linear-gradient(135deg, #E1306C, #833AB4, #F77737);
+  border-radius: 16px; display: flex; align-items: center; justify-content: center;
+  font-size: 2rem;
+}
+.ig-cta h2 { font-family: var(--font-head); font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: white; margin-bottom: 16px; line-height: 1.2; }
+.ig-cta h2 em { font-style: italic; color: #9ED4B5; }
+.ig-cta p { font-size: 1.05rem; color: rgba(255,255,255,0.7); margin-bottom: 36px; line-height: 1.7; }
+.btn-ig {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: linear-gradient(135deg, #E1306C, #833AB4);
+  color: white; padding: 18px 40px; border-radius: 50px;
+  font-size: 1.05rem; font-weight: 700; text-decoration: none;
+  transition: var(--transition); box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+}
+.btn-ig:hover { transform: translateY(-3px); box-shadow: 0 20px 48px rgba(0,0,0,0.3); filter: brightness(1.1); }
+
+/* FOOTER */
+footer { background: var(--sage-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 60px 5% 32px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-name { font-family: var(--font-head); font-size: 1.3rem; color: white; display: block; margin-bottom: 14px; }
+.footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 300px; margin-bottom: 20px; }
+.footer-ig-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: #9ED4B5; font-size: 0.88rem; text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-ig-link:hover { color: white; }
+footer h5 { font-family: var(--font-head); color: white; font-size: 0.95rem; margin-bottom: 18px; font-weight: 700; }
+footer ul { list-style: none; }
+footer ul li { margin-bottom: 10px; }
+footer ul a { color: rgba(255,255,255,0.5); font-size: 0.85rem; text-decoration: none; transition: color 0.3s; }
+footer ul a:hover { color: #9ED4B5; }
+.footer-bottom { padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-bottom p { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+
+/* INSTAGRAM FLOAT (sem WA) */
+.ig-float {
+  position: fixed; bottom: 32px; right: 32px; z-index: 999;
+  width: 60px; height: 60px;
+  background: linear-gradient(135deg, #E1306C, #833AB4, #F77737);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  text-decoration: none; box-shadow: 0 8px 24px rgba(225,48,108,0.4);
+  animation: ig-pulse 2.5s infinite; transition: var(--transition);
+  font-size: 1.6rem;
+}
+.ig-float:hover { transform: scale(1.1); }
+@keyframes ig-pulse {
+  0%, 100% { box-shadow: 0 8px 24px rgba(225,48,108,0.4), 0 0 0 0 rgba(225,48,108,0.25); }
+  50% { box-shadow: 0 8px 24px rgba(225,48,108,0.4), 0 0 0 14px rgba(225,48,108,0); }
+}
+
+/* SECTION COMMONS */
+.section-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--sage); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::before { content: ''; width: 28px; height: 1px; background: var(--sage); display: block; }
+.section-title { font-family: var(--font-head); font-size: clamp(1.9rem, 3.5vw, 3rem); color: var(--gray-800); line-height: 1.2; margin-bottom: 18px; font-weight: 700; }
+.section-title em { font-style: italic; color: var(--sage); font-weight: 400; }
+.section-desc { font-size: 1.05rem; color: var(--gray-600); line-height: 1.75; max-width: 600px; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal-l { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-l.active { opacity: 1; transform: translateX(0); }
+.reveal-r { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-r.active { opacity: 1; transform: translateX(0); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { display: none; }
+  .menu-toggle { display: block; }
+  nav.open {
+    display: flex; flex-direction: column;
+    position: fixed; top: 80px; left: 0; right: 0;
+    background: white; box-shadow: var(--shadow); padding: 16px 0; z-index: 999;
+  }
+  nav.open a { padding: 14px 5%; border-bottom: 1px solid var(--gray-200); }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-nature-bg, .hero-nature-overlay, .hero-circle2 { display: none; }
+  .hero { padding-top: 100px; padding-bottom: 60px; min-height: auto; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .steps::before { display: none; }
+  .servicos-grid { grid-template-columns: 1fr; }
+  .sobre-inner { grid-template-columns: 1fr; }
+  .sobre-badge { display: none; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .depo-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-trust { gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- INSTAGRAM FLOAT -->
+<a href="https://www.instagram.com/integralisgopsicologia/" class="ig-float" target="_blank" aria-label="Instagram Integralis Psicologia"></a>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-leaf"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22c1.5-1.5 10.5-1 11-10"/><path d="M2 22c1.5-1.5 2.5-9 10-9"/><path d="M6 15c1.5-1.5 5.5-3 8-3"/></svg></div>
+      <div>
+        <div class="logo-name">Integralis</div>
+        <div class="logo-sub">Psicologia</div>
+      </div>
+    </a>
+    <nav id="nav">
+      <a href="#servicos">Serviços</a>
+      <a href="#jornada">Sua Jornada</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#blog">Conteúdo</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="https://www.instagram.com/integralisgopsicologia/" class="nav-cta" target="_blank">Fale Conosco</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-nature-bg" id="heroBg"></div>
+  <div class="hero-nature-overlay"></div>
+  <div class="hero-circle1"></div>
+  <div class="hero-circle2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow reveal">
+        <div class="hero-eyebrow-line"></div>
+        <span>Aparecida de Goiânia, GO</span>
+      </div>
+      <h1 class="hero-title reveal">Saúde mental<br><em>integrada</em><br>com você</h1>
+      <p class="hero-desc reveal">Um espaço seguro para cuidar da sua mente com calma, presença e ciência. Psicologia com abordagem holística e humanizada para crianças, adultos e casais.</p>
+      <div class="hero-btns reveal">
+        <a href="https://www.instagram.com/integralisgopsicologia/" class="btn-primary-green" target="_blank">Entrar em Contato</a>
+        <a href="#servicos" class="btn-outline-green">Ver Serviços</a>
+      </div>
+      <div class="hero-trust reveal">
+        <div class="trust-item">
+          <span class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M12 20v-9"/><path d="M12 11C12 8 9.5 5 6 5c0 4.5 2.5 7 6 7z"/><path d="M12 11C12 8 14.5 5 18 5c0 4.5-2.5 7-6 7z"/></svg></span>
+          <div class="trust-text"><strong>Abordagem Integrativa</strong>Ciência + natureza + humanidade</div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+          <div class="trust-text"><strong>Sigilo Total</strong>Ética e privacidade garantidas</div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+          <div class="trust-text"><strong>Online & Presencial</strong>Você escolhe o formato</div>
+        </div>
+      </div>
+    </div>
+    <div></div><!-- right spacer for grid -->
+  </div>
+</section>
+
+<!-- JORNADA — STEPS -->
+<section class="jornada" id="jornada">
+  <div class="jornada-inner">
+    <div class="reveal">
+      <div class="section-label">Sua Jornada</div>
+      <h2 class="section-title" style="color:white;">Como funciona o seu<br><em>processo terapêutico</em></h2>
+      <p class="section-desc">Cada jornada começa com um primeiro passo. Aqui está como cuidamos de você.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <span class="step-icon"></span>
+        <h4>Primeiro Contato</h4>
+        <p>Entre em contato pelo Instagram. Respondemos com agilidade e clareza.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <span class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l1.41 1.42 6.83 6.82a.5.5 0 0 0 .71 0l8.24-8.24a5.4 5.4 0 0 0 0-7.65z"/></svg></span>
+        <h4>Sessão Inicial</h4>
+        <p>Conversa acolhedora para entender suas necessidades e objetivos.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <span class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>️</span>
+        <h4>Plano de Cuidado</h4>
+        <p>Construímos juntos um plano terapêutico personalizado para você.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">4</div>
+        <span class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M12 20v-9"/><path d="M12 11C12 8 9.5 5 6 5c0 4.5 2.5 7 6 7z"/><path d="M12 11C12 8 14.5 5 18 5c0 4.5-2.5 7-6 7z"/></svg></span>
+        <h4>Processo Contínuo</h4>
+        <p>Sessões regulares com evolução monitorada e ajustes quando necessário.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">5</div>
+        <span class="step-icon"></span>
+        <h4>Transformação</h4>
+        <p>Autoconhecimento, bem-estar e uma vida mais equilibrada e plena.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos" id="servicos">
+  <div class="servicos-inner">
+    <div class="reveal">
+      <div class="section-label">Serviços</div>
+      <h2 class="section-title">Cuide da sua mente<br>com <em>especialistas</em></h2>
+      <p class="section-desc">Oferecemos diferentes modalidades de atendimento psicológico para cuidar de você em cada fase da vida.</p>
+    </div>
+    <div class="servicos-grid">
+      <div class="servico-card reveal">
+        <div class="servico-num">01</div>
+        <h4>Psicoterapia Individual</h4>
+        <p>Espaço seguro e confidencial para trabalhar ansiedade, autoestima, relacionamentos e outros desafios emocionais com abordagem integrativa e personalizada.</p>
+        <span class="servico-tag">Adultos & Adolescentes</span>
+      </div>
+      <div class="servico-card reveal">
+        <div class="servico-num">02</div>
+        <h4>Terapia de Casal</h4>
+        <p>Suporte especializado para casais que buscam melhorar a comunicação, superar crises ou fortalecer o vínculo afetivo com mediação profissional e ferramentas práticas.</p>
+        <span class="servico-tag">Casais</span>
+      </div>
+      <div class="servico-card reveal">
+        <div class="servico-num">03</div>
+        <h4>Psicologia Infantil</h4>
+        <p>Atendimento lúdico e acolhedor para crianças que enfrentam dificuldades emocionais, comportamentais ou de aprendizagem, com envolvimento familiar ativo no processo.</p>
+        <span class="servico-tag">Crianças 4–12 anos</span>
+      </div>
+      <div class="servico-card reveal">
+        <div class="servico-num">04</div>
+        <h4>Orientação Vocacional</h4>
+        <p>Apoio psicológico para adolescentes e jovens adultos na escolha profissional. Identificação de habilidades, valores e interesses para uma decisão consciente.</p>
+        <span class="servico-tag">Jovens & Adultos</span>
+      </div>
+      <div class="servico-card reveal">
+        <div class="servico-num">05</div>
+        <h4>Saúde Mental Corporativa</h4>
+        <p>Programas de bem-estar psicológico para empresas — prevenção de burnout, gestão emocional, rodas de conversa e atendimentos individuais para equipes.</p>
+        <span class="servico-tag">Empresas & Equipes</span>
+      </div>
+      <div class="servico-card reveal" style="background: var(--sage-dark); border-color: var(--sage-dark);">
+        <div class="servico-num" style="color: rgba(158,212,181,0.4);">+</div>
+        <h4 style="color:white;">Atendimento Online</h4>
+        <p style="color:rgba(255,255,255,0.65);">Todas as modalidades de psicoterapia também disponíveis online, com a mesma qualidade e sigilo do atendimento presencial. Agende de onde estiver.</p>
+        <a href="https://www.instagram.com/integralisgopsicologia/" class="servico-tag" style="background:var(--sage); color:white; text-decoration:none; display:inline-block;" target="_blank">Saber Mais</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="sobre-inner">
+    <div class="reveal-l">
+      <div class="sobre-img-wrap">
+        <div class="sobre-img">
+          <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80" alt="Equipe Integralis Psicologia" loading="lazy">
+        </div>
+        <div class="sobre-badge">
+          <span class="big">Integralis</span>
+          <span class="small">Saúde mental para todos</span>
+        </div>
+      </div>
+    </div>
+    <div class="sobre-content reveal-r">
+      <div class="section-label">Sobre a Integralis</div>
+      <h2 class="section-title">Psicologia com<br><em>propósito</em></h2>
+      <p>A Integralis Psicologia nasceu da crença de que saúde mental é a base de uma vida plena. Nossa equipe de psicólogas especializadas une o rigor científico com a sensibilidade humana para oferecer atendimento de excelência em Aparecida de Goiânia.</p>
+      <p>Trabalhamos com uma perspectiva integrativa — reconhecendo que cada pessoa é única e que o cuidado psicológico deve contemplar mente, emoções, relações e contexto de vida. Aqui, você é visto por inteiro.</p>
+      <div class="valores">
+        <div class="valor-item">
+          <span class="valor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22c1.5-1.5 10.5-1 11-10"/><path d="M2 22c1.5-1.5 2.5-9 10-9"/><path d="M6 15c1.5-1.5 5.5-3 8-3"/></svg></span>
+          <div class="valor-text">
+            <h5>Abordagem Natural e Integrativa</h5>
+            <p>Combinamos técnicas baseadas em evidências com sensibilidade humana e respeito à singularidade de cada pessoa.</p>
+          </div>
+        </div>
+        <div class="valor-item">
+          <span class="valor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l1.41 1.42 6.83 6.82a.5.5 0 0 0 .71 0l8.24-8.24a5.4 5.4 0 0 0 0-7.65z"/></svg></span>
+          <div class="valor-text">
+            <h5>Vínculo Terapêutico Real</h5>
+            <p>Acreditamos que a relação terapêutica é o coração do processo. Confiança, presença e escuta genuína.</p>
+          </div>
+        </div>
+        <div class="valor-item">
+          <span class="valor-icon"></span>
+          <div class="valor-text">
+            <h5>Psicoeducação Contínua</h5>
+            <p>Compartilhamos conhecimento para que você entenda o que sente e possa ser protagonista do seu bem-estar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG / CONTEÚDO -->
+<section class="blog" id="blog">
+  <div class="blog-inner">
+    <div class="reveal">
+      <div class="section-label">Conteúdo & Psicoeducação</div>
+      <h2 class="section-title">Conhecimento para<br>seu <em>bem-estar</em></h2>
+      <p class="section-desc">Artigos e reflexões sobre saúde mental para te ajudar no cotidiano.</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card reveal">
+        <div class="blog-img">
+          <img src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?w=800&q=80" alt="Ansiedade" loading="lazy">
+        </div>
+        <div class="blog-body">
+          <span class="blog-cat">Ansiedade</span>
+          <h4>5 Sinais de que a ansiedade está afetando sua vida mais do que você percebe</h4>
+          <p>A ansiedade pode ser silenciosa e gradual. Entenda os principais indicadores e quando buscar ajuda profissional.</p>
+          <div class="blog-meta">Maio 2024 · 5 min de leitura</div>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-img">
+          <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80" alt="Relacionamentos" loading="lazy">
+        </div>
+        <div class="blog-body">
+          <span class="blog-cat">Relacionamentos</span>
+          <h4>Comunicação não-violenta: a ferramenta que pode transformar seus relacionamentos</h4>
+          <p>Aprenda os princípios básicos da CNV e como aplicá-los nas relações afetivas e profissionais do seu dia a dia.</p>
+          <div class="blog-meta">Abril 2024 · 7 min de leitura</div>
+        </div>
+      </div>
+      <div class="blog-card reveal">
+        <div class="blog-img">
+          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1400&q=80" alt="Mindfulness" loading="lazy">
+        </div>
+        <div class="blog-body">
+          <span class="blog-cat">Bem-estar</span>
+          <h4>Mindfulness no cotidiano: práticas simples para mais presença e menos estresse</h4>
+          <p>Técnicas acessíveis de atenção plena que você pode incorporar na rotina para melhorar sua saúde mental.</p>
+          <div class="blog-meta">Março 2024 · 6 min de leitura</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos" id="depoimentos">
+  <div class="depoimentos-inner">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label" style="justify-content:center;">Depoimentos</div>
+      <h2 class="section-title" style="text-align:center;">Quem passou pela<br><em>Integralis</em></h2>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card reveal">
+        <div class="stars-green">★★★★★</div>
+        <p class="depo-text">"A terapia na Integralis foi o melhor investimento que fiz em mim mesma. A psicóloga me ajudou a entender meus padrões e a construir uma vida com muito mais leveza e autoconhecimento."</p>
+        <div class="depo-author">
+          <div class="author-av-green">LB</div>
+          <div>
+            <div class="author-name">Laura Borges</div>
+            <div class="author-info">Psicoterapia individual — 1 ano</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal">
+        <div class="stars-green">★★★★★</div>
+        <p class="depo-text">"Eu e meu marido procuramos a terapia de casal numa fase difícil. A Integralis nos deu ferramentas reais para melhorar a comunicação. Hoje nosso relacionamento é completamente diferente — para melhor!"</p>
+        <div class="depo-author">
+          <div class="author-av-green">PM</div>
+          <div>
+            <div class="author-name">Paula Menezes</div>
+            <div class="author-info">Terapia de casal — 8 meses</div>
+          </div>
+        </div>
+      </div>
+      <div class="depo-card reveal">
+        <div class="stars-green">★★★★★</div>
+        <p class="depo-text">"Meu filho passou por atendimento infantil na Integralis e a transformação foi visível. A profissional trabalhou de forma lúdica e respeitosa, e nos orientou muito bem como pais. Super recomendo!"</p>
+        <div class="depo-author">
+          <div class="author-av-green">TA</div>
+          <div>
+            <div class="author-name">Tatiana Alves</div>
+            <div class="author-info">Mãe — Psicologia infantil</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM CTA -->
+<section class="ig-cta" id="contato">
+  <div class="ig-cta-inner">
+    <div class="ig-icon reveal"></div>
+    <h2 class="reveal">Comece sua jornada<br>de <em>transformação</em></h2>
+    <p class="reveal">Entre em contato pelo nosso Instagram para agendar sua primeira sessão ou tirar dúvidas. Respondemos com atenção e cuidado.</p>
+    <a href="https://www.instagram.com/integralisgopsicologia/" class="btn-ig reveal" target="_blank">
+      Falar no Instagram @integralisgopsicologia
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-name">Integralis Psicologia</span>
+        <p>Saúde mental integrada com ciência, natureza e humanidade. Cuidando de você em Aparecida de Goiânia, GO.</p>
+        <a href="https://www.instagram.com/integralisgopsicologia/" class="footer-ig-link" target="_blank">
+           @integralisgopsicologia
+        </a>
+      </div>
+      <div>
+        <h5>Serviços</h5>
+        <ul>
+          <li><a href="#servicos">Psicoterapia Individual</a></li>
+          <li><a href="#servicos">Terapia de Casal</a></li>
+          <li><a href="#servicos">Psicologia Infantil</a></li>
+          <li><a href="#servicos">Orientação Vocacional</a></li>
+          <li><a href="#servicos">Saúde Mental Corporativa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Links</h5>
+        <ul>
+          <li><a href="#jornada">Sua Jornada</a></li>
+          <li><a href="#sobre">Sobre a Integralis</a></li>
+          <li><a href="#blog">Conteúdo</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="https://www.instagram.com/integralisgopsicologia/" target="_blank">Contato via Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Integralis Psicologia. Todos os direitos reservados.</p>
+      <p>Aparecida de Goiânia, GO</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// HEADER
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 60));
+
+// MOBILE MENU
+const menuToggle = document.getElementById('menuToggle');
+const nav = document.getElementById('nav');
+menuToggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+// PARALLAX
+const heroBg = document.getElementById('heroBg');
+window.addEventListener('scroll', () => {
+  if (heroBg) heroBg.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+}, { passive: true });
+
+// REVEAL
+const reveals = document.querySelectorAll('.reveal, .reveal-l, .reveal-r');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('active'), i * 90);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kadosh Manutenção Automotiva | Aparecida de Goiânia, GO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cor-azul: #1C3A5E;
+      --cor-ambar: #F0A500;
+      --cor-ambar-dark: #D09200;
+      --cor-ambar-light: #FFB822;
+      --cor-branco: #FFFFFF;
+      --cor-azul-escuro: #0A1628;
+      --cor-azul-medio: #243E62;
+      --cor-azul-claro: rgba(28,58,94,0.85);
+      --cor-azul-borda: rgba(240,165,0,0.2);
+      --font-headline: 'Rajdhani', sans-serif;
+      --font-corpo: 'Open Sans', sans-serif;
+      --transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: var(--font-corpo); background: var(--cor-azul-escuro); color: var(--cor-branco); overflow-x: hidden; }
+
+    /* ===================== HEADER ===================== */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all 0.45s ease;
+    }
+    .header.scrolled {
+      background: rgba(10, 22, 40, 0.97);
+      padding: 14px 48px;
+      box-shadow: 0 2px 40px rgba(0,0,0,0.4);
+      border-bottom: 1px solid rgba(240,165,0,0.12);
+    }
+    .header-logo { display: flex; align-items: center; gap: 14px; }
+    .header-logo-emblem {
+      width: 40px; height: 40px;
+      border: 2px solid var(--cor-ambar);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-headline);
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--cor-ambar);
+      transform: rotate(45deg);
+    }
+    .header-logo-emblem span { transform: rotate(-45deg); display: block; }
+    .header-logo-text {
+      display: flex; flex-direction: column;
+    }
+    .header-logo-name {
+      font-family: var(--font-headline);
+      font-size: 1.2rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cor-branco);
+    }
+    .header-logo-sub {
+      font-size: 0.55rem; font-weight: 400;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--cor-ambar); margin-top: 1px;
+    }
+    .header-nav { display: flex; gap: 34px; align-items: center; }
+    .header-nav a {
+      font-family: var(--font-headline);
+      font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .header-nav a:hover { color: var(--cor-ambar); }
+    .header-btn {
+      padding: 10px 26px;
+      border: 1px solid var(--cor-ambar);
+      color: var(--cor-ambar) !important;
+      font-size: 0.78rem !important; font-weight: 600 !important;
+      letter-spacing: 0.18em !important; text-transform: uppercase;
+      transition: all 0.3s !important;
+    }
+    .header-btn:hover { background: var(--cor-ambar) !important; color: var(--cor-azul-escuro) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: rgba(255,255,255,0.7); }
+
+    /* ===================== HERO GRADIENTE DIAGONAL ===================== */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: -80px;
+      background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80') center/cover no-repeat;
+      will-change: transform;
+    }
+    .hero-gradient {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(10,22,40,0.97) 0%,
+        rgba(28,58,94,0.92) 35%,
+        rgba(28,58,94,0.75) 60%,
+        rgba(10,22,40,0.85) 100%
+      );
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(240,165,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(240,165,0,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 48px;
+      max-width: 1100px; width: 100%;
+      display: grid; grid-template-columns: 1.1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .hero-left {}
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--cor-ambar);
+      padding: 10px 22px;
+      margin-bottom: 32px;
+    }
+    .hero-badge-text {
+      font-family: var(--font-headline);
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--cor-azul-escuro);
+    }
+    .hero-badge-icon { font-size: 0.85rem; }
+    .hero-titulo {
+      font-family: var(--font-headline);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      color: var(--cor-branco);
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+    .hero-titulo .ambar { color: var(--cor-ambar); }
+    .hero-titulo .outline {
+      -webkit-text-stroke: 1.5px rgba(255,255,255,0.3);
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitulo {
+      font-size: 0.92rem; font-weight: 300;
+      color: rgba(255,255,255,0.55); line-height: 1.8;
+      margin-bottom: 44px; max-width: 460px;
+    }
+    .hero-btns { display: flex; gap: 16px; align-items: center; }
+    .hero-btn-primary {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 15px 38px;
+      background: var(--cor-ambar);
+      color: var(--cor-azul-escuro);
+      font-family: var(--font-headline);
+      font-size: 0.9rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .hero-btn-primary:hover { background: var(--cor-ambar-light); transform: translateY(-2px); }
+    .hero-btn-ghost {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 30px;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.6);
+      font-family: var(--font-headline);
+      font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .hero-btn-ghost:hover { border-color: var(--cor-ambar); color: var(--cor-ambar); }
+
+    .hero-right {}
+    .hero-card {
+      background: rgba(10,22,40,0.8);
+      border: 1px solid rgba(240,165,0,0.2);
+      padding: 40px 36px;
+      backdrop-filter: blur(10px);
+    }
+    .hero-card-titulo {
+      font-family: var(--font-headline);
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--cor-ambar); margin-bottom: 30px;
+    }
+    .hero-servico-lista { display: flex; flex-direction: column; gap: 16px; }
+    .hero-servico-item {
+      display: flex; align-items: center; gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-servico-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .hero-servico-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cor-ambar); flex-shrink: 0;
+    }
+    .hero-servico-nome {
+      font-family: var(--font-headline);
+      font-size: 1rem; font-weight: 600;
+      letter-spacing: 0.06em; color: var(--cor-branco);
+    }
+    .hero-card-bottom {
+      margin-top: 28px; padding-top: 24px;
+      border-top: 1px solid rgba(240,165,0,0.15);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .hero-card-bottom-icon { font-size: 1.2rem; }
+    .hero-card-bottom-text {
+      font-size: 0.78rem; font-weight: 300;
+      color: rgba(255,255,255,0.4); line-height: 1.5;
+    }
+    .hero-card-bottom-text strong { color: var(--cor-ambar); display: block; }
+
+    .hero-scroll {
+      position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column;
+      align-items: center; gap: 10px; z-index: 2;
+    }
+    .hero-scroll-text {
+      font-family: var(--font-headline);
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+    .hero-scroll-bar {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, rgba(240,165,0,0.6), transparent);
+      animation: scrollBar 2s infinite;
+    }
+    @keyframes scrollBar {
+      0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+      30% { opacity: 1; }
+      100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+    }
+
+    /* ===================== SERVIÇOS COM BORDA ESQUERDA AMARELA ===================== */
+    .servicos {
+      background: var(--cor-azul-escuro);
+      padding: 110px 48px;
+      position: relative;
+    }
+    .servicos::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(240,165,0,0.3), transparent);
+    }
+    .servicos-inner { max-width: 1200px; margin: 0 auto; }
+    .servicos-header {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: end; margin-bottom: 70px;
+    }
+    .section-tag {
+      font-family: var(--font-headline);
+      display: block; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--cor-ambar); margin-bottom: 12px;
+    }
+    .section-titulo {
+      font-family: var(--font-headline);
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      font-weight: 700; color: var(--cor-branco);
+      line-height: 1.05; letter-spacing: 0.03em;
+    }
+    .section-titulo .ambar { color: var(--cor-ambar); }
+    .section-desc {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(255,255,255,0.45); line-height: 1.85;
+    }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .servico-card {
+      background: rgba(28,58,94,0.35);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-left: 4px solid var(--cor-ambar);
+      padding: 34px 30px;
+      transition: background 0.4s, border-color 0.4s, transform 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .servico-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(240,165,0,0.04), transparent);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .servico-card:hover { background: rgba(28,58,94,0.6); transform: translateX(6px); }
+    .servico-card:hover::after { opacity: 1; }
+    .servico-card-header { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+    .servico-card-icon {
+      width: 48px; height: 48px;
+      border: 1px solid rgba(240,165,0,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .servico-card-num {
+      font-family: var(--font-headline);
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(240,165,0,0.6);
+    }
+    .servico-card-nome {
+      font-family: var(--font-headline);
+      font-size: 1.3rem; font-weight: 700;
+      letter-spacing: 0.04em; color: var(--cor-branco);
+      margin-bottom: 10px;
+    }
+    .servico-card-desc {
+      font-size: 0.83rem; font-weight: 300;
+      color: rgba(255,255,255,0.45); line-height: 1.7;
+    }
+    .servico-card-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 16px;
+      font-family: var(--font-headline);
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--cor-ambar); text-decoration: none;
+      opacity: 0; transform: translateX(-8px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .servico-card:hover .servico-card-link { opacity: 1; transform: translateX(0); }
+
+    /* ===================== LINHA DO TEMPO DIFERENCIAIS ===================== */
+    .diferenciais {
+      background: var(--cor-azul);
+      padding: 100px 48px;
+      position: relative; overflow: hidden;
+    }
+    .diferenciais::before {
+      content: 'KADOSH';
+      position: absolute; right: -60px; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-headline);
+      font-size: 14rem; font-weight: 700;
+      color: rgba(0,0,0,0.1);
+      letter-spacing: 0.05em; pointer-events: none;
+    }
+    .diferenciais-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .diferenciais-header { margin-bottom: 70px; }
+    .diferenciais-header .section-tag { color: rgba(240,165,0,0.8); }
+    .diferenciais-header .section-titulo { color: var(--cor-branco); }
+
+    /* Timeline horizontal */
+    .timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 28px; left: 0; right: 0; height: 2px;
+      background: rgba(255,255,255,0.1);
+    }
+    .timeline-item { padding: 0 20px 0 0; position: relative; }
+    .timeline-dot {
+      width: 58px; height: 58px;
+      border: 2px solid var(--cor-ambar);
+      background: var(--cor-azul);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 30px; position: relative; z-index: 1;
+      font-size: 1.4rem;
+      transition: background 0.3s;
+    }
+    .timeline-item:hover .timeline-dot { background: rgba(240,165,0,0.15); }
+    .timeline-titulo {
+      font-family: var(--font-headline);
+      font-size: 1.2rem; font-weight: 700;
+      letter-spacing: 0.06em; color: var(--cor-branco);
+      margin-bottom: 10px;
+    }
+    .timeline-desc {
+      font-size: 0.82rem; font-weight: 300;
+      color: rgba(255,255,255,0.45); line-height: 1.7;
+    }
+
+    /* ===================== SOBRE ===================== */
+    .sobre {
+      background: var(--cor-azul-escuro);
+      padding: 100px 48px;
+    }
+    .sobre-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .sobre-img-wrap { position: relative; }
+    .sobre-img-wrap img {
+      width: 100%; height: 520px;
+      object-fit: cover; display: block;
+      filter: brightness(0.85) saturate(0.8);
+    }
+    .sobre-img-border {
+      position: absolute; inset: 16px;
+      border: 1px solid rgba(240,165,0,0.2);
+      pointer-events: none;
+    }
+    .sobre-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--cor-ambar);
+      padding: 28px 30px;
+    }
+    .sobre-badge-num {
+      font-family: var(--font-headline);
+      font-size: 2.5rem; font-weight: 700;
+      color: var(--cor-azul-escuro); line-height: 1;
+    }
+    .sobre-badge-label {
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(10,22,40,0.6); margin-top: 4px; display: block;
+    }
+    .sobre-texto {}
+    .sobre-titulo {
+      font-family: var(--font-headline);
+      font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+      font-weight: 700; letter-spacing: 0.04em;
+      color: var(--cor-branco); line-height: 1.1;
+      margin-bottom: 28px;
+    }
+    .sobre-titulo .ambar { color: var(--cor-ambar); }
+    .sobre-p {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(255,255,255,0.5); line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .sobre-valores {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin-top: 36px;
+    }
+    .sobre-valor {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 18px 16px;
+      background: rgba(28,58,94,0.4);
+      border-left: 3px solid var(--cor-ambar);
+    }
+    .sobre-valor-icon { color: var(--cor-ambar); font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+    .sobre-valor-text {
+      font-family: var(--font-headline);
+      font-size: 0.95rem; font-weight: 600;
+      letter-spacing: 0.04em; color: var(--cor-branco);
+    }
+
+    /* ===================== DEPOIMENTOS ===================== */
+    .depoimentos {
+      background: var(--cor-azul);
+      padding: 100px 48px;
+    }
+    .depoimentos-inner { max-width: 1200px; margin: 0 auto; }
+    .depoimentos-header { margin-bottom: 60px; }
+    .depoimentos-header .section-tag { color: rgba(240,165,0,0.8); }
+    .depoimentos-header .section-titulo { color: var(--cor-branco); }
+    .depoimentos-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .depoimento-card {
+      background: rgba(10,22,40,0.5);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 40px 34px;
+      position: relative;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .depoimento-card:hover { border-color: rgba(240,165,0,0.3); transform: translateY(-4px); }
+    .depoimento-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--cor-ambar);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s;
+    }
+    .depoimento-card:hover::before { transform: scaleX(1); }
+    .depoimento-stars { display: flex; gap: 4px; margin-bottom: 24px; }
+    .depoimento-stars span { color: var(--cor-ambar); font-size: 0.9rem; }
+    .depoimento-texto {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(255,255,255,0.6); line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    .depoimento-sep { width: 30px; height: 2px; background: var(--cor-ambar); margin-bottom: 22px; }
+    .depoimento-autor { display: flex; align-items: center; gap: 14px; }
+    .depoimento-avatar {
+      width: 44px; height: 44px;
+      background: var(--cor-ambar);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-headline);
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--cor-azul-escuro);
+    }
+    .depoimento-nome {
+      font-family: var(--font-headline);
+      font-size: 1rem; font-weight: 700;
+      letter-spacing: 0.04em; color: var(--cor-branco);
+    }
+    .depoimento-servico {
+      font-size: 0.72rem; color: rgba(240,165,0,0.6);
+      margin-top: 3px; letter-spacing: 0.05em;
+    }
+
+    /* ===================== CTA ===================== */
+    .cta {
+      background: linear-gradient(135deg, var(--cor-azul-escuro) 0%, var(--cor-azul) 50%, var(--cor-azul-escuro) 100%);
+      padding: 100px 48px;
+      position: relative; overflow: hidden;
+    }
+    .cta::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, transparent, var(--cor-ambar), transparent);
+    }
+    .cta::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, transparent, var(--cor-ambar), transparent);
+    }
+    .cta-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .cta-texto {}
+    .cta-titulo {
+      font-family: var(--font-headline);
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      font-weight: 700; color: var(--cor-branco);
+      line-height: 1.05; letter-spacing: 0.03em;
+      margin-bottom: 20px;
+    }
+    .cta-titulo .ambar { color: var(--cor-ambar); }
+    .cta-subtitulo {
+      font-size: 0.9rem; font-weight: 300;
+      color: rgba(255,255,255,0.45); line-height: 1.8;
+    }
+    .cta-card {
+      background: rgba(10,22,40,0.7);
+      border: 1px solid rgba(240,165,0,0.2);
+      padding: 48px 44px;
+    }
+    .cta-card-titulo {
+      font-family: var(--font-headline);
+      font-size: 1.1rem; font-weight: 700;
+      letter-spacing: 0.06em; color: var(--cor-branco);
+      margin-bottom: 8px;
+    }
+    .cta-card-sub {
+      font-size: 0.78rem; color: rgba(255,255,255,0.35);
+      margin-bottom: 32px; line-height: 1.6;
+    }
+    .cta-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .cta-item:last-of-type { border-bottom: none; margin-bottom: 32px; }
+    .cta-item-icon { color: var(--cor-ambar); font-size: 1rem; flex-shrink: 0; }
+    .cta-item-text {
+      font-size: 0.85rem; font-weight: 300;
+      color: rgba(255,255,255,0.55);
+    }
+    .cta-btn {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      width: 100%; padding: 16px;
+      background: var(--cor-ambar);
+      color: var(--cor-azul-escuro);
+      font-family: var(--font-headline);
+      font-size: 0.95rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .cta-btn:hover { background: var(--cor-ambar-light); }
+    .cta-btn-note {
+      text-align: center; margin-top: 14px;
+      font-size: 0.68rem; color: rgba(255,255,255,0.2);
+      letter-spacing: 0.08em;
+    }
+
+    /* ===================== FOOTER ===================== */
+    .footer {
+      background: #050E1C;
+      padding: 70px 48px 28px;
+      border-top: 1px solid rgba(240,165,0,0.12);
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 70px; padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 28px;
+    }
+    .footer-emblem-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+    .footer-emblem {
+      width: 38px; height: 38px;
+      border: 2px solid var(--cor-ambar);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-headline);
+      font-size: 1rem; font-weight: 700;
+      color: var(--cor-ambar); transform: rotate(45deg);
+    }
+    .footer-emblem span { transform: rotate(-45deg); display: block; }
+    .footer-brand-name {
+      font-family: var(--font-headline);
+      font-size: 1.2rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cor-branco);
+    }
+    .footer-desc {
+      font-size: 0.82rem; font-weight: 300;
+      color: rgba(255,255,255,0.3); line-height: 1.8;
+      margin-bottom: 22px;
+    }
+    .footer-insta {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-headline);
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cor-ambar); text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .footer-insta:hover { opacity: 0.7; }
+    .footer-col-titulo {
+      font-family: var(--font-headline);
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: rgba(255,255,255,0.25); margin-bottom: 20px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a {
+      font-size: 0.83rem; font-weight: 300;
+      color: rgba(255,255,255,0.3); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--cor-ambar); }
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy { font-size: 0.73rem; color: rgba(255,255,255,0.15); }
+    .footer-city {
+      font-family: var(--font-headline);
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+    }
+
+    /* INSTAGRAM FLOAT */
+    .insta-float {
+      position: fixed; bottom: 30px; right: 30px; z-index: 999;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 30px rgba(220,39,67,0.45);
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .insta-float:hover { transform: scale(1.1) translateY(-3px); box-shadow: 0 12px 40px rgba(220,39,67,0.5); }
+    .insta-float svg { width: 26px; height: 26px; }
+    .insta-tooltip {
+      position: absolute; right: 70px; white-space: nowrap;
+      background: rgba(5,14,28,0.95);
+      color: var(--cor-branco); font-size: 0.72rem;
+      letter-spacing: 0.06em; padding: 8px 14px; border-radius: 4px;
+      opacity: 0; transform: translateX(8px);
+      transition: all 0.3s; pointer-events: none;
+    }
+    .insta-float:hover .insta-tooltip { opacity: 1; transform: translateX(0); }
+
+    /* ANIMATIONS */
+    .fade-up { opacity:0; transform:translateY(40px); transition:opacity 0.8s ease,transform 0.8s ease; }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+    .slide-left { opacity:0; transform:translateX(-50px); transition:opacity 0.8s ease,transform 0.8s ease; }
+    .slide-left.visible { opacity:1; transform:translateX(0); }
+    .slide-right { opacity:0; transform:translateX(50px); transition:opacity 0.8s ease,transform 0.8s ease; }
+    .slide-right.visible { opacity:1; transform:translateX(0); }
+    .scale-in { opacity:0; transform:scale(0.93); transition:opacity 0.7s ease,transform 0.7s ease; }
+    .scale-in.visible { opacity:1; transform:scale(1); }
+    .delay-1 { transition-delay:0.1s; }
+    .delay-2 { transition-delay:0.2s; }
+    .delay-3 { transition-delay:0.3s; }
+    .delay-4 { transition-delay:0.4s; }
+    .delay-5 { transition-delay:0.5s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .header { padding: 18px 20px; }
+      .header.scrolled { padding: 12px 20px; }
+      .header-nav { display: none; }
+      .hamburger { display: flex; }
+      .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 100px 20px 60px; }
+      .hero-titulo { font-size: 2.8rem; }
+      .hero-scroll { display: none; }
+      .servicos { padding: 70px 20px; }
+      .servicos-header { grid-template-columns: 1fr; gap: 20px; }
+      .servicos-grid { grid-template-columns: 1fr; }
+      .diferenciais { padding: 70px 20px; }
+      .timeline { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .timeline::before { display: none; }
+      .sobre { padding: 70px 20px; }
+      .sobre-inner { grid-template-columns: 1fr; gap: 50px; }
+      .sobre-img-wrap img { height: 320px; }
+      .sobre-badge { right: 0; }
+      .depoimentos { padding: 70px 20px; }
+      .depoimentos-grid { grid-template-columns: 1fr; }
+      .cta { padding: 70px 20px; }
+      .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer { padding: 60px 20px 24px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+      .insta-float { bottom: 20px; right: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-logo">
+      <div class="header-logo-emblem"><span>K</span></div>
+      <div class="header-logo-text">
+        <span class="header-logo-name">Kadosh</span>
+        <span class="header-logo-sub">Manutenção Automotiva</span>
+      </div>
+    </div>
+    <nav class="header-nav">
+      <a href="#servicos">Serviços</a>
+      <a href="#diferenciais">Diferenciais</a>
+      <a href="#sobre">Sobre</a>
+      <a href="https://www.instagram.com/kadosh.manutencao/" target="_blank" class="header-btn">Contato</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="hero-badge-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+          <span class="hero-badge-text">Confiança que move</span>
+        </div>
+        <h1 class="hero-titulo">
+          Cuidamos<br />
+          do seu<br />
+          <span class="ambar">Veículo</span><br />
+          <span class="outline">com seriedade</span>
+        </h1>
+        <p class="hero-subtitulo">
+          Diagnóstico preciso, serviço transparente e comprometimento com resultado.
+          Em Aparecida de Goiânia, somos a oficina da sua confiança.
+        </p>
+        <div class="hero-btns">
+          <a href="https://www.instagram.com/kadosh.manutencao/" target="_blank" class="hero-btn-primary">
+            Falar conosco
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#servicos" class="hero-btn-ghost">Ver serviços</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-titulo">Nossos serviços</div>
+          <div class="hero-servico-lista">
+            <div class="hero-servico-item">
+              <div class="hero-servico-dot"></div>
+              <span class="hero-servico-nome">Manutenção Preventiva</span>
+            </div>
+            <div class="hero-servico-item">
+              <div class="hero-servico-dot"></div>
+              <span class="hero-servico-nome">Diagnóstico Eletrônico</span>
+            </div>
+            <div class="hero-servico-item">
+              <div class="hero-servico-dot"></div>
+              <span class="hero-servico-nome">Troca de Óleo e Filtros</span>
+            </div>
+            <div class="hero-servico-item">
+              <div class="hero-servico-dot"></div>
+              <span class="hero-servico-nome">Freios</span>
+            </div>
+            <div class="hero-servico-item">
+              <div class="hero-servico-dot"></div>
+              <span class="hero-servico-nome">Motor e Câmbio</span>
+            </div>
+          </div>
+          <div class="hero-card-bottom">
+            <span class="hero-card-bottom-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div class="hero-card-bottom-text">
+              <strong>Aparecida de Goiânia, GO</strong>
+              Av. Perimetral, Setor Oeste
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span class="hero-scroll-text">Scroll</span>
+      <div class="hero-scroll-bar"></div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="servicos" id="servicos">
+    <div class="servicos-inner">
+      <div class="servicos-header">
+        <div>
+          <span class="section-tag fade-up">O que oferecemos</span>
+          <h2 class="section-titulo fade-up delay-1">Serviços que<br /><span class="ambar">protegem</span><br />seu veículo</h2>
+        </div>
+        <p class="section-desc fade-up delay-2">
+          Na Kadosh, cada serviço é executado com atenção ao detalhe e responsabilidade técnica.
+          Usamos diagnóstico eletrônico e peças de qualidade para garantir a durabilidade do resultado.
+        </p>
+      </div>
+      <div class="servicos-grid">
+        <div class="servico-card fade-up delay-1">
+          <div class="servico-card-header">
+            <div class="servico-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M14 3h7v7"/><path d="M10 14 21 3"/></svg></div>
+            <span class="servico-card-num">01</span>
+          </div>
+          <div class="servico-card-nome">Manutenção Preventiva</div>
+          <div class="servico-card-desc">Evite problemas futuros com revisões periódicas completas que mantêm seu carro em perfeito funcionamento.</div>
+          <a href="https://www.instagram.com/kadosh.manutencao/" target="_blank" class="servico-card-link">Saiba mais →</a>
+        </div>
+        <div class="servico-card fade-up delay-2">
+          <div class="servico-card-header">
+            <div class="servico-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <span class="servico-card-num">02</span>
+          </div>
+          <div class="servico-card-nome">Diagnóstico Eletrônico</div>
+          <div class="servico-card-desc">Scanner computadorizado identifica com precisão qualquer falha elétrica ou eletrônica antes de causar danos maiores.</div>
+          <a href="https://www.instagram.com/kadosh.manutencao/" target="_blank" class="servico-card-link">Saiba mais →</a>
+        </div>
+        <div class="servico-card fade-up delay-2">
+          <div class="servico-card-header">
+            <div class="servico-card-icon">️</div>
+            <span class="servico-card-num">03</span>
+          </div>
+          <div class="servico-card-nome">Troca de Óleo e Filtros</div>
+          <div class="servico-card-desc">Lubrificantes de alta qualidade e filtros originais para preservar a vida útil do motor do seu veículo.</div>
+          <a href="https://www.instagram.com/kadosh.manutencao/" target="_blank" class="servico-card-link">Saiba mais →</a>
+        </div>
+        <div class="servico-card fade-up delay-3">
+          <div class="servico-card-header">
+            <div class="servico-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
+            <span class="servico-card-num">04</span>
+          </div>
+          <div class="servico-card-nome">Freios</div>
+          <div class="servico-card-desc">Segurança em primeiro lugar. Revisão, troca de pastilhas, discos, lonas e calibragem do sistema de freios.</div>
+          <a href="https://www.instagram.com/kadosh.manutencao/" target="_blank" class="servico-card-link">Saiba mais →</a>
+        </div>
+        <div class="servico-card fade-up delay-3">
+          <div class="servico-card-header">
+            <div class="servico-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>️</div>
+            <span class="servico-card-num">05</span>
+          </div>
+          <div class="servico-card-nome">Motor e Câmbio</div>
+          <div class="servico-card-desc">Retífica, reparos e revisão completa de motor e câmbio com garantia e qualidade comprovada.</div>
+          <a href="https://www.instagram.com/kadosh.manutencao/" target="_blank" class="servico-card-link">Saiba mais →</a>
+        </div>
+        <div class="servico-card fade-up delay-4" style="background: rgba(240,165,0,0.08); border-left-color: transparent; border-color: rgba(240,165,0,0.3);">
+          <div class="servico-card-header">
+            <div class="servico-card-icon" style="border-color: rgba(240,165,0,0.5);"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg></div>
+            <span class="servico-card-num" style="color: var(--cor-ambar);">CTA</span>
+          </div>
+          <div class="servico-card-nome">Orçamento sem compromisso</div>
+          <div class="servico-card-desc" style="color: rgba(255,255,255,0.55);">Fale com nossa equipe e receba um diagnóstico rápido e transparente para o seu veículo.</div>
+          <a href="https://www.instagram.com/kadosh.manutencao/" target="_blank" class="servico-card-link" style="opacity: 1; transform: none; color: var(--cor-ambar);">Contato pelo Instagram →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS — LINHA DO TEMPO HORIZONTAL -->
+  <section class="diferenciais" id="diferenciais">
+    <div class="diferenciais-inner">
+      <div class="diferenciais-header">
+        <span class="section-tag fade-up">Por que a Kadosh</span>
+        <h2 class="section-titulo fade-up delay-1">Nossos <span class="ambar">diferenciais</span></h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item scale-in delay-1">
+          <div class="timeline-dot"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>️</div>
+          <div class="timeline-titulo">Transparência total</div>
+          <div class="timeline-desc">Explicamos cada passo do serviço. Você sabe exatamente o que está sendo feito e por quê.</div>
+        </div>
+        <div class="timeline-item scale-in delay-2">
+          <div class="timeline-dot"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 18-4 4h6"/><path d="M8 18 14 4"/><path d="m14 4 4 4"/><path d="m10 14 4-10"/><path d="m18 8-3.4 8.5"/><line x1="2" y1="22" x2="22" y2="22"/></svg></div>
+          <div class="timeline-titulo">Diagnóstico digital</div>
+          <div class="timeline-desc">Scanner de última geração para encontrar o problema certo — sem achismos, sem custo desnecessário.</div>
+        </div>
+        <div class="timeline-item scale-in delay-3">
+          <div class="timeline-dot">⭐</div>
+          <div class="timeline-titulo">Qualidade garantida</div>
+          <div class="timeline-desc">Peças originais ou de primeira linha e garantia em todos os serviços realizados na oficina.</div>
+        </div>
+        <div class="timeline-item scale-in delay-4">
+          <div class="timeline-dot"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l1.41 1.42 6.83 6.82a.5.5 0 0 0 .71 0l8.24-8.24a5.4 5.4 0 0 0 0-7.65z"/></svg></div>
+          <div class="timeline-titulo">Atendimento humano</div>
+          <div class="timeline-desc">Uma equipe que respeita seu tempo, seu veículo e sua confiança. Do orçamento à entrega.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="sobre-inner">
+      <div class="sobre-img-wrap slide-left">
+        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80" alt="Kadosh Manutenção Automotiva" loading="lazy" />
+        <div class="sobre-img-border"></div>
+        <div class="sobre-badge">
+          <div class="sobre-badge-num" data-count="800">0</div>
+          <span class="sobre-badge-label">Clientes atendidos</span>
+        </div>
+      </div>
+      <div class="sobre-texto slide-right">
+        <span class="section-tag">Sobre a Kadosh</span>
+        <h2 class="sobre-titulo">
+          Solidez e <span class="ambar">experiência</span><br />que você sente na direção
+        </h2>
+        <p class="sobre-p">
+          O nome Kadosh carrega um significado profundo — e é exatamente isso que guia nossa oficina:
+          um comprometimento acima da média com a qualidade, a honestidade e o cuidado real com cada veículo.
+        </p>
+        <p class="sobre-p">
+          Em Aparecida de Goiânia, somos conhecidos pela seriedade no diagnóstico e na execução.
+          Aqui, você não recebe um serviço — você recebe a tranquilidade de saber que seu carro
+          está nas mãos de quem realmente entende do assunto.
+        </p>
+        <div class="sobre-valores">
+          <div class="sobre-valor">
+            <span class="sobre-valor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="sobre-valor-text">Honestidade</span>
+          </div>
+          <div class="sobre-valor">
+            <span class="sobre-valor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="sobre-valor-text">Precisão técnica</span>
+          </div>
+          <div class="sobre-valor">
+            <span class="sobre-valor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="sobre-valor-text">Garantia no serviço</span>
+          </div>
+          <div class="sobre-valor">
+            <span class="sobre-valor-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="sobre-valor-text">Atendimento ágil</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos" id="depoimentos">
+    <div class="depoimentos-inner">
+      <div class="depoimentos-header">
+        <span class="section-tag fade-up">Quem confia na Kadosh</span>
+        <h2 class="section-titulo fade-up delay-1">O que nossos <span class="ambar">clientes dizem</span></h2>
+      </div>
+      <div class="depoimentos-grid">
+        <div class="depoimento-card scale-in delay-1">
+          <div class="depoimento-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="depoimento-texto">"Levei meu carro com problema de motor que ninguém conseguia resolver. A Kadosh fez o diagnóstico correto e em dois dias o carro estava rodando melhor do que nunca. Seriedade e competência!"</p>
+          <div class="depoimento-sep"></div>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">E</div>
+            <div>
+              <div class="depoimento-nome">Edilson Carvalho Neto</div>
+              <div class="depoimento-servico">Diagnóstico eletrônico · Motor</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card scale-in delay-2">
+          <div class="depoimento-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="depoimento-texto">"O que mais me impressionou foi a honestidade. Eles poderiam ter cobrado por peças desnecessárias mas foram diretos no que precisava. Esse tipo de transparência faz toda a diferença!"</p>
+          <div class="depoimento-sep"></div>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">V</div>
+            <div>
+              <div class="depoimento-nome">Vanessa Pinto Silveira</div>
+              <div class="depoimento-servico">Manutenção preventiva</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card scale-in delay-3">
+          <div class="depoimento-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="depoimento-texto">"Levo meu carro na Kadosh há mais de 2 anos. Nunca tive problema depois de um serviço deles. A equipe é profissional, educada e sempre me avisa antes de qualquer troca. Recomendo muito!"</p>
+          <div class="depoimento-sep"></div>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">G</div>
+            <div>
+              <div class="depoimento-nome">Gustavo Henrique Moura</div>
+              <div class="depoimento-servico">Cliente há 2 anos · Revisões periódicas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contato">
+    <div class="cta-inner">
+      <div class="cta-texto slide-left">
+        <span class="section-tag">Agende agora</span>
+        <h2 class="cta-titulo">
+          Seu carro merece<br />cuidado de <span class="ambar">verdade</span>
+        </h2>
+        <p class="cta-subtitulo">
+          Entre em contato agora e agende sua visita. Nossa equipe está pronta
+          para atender você com a atenção e a seriedade que você merece.
+        </p>
+      </div>
+      <div class="cta-card slide-right">
+        <div class="cta-card-titulo">Fale com a Kadosh</div>
+        <div class="cta-card-sub">Atendimento em Aparecida de Goiânia, GO · Resposta rápida</div>
+        <div class="cta-item">
+          <span class="cta-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span class="cta-item-text">Av. Perimetral, Setor Oeste — Aparecida de Goiânia, GO</span>
+        </div>
+        <div class="cta-item">
+          <span class="cta-item-icon">⏰</span>
+          <span class="cta-item-text">Segunda a Sábado: 8h às 18h</span>
+        </div>
+        <div class="cta-item">
+          <span class="cta-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span class="cta-item-text">Orçamento gratuito e sem compromisso</span>
+        </div>
+        <div class="cta-item">
+          <span class="cta-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>️</span>
+          <span class="cta-item-text">Garantia em todos os serviços</span>
+        </div>
+        <a href="https://www.instagram.com/kadosh.manutencao/" target="_blank" class="cta-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Chamar no Instagram
+        </a>
+        <p class="cta-btn-note">@kadosh.manutencao · DM aberta</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-emblem-row">
+          <div class="footer-emblem"><span>K</span></div>
+          <span class="footer-brand-name">Kadosh</span>
+        </div>
+        <p class="footer-desc">Manutenção automotiva com seriedade, experiência e comprometimento em Aparecida de Goiânia, GO.</p>
+        <a href="https://www.instagram.com/kadosh.manutencao/" target="_blank" class="footer-insta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          @kadosh.manutencao
+        </a>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Serviços</div>
+        <div class="footer-links">
+          <a href="#servicos">Manutenção Preventiva</a>
+          <a href="#servicos">Diagnóstico Eletrônico</a>
+          <a href="#servicos">Troca de Óleo</a>
+          <a href="#servicos">Freios</a>
+          <a href="#servicos">Motor e Câmbio</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Localização</div>
+        <div class="footer-links">
+          <a href="#">Av. Perimetral, Setor Oeste</a>
+          <a href="#">Aparecida de Goiânia, GO</a>
+          <a href="#">Seg–Sáb: 8h às 18h</a>
+          <a href="https://www.instagram.com/kadosh.manutencao/" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Kadosh Manutenção Automotiva. Todos os direitos reservados.</span>
+      <span class="footer-city">Aparecida de Goiânia · GO</span>
+    </div>
+  </footer>
+
+  <!-- INSTAGRAM FLOAT -->
+  <a href="https://www.instagram.com/kadosh.manutencao/" target="_blank" class="insta-float" aria-label="Instagram">
+    <span class="insta-tooltip">Falar no Instagram</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+    </svg>
+  </a>
+
+  <script>
+    // HEADER SCROLL
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); });
+
+    // PARALLAX HERO
+    const heroBg = document.getElementById('heroBg');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // INTERSECTION OBSERVER
+    const animEls = document.querySelectorAll('.fade-up, .slide-left, .slide-right, .scale-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    animEls.forEach(el => observer.observe(el));
+
+    // COUNTERS
+    const counters = document.querySelectorAll('[data-count]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.count);
+          let current = 0;
+          const timer = setInterval(() => {
+            current += target / 60;
+            if (current >= target) { el.textContent = target; clearInterval(timer); }
+            else { el.textContent = Math.floor(current); }
+          }, 25);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObserver.observe(el));
+  </script>
+</body>
+</html>

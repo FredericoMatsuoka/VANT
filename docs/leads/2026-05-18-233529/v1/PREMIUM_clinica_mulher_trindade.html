@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica Mulher Trindade — Saúde da Mulher com Cuidado e Carinho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #E91E8C;
+    --white: #FFFFFF;
+    --pink-light: #F8BBD9;
+    --pink-dark: #8B0046;
+    --pink-pale: #FFF0F7;
+    --text: #3a1020;
+    --text-muted: #8a4060;
+    --border: rgba(233,30,140,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Quicksand', sans-serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.4s ease;
+  }
+
+  header.scrolled {
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(16px);
+    padding: 14px 40px;
+    box-shadow: 0 4px 40px rgba(233,30,140,0.12);
+  }
+
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+
+  .logo-mark {
+    width: 46px;
+    height: 46px;
+    background: var(--pink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: white;
+    font-weight: 700;
+  }
+
+  .logo-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--pink-dark);
+    line-height: 1.1;
+  }
+
+  .logo-name span { display: block; color: var(--pink); font-size: 13px; font-weight: 600; }
+
+  nav { display: flex; gap: 28px; align-items: center; }
+
+  nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+
+  nav a:hover { color: var(--pink); }
+
+  .nav-cta {
+    background: var(--pink) !important;
+    color: white !important;
+    padding: 10px 24px;
+    border-radius: 50px;
+    transition: all 0.3s !important;
+    box-shadow: 0 4px 20px rgba(233,30,140,0.3);
+  }
+
+  .nav-cta:hover { background: var(--pink-dark) !important; transform: translateY(-2px); }
+
+  /* ===== HERO ===== */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .hero-wave {
+    position: absolute;
+    right: -100px;
+    top: -100px;
+    width: 70%;
+    height: 120%;
+    background: linear-gradient(135deg, var(--pink-light) 0%, var(--pink) 60%);
+    border-radius: 60% 0 0 40%;
+    z-index: 0;
+    transform: rotate(-5deg);
+  }
+
+  .hero-wave::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border-radius: 55% 0 0 38%;
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+
+  .hero-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(233,30,140,0.08) 2px, transparent 2px);
+    background-size: 30px 30px;
+    z-index: 1;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 40px 80px;
+    gap: 60px;
+    width: 100%;
+  }
+
+  .hero-content { max-width: 560px; }
+
+  .hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--pink-pale);
+    border: 1.5px solid var(--border);
+    color: var(--pink);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    animation: fadeSlide 0.8s ease both;
+  }
+
+  .hero-title {
+    font-size: clamp(34px, 4.5vw, 60px);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.12;
+    margin-bottom: 20px;
+    animation: fadeSlide 0.8s 0.15s ease both;
+  }
+
+  .hero-title em {
+    color: var(--pink);
+    font-style: normal;
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 36px;
+    animation: fadeSlide 0.8s 0.3s ease both;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    animation: fadeSlide 0.8s 0.45s ease both;
+  }
+
+  .btn-pink {
+    background: var(--pink);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.3s;
+    box-shadow: 0 8px 28px rgba(233,30,140,0.35);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-pink:hover { background: var(--pink-dark); transform: translateY(-3px); box-shadow: 0 14px 36px rgba(233,30,140,0.4); }
+
+  .btn-outline-pink {
+    background: transparent;
+    color: var(--pink);
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    border: 2px solid var(--pink);
+    transition: all 0.3s;
+  }
+
+  .btn-outline-pink:hover { background: var(--pink-pale); }
+
+  .hero-image-wrap {
+    position: relative;
+    z-index: 2;
+    animation: fadeSlide 0.8s 0.3s ease both;
+  }
+
+  .hero-image-wrap img {
+    width: 100%;
+    height: 560px;
+    object-fit: cover;
+    border-radius: 30px 60px 30px 60px;
+    box-shadow: 0 30px 80px rgba(233,30,140,0.2);
+  }
+
+  .hero-card {
+    position: absolute;
+    bottom: -20px;
+    left: -30px;
+    background: white;
+    border-radius: 16px;
+    padding: 18px 22px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    min-width: 180px;
+  }
+
+  .hero-card-num {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--pink);
+    line-height: 1;
+  }
+
+  .hero-card-lbl { font-size: 12px; color: var(--text-muted); font-weight: 600; margin-top: 2px; }
+
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateX(-24px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* ===== FASES ===== */
+  #fases { padding: 100px 40px; background: var(--pink-pale); }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  .section-tag {
+    display: inline-block;
+    background: var(--pink);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: clamp(26px, 3.5vw, 46px);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .section-desc {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 540px;
+    margin-bottom: 56px;
+  }
+
+  .fases-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .fase-card {
+    background: white;
+    border-radius: 20px;
+    padding: 36px 24px;
+    text-align: center;
+    border: 1.5px solid var(--border);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .fase-card.visible { opacity: 1; transform: translateY(0); }
+
+  .fase-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(233,30,140,0.12); border-color: var(--pink); }
+
+  .fase-emoji {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .fase-titulo {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--pink);
+    margin-bottom: 12px;
+  }
+
+  .fase-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ===== SERVIÇOS ===== */
+  #servicos { padding: 100px 40px; background: white; }
+
+  .servicos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 48px;
+  }
+
+  .servicos-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(233,30,140,0.15);
+  }
+
+  .servicos-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .serv-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--pink-pale);
+    border-radius: 14px;
+    border: 1.5px solid transparent;
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  .serv-item.visible { opacity: 1; transform: translateX(0); }
+
+  .serv-item:hover { border-color: var(--pink); background: white; box-shadow: 0 8px 28px rgba(233,30,140,0.1); }
+
+  .serv-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--pink);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .serv-text h4 { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+
+  .serv-text p { font-size: 14px; color: var(--text-muted); }
+
+  /* ===== AGENDA ===== */
+  #agenda {
+    padding: 100px 40px;
+    background: linear-gradient(135deg, var(--pink-dark) 0%, var(--pink) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #agenda::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .agenda-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .agenda-text { color: white; }
+
+  .agenda-text .section-tag { background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); }
+
+  .agenda-text .section-title { color: white; }
+
+  .agenda-text .section-desc { color: rgba(255,255,255,0.8); }
+
+  .agenda-form {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+  }
+
+  .form-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .form-group { margin-bottom: 18px; }
+
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    background: var(--pink-pale);
+    transition: border-color 0.3s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus { border-color: var(--pink); background: white; }
+
+  .form-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--pink);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 8px;
+  }
+
+  .form-submit:hover { background: var(--pink-dark); transform: translateY(-2px); }
+
+  /* ===== DEPOIMENTOS ===== */
+  #depoimentos { padding: 100px 40px; background: var(--pink-pale); }
+
+  .dep-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .dep-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+    border: 1.5px solid var(--border);
+  }
+
+  .dep-card.visible { opacity: 1; transform: translateY(0); }
+
+  .dep-card:hover { box-shadow: 0 16px 50px rgba(233,30,140,0.1); }
+
+  .stars { color: var(--pink); font-size: 18px; letter-spacing: 2px; margin-bottom: 16px; }
+
+  .dep-text {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .dep-author { display: flex; align-items: center; gap: 12px; }
+
+  .dep-ava {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink-light), var(--pink));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .dep-name { font-size: 15px; font-weight: 700; color: var(--text); }
+
+  .dep-role { font-size: 13px; color: var(--text-muted); }
+
+  /* ===== SOBRE ===== */
+  #sobre { padding: 100px 40px; background: white; }
+
+  .sobre-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .sobre-img img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 24px 60px 24px 60px;
+  }
+
+  .sobre-content p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 18px;
+  }
+
+  .sobre-nums {
+    display: flex;
+    gap: 32px;
+    margin-top: 32px;
+    padding-top: 28px;
+    border-top: 1.5px solid var(--border);
+  }
+
+  .sobre-num-item { text-align: center; }
+
+  .sobre-num {
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--pink);
+    line-height: 1;
+  }
+
+  .sobre-num-lbl { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+
+  /* ===== CTA FINAL ===== */
+  #cta-final {
+    padding: 100px 40px;
+    background: var(--pink);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #cta-final::before {
+    content: '';
+    position: absolute;
+    font-size: 400px;
+    color: rgba(255,255,255,0.04);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+  }
+
+  .cta-title {
+    font-size: clamp(30px, 4vw, 52px);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-desc {
+    font-size: 18px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 36px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color: var(--pink);
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 17px;
+    transition: all 0.3s;
+    box-shadow: 0 10px 36px rgba(0,0,0,0.12);
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-white:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--pink-dark);
+    padding: 60px 40px 28px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 48px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-brand .logo-name { color: white; }
+
+  .footer-brand .logo-name span { color: var(--pink-light); }
+
+  .footer-about {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-top: 16px;
+  }
+
+  .footer-head {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--pink-light);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .footer-list { list-style: none; }
+
+  .footer-list li { margin-bottom: 10px; }
+
+  .footer-list a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+
+  .footer-list a:hover { color: var(--pink-light); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ===== WA ===== */
+  .wa-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    width: 62px;
+    height: 62px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(37,211,102,0.45);
+    text-decoration: none;
+    animation: bounce 2.5s ease-in-out infinite;
+  }
+
+  .wa-float:hover { transform: scale(1.12); animation: none; }
+
+  .wa-float svg { width: 32px; height: 32px; fill: white; }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* ===== REVEAL ===== */
+  .reveal { opacity: 0; transform: translateY(36px); transition: all 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 768px) {
+    header { padding: 16px 20px; }
+    nav { display: none; }
+    section { padding: 70px 20px; }
+    #fases, #agenda, #depoimentos, #sobre, #cta-final, #servicos, #hero { padding: 70px 20px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-image-wrap { display: none; }
+    .hero-title { font-size: 34px; }
+    .fases-grid { grid-template-columns: repeat(2, 1fr); }
+    .servicos-grid { grid-template-columns: 1fr; gap: 40px; }
+    .agenda-grid { grid-template-columns: 1fr; gap: 40px; }
+    .dep-grid { grid-template-columns: 1fr; }
+    .sobre-wrap { grid-template-columns: 1fr; gap: 40px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero-wave { width: 200%; height: 40%; top: auto; bottom: 0; right: -50%; border-radius: 50% 50% 0 0; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <a href="#hero" class="logo">
+    <div class="logo-mark"></div>
+    <div class="logo-name">Clínica Mulher <span>Trindade, GO</span></div>
+  </a>
+  <nav>
+    <a href="#fases">Para você</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="https://wa.me/5562999578917?text=Olá!+Vi+o+site+da+Clínica+Mulher+e+gostaria+de+agendar." class="nav-cta" target="_blank">Agendar</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-wave"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-inner container">
+    <div class="hero-content">
+      <div class="hero-pill"> Saúde da Mulher em Trindade</div>
+      <h1 class="hero-title">Cuidamos de você em cada <em>fase da vida</em></h1>
+      <p class="hero-desc">Especialistas em ginecologia, obstetrícia e saúde hormonal. Atendimento acolhedor, moderno e dedicado exclusivamente à mulher em Trindade, GO.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5562999578917?text=Olá!+Vi+o+site+da+Clínica+Mulher+e+gostaria+de+agendar." class="btn-pink" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Agendar Consulta
+        </a>
+        <a href="#servicos" class="btn-outline-pink">Conheça nossos serviços</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1400&q=80" alt="Saúde da Mulher" id="heroImg">
+      <div class="hero-card">
+        <div class="hero-card-num">5000+</div>
+        <div class="hero-card-lbl">Mulheres atendidas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FASES -->
+<section id="fases">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">Cuidados em cada fase</span>
+      <h2 class="section-title">Cuidamos de você<br>do começo ao fim</h2>
+      <p class="section-desc">Cada fase da vida da mulher tem necessidades únicas. Nossa equipe está preparada para acompanhar você com o cuidado que você merece.</p>
+    </div>
+    <div class="fases-grid">
+      <div class="fase-card">
+        <span class="fase-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M12 20v-9"/><path d="M12 11C12 8 9.5 5 6 5c0 4.5 2.5 7 6 7z"/><path d="M12 11C12 8 14.5 5 18 5c0 4.5-2.5 7-6 7z"/></svg></span>
+        <div class="fase-titulo">Adolescência</div>
+        <div class="fase-desc">Orientação, saúde reprodutiva e acompanhamento do desenvolvimento com leveza e segurança.</div>
+      </div>
+      <div class="fase-card">
+        <span class="fase-emoji"></span>
+        <div class="fase-titulo">Adulta</div>
+        <div class="fase-desc">Ginecologia preventiva, saúde hormonal, planejamento familiar e acompanhamento integral.</div>
+      </div>
+      <div class="fase-card">
+        <span class="fase-emoji"></span>
+        <div class="fase-titulo">Gestante</div>
+        <div class="fase-desc">Pré-natal completo, ultrassonografias e cuidado obstétrico do início ao pós-parto.</div>
+      </div>
+      <div class="fase-card">
+        <span class="fase-emoji"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+        <div class="fase-titulo">Menopausa</div>
+        <div class="fase-desc">Reposição hormonal, manejo dos sintomas e qualidade de vida com equilíbrio e bem-estar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="container">
+    <div class="servicos-grid">
+      <div class="servicos-image reveal">
+        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80" alt="Serviços Clínica Mulher">
+      </div>
+      <div>
+        <div class="reveal">
+          <span class="section-tag">Nossos Serviços</span>
+          <h2 class="section-title">Saúde completa<br>para a mulher</h2>
+          <p class="section-desc" style="margin-bottom:32px;">Oferecemos uma gama completa de especialidades focadas na saúde e bem-estar feminino.</p>
+        </div>
+        <div class="servicos-list">
+          <div class="serv-item">
+            <div class="serv-icon"></div>
+            <div class="serv-text">
+              <h4>Ginecologia</h4>
+              <p>Exames preventivos, diagnósticos e tratamentos especializados</p>
+            </div>
+          </div>
+          <div class="serv-item">
+            <div class="serv-icon"></div>
+            <div class="serv-text">
+              <h4>Obstetrícia</h4>
+              <p>Pré-natal, acompanhamento gestacional e pós-parto</p>
+            </div>
+          </div>
+          <div class="serv-item">
+            <div class="serv-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><circle cx="12" cy="12" r="2"/><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"/><path d="M19.1 4.9C23 8.8 23 15.1 19.1 19"/></svg></div>
+            <div class="serv-text">
+              <h4>Ultrassonografia</h4>
+              <p>Exames de imagem modernos com precisão e agilidade</p>
+            </div>
+          </div>
+          <div class="serv-item">
+            <div class="serv-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></div>
+            <div class="serv-text">
+              <h4>Planejamento Familiar</h4>
+              <p>Orientação e suporte para decisões reprodutivas conscientes</p>
+            </div>
+          </div>
+          <div class="serv-item">
+            <div class="serv-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M8 12H2l2 5H2M16 12h6l-2 5h2"/><line x1="2" y1="17" x2="8" y2="17"/><line x1="16" y1="17" x2="22" y2="17"/></svg>️</div>
+            <div class="serv-text">
+              <h4>Saúde Hormonal</h4>
+              <p>Diagnóstico e tratamento de desequilíbrios hormonais</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section id="agenda">
+  <div class="container agenda-grid">
+    <div class="agenda-text reveal">
+      <span class="section-tag">Agendamento Fácil</span>
+      <h2 class="section-title">Marque sua consulta<br>agora mesmo</h2>
+      <p class="section-desc">Sem filas, sem espera. Agende pelo formulário e entraremos em contato pelo WhatsApp em poucos minutos.</p>
+      <div style="display:flex;gap:20px;margin-top:32px;">
+        <div>
+          <div style="font-size:32px;font-weight:700;color:white">5000+</div>
+          <div style="color:rgba(255,255,255,0.7);font-size:14px">Pacientes atendidas</div>
+        </div>
+        <div>
+          <div style="font-size:32px;font-weight:700;color:white">10+</div>
+          <div style="color:rgba(255,255,255,0.7);font-size:14px">Anos de experiência</div>
+        </div>
+      </div>
+    </div>
+    <div class="agenda-form reveal">
+      <div class="form-title"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Agendar Consulta</div>
+      <div class="form-group">
+        <label>Seu nome</label>
+        <input type="text" placeholder="Como prefere ser chamada?">
+      </div>
+      <div class="form-group">
+        <label>WhatsApp</label>
+        <input type="tel" placeholder="(62) 9 0000-0000">
+      </div>
+      <div class="form-group">
+        <label>Especialidade</label>
+        <select>
+          <option>Ginecologia</option>
+          <option>Obstetrícia / Pré-natal</option>
+          <option>Ultrassonografia</option>
+          <option>Planejamento Familiar</option>
+          <option>Saúde Hormonal</option>
+        </select>
+      </div>
+      <button class="form-submit" onclick="sendWA()"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg> Confirmar pelo WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="section-tag">Depoimentos</span>
+      <h2 class="section-title">O que nossas pacientes dizem</h2>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card">
+        <div class="stars">★★★★★</div>
+        <p class="dep-text">"Fiz meu pré-natal inteiro na Clínica Mulher e foi uma experiência incrível. A obstetra é maravilhosa, me deixou segura durante toda a gestação. Recomendo de coração!"</p>
+        <div class="dep-author">
+          <div class="dep-ava">FM</div>
+          <div>
+            <div class="dep-name">Fernanda Monteiro</div>
+            <div class="dep-role">Mamãe de primeira viagem</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="stars">★★★★★</div>
+        <p class="dep-text">"Estava com problemas hormonais há anos e finalmente encontrei um lugar que me ouvia de verdade. O tratamento mudou minha qualidade de vida completamente. Gratidão!"</p>
+        <div class="dep-author">
+          <div class="dep-ava">RC</div>
+          <div>
+            <div class="dep-name">Roberta Costa</div>
+            <div class="dep-role">Tratamento hormonal</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="stars">★★★★★</div>
+        <p class="dep-text">"Ambiente acolhedor, equipe atenciosa e atendimento rápido. Nunca fui tratada com tanto cuidado e respeito em uma consulta ginecológica. Excelente clínica!"</p>
+        <div class="dep-author">
+          <div class="dep-ava">LS</div>
+          <div>
+            <div class="dep-name">Larissa Souza</div>
+            <div class="dep-role">Consulta de rotina</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container sobre-wrap">
+    <div class="sobre-img reveal">
+      <img src="https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=800&q=80" alt="Equipe Clínica Mulher">
+    </div>
+    <div class="reveal">
+      <span class="section-tag">Sobre nós</span>
+      <h2 class="section-title">Uma clínica criada<br>para a mulher</h2>
+      <p>A Clínica Mulher Trindade nasceu do desejo de oferecer às mulheres da nossa cidade um espaço de cuidado genuíno, onde cada paciente é recebida com atenção, respeito e carinho.</p>
+      <p>Nossa equipe é formada por especialistas comprometidos com a saúde feminina em todas as suas dimensões — física, emocional e social — garantindo um atendimento humanizado e tecnicamente impecável.</p>
+      <div class="sobre-nums">
+        <div class="sobre-num-item">
+          <span class="sobre-num">5k+</span>
+          <div class="sobre-num-lbl">Pacientes</div>
+        </div>
+        <div class="sobre-num-item">
+          <span class="sobre-num">10+</span>
+          <div class="sobre-num-lbl">Anos</div>
+        </div>
+        <div class="sobre-num-item">
+          <span class="sobre-num">5</span>
+          <div class="sobre-num-lbl">Especialidades</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="cta-final">
+  <div class="container">
+    <h2 class="cta-title">Você merece o melhor<br>cuidado do mundo</h2>
+    <p class="cta-desc">Agende sua consulta agora e sinta a diferença de ser atendida por quem realmente se importa com a sua saúde.</p>
+    <a href="https://wa.me/5562999578917?text=Olá!+Vi+o+site+da+Clínica+Mulher+e+gostaria+de+agendar." class="btn-white" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg> Agendar pelo WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <div class="logo-name">Clínica Mulher <span>Trindade</span></div>
+      </div>
+      <p class="footer-about">Especialistas em saúde da mulher em Trindade, GO. Cuidado com carinho em cada fase da sua vida.</p>
+    </div>
+    <div>
+      <div class="footer-head">Serviços</div>
+      <ul class="footer-list">
+        <li><a href="#">Ginecologia</a></li>
+        <li><a href="#">Obstetrícia</a></li>
+        <li><a href="#">Ultrassonografia</a></li>
+        <li><a href="#">Planejamento Familiar</a></li>
+        <li><a href="#">Saúde Hormonal</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-head">Contato</div>
+      <ul class="footer-list">
+        <li><a href="https://wa.me/5562999578917">(62) 99957-8917</a></li>
+        <li><a href="#">Trindade, GO</a></li>
+        <li><a href="#">Seg–Sex: 8h–18h</a></li>
+        <li><a href="#">Sáb: 8h–12h</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Clínica Mulher Trindade. Todos os direitos reservados. Saúde da mulher com cuidado e carinho.</p>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/5562999578917?text=Olá!+Vi+o+site+da+Clínica+Mulher+e+gostaria+de+agendar." class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // STICKY HEADER
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // PARALLAX
+  window.addEventListener('scroll', () => {
+    const img = document.getElementById('heroImg');
+    if (img) img.style.transform = `scale(1.05) translateY(${window.scrollY * 0.1}px)`;
+  });
+
+  // INTERSECTION OBSERVER
+  const all = document.querySelectorAll('.reveal, .fase-card, .dep-card, .serv-item');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 100);
+    });
+  }, { threshold: 0.1 });
+
+  all.forEach(el => obs.observe(el));
+
+  // WA FORM
+  function sendWA() {
+    const name = document.querySelector('input[placeholder="Como prefere ser chamada?"]').value || 'Paciente';
+    const spec = document.querySelector('select').value;
+    const msg = encodeURIComponent(`Olá! Vi o site da Clínica Mulher e gostaria de agendar uma consulta de ${spec}. Me chamo ${name}.`);
+    window.open(`https://wa.me/5562999578917?text=${msg}`, '_blank');
+  }
+</script>
+</body>
+</html>

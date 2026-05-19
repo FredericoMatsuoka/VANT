@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clínica Meire Linhares — Centro Estético | Senador Canedo, GO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cor-primaria: #E8C4B0;
+      --cor-secundaria: #D4A090;
+      --cor-creme: #FFF8F5;
+      --cor-escura: #2D1810;
+      --cor-dourada: #C9A96E;
+      --cor-dourada-light: #E8D5B0;
+      --cor-terracota: #C47A5A;
+      --transition: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --font-headline: 'Cormorant Garamond', serif;
+      --font-corpo: 'Lato', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      font-family: var(--font-corpo);
+      background-color: var(--cor-creme);
+      color: var(--cor-escura);
+      overflow-x: hidden;
+    }
+
+    /* ===================== HEADER ===================== */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.5s ease, padding 0.4s ease, box-shadow 0.4s ease;
+    }
+    .header.scrolled {
+      background: rgba(255, 248, 245, 0.97);
+      padding: 14px 40px;
+      box-shadow: 0 2px 30px rgba(45, 24, 16, 0.08);
+    }
+    .header-logo {
+      font-family: var(--font-headline);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--cor-creme);
+      letter-spacing: 0.06em;
+      transition: color 0.4s;
+    }
+    .header.scrolled .header-logo { color: var(--cor-escura); }
+
+    .header-nav { display: flex; gap: 32px; align-items: center; }
+    .header-nav a {
+      font-family: var(--font-corpo);
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,248,245,0.85);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .header.scrolled .header-nav a { color: var(--cor-escura); }
+    .header-nav a:hover { color: var(--cor-dourada); }
+    .header-cta {
+      padding: 10px 22px;
+      border: 1px solid rgba(255,248,245,0.4);
+      color: var(--cor-creme) !important;
+      border-radius: 0;
+      font-size: 0.75rem !important;
+      letter-spacing: 0.15em !important;
+      text-transform: uppercase;
+      transition: all 0.3s ease !important;
+    }
+    .header.scrolled .header-cta {
+      border-color: var(--cor-dourada);
+      color: var(--cor-escura) !important;
+    }
+    .header-cta:hover {
+      background: var(--cor-dourada) !important;
+      color: var(--cor-creme) !important;
+      border-color: var(--cor-dourada) !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 1.5px;
+      background: var(--cor-creme);
+      transition: background 0.4s;
+    }
+    .header.scrolled .hamburger span { background: var(--cor-escura); }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: -60px;
+      background: url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=1400&q=80') center/cover no-repeat;
+      will-change: transform;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(45, 24, 16, 0.55) 0%,
+        rgba(45, 24, 16, 0.45) 50%,
+        rgba(45, 24, 16, 0.65) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 20px;
+      max-width: 860px;
+    }
+
+    /* Moldura dourada decorativa */
+    .hero-frame {
+      position: relative;
+      display: inline-block;
+      padding: 60px 70px;
+    }
+    .hero-frame::before,
+    .hero-frame::after {
+      content: '';
+      position: absolute;
+      border: 1px solid var(--cor-dourada);
+    }
+    .hero-frame::before {
+      inset: 0;
+      opacity: 0.6;
+    }
+    .hero-frame::after {
+      inset: 10px;
+      opacity: 0.3;
+    }
+    .hero-frame-corner {
+      position: absolute;
+      width: 20px; height: 20px;
+      border-color: var(--cor-dourada);
+      border-style: solid;
+    }
+    .hero-frame-corner.tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+    .hero-frame-corner.tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+    .hero-frame-corner.bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+    .hero-frame-corner.br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+    .hero-pretitulo {
+      font-family: var(--font-corpo);
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--cor-dourada-light);
+      margin-bottom: 20px;
+    }
+    .hero-titulo {
+      font-family: var(--font-headline);
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--cor-creme);
+      margin-bottom: 6px;
+    }
+    .hero-titulo em {
+      font-style: italic;
+      color: var(--cor-primaria);
+    }
+    .hero-subtitulo {
+      font-family: var(--font-headline);
+      font-size: clamp(1rem, 2.2vw, 1.5rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,248,245,0.75);
+      margin-bottom: 40px;
+    }
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--cor-dourada);
+      margin: 0 auto 30px;
+    }
+    .hero-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(255,248,245,0.8);
+      letter-spacing: 0.04em;
+      line-height: 1.8;
+      margin-bottom: 44px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-btn {
+      display: inline-block;
+      padding: 16px 48px;
+      background: transparent;
+      border: 1px solid var(--cor-dourada);
+      color: var(--cor-creme);
+      font-family: var(--font-corpo);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--cor-dourada);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+      z-index: -1;
+    }
+    .hero-btn:hover::before { transform: scaleX(1); }
+    .hero-btn:hover { color: var(--cor-escura); }
+
+    .hero-scroll-ind {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,248,245,0.5);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, rgba(255,248,245,0.5), transparent);
+      animation: scrollLine 2s infinite;
+    }
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ===================== SERVIÇOS ===================== */
+    .servicos {
+      padding: 120px 40px;
+      background: var(--cor-creme);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: var(--font-corpo);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--cor-dourada);
+      margin-bottom: 16px;
+    }
+    .section-titulo {
+      font-family: var(--font-headline);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--cor-escura);
+      margin-bottom: 20px;
+    }
+    .section-titulo em { font-style: italic; color: var(--cor-terracota); }
+    .section-desc {
+      font-size: 0.9rem;
+      color: rgba(45,24,16,0.6);
+      line-height: 1.8;
+      max-width: 480px;
+      margin-bottom: 70px;
+    }
+
+    .servicos-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .servicos-lista { display: flex; flex-direction: column; }
+    .servico-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(45,24,16,0.1);
+      cursor: default;
+      transition: background 0.3s;
+    }
+    .servico-item:first-child { border-top: 1px solid rgba(45,24,16,0.1); }
+    .servico-num {
+      font-family: var(--font-headline);
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--cor-dourada);
+      min-width: 32px;
+      margin-top: 4px;
+    }
+    .servico-info { flex: 1; }
+    .servico-nome {
+      font-family: var(--font-headline);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--cor-escura);
+      margin-bottom: 8px;
+      transition: color 0.3s;
+    }
+    .servico-item:hover .servico-nome { color: var(--cor-terracota); }
+    .servico-desc-text {
+      font-size: 0.84rem;
+      color: rgba(45,24,16,0.6);
+      line-height: 1.7;
+    }
+    .servico-seta {
+      font-size: 1.2rem;
+      color: var(--cor-primaria);
+      margin-top: 4px;
+      transition: transform 0.3s;
+    }
+    .servico-item:hover .servico-seta { transform: translateX(6px); }
+
+    .servicos-imagem {
+      position: sticky;
+      top: 140px;
+    }
+    .servicos-img-wrap {
+      position: relative;
+    }
+    .servicos-img-wrap img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      display: block;
+    }
+    .servicos-img-deco {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 160px;
+      height: 160px;
+      border: 1px solid var(--cor-dourada);
+      opacity: 0.4;
+      z-index: -1;
+    }
+    .servicos-img-tag {
+      position: absolute;
+      bottom: 30px;
+      left: -30px;
+      background: var(--cor-creme);
+      padding: 24px 28px;
+      box-shadow: 0 8px 40px rgba(45,24,16,0.12);
+    }
+    .servicos-img-tag-num {
+      font-family: var(--font-headline);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--cor-terracota);
+      line-height: 1;
+    }
+    .servicos-img-tag-text {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(45,24,16,0.5);
+      margin-top: 4px;
+    }
+
+    /* ===================== SOBRE ===================== */
+    .sobre {
+      background: var(--cor-terracota);
+      padding: 100px 40px;
+      overflow: hidden;
+    }
+    .sobre-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .sobre-img-wrap {
+      position: relative;
+    }
+    .sobre-img-wrap img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+    }
+    .sobre-img-overlay {
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(255,248,245,0.25);
+      pointer-events: none;
+    }
+    .sobre-texto .section-label { color: rgba(255,248,245,0.6); }
+    .sobre-titulo {
+      font-family: var(--font-headline);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      color: var(--cor-creme);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+    .sobre-titulo em { font-style: italic; }
+    .sobre-p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(255,248,245,0.82);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .sobre-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 44px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,248,245,0.2);
+    }
+    .sobre-stat {}
+    .sobre-stat-num {
+      font-family: var(--font-headline);
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--cor-creme);
+      line-height: 1;
+    }
+    .sobre-stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,248,245,0.55);
+      margin-top: 6px;
+    }
+
+    /* ===================== DEPOIMENTOS ===================== */
+    .depoimentos {
+      padding: 120px 40px;
+      background: var(--cor-creme);
+    }
+    .depoimentos-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .depoimentos-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .depoimento-card {
+      background: #fff;
+      padding: 44px 36px;
+      position: relative;
+      border-bottom: 2px solid var(--cor-primaria);
+    }
+    .depoimento-aspas {
+      font-family: var(--font-headline);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--cor-primaria);
+      opacity: 0.5;
+      position: absolute;
+      top: 16px;
+      left: 28px;
+    }
+    .depoimento-estrelas {
+      color: var(--cor-dourada);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    .depoimento-texto {
+      font-family: var(--font-headline);
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--cor-escura);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .depoimento-autor {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .depoimento-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-headline);
+      font-size: 1rem;
+      color: var(--cor-escura);
+      font-weight: 600;
+    }
+    .depoimento-nome {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--cor-escura);
+    }
+    .depoimento-cargo {
+      font-size: 0.73rem;
+      color: rgba(45,24,16,0.5);
+      letter-spacing: 0.05em;
+    }
+
+    /* ===================== CTA ===================== */
+    .cta {
+      background: var(--cor-escura);
+      padding: 120px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,122,90,0.08) 0%, transparent 70%);
+    }
+    .cta-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    .cta-pre {
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--cor-dourada);
+      margin-bottom: 20px;
+    }
+    .cta-titulo {
+      font-family: var(--font-headline);
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      font-weight: 300;
+      color: var(--cor-creme);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .cta-titulo em { font-style: italic; color: var(--cor-primaria); }
+    .cta-subtitulo {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(255,248,245,0.6);
+      line-height: 1.8;
+      margin-bottom: 50px;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 52px;
+      background: var(--cor-terracota);
+      color: var(--cor-creme);
+      font-family: var(--font-corpo);
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      border: 1px solid var(--cor-terracota);
+    }
+    .cta-btn svg { flex-shrink: 0; }
+    .cta-btn:hover {
+      background: transparent;
+      color: var(--cor-primaria);
+      border-color: var(--cor-primaria);
+    }
+    .cta-nota {
+      margin-top: 20px;
+      font-size: 0.72rem;
+      color: rgba(255,248,245,0.3);
+      letter-spacing: 0.08em;
+    }
+
+    /* ===================== FOOTER ===================== */
+    .footer {
+      background: #1A0D09;
+      padding: 60px 40px 30px;
+      color: rgba(255,248,245,0.4);
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,248,245,0.07);
+      margin-bottom: 30px;
+    }
+    .footer-brand-name {
+      font-family: var(--font-headline);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--cor-creme);
+      margin-bottom: 14px;
+    }
+    .footer-brand-desc {
+      font-size: 0.83rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: var(--cor-primaria);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.3s;
+    }
+    .footer-social a:hover { color: var(--cor-dourada); }
+    .footer-col-titulo {
+      font-family: var(--font-corpo);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,248,245,0.6);
+      margin-bottom: 20px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 0.83rem;
+      color: rgba(255,248,245,0.4);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--cor-primaria); }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy { font-size: 0.75rem; }
+    .footer-city {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ===================== INSTAGRAM BTN ===================== */
+    .insta-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 30px rgba(220, 39, 67, 0.45);
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .insta-float:hover {
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 12px 40px rgba(220, 39, 67, 0.5);
+    }
+    .insta-float svg { width: 26px; height: 26px; }
+    .insta-tooltip {
+      position: absolute;
+      right: 70px;
+      white-space: nowrap;
+      background: rgba(26,13,9,0.9);
+      color: var(--cor-creme);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      padding: 8px 14px;
+      border-radius: 4px;
+      opacity: 0;
+      transform: translateX(8px);
+      transition: all 0.3s;
+      pointer-events: none;
+    }
+    .insta-float:hover .insta-tooltip { opacity: 1; transform: translateX(0); }
+
+    /* ===================== ANIMATIONS ===================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .slide-left.visible { opacity: 1; transform: translateX(0); }
+    .slide-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .slide-right.visible { opacity: 1; transform: translateX(0); }
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .scale-in.visible { opacity: 1; transform: scale(1); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 768px) {
+      .header { padding: 18px 20px; }
+      .header.scrolled { padding: 12px 20px; }
+      .header-nav { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-frame { padding: 36px 28px; }
+      .hero-titulo { font-size: 2.4rem; }
+
+      .servicos { padding: 80px 20px; }
+      .servicos-layout { grid-template-columns: 1fr; gap: 50px; }
+      .servicos-imagem { position: static; }
+      .servicos-img-wrap img { height: 320px; }
+      .servicos-img-tag { left: 0; }
+
+      .sobre-inner { grid-template-columns: 1fr; gap: 40px; }
+      .sobre { padding: 80px 20px; }
+      .sobre-img-wrap img { height: 320px; }
+      .sobre-stats { gap: 24px; }
+
+      .depoimentos { padding: 80px 20px; }
+      .depoimentos-grid { grid-template-columns: 1fr; gap: 20px; }
+
+      .cta { padding: 80px 20px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      .insta-float { bottom: 20px; right: 20px; width: 52px; height: 52px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-logo">Meire Linhares</div>
+    <nav class="header-nav">
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#depoimentos">Resultados</a>
+      <a href="https://www.instagram.com/meirelinhares_centroestetico/" target="_blank" class="header-cta">Agendar</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-frame">
+        <div class="hero-frame-corner tl"></div>
+        <div class="hero-frame-corner tr"></div>
+        <div class="hero-frame-corner bl"></div>
+        <div class="hero-frame-corner br"></div>
+        <p class="hero-pretitulo">Centro Estético · Senador Canedo, GO</p>
+        <h1 class="hero-titulo">
+          Beleza que<br /><em>transforma</em><br />a alma
+        </h1>
+        <div class="hero-divider"></div>
+        <p class="hero-subtitulo">Estética e Bem-Estar com cuidado personalizado</p>
+        <p class="hero-desc">
+          Tratamentos estéticos de alto padrão para realçar sua beleza natural,
+          restaurar seu equilíbrio e renovar sua autoestima.
+        </p>
+        <a href="https://www.instagram.com/meirelinhares_centroestetico/" target="_blank" class="hero-btn">
+          Agende sua consulta
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll-ind">
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="servicos" id="servicos">
+    <div class="servicos-layout">
+      <div>
+        <p class="section-label fade-up">Nossos tratamentos</p>
+        <h2 class="section-titulo fade-up delay-1">
+          Cuidados que<br /><em>revelam</em> sua<br />melhor versão
+        </h2>
+        <p class="section-desc fade-up delay-2">
+          Cada tratamento é pensado para você — com protocolos personalizados,
+          produtos de alta performance e o toque acolhedor da Clínica Meire Linhares.
+        </p>
+
+        <div class="servicos-lista">
+          <div class="servico-item fade-up delay-1">
+            <span class="servico-num">01</span>
+            <div class="servico-info">
+              <div class="servico-nome">Estética Facial</div>
+              <div class="servico-desc-text">Limpeza de pele, peeling, hidratação profunda e rejuvenescimento facial com protocolos avançados.</div>
+            </div>
+            <div class="servico-seta">→</div>
+          </div>
+          <div class="servico-item fade-up delay-2">
+            <span class="servico-num">02</span>
+            <div class="servico-info">
+              <div class="servico-nome">Estética Corporal</div>
+              <div class="servico-desc-text">Modelagem, redução de medidas, tratamentos para celulite e firmeza da pele com tecnologia de ponta.</div>
+            </div>
+            <div class="servico-seta">→</div>
+          </div>
+          <div class="servico-item fade-up delay-3">
+            <span class="servico-num">03</span>
+            <div class="servico-info">
+              <div class="servico-nome">Drenagem Linfática</div>
+              <div class="servico-desc-text">Técnica manual especializada para eliminar toxinas, reduzir inchaço e melhorar a circulação.</div>
+            </div>
+            <div class="servico-seta">→</div>
+          </div>
+          <div class="servico-item fade-up delay-4">
+            <span class="servico-num">04</span>
+            <div class="servico-info">
+              <div class="servico-nome">Tratamentos para Pele</div>
+              <div class="servico-desc-text">Protocolos específicos para manchas, acne, melasma e envelhecimento precoce com resultados visíveis.</div>
+            </div>
+            <div class="servico-seta">→</div>
+          </div>
+          <div class="servico-item fade-up delay-5">
+            <span class="servico-num">05</span>
+            <div class="servico-info">
+              <div class="servico-nome">Bem-Estar & Relaxamento</div>
+              <div class="servico-desc-text">Massagens terapêuticas, aromaterapia e rituais de cuidado que restauram o equilíbrio corpo e mente.</div>
+            </div>
+            <div class="servico-seta">→</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="servicos-imagem slide-right">
+        <div class="servicos-img-wrap">
+          <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&q=80" alt="Estética facial Meire Linhares" loading="lazy" />
+          <div class="servicos-img-deco"></div>
+          <div class="servicos-img-tag">
+            <div class="servicos-img-tag-num">500+</div>
+            <div class="servicos-img-tag-text">Clientes atendidas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="sobre" id="sobre">
+    <div class="sobre-inner">
+      <div class="slide-left">
+        <div class="sobre-img-wrap">
+          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80" alt="Clínica Meire Linhares" loading="lazy" />
+          <div class="sobre-img-overlay"></div>
+        </div>
+      </div>
+      <div class="sobre-texto slide-right">
+        <p class="section-label">Sobre a clínica</p>
+        <h2 class="sobre-titulo">
+          Um espaço criado<br /><em>para que você se sinta em casa</em>
+        </h2>
+        <p class="sobre-p">
+          A Clínica Meire Linhares nasceu do sonho de oferecer estética de alto padrão em Senador Canedo,
+          em um ambiente verdadeiramente acolhedor. Aqui, cada cliente é tratada com atenção individualizada
+          e cuidado que vai além do tratamento.
+        </p>
+        <p class="sobre-p">
+          Com anos de experiência e formação constante, nossa equipe combina técnicas avançadas com
+          produtos de excelência para entregar os resultados que você merece — com segurança, carinho e sofisticação.
+        </p>
+        <div class="sobre-stats">
+          <div class="sobre-stat">
+            <div class="sobre-stat-num" data-count="500">0</div>
+            <div class="sobre-stat-label">Clientes atendidas</div>
+          </div>
+          <div class="sobre-stat">
+            <div class="sobre-stat-num" data-count="8">0</div>
+            <div class="sobre-stat-label">Anos de experiência</div>
+          </div>
+          <div class="sobre-stat">
+            <div class="sobre-stat-num" data-count="15">0</div>
+            <div class="sobre-stat-label">Tratamentos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos" id="depoimentos">
+    <div class="depoimentos-inner">
+      <div class="depoimentos-header">
+        <p class="section-label fade-up">O que dizem nossas clientes</p>
+        <h2 class="section-titulo fade-up delay-1">Resultados que <em>falam por si</em></h2>
+      </div>
+      <div class="depoimentos-grid">
+        <div class="depoimento-card scale-in delay-1">
+          <div class="depoimento-aspas">"</div>
+          <div class="depoimento-estrelas">★★★★★</div>
+          <p class="depoimento-texto">
+            "Fiz a drenagem linfática e o resultado foi incrível! Já na primeira sessão percebi a diferença.
+            A Meire é super atenciosa, o espaço é lindo e me sinto em paz toda vez que vou lá."
+          </p>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">J</div>
+            <div>
+              <div class="depoimento-nome">Juliana Ferreira Matos</div>
+              <div class="depoimento-cargo">Cliente há 2 anos · Drenagem Linfática</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card scale-in delay-2">
+          <div class="depoimento-aspas">"</div>
+          <div class="depoimento-estrelas">★★★★★</div>
+          <p class="depoimento-texto">
+            "Tratei minhas manchas do rosto e finalmente me sinto confiante sem maquiagem.
+            O protocolo foi personalizado só pra mim — isso faz toda a diferença. Indico de olhos fechados!"
+          </p>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">R</div>
+            <div>
+              <div class="depoimento-nome">Renata Oliveira Souza</div>
+              <div class="depoimento-cargo">Cliente fiel · Tratamento para Melasma</div>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card scale-in delay-3">
+          <div class="depoimento-aspas">"</div>
+          <div class="depoimento-estrelas">★★★★★</div>
+          <p class="depoimento-texto">
+            "O ambiente é maravilhoso, cheira bem, a iluminação é perfeita... mas o que mais me encanta
+            é o cuidado da equipe. Já trouxe minha mãe e minha irmã — todas amaram!"
+          </p>
+          <div class="depoimento-autor">
+            <div class="depoimento-avatar">C</div>
+            <div>
+              <div class="depoimento-nome">Camila Rodrigues Alves</div>
+              <div class="depoimento-cargo">Família de clientes · Estética Facial</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-inner">
+      <p class="cta-pre fade-up">Seu momento de cuidado</p>
+      <h2 class="cta-titulo fade-up delay-1">
+        Você merece se sentir<br /><em>radiante todos os dias</em>
+      </h2>
+      <p class="cta-subtitulo fade-up delay-2">
+        Agende agora sua avaliação gratuita e descubra qual tratamento é ideal para você.
+        Nossa equipe está pronta para te receber com todo o carinho que você merece.
+      </p>
+      <a href="https://www.instagram.com/meirelinhares_centroestetico/" target="_blank" class="cta-btn fade-up delay-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        Agendar pelo Instagram
+      </a>
+      <p class="cta-nota fade-up delay-4">@meirelinhares_centroestetico · Senador Canedo, GO</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Meire Linhares</div>
+        <p class="footer-brand-desc">
+          Centro Estético de excelência em Senador Canedo, GO.<br />
+          Tratamentos personalizados para sua beleza e bem-estar.
+        </p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/meirelinhares_centroestetico/" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            @meirelinhares_centroestetico
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Serviços</div>
+        <div class="footer-links">
+          <a href="#servicos">Estética Facial</a>
+          <a href="#servicos">Estética Corporal</a>
+          <a href="#servicos">Drenagem Linfática</a>
+          <a href="#servicos">Tratamentos para Pele</a>
+          <a href="#servicos">Bem-Estar</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-titulo">Localização</div>
+        <div class="footer-links">
+          <a href="#">Senador Canedo, GO</a>
+          <a href="https://www.instagram.com/meirelinhares_centroestetico/" target="_blank">Agendar pelo Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Clínica Meire Linhares. Todos os direitos reservados.</span>
+      <span class="footer-city">Senador Canedo · GO</span>
+    </div>
+  </footer>
+
+  <!-- INSTAGRAM FLOAT -->
+  <a href="https://www.instagram.com/meirelinhares_centroestetico/" target="_blank" class="insta-float" aria-label="Seguir no Instagram">
+    <span class="insta-tooltip">Agendar pelo Instagram</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+    </svg>
+  </a>
+
+  <script>
+    // HEADER SCROLL
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // PARALLAX HERO
+    const heroBg = document.getElementById('heroBg');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrolled = window.scrollY;
+          heroBg.style.transform = `translateY(${scrolled * 0.35}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // INTERSECTION OBSERVER
+    const animEls = document.querySelectorAll('.fade-up, .slide-left, .slide-right, .scale-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    animEls.forEach(el => observer.observe(el));
+
+    // COUNTERS
+    const counters = document.querySelectorAll('[data-count]');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.count);
+          const suffix = el.dataset.suffix || '';
+          let current = 0;
+          const increment = target / 60;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              el.textContent = target + suffix;
+              clearInterval(timer);
+            } else {
+              el.textContent = Math.floor(current) + suffix;
+            }
+          }, 25);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => counterObserver.observe(el));
+  </script>
+</body>
+</html>
