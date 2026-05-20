@@ -2,201 +2,330 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Maria Menina Estética — Aparecida de Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maria Menina Estetica — Aparecida de Goiania</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Crimson Pro', serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#93767c;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Outfit', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Crimson Pro', serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#B8849E;color:#ffffff;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Crimson Pro', serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#93767c;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --rosa:#F5C6D0;
+  --rosa-medio:#B8849E;
+  --rosa-escuro:#8B5C72;
+  --branco:#FFFFFF;
+  --texto:#4A2E3A;
+  --cinza:#F9F0F3;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+body{font-family:'Quicksand',sans-serif;color:var(--texto);background:var(--branco);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(184,132,158,0.15)}
+.nav-logo{font-size:1.1rem;font-weight:700;color:var(--rosa-escuro);letter-spacing:0.3px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--texto);font-weight:600;font-size:0.9rem;transition:color 0.2s}
+.nav-links a:hover{color:var(--rosa-medio)}
+.nav-wa{background:var(--rosa-medio);color:#fff;padding:9px 22px;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.88rem;transition:background 0.2s}
+.nav-wa:hover{background:var(--rosa-escuro)}
+
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;padding-top:70px}
+.hero-left{background:linear-gradient(160deg,#fff5f7 0%,var(--rosa) 100%);display:flex;flex-direction:column;justify-content:center;padding:80px 50px 80px 60px;position:relative;overflow:hidden}
+.hero-tag{display:inline-block;background:var(--rosa-medio);color:#fff;padding:5px 16px;border-radius:20px;font-size:0.78rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;margin-bottom:22px}
+.hero-left h1{font-size:clamp(1.9rem,3.5vw,3rem);font-weight:700;line-height:1.25;color:var(--rosa-escuro);margin-bottom:18px}
+.hero-left h1 em{font-style:normal;color:var(--texto)}
+.hero-left p{font-size:1rem;line-height:1.75;color:#6A4050;margin-bottom:34px;max-width:380px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-principal{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.95rem;box-shadow:0 6px 24px rgba(37,211,102,0.3);transition:transform 0.2s,box-shadow 0.2s}
+.btn-principal:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(37,211,102,0.4)}
+.btn-principal svg{width:20px;height:20px;fill:#fff}
+.btn-secundario{display:inline-flex;align-items:center;background:transparent;color:var(--rosa-escuro);padding:14px 24px;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.95rem;border:2px solid var(--rosa-medio);transition:all 0.2s}
+.btn-secundario:hover{background:var(--rosa);border-color:var(--rosa-escuro)}
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-badge-float{position:absolute;bottom:40px;left:30px;background:#fff;border-radius:16px;padding:14px 20px;box-shadow:0 8px 32px rgba(139,92,114,0.25);z-index:5}
+.hero-badge-float .numero{font-size:1.5rem;font-weight:700;color:var(--rosa-escuro)}
+.hero-badge-float .label{font-size:0.75rem;color:#888;font-weight:600}
+
+.servicos{padding:90px 24px;background:var(--cinza)}
+.section-header{text-align:center;margin-bottom:56px}
+.section-header h2{font-size:clamp(1.7rem,2.8vw,2.3rem);font-weight:700;color:var(--rosa-escuro);margin-bottom:12px}
+.section-header p{color:#7A5060;font-size:0.97rem;max-width:520px;margin:0 auto;line-height:1.7}
+.cards-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border-radius:20px;padding:32px 28px;transition:transform 0.25s,box-shadow 0.25s;border:2px solid transparent}
+.card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(184,132,158,0.2);border-color:var(--rosa)}
+.card-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--rosa),var(--rosa-medio));border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.card-icon svg{width:26px;height:26px;fill:#fff}
+.card h3{font-size:1.05rem;font-weight:700;color:var(--rosa-escuro);margin-bottom:10px}
+.card p{font-size:0.88rem;color:#7A5868;line-height:1.65}
+
+.numeros{padding:80px 24px;background:linear-gradient(135deg,var(--rosa-escuro),var(--rosa-medio))}
+.numeros-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.num-item .valor{font-size:2.8rem;font-weight:700;color:#fff}
+.num-item .desc{font-size:0.85rem;color:rgba(255,255,255,0.8);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-top:6px}
+
+.sobre{padding:90px 24px;background:#fff}
+.sobre-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.sobre-img{position:relative}
+.sobre-img img{width:100%;border-radius:24px;box-shadow:0 16px 48px rgba(184,132,158,0.3)}
+.sobre-img::before{content:'';position:absolute;top:-16px;left:-16px;right:16px;bottom:16px;border:3px solid var(--rosa);border-radius:24px;z-index:-1}
+.sobre-texto h2{font-size:clamp(1.6rem,2.5vw,2.1rem);font-weight:700;color:var(--rosa-escuro);margin-bottom:18px}
+.sobre-texto p{font-size:0.96rem;line-height:1.8;color:#6A4050;margin-bottom:16px}
+.sobre-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.badge{background:var(--cinza);color:var(--rosa-escuro);padding:7px 16px;border-radius:20px;font-size:0.82rem;font-weight:700}
+
+.depoimentos{padding:90px 24px;background:var(--cinza)}
+.depo-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.depo-card{background:#fff;border-radius:20px;padding:30px 24px}
+.depo-stars{display:flex;gap:3px;margin-bottom:14px}
+.depo-stars svg{width:16px;height:16px;fill:#F5A623}
+.depo-card p{font-size:0.9rem;line-height:1.7;color:#6A4050;margin-bottom:18px}
+.depo-autor{display:flex;align-items:center;gap:12px}
+.depo-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--rosa),var(--rosa-medio));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:0.9rem}
+.depo-nome{font-weight:700;font-size:0.88rem;color:var(--rosa-escuro)}
+.depo-local{font-size:0.78rem;color:#9A7080}
+
+.cta{padding:90px 24px;background:linear-gradient(135deg,#fff5f7,var(--rosa));text-align:center}
+.cta h2{font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;color:var(--rosa-escuro);margin-bottom:14px}
+.cta p{font-size:1rem;color:#7A5060;margin-bottom:38px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;padding:18px 42px;border-radius:50px;text-decoration:none;font-weight:700;font-size:1.05rem;box-shadow:0 8px 28px rgba(37,211,102,0.35);transition:transform 0.2s}
+.cta-btn:hover{transform:translateY(-3px)}
+.cta-btn svg{width:22px;height:22px;fill:#fff}
+
+footer{background:var(--rosa-escuro);color:rgba(255,255,255,0.85);padding:48px 24px 32px;text-align:center}
+.footer-logo{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:16px}
+.footer-info{font-size:0.85rem;line-height:1.9;margin-bottom:20px}
+.footer-dev{font-size:0.75rem;color:rgba(255,255,255,0.5);border-top:1px solid rgba(255,255,255,0.15);padding-top:20px;margin-top:20px}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,0.5);text-decoration:none;animation:pulse-wa 2s infinite}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-right{height:280px}
+  .hero-left{padding:80px 24px 50px}
+  .cards-grid{grid-template-columns:1fr}
+  .numeros-inner{grid-template-columns:repeat(2,1fr)}
+  .sobre-inner{grid-template-columns:1fr}
+  .depo-grid{grid-template-columns:1fr}
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Maria Menina Estética</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </div>
-  <a href="https://wa.me/5562991574823" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<nav>
+  <div class="nav-logo">Maria Menina Estetica</div>
+  <ul class="nav-links">
+    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5562991574823" class="nav-wa" target="_blank">Agendar</a>
 </nav>
 
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-tag">Estetica em Aparecida de Goiania</span>
+    <h1>Voce merece se sentir <em>incrivel</em> todos os dias</h1>
+    <p>Procedimentos esteticos de qualidade no Setor Garavelo. Antes/depois reais, atendimento carinhoso e resultados que aparecem de verdade.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562991574823" class="btn-principal" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.118 1.526 5.847L.057 23.882l6.207-1.448A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-4.983-1.356l-.357-.212-3.685.860.876-3.595-.233-.369A9.822 9.822 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+      <a href="#servicos" class="btn-secundario">Ver Servicos</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=900&h=1100&fit=crop&q=80" alt="Estetica Maria Menina">
+    <div class="hero-badge-float">
+      <div class="numero">2.1K</div>
+      <div class="label">Seguidores no Instagram</div>
+    </div>
+  </div>
+</section>
 
-<section class="hero" id="hero">
-  <div class="hero-full" style="background-image:url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1200&h=800&fit=crop&q=80');">
-    <div class="hero-full-overlay"></div>
-    <div class="hero-full-content">
-      <h1 class="hero-full-title" style="font-family:'Outfit', sans-serif;">Estetica de alto padrao<span class="title-line" style="background:#B8849E;"></span></h1>
-      <p style="font-size:20px;line-height:1.6;max-width:560px;margin:0 auto 40px;opacity:0.9;font-family:'Crimson Pro', serif;">Clinica especializada em Aparecida de Goiânia, referencia em Setor Garavelo</p>
-      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-        <a href="https://wa.me/5562991574823" style="background:#B8849E;color:#ffffff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;transition:all 0.3s;">Falar no WhatsApp</a>
-        <a href="#servicos" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.3);color:#fff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;">Ver servicos</a>
+<section class="servicos" id="servicos">
+  <div class="section-header reveal">
+    <h2>O que a gente faz por voce</h2>
+    <p>Procedimentos feitos com cuidado, tecnica e muito carinho. Resultados reais para voce arrasar!</p>
+  </div>
+  <div class="cards-grid">
+    <div class="card reveal">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 100 10A5 5 0 0012 2zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>
+      </div>
+      <h3>Limpeza de Pele</h3>
+      <p>Limpeza profunda que remove impurezas e deixa a pele radiante. Indicado para todos os tipos de pele.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+      </div>
+      <h3>Depilacao a Laser</h3>
+      <p>Pele lisa sem esforco. Tecnologia de ponta para remocao definitiva dos pelos com seguranca e conforto.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M9.5 6.5v3h-3v-3h3M11 5H5v6h6V5zm-1.5 9.5v3h-3v-3h3M11 13H5v6h6v-6zm6.5-6.5v3h-3v-3h3M19 5h-6v6h6V5zm-6 8h1.5v1.5H13V13zm1.5 1.5H16V16h-1.5v-1.5zM16 13h1.5v1.5H16V13zm-3 3h1.5v1.5H13V16zm1.5 1.5H16V19h-1.5v-1.5zM16 16h1.5v1.5H16V16zm1.5-1.5H19V16h-1.5v-1.5zm0 3H19V19h-1.5v-1.5z"/></svg>
+      </div>
+      <h3>Design de Sobrancelha</h3>
+      <p>Sobrancelhas perfeitas que emolduram o seu olhar. Microblading, henna e design personalizado.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      </div>
+      <h3>Harmonizacao Facial</h3>
+      <p>Botox e preenchimento com resultado natural. Procedimentos avancados com profissionais certificados.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+      </div>
+      <h3>Massagem Modeladora</h3>
+      <p>Reduz medidas e melhora o contorno corporal. Drenagem linfatica inclusa para potencializar os resultados.</p>
+    </div>
+    <div class="card reveal">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+      <h3>Tratamento Corporal</h3>
+      <p>Combo especial: massagem + drenagem + modelagem. Cuide do corpo inteiro em uma so sessao.</p>
+    </div>
+  </div>
+</section>
+
+<section class="numeros">
+  <div class="numeros-inner">
+    <div class="num-item reveal">
+      <div class="valor">500+</div>
+      <div class="desc">Clientes Satisfeitas</div>
+    </div>
+    <div class="num-item reveal">
+      <div class="valor">3 anos</div>
+      <div class="desc">De Experiencia</div>
+    </div>
+    <div class="num-item reveal">
+      <div class="valor">98%</div>
+      <div class="desc">Aprovacao das Clientes</div>
+    </div>
+    <div class="num-item reveal">
+      <div class="valor">2.1K</div>
+      <div class="desc">Seguidores no Instagram</div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="sobre-inner">
+    <div class="sobre-img reveal">
+      <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&h=700&fit=crop&q=80" alt="Equipe Maria Menina Estetica">
+    </div>
+    <div class="sobre-texto reveal">
+      <h2>A melhor clinica de estetica em Aparecida de Goiania</h2>
+      <p>A Maria Menina Estetica nasceu do desejo de fazer toda mulher se sentir bonita e confiante, sem precisar gastar muito. A gente acredita que estetica de qualidade deve ser acessivel a todo mundo.</p>
+      <p>No Setor Garavelo, nossa clinica se tornou referencia nos procedimentos de antes/depois que voce ve no nosso Instagram. Cada cliente e tratada com carinho individual — porque voce merece isso!</p>
+      <div class="sobre-badges">
+        <span class="badge">Antes e Depois Reais</span>
+        <span class="badge">Atendimento Personalizado</span>
+        <span class="badge">Aparecida de Goiania</span>
+        <span class="badge">Setor Garavelo</span>
       </div>
     </div>
   </div>
 </section>
-<style>
-.hero-full{position:relative;min-height:100vh;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;}
-.hero-full-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.85));}
-.hero-full-content{position:relative;text-align:center;color:#fff;padding:40px 24px;max-width:720px;}
-.hero-full-title{font-size:clamp(40px,6vw,80px);font-weight:800;line-height:1.1;margin-bottom:24px;position:relative;display:inline-block;}
-.title-line{display:block;height:4px;width:0;border-radius:2px;margin:16px auto 0;animation:lineGrow 1s 0.5s forwards;}
-@keyframes lineGrow{to{width:80%;}}
-</style>
 
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#B8849E;margin-bottom:12px;font-family:'Crimson Pro', serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#665256;font-family:'Outfit', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px;"><button class="srv-pill" onclick="showPill(this,0)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #93767c;background:#93767c;color:#ffffff;cursor:pointer;transition:all 0.3s;font-family:'Crimson Pro', serif;">Harmonizacao Facial</button><button class="srv-pill" onclick="showPill(this,1)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Crimson Pro', serif;">Botox</button><button class="srv-pill" onclick="showPill(this,2)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Crimson Pro', serif;">Preenchimento Labial</button><button class="srv-pill" onclick="showPill(this,3)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Crimson Pro', serif;">Limpeza de Pele</button><button class="srv-pill" onclick="showPill(this,4)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Crimson Pro', serif;">Microagulhamento</button><button class="srv-pill" onclick="showPill(this,5)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Crimson Pro', serif;">Bioestimuladores</button><button class="srv-pill" onclick="showPill(this,6)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Crimson Pro', serif;">Peeling Quimico</button></div><div class="srv-panel" style="display:block;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#665256;margin-bottom:12px;font-family:'Outfit', sans-serif;">Harmonizacao Facial</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Crimson Pro', serif;">Equilibrio e naturalidade para o seu rosto com tecnicas avancadas.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#665256;margin-bottom:12px;font-family:'Outfit', sans-serif;">Botox</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Crimson Pro', serif;">Suavizacao de rugas e linhas de expressao com resultado natural.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#665256;margin-bottom:12px;font-family:'Outfit', sans-serif;">Preenchimento Labial</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Crimson Pro', serif;">Volume e definicao para labios mais sensuais e harmoniosos.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#665256;margin-bottom:12px;font-family:'Outfit', sans-serif;">Limpeza de Pele</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Crimson Pro', serif;">Limpeza profunda e revitalizacao para uma pele saudavel.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#665256;margin-bottom:12px;font-family:'Outfit', sans-serif;">Microagulhamento</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Crimson Pro', serif;">Estimulo do coleageno para pele renovada e vibrante.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#665256;margin-bottom:12px;font-family:'Outfit', sans-serif;">Bioestimuladores</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Crimson Pro', serif;">Rejuvenescimento profundo com estimulo natural de coleageno.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#665256;margin-bottom:12px;font-family:'Outfit', sans-serif;">Peeling Quimico</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Crimson Pro', serif;">Renovacao celular e uniformizacao do tom da pele.</p></div><script>var srvPrimary="#93767c",srvAccent="#ffffff";function showPill(el,idx){document.querySelectorAll(".srv-pill").forEach(function(p,i){p.style.background=i===idx?srvPrimary:"transparent";p.style.color=i===idx?srvAccent:"#333";p.style.borderColor=i===idx?srvPrimary:"#ddd";});document.querySelectorAll(".srv-panel").forEach(function(p,i){p.style.display=i===idx?"block":"none";});}</script>
+<section class="depoimentos">
+  <div class="section-header reveal">
+    <h2>O que as nossas clientes falam</h2>
+    <p>Resultados reais, historias verdadeiras. Veja o que quem ja veio falar de nos:</p>
   </div>
-</section>
-
-<section id="stats" style="background:#93767c;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="2400" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#cda8bb;font-family:'Outfit', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Procedimentos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="98" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#cda8bb;font-family:'Outfit', sans-serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Satisfacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="8" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#cda8bb;font-family:'Outfit', sans-serif;">0+ anos</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="49" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#cda8bb;font-family:'Outfit', sans-serif;">0.</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Avaliacao</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre" style="background:#93767c;">
-  <div class="section-inner reveal">
-    <div style="background-image:url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&h=800&fit=crop&q=80');background-attachment:fixed;background-size:cover;background-position:center;position:relative;">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.85));"></div>
-  <div style="position:relative;z-index:2;text-align:center;padding:100px 40px;color:#fff;max-width:760px;margin:0 auto;">
-    <h2 style="font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.1;margin-bottom:20px;font-family:'Outfit', sans-serif;">Maria Menina Estética</h2>
-    <p style="font-size:18px;opacity:0.85;line-height:1.7;font-family:'Crimson Pro', serif;">Somos uma clinica estetica dedicada a realcar a beleza natural de cada cliente. Com profissionais altamente capacitados e tecnologia de ponta, oferecemos tratamentos personalizados que respeitam a individualidade de cada pessoa.</p>
-  </div>
-</div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#B8849E;margin-bottom:12px;font-family:'Crimson Pro', serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#665256;font-family:'Outfit', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"O resultado ficou incrivel, muito natural e exatamente o que eu queria."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#ded5d7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#93767c;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#665256;font-family:'Outfit', sans-serif;">Maria S.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"Profissionalismo e cuidado excepcionais. Me sinto outra pessoa."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#ded5d7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#93767c;font-size:14px;">A</div><div><div style="font-weight:700;font-size:14px;color:#665256;font-family:'Outfit', sans-serif;">Ana P.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"Ambiente acolhedor e tratamento de primeira qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#ded5d7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#93767c;font-size:14px;">J</div><div><div style="font-weight:700;font-size:14px;color:#665256;font-family:'Outfit', sans-serif;">Julia R.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Cliente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;max-width:680px;margin:0 auto;padding:20px;">
-  <h2 style="font-size:clamp(30px,4.5vw,56px);font-weight:800;color:#665256;margin-bottom:20px;line-height:1.2;font-family:'Outfit', sans-serif;">Agende sua avaliacao gratuita</h2>
-  <p style="font-size:18px;color:#666;line-height:1.7;margin-bottom:48px;font-family:'Crimson Pro', serif;">Estamos prontos para atender voce com excelencia.</p>
-  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-    <a href="https://wa.me/5562991574823" style="background:#25D366;color:#fff;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/mariameninaestetica/" style="border:2px solid #93767c;color:#93767c;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#755e63;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Outfit', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Maria Menina Estética</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Crimson Pro', serif;">Setor Garavelo, Aparecida de Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562991574823" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/mariameninaestetica/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+  <div class="depo-grid">
+    <div class="depo-card reveal">
+      <div class="depo-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+      <p>"Fiz a limpeza de pele e amei demais! A atencao da equipe e incrivel e o resultado apareceu rapido. Ja indiquei pra todas as amigas!"</p>
+      <div class="depo-autor">
+        <div class="depo-avatar">J</div>
+        <div>
+          <div class="depo-nome">Juliana M.</div>
+          <div class="depo-local">Aparecida de Goiania</div>
         </div>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Outfit', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Crimson Pro', serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
+    </div>
+    <div class="depo-card reveal">
+      <div class="depo-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Outfit', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Crimson Pro', serif;">
-          (62) 99157-4823<br>
-          <a href="https://wa.me/5562991574823" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/mariameninaestetica/' style='color:inherit;text-decoration:none;'>Instagram</a>
+      <p>"O design de sobrancelha ficou perfeito! Acordei pronta sem precisar fazer nada. Equipe super profissional e ambiente muito gostoso."</p>
+      <div class="depo-autor">
+        <div class="depo-avatar">C</div>
+        <div>
+          <div class="depo-nome">Camila S.</div>
+          <div class="depo-local">Setor Garavelo</div>
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Crimson Pro', serif;">Desenvolvido por VANT Digital Studio</div>
+    <div class="depo-card reveal">
+      <div class="depo-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+      <p>"Melhor investimento que ja fiz! A massagem modeladora e top demais. Em tres sessoes ja vi diferenca nas medidas. Vou continuar com certeza!"</p>
+      <div class="depo-autor">
+        <div class="depo-avatar">R</div>
+        <div>
+          <div class="depo-nome">Renata P.</div>
+          <div class="depo-local">Aparecida de Goiania</div>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
+
+<section class="cta" id="contato">
+  <h2 class="reveal">Pronta para se sentir incrivel?</h2>
+  <p class="reveal">Agende agora pelo WhatsApp e ganhe uma avaliacao gratuita. A gente cuida de voce com todo carinho!</p>
+  <a href="https://wa.me/5562991574823" class="cta-btn reveal" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.118 1.526 5.847L.057 23.882l6.207-1.448A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-4.983-1.356l-.357-.212-3.685.860.876-3.595-.233-.369A9.822 9.822 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+    Agendar agora — (62) 99157-4823
+  </a>
+</section>
+
+<footer>
+  <div class="footer-logo">Maria Menina Estetica</div>
+  <div class="footer-info">
+    Setor Garavelo, Aparecida de Goiania — GO<br>
+    (62) 99157-4823<br>
+    @mariameninaestetica
+  </div>
+  <div class="footer-dev">Desenvolvido por VANT Digital Studio</div>
 </footer>
 
-<a href="https://wa.me/5562991574823" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562991574823" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.118 1.526 5.847L.057 23.882l6.207-1.448A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-4.983-1.356l-.357-.212-3.685.860.876-3.595-.233-.369A9.822 9.822 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, {threshold: 0.12});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

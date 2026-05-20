@@ -1,204 +1,259 @@
+<!-- Protótipo: Odontologia Goiânia 2 | Gerado em: 2026-05-19 -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Odontologia Goiânia 2 — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Odontologia Goiânia 2 — Saúde Bucal no Centro de Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Merriweather:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Space Grotesk', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#00B4D8;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Fraunces', serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Space Grotesk', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#90E0EF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Space Grotesk', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#00B4D8;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
-}
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ciano: #00B4D8;
+    --branco: #FFFFFF;
+    --ciano-claro: #90E0EF;
+    --ciano-palido: #E0F7FA;
+    --azul-escuro: #023E60;
+    --texto: #1A3A4A;
+    --cinza: #5A7080;
+    --fundo: #F0FBFF;
+  }
+  body { font-family: 'Nunito', sans-serif; color: var(--texto); background: var(--branco); }
+  h1, h2, h3 { font-family: 'Nunito', sans-serif; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+    padding: 14px 28px; display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 2px solid var(--ciano);
+    box-shadow: 0 2px 16px rgba(0,180,216,0.1);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-dente { width: 36px; height: 36px; background: var(--ciano); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+  .nav-dente svg { width: 20px; height: 20px; fill: #fff; }
+  .nav-nome { font-weight: 800; font-size: 1rem; color: var(--azul-escuro); }
+  .nav-nome span { color: var(--ciano); }
+  .nav-cta { background: var(--ciano); color: #fff; padding: 10px 22px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 700; transition: background 0.2s, transform 0.2s; }
+  .nav-cta:hover { background: var(--azul-escuro); transform: translateY(-1px); }
+
+  /* HERO — fundo claro, split com imagem à direita e estatísticas */
+  .hero {
+    min-height: 100vh; background: linear-gradient(180deg, var(--fundo) 0%, var(--ciano-palido) 100%);
+    display: flex; align-items: center; padding: 100px 24px 70px;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; width: 100%; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,180,216,0.1); border: 1px solid rgba(0,180,216,0.25); color: var(--ciano); padding: 7px 18px; border-radius: 8px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 22px; }
+  .hero h1 { font-size: clamp(2rem,3.5vw,3rem); color: var(--azul-escuro); line-height: 1.2; margin-bottom: 20px; font-weight: 800; }
+  .hero h1 span { color: var(--ciano); }
+  .hero p { color: var(--cinza); line-height: 1.8; margin-bottom: 32px; font-size: 0.97rem; font-weight: 300; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+  .btn-ciano { display: inline-flex; align-items: center; gap: 10px; background: var(--ciano); color: #fff; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.88rem; transition: background 0.2s, transform 0.2s; }
+  .btn-ciano:hover { background: var(--azul-escuro); transform: translateY(-2px); }
+  .btn-ciano svg { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
+  .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  .stat-box { background: var(--branco); border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 4px 16px rgba(0,180,216,0.1); border-top: 3px solid var(--ciano); }
+  .stat-num { font-size: 1.5rem; font-weight: 800; color: var(--ciano); }
+  .stat-label { font-size: 0.72rem; color: var(--cinza); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+  .hero-img img { width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,62,96,0.15); }
+
+  section { padding: 88px 24px; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  .sec-tag { font-size: 0.7rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ciano); font-weight: 700; display: block; margin-bottom: 10px; }
+  .sec-h { text-align: center; margin-bottom: 56px; }
+  .sec-h h2 { font-size: clamp(1.9rem,3vw,2.6rem); color: var(--azul-escuro); margin-bottom: 14px; font-weight: 800; }
+  .sec-h p { color: var(--cinza); max-width: 520px; margin: 0 auto; line-height: 1.7; font-weight: 300; }
+
+  .tratamentos { background: var(--branco); }
+  .trat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .trat-card { background: var(--fundo); border-radius: 14px; padding: 28px 22px; border-left: 4px solid var(--ciano); transition: transform 0.2s, box-shadow 0.2s; }
+  .trat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,180,216,0.15); }
+  .trat-card h3 { font-size: 1rem; color: var(--azul-escuro); margin-bottom: 10px; font-weight: 700; }
+  .trat-card p { font-size: 0.84rem; color: var(--cinza); line-height: 1.65; font-weight: 300; }
+  .trat-icon { width: 44px; height: 44px; background: var(--ciano); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .trat-icon svg { width: 22px; height: 22px; fill: #fff; }
+
+  .sobre { background: var(--ciano-palido); }
+  .sobre-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .sobre-img img { width: 100%; border-radius: 16px; box-shadow: 0 16px 48px rgba(0,62,96,0.12); }
+  .sobre-txt h2 { font-size: clamp(1.8rem,3vw,2.4rem); color: var(--azul-escuro); margin-bottom: 20px; font-weight: 800; }
+  .sobre-txt p { color: var(--texto); line-height: 1.8; margin-bottom: 14px; font-size: 0.95rem; font-weight: 300; }
+  .difs { list-style: none; margin-top: 22px; display: flex; flex-direction: column; gap: 12px; }
+  .difs li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; }
+  .difs li::before { content: '◆'; color: var(--ciano); font-size: 0.55rem; margin-top: 5px; flex-shrink: 0; }
+
+  .depoimentos { background: var(--azul-escuro); }
+  .dep-h { text-align: center; margin-bottom: 48px; }
+  .dep-h h2 { font-size: clamp(1.9rem,3vw,2.5rem); color: var(--branco); font-weight: 800; }
+  .dep-h p { color: var(--ciano-claro); margin-top: 10px; }
+  .dep-grade { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .dep-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(144,224,239,0.15); border-radius: 14px; padding: 28px 22px; }
+  .estrelas { color: var(--ciano); font-size: 1rem; margin-bottom: 14px; }
+  .dep-card p { font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.7; font-style: italic; margin-bottom: 20px; font-weight: 300; }
+  .dep-author strong { font-size: 0.87rem; color: var(--ciano-claro); display: block; }
+  .dep-author span { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+
+  .cta { background: var(--ciano); text-align: center; }
+  .cta h2 { font-size: clamp(1.9rem,3vw,2.6rem); color: var(--branco); margin-bottom: 14px; font-weight: 800; }
+  .cta p { color: rgba(255,255,255,0.85); max-width: 480px; margin: 0 auto 36px; line-height: 1.7; font-weight: 300; }
+  .btn-branco { display: inline-flex; align-items: center; gap: 10px; background: var(--branco); color: var(--azul-escuro); padding: 15px 36px; border-radius: 8px; text-decoration: none; font-weight: 800; font-size: 0.88rem; transition: background 0.2s; }
+  .btn-branco:hover { background: var(--fundo); }
+  .btn-branco svg { width: 20px; height: 20px; fill: #25D366; }
+
+  footer { background: var(--azul-escuro); color: #4A7090; padding: 48px 24px 28px; text-align: center; border-top: 1px solid rgba(0,180,216,0.15); }
+  .footer-logo-c { font-weight: 800; font-size: 1.2rem; color: var(--ciano); margin-bottom: 6px; }
+  footer p { font-size: 0.84rem; margin-bottom: 6px; }
+  footer a { color: var(--ciano); text-decoration: none; }
+  .footer-copy { margin-top: 28px; border-top: 1px solid rgba(0,180,216,0.1); padding-top: 20px; font-size: 0.76rem; }
+
+  @media (max-width: 768px) {
+    .hero-inner, .sobre-inner { grid-template-columns: 1fr; }
+    .hero-img { order: -1; }
+    .trat-grid, .dep-grade { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: repeat(3,1fr); }
+  }
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Odontologia Goiânia 2</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <div class="nav-dente">
+      <svg viewBox="0 0 24 24"><path d="M12 2C9.5 2 7 4 7 7c0 1.5.5 2.5 1 4 .5 1.5.5 3 .5 5s-.5 4-1.5 4c-.7 0-1-.8-1-3 0-2-.5-3.5-2-4.5C3 11.5 2 10 2 8c0-4 4-6 7-6h6c3 0 7 2 7 6 0 2-1 3.5-2 4.5-1.5 1-2 2.5-2 4.5 0 2.2-.3 3-1 3-1 0-1.5-2-1.5-4s0-3.5.5-5c.5-1.5 1-2.5 1-4 0-3-2.5-5-5-5z"/></svg>
+    </div>
+    <div>
+      <div class="nav-nome">Odontologia <span>Goiânia 2</span></div>
+    </div>
   </div>
-  <a href="https://wa.me/5562993714528" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://wa.me/5562993714528" class="nav-cta" target="_blank">Agendar Consulta</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#00758c;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div class="orb-bg" style="background:radial-gradient(ellipse at center,rgba(144,224,239,0.4) 0%,rgba(0,180,216,0.2) 50%,transparent 70%);"></div>
-  <div style="position:relative;z-index:2;text-align:center;max-width:700px;padding:40px 24px;background:rgba(255,255,255,0.07);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:24px;">
-    <h1 style="font-size:clamp(36px,5vw,66px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;font-family:'Fraunces', serif;">Seu sorriso e nossa arte</h1>
-    <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:40px;font-family:'Space Grotesk', sans-serif;">Odontologia especializada em Goiânia</p>
-    <div style="display:flex;gap:12px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;">
-      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:10px 20px;border-radius:50px;color:#fff;"><strong style="color:#90E0EF;">3.200+</strong> Sorrisos</div><div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:10px 20px;border-radius:50px;color:#fff;"><strong style="color:#90E0EF;">12+</strong> Anos de Experiencia</div><div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:10px 20px;border-radius:50px;color:#fff;"><strong style="color:#90E0EF;">8</strong> Especialidades</div><div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:10px 20px;border-radius:50px;color:#fff;"><strong style="color:#90E0EF;">99%</strong> Satisfacao</div>
-    </div>
-    <a href="https://wa.me/5562993714528" style="background:#90E0EF;color:#0a0a0a;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</section>
-<style>
-.orb-bg{position:absolute;width:120%;height:120%;top:-10%;left:-10%;animation:orbAnim 8s ease-in-out infinite alternate;}
-@keyframes orbAnim{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.1) translate(3%,3%)}}
-</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#90E0EF;margin-bottom:12px;font-family:'Space Grotesk', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#007d97;font-family:'Fraunces', serif;">O que fazemos</h2>
-    </div>
-    <div style="max-width:700px;"><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90E0EF;opacity:0.3;line-height:1;min-width:80px;font-family:'Fraunces', serif;">01</div><div><h3 style="font-size:20px;font-weight:700;color:#007d97;margin-bottom:8px;font-family:'Fraunces', serif;">Clareamento Dental</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Sorriso mais branco e luminoso com tecnologia segura e eficaz.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90E0EF;opacity:0.3;line-height:1;min-width:80px;font-family:'Fraunces', serif;">02</div><div><h3 style="font-size:20px;font-weight:700;color:#007d97;margin-bottom:8px;font-family:'Fraunces', serif;">Facetas de Porcelana</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Transforme seu sorriso com facetas ultrafinas e naturais.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90E0EF;opacity:0.3;line-height:1;min-width:80px;font-family:'Fraunces', serif;">03</div><div><h3 style="font-size:20px;font-weight:700;color:#007d97;margin-bottom:8px;font-family:'Fraunces', serif;">Implante Dentario</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Substituicao permanente de dentes com estetica e funcao.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90E0EF;opacity:0.3;line-height:1;min-width:80px;font-family:'Fraunces', serif;">04</div><div><h3 style="font-size:20px;font-weight:700;color:#007d97;margin-bottom:8px;font-family:'Fraunces', serif;">Ortodontia</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Alinhamento perfeito com aparelhos modernos e esteticos.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90E0EF;opacity:0.3;line-height:1;min-width:80px;font-family:'Fraunces', serif;">05</div><div><h3 style="font-size:20px;font-weight:700;color:#007d97;margin-bottom:8px;font-family:'Fraunces', serif;">Tratamento de Canal</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Procedimento seguro para salvar seu dente com conforto.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90E0EF;opacity:0.3;line-height:1;min-width:80px;font-family:'Fraunces', serif;">06</div><div><h3 style="font-size:20px;font-weight:700;color:#007d97;margin-bottom:8px;font-family:'Fraunces', serif;">Proteses Dentarias</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Recupere a funcao e estetica com proteses de alta qualidade.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90E0EF;opacity:0.3;line-height:1;min-width:80px;font-family:'Fraunces', serif;">07</div><div><h3 style="font-size:20px;font-weight:700;color:#007d97;margin-bottom:8px;font-family:'Fraunces', serif;">Odontopediatria</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Cuidado especializado para a saude bucal das criancas.</p></div></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#00B4D8;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="3200" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#90E0EF;font-family:'Fraunces', serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Space Grotesk', sans-serif;">Sorrisos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#90E0EF;font-family:'Fraunces', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Space Grotesk', sans-serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="8" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#90E0EF;font-family:'Fraunces', serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Space Grotesk', sans-serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="99" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#90E0EF;font-family:'Fraunces', serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Space Grotesk', sans-serif;">Satisfacao</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;min-height:400px;display:flex;align-items:center;">
-  <div style="position:absolute;left:0;top:50%;transform:translateY(-50%);font-size:clamp(120px,20vw,240px);font-weight:900;color:#00B4D8;opacity:0.08;line-height:1;pointer-events:none;font-family:'Fraunces', serif;">12</div>
-  <div style="position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%;">
+<section class="hero">
+  <div class="hero-inner">
     <div>
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#90E0EF;margin-bottom:12px;font-family:'Space Grotesk', sans-serif;">Sobre nos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#007d97;margin-bottom:20px;font-family:'Fraunces', serif;">Odontologia Goiânia 2</h2>
-      <p style="font-size:16px;color:#555;line-height:1.8;font-family:'Space Grotesk', sans-serif;">Nossa clinica odontologica combina tecnologia de ponta com atendimento humanizado para transformar sorrisos e proporcionar saude bucal completa. Cada tratamento e personalizado para atender as necessidades unicas de cada paciente.</p>
+      <div class="hero-badge">Odontologia Geral e Estética — Centro de Goiânia</div>
+      <h1>Sorria com <span>confiança</span> no Centro de Goiânia</h1>
+      <p>A Odontologia Goiânia 2 oferece tratamentos completos de saúde bucal e estética dental com tecnologia moderna, atendimento humanizado e preço justo para toda a família.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5562993714528" class="btn-ciano" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+          Agendar pelo WhatsApp
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-box"><div class="stat-num">+800</div><div class="stat-label">Pacientes</div></div>
+        <div class="stat-box"><div class="stat-num">100%</div><div class="stat-label">Satisfação</div></div>
+        <div class="stat-box"><div class="stat-num">5.0</div><div class="stat-label">Avaliação</div></div>
+      </div>
     </div>
     <div>
-      <div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Space Grotesk', sans-serif;">Sorrisos</span><span style="font-size:26px;font-weight:800;color:#00B4D8;font-family:'Fraunces', serif;">3.200+</span></div><div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Space Grotesk', sans-serif;">Anos de Experiencia</span><span style="font-size:26px;font-weight:800;color:#00B4D8;font-family:'Fraunces', serif;">12+</span></div><div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Space Grotesk', sans-serif;">Especialidades</span><span style="font-size:26px;font-weight:800;color:#00B4D8;font-family:'Fraunces', serif;">8</span></div><div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Space Grotesk', sans-serif;">Satisfacao</span><span style="font-size:26px;font-weight:800;color:#00B4D8;font-family:'Fraunces', serif;">99%</span></div>
+      <img src="https://placehold.co/520x420/00B4D8/FFFFFF?text=Odontologia%0AGoiânia+2" alt="Odontologia Goiânia 2">
     </div>
-  </div>
-</div>
   </div>
 </section>
 
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#90E0EF;margin-bottom:12px;font-family:'Space Grotesk', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#007d97;font-family:'Fraunces', serif;">O que dizem nossos clientes</h2>
+<section class="tratamentos">
+  <div class="wrap">
+    <div class="sec-h">
+      <span class="sec-tag">Tratamentos</span>
+      <h2>Cuidado Completo para o Seu Sorriso</h2>
+      <p>Do preventivo ao estético, a Odontologia Goiânia 2 cobre tudo que você precisa para ter saúde bucal de qualidade no centro de Goiânia.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Space Grotesk', sans-serif;">"Meu sorriso mudou completamente. Me sinto muito mais confiante."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2e8f3;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#00B4D8;font-size:14px;">C</div><div><div style="font-weight:700;font-size:14px;color:#007d97;font-family:'Fraunces', serif;">Carlos M.</div><div style="font-size:12px;color:#888;font-family:'Space Grotesk', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Space Grotesk', sans-serif;">"Atendimento excelente, sem dor e com resultado perfeito."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2e8f3;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#00B4D8;font-size:14px;">F</div><div><div style="font-weight:700;font-size:14px;color:#007d97;font-family:'Fraunces', serif;">Fernanda L.</div><div style="font-size:12px;color:#888;font-family:'Space Grotesk', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Space Grotesk', sans-serif;">"Profissionais dedicados que realmente se importam com o paciente."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2e8f3;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#00B4D8;font-size:14px;">R</div><div><div style="font-weight:700;font-size:14px;color:#007d97;font-family:'Fraunces', serif;">Roberto A.</div><div style="font-size:12px;color:#888;font-family:'Space Grotesk', sans-serif;">Paciente</div></div></div></div></div>
+    <div class="trat-grid">
+      <div class="trat-card">
+        <div class="trat-icon"><svg viewBox="0 0 24 24"><path d="M12 2C9.5 2 7 4 7 7c0 1.5.5 2.5 1 4 .5 1.5.5 3 .5 5s-.5 4-1.5 4c-.7 0-1-.8-1-3 0-2-.5-3.5-2-4.5C3 11.5 2 10 2 8c0-4 4-6 7-6h6c3 0 7 2 7 6 0 2-1 3.5-2 4.5-1.5 1-2 2.5-2 4.5 0 2.2-.3 3-1 3-1 0-1.5-2-1.5-4s0-3.5.5-5c.5-1.5 1-2.5 1-4 0-3-2.5-5-5-5z"/></svg></div>
+        <h3>Clareamento Dental</h3><p>Tratamento seguro e eficaz para um sorriso até 8 tons mais branco com produtos certificados.</p>
+      </div>
+      <div class="trat-card">
+        <div class="trat-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <h3>Facetas de Porcelana</h3><p>Lâminas ultrafinas que corrigem cor, forma e tamanho dos dentes para um sorriso impecável.</p>
+      </div>
+      <div class="trat-card">
+        <div class="trat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+        <h3>Implante Dentário</h3><p>Reposição permanente de dentes com titânio biocompatível. Funcionalidade e naturalidade totais.</p>
+      </div>
+      <div class="trat-card">
+        <div class="trat-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Ortodontia</h3><p>Aparelhos convencionais e alinhadores invisíveis para alinhamento perfeito em todas as idades.</p>
+      </div>
+      <div class="trat-card">
+        <div class="trat-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <h3>Tratamento de Canal</h3><p>Procedimento preciso e sem dor para salvar dentes comprometidos e preservar seu sorriso.</p>
+      </div>
+      <div class="trat-card">
+        <div class="trat-icon"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><circle cx="12" cy="12" r="1"/></svg></div>
+        <h3>Consulta e Prevenção</h3><p>Avaliação completa, limpeza e orientação para manter a saúde bucal de toda a família.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#00B4D8"/></svg>
-  <div style="background:#00B4D8;padding:40px 40px 80px;text-align:center;color:#ffffff;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#90E0EF;margin-bottom:16px;font-family:'Space Grotesk', sans-serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'Fraunces', serif;">Agende sua consulta</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562993714528" style="display:inline-block;background:#90E0EF;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/odontologiagoiania2/" style="display:inline-block;border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
-  </div>
-</div>
+<section class="sobre">
+  <div class="wrap">
+    <div class="sobre-inner">
+      <div class="sobre-img">
+        <img src="https://placehold.co/500x440/FFFFFF/00B4D8?text=Nossa+Clinica" alt="Odontologia Goiânia 2 — Clínica">
+      </div>
+      <div class="sobre-txt">
+        <span class="sec-tag">Sobre a Clínica</span>
+        <h2>No Centro de Goiânia, cuidando do seu sorriso</h2>
+        <p>A Odontologia Goiânia 2 é uma clínica completa localizada no coração de Goiânia, com acesso fácil e atendimento para toda a família. Unimos tecnologia de ponta com um atendimento humano e acolhedor.</p>
+        <p>Nossa equipe é formada por dentistas especializados em diferentes áreas, garantindo que você encontre aqui tudo o que precisa para sorrir com saúde e confiança.</p>
+        <ul class="difs">
+          <li>Clínica completa no Centro de Goiânia com fácil acesso</li>
+          <li>Profissionais especializados em cada área da odontologia</li>
+          <li>Equipamentos modernos e materiais certificados</li>
+          <li>Atendimento para toda a família, crianças e adultos</li>
+          <li>Agendamento rápido pelo WhatsApp</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer style="background:#0090ac;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Fraunces', serif;font-weight:800;font-size:20px;margin-bottom:8px;">Odontologia Goiânia 2</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Space Grotesk', sans-serif;">Centro, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562993714528" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/odontologiagoiania2/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
+<section class="depoimentos">
+  <div class="wrap">
+    <div class="dep-h">
+      <h2>Pacientes que Sorriem Mais</h2>
+      <p>Resultados reais de quem confia na Odontologia Goiânia 2</p>
+    </div>
+    <div class="dep-grade">
+      <div class="dep-card">
+        <div class="estrelas">★★★★★</div>
+        <p>"Fiz o clareamento dental e ficou perfeito! A clínica é super organizada, o atendimento foi excelente e o resultado superou minhas expectativas. Recomendo a todos!"</p>
+        <div class="dep-author"><strong>Rafael Costa</strong><span>Vendedor, Goiânia Centro</span></div>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Fraunces', serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Space Grotesk', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
+      <div class="dep-card">
+        <div class="estrelas">★★★★★</div>
+        <p>"Fiz implante dentário aqui e não poderia estar mais satisfeita. Profissional extremamente competente, sem dor e com resultado idêntico ao dente natural. Obrigada!"</p>
+        <div class="dep-author"><strong>Sandra Lima</strong><span>Professora, Goiânia</span></div>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Fraunces', serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Space Grotesk', sans-serif;">
-          (62) 99371-4528<br>
-          <a href="https://wa.me/5562993714528" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/odontologiagoiania2/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
+      <div class="dep-card">
+        <div class="estrelas">★★★★★</div>
+        <p>"Atendimento impecável e consultório muito bem equipado. Levei toda a família e todos ficaram satisfeitos. Já virou a nossa clínica de confiança no centro!"</p>
+        <div class="dep-author"><strong>Carlos Mendes</strong><span>Comerciante, Centro</span></div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Space Grotesk', sans-serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Agende Agora e Cuide do Seu Sorriso</h2>
+    <p>Primeira consulta com avaliação completa. Atendemos no Centro de Goiânia com horários acessíveis.</p>
+    <a href="https://wa.me/5562993714528" class="btn-branco" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Agendar no WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo-c">Odontologia Goiânia 2</div>
+  <p>Odontologia Geral e Estética — Centro, Goiânia GO</p>
+  <p>Instagram: <a href="https://instagram.com/odontologiagoiania2" target="_blank">@odontologiagoiania2</a></p>
+  <p><a href="https://wa.me/5562993714528">WhatsApp: (62) 99371-4528</a></p>
+  <div class="footer-copy">© 2026 Odontologia Goiânia 2. Todos os direitos reservados. | Desenvolvido por VANT Digital Studio</div>
 </footer>
 
-<a href="https://wa.me/5562993714528" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-
-<script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
-</script>
 </body>
 </html>

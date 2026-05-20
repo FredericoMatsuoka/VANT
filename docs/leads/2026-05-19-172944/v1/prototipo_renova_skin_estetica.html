@@ -2,197 +2,342 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Renova Skin Estética — Aparecida de Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Spectral:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renova Skin Estetica — Aparecida de Goiania</title>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Spectral', serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#A0D4C8;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Montserrat', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Spectral', serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#80C4B8;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Spectral', serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#A0D4C8;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#80C4B8;
+  --teal-escuro:#3D8B7E;
+  --teal-pale:#A0D4C8;
+  --teal-light:#F0FAF8;
+  --teal-dark:#1A3530;
+  --branco:#FFFFFF;
+  --texto:#1E3A36;
+  --cinza:#F4FAF8;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+body{font-family:'Urbanist',sans-serif;color:var(--texto);background:var(--branco);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:999;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 44px;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:2px solid var(--teal-light)}
+.nav-logo{font-weight:800;font-size:1rem;color:var(--teal-escuro);display:flex;align-items:center;gap:8px}
+.nav-logo-mark{width:28px;height:28px;background:var(--teal-escuro);border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-mark svg{width:16px;height:16px;fill:#fff}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--texto);font-weight:600;font-size:0.85rem;transition:color 0.2s}
+.nav-links a:hover{color:var(--teal-escuro)}
+.nav-wa{background:var(--teal-escuro);color:#fff;padding:9px 22px;border-radius:6px;text-decoration:none;font-weight:700;font-size:0.85rem;transition:background 0.2s}
+.nav-wa:hover{background:var(--teal-dark)}
+
+/* HERO — clinico/dermatologico limpo */
+.hero{padding-top:68px;min-height:100vh;display:flex;align-items:center;background:var(--teal-light)}
+.hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:80px;align-items:center;padding:60px 40px}
+.hero-left .hero-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(61,139,126,0.1);border:1px solid rgba(61,139,126,0.2);color:var(--teal-escuro);padding:6px 16px;border-radius:50px;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:24px}
+.hero-chip-dot{width:6px;height:6px;background:var(--teal-escuro);border-radius:50%}
+.hero-left h1{font-size:clamp(2rem,3.5vw,3.4rem);font-weight:800;line-height:1.15;color:var(--teal-dark);margin-bottom:20px}
+.hero-left h1 em{font-style:normal;color:var(--teal-escuro)}
+.hero-left p{font-size:1rem;line-height:1.82;color:#3A5450;margin-bottom:36px;max-width:460px}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+.h-tag{background:#fff;border:1.5px solid var(--teal-pale);color:var(--teal-escuro);padding:6px 14px;border-radius:20px;font-size:0.78rem;font-weight:700}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:15px 32px;border-radius:6px;text-decoration:none;font-weight:700;font-size:0.95rem;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:transform 0.2s}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-wa svg{width:20px;height:20px;fill:#fff}
+.btn-outline{display:inline-flex;align-items:center;color:var(--teal-escuro);padding:15px 24px;border-radius:6px;text-decoration:none;font-weight:700;font-size:0.95rem;border:2px solid var(--teal-pale);transition:all 0.2s}
+.btn-outline:hover{background:var(--teal-pale)}
+
+.hero-right{position:relative}
+.hero-right img{width:100%;border-radius:16px;box-shadow:0 20px 60px rgba(61,139,126,0.2)}
+.hero-info-card{position:absolute;bottom:-24px;left:-24px;background:#fff;border-radius:14px;padding:20px 24px;box-shadow:0 8px 32px rgba(61,139,126,0.15);min-width:200px}
+.hic-label{font-size:0.72rem;font-weight:700;color:var(--teal-escuro);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.hic-items{display:flex;flex-direction:column;gap:4px}
+.hic-item{font-size:0.82rem;color:var(--texto);font-weight:500;display:flex;align-items:center;gap:6px}
+.hic-item::before{content:'';width:5px;height:5px;background:var(--teal);border-radius:50%;flex-shrink:0}
+
+/* DIFERENCIAIS */
+.diferenciais{padding:90px 24px;background:#fff}
+.dif-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start}
+.dif-left .sec-pre{font-size:0.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal-escuro);display:block;margin-bottom:14px}
+.dif-left h2{font-size:clamp(1.7rem,2.8vw,2.4rem);font-weight:800;color:var(--teal-dark);line-height:1.3;margin-bottom:20px}
+.dif-left p{font-size:0.92rem;line-height:1.85;color:var(--texto)}
+.dif-right{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.dif-card{background:var(--cinza);border-radius:12px;padding:28px 24px;border-top:3px solid var(--teal)}
+.dif-card h3{font-size:0.97rem;font-weight:700;color:var(--teal-dark);margin-bottom:10px}
+.dif-card p{font-size:0.84rem;color:var(--texto);line-height:1.7}
+
+/* TRATAMENTOS */
+.tratamentos{padding:90px 24px;background:var(--teal-light)}
+.section-header{text-align:center;margin-bottom:56px}
+.sec-pre{font-size:0.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--teal-escuro);display:block;margin-bottom:10px}
+.section-header h2{font-size:clamp(1.7rem,2.8vw,2.3rem);font-weight:800;color:var(--teal-dark)}
+.trat-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.trat-card{background:#fff;border-radius:12px;padding:32px 26px;display:flex;flex-direction:column;gap:12px;transition:box-shadow 0.25s,transform 0.25s}
+.trat-card:hover{box-shadow:0 12px 36px rgba(61,139,126,0.15);transform:translateY(-4px)}
+.trat-step{width:32px;height:32px;background:var(--teal-escuro);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800;color:#fff}
+.trat-card h3{font-size:0.98rem;font-weight:700;color:var(--teal-dark)}
+.trat-card p{font-size:0.84rem;color:var(--texto);line-height:1.7;flex:1}
+
+/* NUMEROS */
+.numeros{padding:70px 24px;background:var(--teal-escuro)}
+.num-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.n-val{font-size:2.6rem;font-weight:800;color:var(--teal-pale)}
+.n-lbl{font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.65);text-transform:uppercase;letter-spacing:1px;margin-top:6px}
+
+/* DEPO */
+.depoimentos{padding:90px 24px;background:#fff}
+.depo-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.depo-card{background:var(--cinza);border-radius:12px;padding:30px 24px;border-left:4px solid var(--teal)}
+.stars{display:flex;gap:3px;margin-bottom:12px}
+.stars svg{width:14px;height:14px;fill:var(--teal-escuro)}
+.depo-card p{font-size:0.87rem;line-height:1.75;color:var(--texto);margin-bottom:16px}
+.d-nome{font-weight:700;font-size:0.87rem;color:var(--teal-dark)}
+.d-local{font-size:0.75rem;color:var(--teal-escuro);font-weight:600;margin-top:3px}
+
+/* CTA */
+.cta{padding:90px 24px;background:linear-gradient(135deg,var(--teal-dark),var(--teal-escuro));text-align:center}
+.cta h2{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;color:#fff;margin-bottom:12px}
+.cta p{font-size:0.97rem;color:rgba(255,255,255,0.78);margin-bottom:38px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;padding:16px 44px;border-radius:6px;text-decoration:none;font-weight:800;font-size:1rem;box-shadow:0 6px 24px rgba(37,211,102,0.4);transition:transform 0.2s}
+.cta-btn:hover{transform:translateY(-3px)}
+.cta-btn svg{width:22px;height:22px;fill:#fff}
+
+footer{background:#0E201C;color:rgba(255,255,255,0.55);padding:48px 24px 28px;text-align:center}
+.footer-logo{font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:14px}
+.footer-info{font-size:0.82rem;line-height:2}
+.footer-dev{font-size:0.72rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;margin-top:18px;color:rgba(255,255,255,0.28)}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;padding:40px 24px}
+  .hero-info-card{display:none}
+  .dif-inner{grid-template-columns:1fr}
+  .dif-right{grid-template-columns:1fr}
+  .trat-grid{grid-template-columns:1fr}
+  .num-inner{grid-template-columns:repeat(2,1fr)}
+  .depo-grid{grid-template-columns:1fr}
+  nav{padding:0 20px}
+  .nav-links{display:none}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Renova Skin Estética</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+    </div>
+    Renova Skin
   </div>
-  <a href="https://wa.me/5562990584632" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <ul class="nav-links">
+    <li><a href="#tratamentos">Tratamentos</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5562990584632" class="nav-wa" target="_blank">Agendar</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#A0D4C8;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div class="ptcl" style="width:8px;height:8px;left:0%;top:0%;background:rgba(128,196,184,0.15);animation-duration:4s;animation-delay:0.0s;"></div><div class="ptcl" style="width:11px;height:11px;left:37%;top:23%;background:rgba(128,196,184,0.25);animation-duration:5s;animation-delay:0.3s;"></div><div class="ptcl" style="width:14px;height:14px;left:74%;top:46%;background:rgba(128,196,184,0.35);animation-duration:6s;animation-delay:0.6s;"></div><div class="ptcl" style="width:17px;height:17px;left:21%;top:69%;background:rgba(128,196,184,0.15);animation-duration:7s;animation-delay:0.8999999999999999s;"></div><div class="ptcl" style="width:20px;height:20px;left:58%;top:12%;background:rgba(128,196,184,0.25);animation-duration:4s;animation-delay:1.2s;"></div><div class="ptcl" style="width:23px;height:23px;left:5%;top:35%;background:rgba(128,196,184,0.35);animation-duration:5s;animation-delay:1.5s;"></div><div class="ptcl" style="width:26px;height:26px;left:42%;top:58%;background:rgba(128,196,184,0.15);animation-duration:6s;animation-delay:1.7999999999999998s;"></div><div class="ptcl" style="width:29px;height:29px;left:79%;top:1%;background:rgba(128,196,184,0.25);animation-duration:7s;animation-delay:2.1s;"></div><div class="ptcl" style="width:32px;height:32px;left:26%;top:24%;background:rgba(128,196,184,0.35);animation-duration:4s;animation-delay:2.4s;"></div><div class="ptcl" style="width:35px;height:35px;left:63%;top:47%;background:rgba(128,196,184,0.15);animation-duration:5s;animation-delay:2.6999999999999997s;"></div><div class="ptcl" style="width:38px;height:38px;left:10%;top:70%;background:rgba(128,196,184,0.25);animation-duration:6s;animation-delay:3.0s;"></div><div class="ptcl" style="width:41px;height:41px;left:47%;top:13%;background:rgba(128,196,184,0.35);animation-duration:7s;animation-delay:3.3s;"></div><div class="ptcl" style="width:44px;height:44px;left:84%;top:36%;background:rgba(128,196,184,0.15);animation-duration:4s;animation-delay:3.5999999999999996s;"></div><div class="ptcl" style="width:47px;height:47px;left:31%;top:59%;background:rgba(128,196,184,0.25);animation-duration:5s;animation-delay:3.9s;"></div><div class="ptcl" style="width:50px;height:50px;left:68%;top:2%;background:rgba(128,196,184,0.35);animation-duration:6s;animation-delay:4.2s;"></div><div class="ptcl" style="width:53px;height:53px;left:15%;top:25%;background:rgba(128,196,184,0.15);animation-duration:7s;animation-delay:4.5s;"></div><div class="ptcl" style="width:56px;height:56px;left:52%;top:48%;background:rgba(128,196,184,0.25);animation-duration:4s;animation-delay:4.8s;"></div><div class="ptcl" style="width:59px;height:59px;left:89%;top:71%;background:rgba(128,196,184,0.35);animation-duration:5s;animation-delay:5.1s;"></div><div class="ptcl" style="width:62px;height:62px;left:36%;top:14%;background:rgba(128,196,184,0.15);animation-duration:6s;animation-delay:5.3999999999999995s;"></div><div class="ptcl" style="width:65px;height:65px;left:73%;top:37%;background:rgba(128,196,184,0.25);animation-duration:7s;animation-delay:5.7s;"></div>
-  <div style="position:relative;text-align:center;color:#0a0a0a;padding:40px 24px;z-index:2;max-width:800px;">
-    <h1 style="font-size:clamp(40px,6vw,76px);font-weight:800;line-height:1.1;margin-bottom:24px;font-family:'Montserrat', sans-serif;">Realce o melhor de voce</h1>
-    <p style="font-size:20px;line-height:1.6;margin-bottom:48px;opacity:0.85;font-family:'Spectral', serif;">Transformacoes reais no Setor Tiradentes de Aparecida de Goiânia</p>
-    <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;">
-      <div style="background:rgba(10,10,10,0.1);border:1px solid rgba(10,10,10,0.2);padding:12px 24px;border-radius:50px;"><span style="font-size:22px;font-weight:800;color:#80C4B8;">2.400+</span><span style="font-size:13px;margin-left:8px;opacity:0.8;">Procedimentos</span></div><div style="background:rgba(10,10,10,0.1);border:1px solid rgba(10,10,10,0.2);padding:12px 24px;border-radius:50px;"><span style="font-size:22px;font-weight:800;color:#80C4B8;">98%</span><span style="font-size:13px;margin-left:8px;opacity:0.8;">Satisfacao</span></div><div style="background:rgba(10,10,10,0.1);border:1px solid rgba(10,10,10,0.2);padding:12px 24px;border-radius:50px;"><span style="font-size:22px;font-weight:800;color:#80C4B8;">8+ anos</span><span style="font-size:13px;margin-left:8px;opacity:0.8;">Experiencia</span></div><div style="background:rgba(10,10,10,0.1);border:1px solid rgba(10,10,10,0.2);padding:12px 24px;border-radius:50px;"><span style="font-size:22px;font-weight:800;color:#80C4B8;">4.9</span><span style="font-size:13px;margin-left:8px;opacity:0.8;">Avaliacao</span></div>
-    </div>
-    <a href="https://wa.me/5562990584632" style="background:#80C4B8;color:#0a0a0a;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</section>
-<style>
-.ptcl{position:absolute;border-radius:50%;animation:floatPtcl ease-in-out infinite alternate;}
-@keyframes floatPtcl{0%{transform:translateY(0)}100%{transform:translateY(-20px)}}
-</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#80C4B8;margin-bottom:12px;font-family:'Spectral', serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#70948c;font-family:'Montserrat', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#dff0ed;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#80C4B8" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#607f78;font-family:'Montserrat', sans-serif;">Harmonizacao Facial</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Spectral', serif;">Equilibrio e naturalidade para o seu rosto com tecnicas avancadas.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#dff0ed;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#80C4B8" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#607f78;font-family:'Montserrat', sans-serif;">Botox</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Spectral', serif;">Suavizacao de rugas e linhas de expressao com resultado natural.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#dff0ed;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#80C4B8" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#607f78;font-family:'Montserrat', sans-serif;">Preenchimento Labial</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Spectral', serif;">Volume e definicao para labios mais sensuais e harmoniosos.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#dff0ed;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#80C4B8" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#607f78;font-family:'Montserrat', sans-serif;">Limpeza de Pele</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Spectral', serif;">Limpeza profunda e revitalizacao para uma pele saudavel.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#dff0ed;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#80C4B8" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#607f78;font-family:'Montserrat', sans-serif;">Microagulhamento</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Spectral', serif;">Estimulo do coleageno para pele renovada e vibrante.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#dff0ed;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#80C4B8" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#607f78;font-family:'Montserrat', sans-serif;">Bioestimuladores</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Spectral', serif;">Rejuvenescimento profundo com estimulo natural de coleageno.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#dff0ed;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#80C4B8" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#607f78;font-family:'Montserrat', sans-serif;">Peeling Quimico</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Spectral', serif;">Renovacao celular e uniformizacao do tom da pele.</p></div></div><style>.srv-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,0.12)!important;}@media(max-width:768px){.srv-card+.srv-card+.srv-card,.srv-card+.srv-card,.srv-card{}div[style*="repeat(3"]{}}</style>
-  </div>
-</section>
-
-<section id="stats" style="background:#A0D4C8;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="2400" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#80C4B8;font-family:'Montserrat', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(96,127,120,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Spectral', serif;">Procedimentos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="98" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#80C4B8;font-family:'Montserrat', sans-serif;">0%</div><div style="font-size:14px;color:rgba(96,127,120,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Spectral', serif;">Satisfacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="8" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#80C4B8;font-family:'Montserrat', sans-serif;">0+ anos</div><div style="font-size:14px;color:rgba(96,127,120,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Spectral', serif;">Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="49" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#80C4B8;font-family:'Montserrat', sans-serif;">0.</div><div style="font-size:14px;color:rgba(96,127,120,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Spectral', serif;">Avaliacao</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:64px;">
-  <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#70948c;margin-bottom:16px;font-family:'Montserrat', sans-serif;">Renova Skin Estética</h2>
-  <p style="font-size:16px;color:#555;max-width:640px;margin:0 auto;line-height:1.7;font-family:'Spectral', serif;">Somos uma clinica estetica dedicada a realcar a beleza natural de cada cliente. Com profissionais altamente capacitados e tecnologia de ponta, oferecemos tratamentos personalizados que respeitam a individualidade de cada pessoa.</p>
-</div>
-<div style="position:relative;display:flex;gap:0;margin-top:40px;">
-  <div style="position:absolute;top:8px;left:10%;right:10%;height:2px;background:linear-gradient(to right,#cce7e2,#80C4B8,#cce7e2);z-index:1;"></div>
-  <div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#80C4B8;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #dff0ed;"></div><h4 style="font-size:17px;font-weight:700;color:#70948c;margin-bottom:8px;font-family:'Montserrat', sans-serif;">Fundacao</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Spectral', serif;">Inicio das atividades com foco em qualidade e excelencia.</p></div><div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#80C4B8;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #dff0ed;"></div><h4 style="font-size:17px;font-weight:700;color:#70948c;margin-bottom:8px;font-family:'Montserrat', sans-serif;">Crescimento</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Spectral', serif;">Expansao da equipe e dos servicos oferecidos aos clientes.</p></div><div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#80C4B8;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #dff0ed;"></div><h4 style="font-size:17px;font-weight:700;color:#70948c;margin-bottom:8px;font-family:'Montserrat', sans-serif;">Referencia</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Spectral', serif;">Consolidacao como referencia no mercado regional.</p></div>
-</div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#80C4B8;margin-bottom:12px;font-family:'Spectral', serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#70948c;font-family:'Montserrat', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Spectral', serif;">"O resultado ficou incrivel, muito natural e exatamente o que eu queria."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#e2f2ee;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#A0D4C8;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#70948c;font-family:'Montserrat', sans-serif;">Maria S.</div><div style="font-size:12px;color:#888;font-family:'Spectral', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Spectral', serif;">"Profissionalismo e cuidado excepcionais. Me sinto outra pessoa."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#e2f2ee;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#A0D4C8;font-size:14px;">A</div><div><div style="font-weight:700;font-size:14px;color:#70948c;font-family:'Montserrat', sans-serif;">Ana P.</div><div style="font-size:12px;color:#888;font-family:'Spectral', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Spectral', serif;">"Ambiente acolhedor e tratamento de primeira qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#e2f2ee;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#A0D4C8;font-size:14px;">J</div><div><div style="font-weight:700;font-size:14px;color:#70948c;font-family:'Montserrat', sans-serif;">Julia R.</div><div style="font-size:12px;color:#888;font-family:'Spectral', serif;">Cliente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="background:linear-gradient(135deg,#A0D4C8 0%,#789f96 100%);border-radius:24px;padding:80px 48px;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;opacity:0.03;background-image:url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;200&quot; height=&quot;200&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.65&quot; numOctaves=&quot;3&quot;/></filter><rect width=&quot;200&quot; height=&quot;200&quot; filter=&quot;url(%23n)&quot;/></svg>');background-size:200px;"></div>
-  <div style="position:relative;z-index:2;color:#0a0a0a;">
-    <div style="display:inline-block;background:rgba(10,10,10,0.1);border:1px solid rgba(10,10,10,0.2);padding:8px 20px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;font-family:'Spectral', serif;">Contato</div>
-    <h2 style="font-size:clamp(28px,4.5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Montserrat', sans-serif;">Agende sua avaliacao gratuita</h2>
-    <p style="font-size:18px;opacity:0.85;max-width:520px;margin:0 auto 44px;line-height:1.6;font-family:'Spectral', serif;">Atendimento especializado para voce.</p>
-    <a href="https://wa.me/5562990584632" style="display:inline-block;background:#80C4B8;color:#0a0a0a;padding:18px 48px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#80a9a0;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Montserrat', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Renova Skin Estética</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Spectral', serif;">Setor Tiradentes, Aparecida de Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562990584632" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/renovaskin.aparecida/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-chip">
+        <span class="hero-chip-dot"></span>
+        Skincare + Estetica Corporal — Aparecida de Goiania
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Montserrat', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Spectral', serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
+      <h1>Sua pele renovada.<br>Seu corpo <em>transformado.</em></h1>
+      <p>Especialistas em skincare e tratamentos corporais no Setor Tiradentes. Protocolos personalizados baseados na ciencia para resultados visiveis e duradouros.</p>
+      <div class="hero-tags">
+        <span class="h-tag">Skincare Avancado</span>
+        <span class="h-tag">Estetica Corporal</span>
+        <span class="h-tag">Setor Tiradentes</span>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Montserrat', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Spectral', serif;">
-          (62) 99058-4632<br>
-          <a href="https://wa.me/5562990584632" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/renovaskin.aparecida/' style='color:inherit;text-decoration:none;'>Instagram</a>
+      <div class="hero-btns">
+        <a href="https://wa.me/5562990584632" class="btn-wa" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.118 1.526 5.847L.057 23.882l6.207-1.448A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-4.983-1.356l-.357-.212-3.685.860.876-3.595-.233-.369A9.822 9.822 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+          Agendar avaliacao
+        </a>
+        <a href="#tratamentos" class="btn-outline">Ver tratamentos</a>
+      </div>
+    </div>
+    <div class="hero-right reveal">
+      <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=700&h=800&fit=crop&q=80" alt="Renova Skin tratamento">
+      <div class="hero-info-card">
+        <div class="hic-label">Especialidades</div>
+        <div class="hic-items">
+          <span class="hic-item">Skincare personalizado</span>
+          <span class="hic-item">Tratamentos corporais</span>
+          <span class="hic-item">Protocolos anti-idade</span>
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Spectral', serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="diferenciais" id="sobre">
+  <div class="dif-inner">
+    <div class="dif-left reveal">
+      <span class="sec-pre">Nossa abordagem</span>
+      <h2>Ciencia aplicada para a saude da sua pele</h2>
+      <p>Na Renova Skin, cada protocolo comeca com uma analise criteriosa do seu tipo de pele, historico e objetivos. Nao trabalhamos com formulas prontas — trabalhamos com ciencia personalizada para voce.</p>
+    </div>
+    <div class="dif-right">
+      <div class="dif-card reveal">
+        <h3>Skincare de Resultado</h3>
+        <p>Protocolos de cuidado com a pele baseados em ativos comprovados: retinol, vitamina C, acido hialuronico e niacinamida nas concentracoes corretas.</p>
+      </div>
+      <div class="dif-card reveal">
+        <h3>Tratamento Corporal Especializado</h3>
+        <p>Estetica corporal com tecnologia e tecnica manual combinadas para gordura localizada, flacidez e celulite.</p>
+      </div>
+      <div class="dif-card reveal">
+        <h3>Avaliacao Completa</h3>
+        <p>Cada cliente passa por avaliacao detalhada antes de qualquer procedimento. Mapa da pele, historico e objetivos definem seu protocolo unico.</p>
+      </div>
+      <div class="dif-card reveal">
+        <h3>Acompanhamento Continuo</h3>
+        <p>Nao abandona a cliente pos-procedimento. Acompanhamento da evolucao e ajuste do protocolo conforme os resultados aparecem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tratamentos" id="tratamentos">
+  <div class="section-header reveal">
+    <span class="sec-pre">Tratamentos</span>
+    <h2>Protocolos para pele e corpo</h2>
+  </div>
+  <div class="trat-grid">
+    <div class="trat-card reveal">
+      <div class="trat-step">01</div>
+      <h3>Skincare Personalizado</h3>
+      <p>Limpeza profunda, peelings quimicos e hidratacao ativa com formulacao especifica para cada tipo de pele.</p>
+    </div>
+    <div class="trat-card reveal">
+      <div class="trat-step">02</div>
+      <h3>Microagulhamento</h3>
+      <p>Estimulo de colageno com microagulhas para reducao de cicatrizes, poros dilatados e melhora geral da textura.</p>
+    </div>
+    <div class="trat-card reveal">
+      <div class="trat-step">03</div>
+      <h3>Peeling Quimico</h3>
+      <p>Renovacao celular controlada com acidos selecionados. Manchas, hiperpigmentacao e envelhecimento tratados com precisao.</p>
+    </div>
+    <div class="trat-card reveal">
+      <div class="trat-step">04</div>
+      <h3>Reducao de Gordura</h3>
+      <p>Criolipasse e ultrassom para eliminacao de gordura localizada em abdomen, flancos, coxas e bracos.</p>
+    </div>
+    <div class="trat-card reveal">
+      <div class="trat-step">05</div>
+      <h3>Tratamento de Celulite</h3>
+      <p>Protocolo combinado de endermologia, radiofrequencia e drenagem para reducao efetiva da celulite em diferentes graus.</p>
+    </div>
+    <div class="trat-card reveal">
+      <div class="trat-step">06</div>
+      <h3>Drenagem Corporal</h3>
+      <p>Tecnica de drenagem linfatica manual e mecanica para reducao de inchacos, retencao e melhora da circulacao geral.</p>
+    </div>
+  </div>
+</section>
+
+<section class="numeros">
+  <div class="num-inner">
+    <div class="reveal">
+      <div class="n-val">1.7K</div>
+      <div class="n-lbl">Seguidores</div>
+    </div>
+    <div class="reveal">
+      <div class="n-val">500+</div>
+      <div class="n-lbl">Atendimentos</div>
+    </div>
+    <div class="reveal">
+      <div class="n-val">6</div>
+      <div class="n-lbl">Especialidades</div>
+    </div>
+    <div class="reveal">
+      <div class="n-val">97%</div>
+      <div class="n-lbl">Satisfacao</div>
+    </div>
+  </div>
+</section>
+
+<section class="depoimentos">
+  <div class="section-header reveal">
+    <span class="sec-pre">Resultados</span>
+    <h2>A ciencia que funciona na pratica</h2>
+  </div>
+  <div class="depo-grid">
+    <div class="depo-card reveal">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+      <p>O skincare personalizado resolveu meu problema de pele oleosa com cravos que eu tinha ha anos. Em 3 meses minha pele estava completamente transformada. Abordagem muito tecnica e eficaz!</p>
+      <div class="d-nome">Isabela P.</div>
+      <div class="d-local">Setor Tiradentes, Aparecida de Goiania</div>
+    </div>
+    <div class="depo-card reveal">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+      <p>Fiz o protocolo de reducao corporal e os resultados superaram minhas expectativas. Perdi 9cm na cintura em 6 sessoes. Equipe muito profissional e equipamentos de qualidade.</p>
+      <div class="d-nome">Cristina M.</div>
+      <div class="d-local">Aparecida de Goiania</div>
+    </div>
+    <div class="depo-card reveal">
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+      <p>Microagulhamento para cicatrizes de acne foi uma revelacao. A diferenca foi visivel apos a segunda sessao. O acompanhamento entre sessoes e excelente — equipe sempre disponivel para duvidas.</p>
+      <div class="d-nome">Nathalia R.</div>
+      <div class="d-local">Setor Tiradentes</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <h2 class="reveal">Pronta para renovar sua pele e seu corpo?</h2>
+  <p class="reveal">Agende sua avaliacao gratuita. Nossa equipe vai analisar sua pele, seus objetivos e criar o protocolo ideal especificamente para voce.</p>
+  <a href="https://wa.me/5562990584632" class="cta-btn reveal" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.118 1.526 5.847L.057 23.882l6.207-1.448A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-4.983-1.356l-.357-.212-3.685.860.876-3.595-.233-.369A9.822 9.822 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+    Agendar avaliacao gratuita
+  </a>
+</section>
+
+<footer>
+  <div class="footer-logo">Renova Skin Estetica</div>
+  <div class="footer-info">
+    Setor Tiradentes, Aparecida de Goiania — GO<br>
+    (62) 99058-4632<br>
+    @renovaskin.aparecida
+  </div>
+  <div class="footer-dev">Desenvolvido por VANT Digital Studio</div>
 </footer>
 
-<a href="https://wa.me/5562990584632" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562990584632" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.118 1.526 5.847L.057 23.882l6.207-1.448A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-4.983-1.356l-.357-.212-3.685.860.876-3.595-.233-.369A9.822 9.822 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>

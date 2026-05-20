@@ -1,191 +1,249 @@
+<!-- Protótipo: AlphaBeauty Clínica | Gerado em: 2026-05-19 -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>AlphaBeauty Clínica — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlphaBeauty Clínica — Harmonização Facial Premium em Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Crimson Pro', serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#D4AF37;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Outfit', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Crimson Pro', serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Crimson Pro', serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#D4AF37;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
-}
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --dourado: #D4AF37;
+    --preto: #1A1A1A;
+    --branco: #FFFFFF;
+    --dourado-claro: #F0DFA0;
+    --cinza-escuro: #2A2A2A;
+    --cinza-medio: #444444;
+    --cinza-texto: #888888;
+    --creme: #FAF8F2;
+  }
+  body { font-family: 'Raleway', sans-serif; color: var(--preto); background: var(--branco); }
+  h1, h2, h3 { font-family: 'Tenor Sans', sans-serif; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--preto); padding: 16px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+  }
+  .nav-logo-wrap { display: flex; flex-direction: column; }
+  .nav-logo { font-family: 'Tenor Sans', sans-serif; font-size: 1.1rem; color: var(--branco); letter-spacing: 3px; text-transform: uppercase; }
+  .nav-sub { font-size: 0.6rem; color: var(--dourado); letter-spacing: 4px; text-transform: uppercase; margin-top: 2px; }
+  .nav-right { display: flex; align-items: center; gap: 24px; }
+  .nav-link { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
+  .nav-link:hover { color: var(--dourado); }
+  .nav-cta { border: 1px solid var(--dourado); color: var(--dourado); padding: 10px 24px; text-decoration: none; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: all 0.2s; }
+  .nav-cta:hover { background: var(--dourado); color: var(--preto); }
+
+  /* HERO — fullscreen centrado com fundo escuro e texto centralizado */
+  .hero {
+    min-height: 100vh; background: var(--preto);
+    display: flex; align-items: center; justify-content: center;
+    padding: 100px 24px 80px; position: relative; overflow: hidden; text-align: center;
+  }
+  .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 40%, rgba(212,175,55,0.08) 0%, transparent 70%); }
+  .hero-inner { max-width: 860px; width: 100%; position: relative; z-index: 1; }
+  .hero-linha { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 28px; }
+  .h-line { width: 60px; height: 1px; background: var(--dourado); }
+  .hero-linha span { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--dourado); font-weight: 600; }
+  .hero h1 { font-size: clamp(2.8rem,6vw,5rem); color: var(--branco); line-height: 1.1; margin-bottom: 28px; letter-spacing: -1px; }
+  .hero h1 span { color: var(--dourado); }
+  .hero p { color: rgba(255,255,255,0.6); font-size: 1.05rem; line-height: 1.8; margin-bottom: 50px; font-weight: 300; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-gold { display: inline-flex; align-items: center; gap: 10px; background: var(--dourado); color: var(--preto); padding: 15px 36px; text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; transition: background 0.2s, transform 0.2s; }
+  .btn-gold:hover { background: var(--dourado-claro); transform: translateY(-2px); }
+  .btn-outline { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(255,255,255,0.3); color: var(--branco); padding: 15px 36px; text-decoration: none; font-weight: 500; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; transition: border-color 0.2s; }
+  .btn-outline:hover { border-color: var(--dourado); color: var(--dourado); }
+  .hero-img-row { margin-top: 60px; display: flex; justify-content: center; }
+  .hero-img-row img { border: 1px solid rgba(212,175,55,0.2); box-shadow: 0 30px 80px rgba(0,0,0,0.5); max-width: 600px; width: 100%; }
+
+  section { padding: 100px 24px; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  .sec-label { font-size: 0.68rem; letter-spacing: 4px; text-transform: uppercase; color: var(--dourado); font-weight: 600; display: block; margin-bottom: 12px; }
+
+  /* SERVIÇOS */
+  .servicos { background: var(--creme); }
+  .sec-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 60px; }
+  .sec-head-left h2 { font-size: clamp(2rem,3.5vw,3rem); color: var(--preto); }
+  .sec-head-right { max-width: 340px; color: var(--cinza-texto); line-height: 1.7; font-size: 0.9rem; font-weight: 300; }
+  .srv-lista { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+  .srv-item { background: var(--branco); padding: 36px 28px; transition: background 0.2s; position: relative; }
+  .srv-item:hover { background: var(--preto); }
+  .srv-item:hover h3, .srv-item:hover p { color: var(--branco); }
+  .srv-item:hover .srv-num-g { color: rgba(212,175,55,0.3); }
+  .srv-num-g { font-family: 'Tenor Sans', sans-serif; font-size: 3rem; color: var(--creme); line-height: 1; margin-bottom: 16px; transition: color 0.2s; }
+  .srv-item h3 { font-size: 1rem; color: var(--preto); margin-bottom: 10px; transition: color 0.2s; letter-spacing: 0.5px; }
+  .srv-item p { font-size: 0.84rem; color: var(--cinza-texto); line-height: 1.6; font-weight: 300; transition: color 0.2s; }
+  .srv-bar { width: 30px; height: 2px; background: var(--dourado); margin-bottom: 20px; }
+
+  /* SOBRE */
+  .sobre { background: var(--branco); }
+  .sobre-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .sobre-img img { width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+  .sobre-txt h2 { font-size: clamp(1.8rem,3vw,2.6rem); color: var(--preto); margin-bottom: 24px; line-height: 1.2; }
+  .sobre-txt p { color: var(--cinza-medio); line-height: 1.9; margin-bottom: 14px; font-size: 0.93rem; font-weight: 300; }
+  .difs { list-style: none; margin-top: 24px; display: flex; flex-direction: column; gap: 14px; }
+  .difs li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.88rem; color: var(--cinza-medio); font-weight: 400; }
+  .difs li::before { content: '◆'; color: var(--dourado); font-size: 0.5rem; margin-top: 5px; flex-shrink: 0; }
+
+  /* DEPOIMENTOS */
+  .depoimentos { background: var(--cinza-escuro); }
+  .dep-head { text-align: center; margin-bottom: 56px; }
+  .dep-head h2 { font-size: clamp(1.9rem,3vw,2.8rem); color: var(--branco); }
+  .dep-head p { color: rgba(212,175,55,0.7); margin-top: 12px; }
+  .dep-grade { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(212,175,55,0.1); }
+  .dep-card { background: var(--cinza-escuro); padding: 36px 28px; }
+  .dep-aspas { font-family: 'Tenor Sans', sans-serif; font-size: 3rem; color: var(--dourado); line-height: 1; margin-bottom: 16px; opacity: 0.5; }
+  .dep-card p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.8; font-style: italic; margin-bottom: 24px; font-weight: 300; }
+  .dep-author strong { font-size: 0.85rem; color: var(--dourado); display: block; letter-spacing: 0.5px; }
+  .dep-author span { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+  /* CTA */
+  .cta { background: var(--dourado); text-align: center; }
+  .cta h2 { font-size: clamp(2rem,3.5vw,3rem); color: var(--preto); margin-bottom: 16px; }
+  .cta p { color: rgba(26,26,26,0.7); max-width: 500px; margin: 0 auto 40px; line-height: 1.7; font-size: 0.95rem; font-weight: 300; }
+  .btn-dark { display: inline-flex; align-items: center; gap: 10px; background: var(--preto); color: var(--branco); padding: 16px 40px; text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; transition: background 0.2s; }
+  .btn-dark:hover { background: #333; }
+  .btn-dark svg { width: 20px; height: 20px; fill: #fff; }
+
+  footer { background: #0A0A0A; color: #555; padding: 50px 24px 28px; text-align: center; }
+  .footer-logo-g { font-family: 'Tenor Sans', sans-serif; font-size: 1.4rem; color: var(--dourado); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .footer-sub-g { font-size: 0.6rem; color: #444; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
+  footer p { font-size: 0.84rem; margin-bottom: 6px; }
+  footer a { color: var(--dourado); text-decoration: none; }
+  .footer-copy { margin-top: 28px; border-top: 1px solid #1A1A1A; padding-top: 20px; font-size: 0.76rem; }
+
+  @media (max-width: 768px) {
+    nav { padding: 14px 20px; }
+    .nav-right .nav-link { display: none; }
+    .srv-lista { grid-template-columns: 1fr; gap: 2px; }
+    .sec-head { flex-direction: column; gap: 20px; }
+    .sobre-inner { grid-template-columns: 1fr; }
+    .dep-grade { grid-template-columns: 1fr; background: none; gap: 16px; }
+  }
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">AlphaBeauty Clínica</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo-wrap">
+    <div class="nav-logo">AlphaBeauty</div>
+    <div class="nav-sub">Clínica Premium</div>
   </div>
-  <a href="https://wa.me/5562992678341" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-right">
+    <a href="#servicos" class="nav-link">Tratamentos</a>
+    <a href="#sobre" class="nav-link">Sobre</a>
+    <a href="https://wa.me/5562992678341" class="nav-cta" target="_blank">Agendar</a>
+  </div>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#D4AF37;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(100px,18vw,220px);font-weight:900;color:#0a0a0a;opacity:0.04;pointer-events:none;white-space:nowrap;font-family:'Outfit', sans-serif;">ALPHABEAUTY</div>
-  <div style="position:relative;z-index:2;text-align:center;color:#0a0a0a;max-width:720px;padding:40px 24px;">
-    <h1 style="font-size:clamp(40px,6vw,76px);font-weight:800;line-height:1.1;margin-bottom:24px;font-family:'Outfit', sans-serif;">Estetica de alto padrao</h1>
-    <p style="font-size:20px;opacity:0.85;line-height:1.6;margin-bottom:48px;font-family:'Crimson Pro', serif;">Transformacoes reais no Setor Pedro Ludovico de Goiânia</p>
-    <a href="https://wa.me/5562992678341" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</section>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Crimson Pro', serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#947a26;font-family:'Outfit', sans-serif;">O que fazemos</h2>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-linha"><div class="h-line"></div><span>Clínica Premium — Goiânia, Setor Pedro Ludovico</span><div class="h-line"></div></div>
+    <h1>Harmonização <span>sofisticada.</span><br>Resultado impecável.</h1>
+    <p>A AlphaBeauty Clínica une tecnologia de ponta, técnica refinada e atendimento exclusivo para transformar sua aparência com elegância e naturalidade.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562992678341" class="btn-gold" target="_blank">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:var(--preto)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Agendar Avaliação
+      </a>
+      <a href="https://instagram.com/alphabeauty.goiania" class="btn-outline" target="_blank">Ver no Instagram</a>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7f6921;font-family:'Outfit', sans-serif;">Harmonizacao Facial</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Equilibrio e naturalidade para o seu rosto com tecnicas avancadas.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7f6921;font-family:'Outfit', sans-serif;">Botox</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Suavizacao de rugas e linhas de expressao com resultado natural.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7f6921;font-family:'Outfit', sans-serif;">Preenchimento Labial</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Volume e definicao para labios mais sensuais e harmoniosos.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7f6921;font-family:'Outfit', sans-serif;">Limpeza de Pele</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Limpeza profunda e revitalizacao para uma pele saudavel.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7f6921;font-family:'Outfit', sans-serif;">Microagulhamento</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Estimulo do coleageno para pele renovada e vibrante.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7f6921;font-family:'Outfit', sans-serif;">Bioestimuladores</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Rejuvenescimento profundo com estimulo natural de coleageno.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7f6921;font-family:'Outfit', sans-serif;">Peeling Quimico</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Renovacao celular e uniformizacao do tom da pele.</p></div></div><style>.srv-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,0.12)!important;}@media(max-width:768px){.srv-card+.srv-card+.srv-card,.srv-card+.srv-card,.srv-card{}div[style*="repeat(3"]{}}</style>
-  </div>
-</section>
-
-<section id="stats" style="background:#D4AF37;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="2400" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Outfit', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(127,105,33,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Procedimentos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="98" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Outfit', sans-serif;">0%</div><div style="font-size:14px;color:rgba(127,105,33,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Satisfacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="8" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Outfit', sans-serif;">0+ anos</div><div style="font-size:14px;color:rgba(127,105,33,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="49" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Outfit', sans-serif;">0.</div><div style="font-size:14px;color:rgba(127,105,33,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Avaliacao</div></div>
+    <div class="hero-img-row">
+      <img src="https://placehold.co/520x420/D4AF37/1A1A1A?text=AlphaBeauty%0AClínica+Premium" alt="AlphaBeauty Clínica">
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#D4AF37;">
-  <div class="section-inner reveal">
-    <div style="background-image:url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&h=800&fit=crop&q=80');background-attachment:fixed;background-size:cover;background-position:center;position:relative;">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.85));"></div>
-  <div style="position:relative;z-index:2;text-align:center;padding:100px 40px;color:#fff;max-width:760px;margin:0 auto;">
-    <h2 style="font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.1;margin-bottom:20px;font-family:'Outfit', sans-serif;">AlphaBeauty Clínica</h2>
-    <p style="font-size:18px;opacity:0.85;line-height:1.7;font-family:'Crimson Pro', serif;">Somos uma clinica estetica dedicada a realcar a beleza natural de cada cliente. Com profissionais altamente capacitados e tecnologia de ponta, oferecemos tratamentos personalizados que respeitam a individualidade de cada pessoa.</p>
-  </div>
-</div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Crimson Pro', serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#947a26;font-family:'Outfit', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"O resultado ficou incrivel, muito natural e exatamente o que eu queria."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#f2e7c3;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#D4AF37;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#947a26;font-family:'Outfit', sans-serif;">Maria S.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"Profissionalismo e cuidado excepcionais. Me sinto outra pessoa."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#f2e7c3;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#D4AF37;font-size:14px;">A</div><div><div style="font-weight:700;font-size:14px;color:#947a26;font-family:'Outfit', sans-serif;">Ana P.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"Ambiente acolhedor e tratamento de primeira qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#f2e7c3;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#D4AF37;font-size:14px;">J</div><div><div style="font-weight:700;font-size:14px;color:#947a26;font-family:'Outfit', sans-serif;">Julia R.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Cliente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#D4AF37"/></svg>
-  <div style="background:#D4AF37;padding:40px 40px 80px;text-align:center;color:#0a0a0a;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Crimson Pro', serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'Outfit', sans-serif;">Agende sua avaliacao gratuita</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Crimson Pro', serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562992678341" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/alphabeauty.goiania/" style="display:inline-block;border:2px solid rgba(10,10,10,0.3);color:#0a0a0a;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#a98c2c;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Outfit', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">AlphaBeauty Clínica</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Crimson Pro', serif;">Setor Pedro Ludovico, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562992678341" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/alphabeauty.goiania/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
+<section class="servicos" id="servicos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-head-left">
+        <span class="sec-label">Tratamentos</span>
+        <h2>Procedimentos de Elite</h2>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Outfit', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Crimson Pro', serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
+      <div class="sec-head-right">Cada protocolo da AlphaBeauty é planejado individualmente, com materiais selecionados e técnica certificada para máxima segurança e resultado.</div>
+    </div>
+    <div class="srv-lista">
+      <div class="srv-item"><div class="srv-num-g">01</div><div class="srv-bar"></div><h3>Harmonização Facial</h3><p>Planejamento completo para equilibrar e realçar os traços do rosto com ácido hialurônico e toxina botulínica.</p></div>
+      <div class="srv-item"><div class="srv-num-g">02</div><div class="srv-bar"></div><h3>Botox Premium</h3><p>Suavização de rugas e linhas de expressão com produtos originais e dosagem precisa para resultado natural.</p></div>
+      <div class="srv-item"><div class="srv-num-g">03</div><div class="srv-bar"></div><h3>Preenchimento Corporal</h3><p>Modelagem de glúteos, coxas e outras áreas com bioestimuladores para volume e contorno perfeitos.</p></div>
+      <div class="srv-item"><div class="srv-num-g">04</div><div class="srv-bar"></div><h3>Bioestimuladores</h3><p>Estimulação natural do colágeno para firmeza, luminosidade e rejuvenescimento de longa duração.</p></div>
+      <div class="srv-item"><div class="srv-num-g">05</div><div class="srv-bar"></div><h3>Microagulhamento</h3><p>Indução de colágeno com micro agulhas para pele renovada, uniforme e com textura melhorada.</p></div>
+      <div class="srv-item"><div class="srv-num-g">06</div><div class="srv-bar"></div><h3>Peeling Avançado</h3><p>Protocolos de renovação celular para manchas, acne, flacidez e uniformização do tom da pele.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="wrap">
+    <div class="sobre-inner">
+      <div class="sobre-img">
+        <img src="https://placehold.co/500x440/1A1A1A/D4AF37?text=Nossa+Clinica" alt="AlphaBeauty Clínica — Ambiente">
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Outfit', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Crimson Pro', serif;">
-          (62) 99267-8341<br>
-          <a href="https://wa.me/5562992678341" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/alphabeauty.goiania/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
+      <div class="sobre-txt">
+        <span class="sec-label">Por que AlphaBeauty</span>
+        <h2>Clínica Premium no Coração de Goiânia</h2>
+        <p>A AlphaBeauty Clínica foi criada para atender quem não aceita mediocridade. Localizada no Setor Pedro Ludovico, em Goiânia, nossa clínica reúne ambiente sofisticado, protocolos exclusivos e profissionais de excelência.</p>
+        <p>Cada cliente passa por uma avaliação detalhada antes de qualquer procedimento. Aqui, o resultado certo é mais importante do que qualquer tendência.</p>
+        <ul class="difs">
+          <li>Avaliação personalizada antes de cada procedimento</li>
+          <li>Produtos originais importados e certificados pela Anvisa</li>
+          <li>Ambiente esterilizado com padrão clínico rigoroso</li>
+          <li>Atendimento exclusivo no Setor Pedro Ludovico, Goiânia</li>
+          <li>Protocolos integrados para resultado facial e corporal</li>
+        </ul>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Crimson Pro', serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="depoimentos">
+  <div class="wrap">
+    <div class="dep-head">
+      <h2>Clientes que Confiam na AlphaBeauty</h2>
+      <p>Resultados reais, expectativas superadas</p>
+    </div>
+    <div class="dep-grade">
+      <div class="dep-card">
+        <div class="dep-aspas">"</div>
+        <p>"Fiz a harmonização facial na AlphaBeauty e fiquei completamente satisfeita. O resultado é sofisticado, natural e duradouro. Nenhuma clínica me atendeu com tanto profissionalismo."</p>
+        <div class="dep-author"><strong>Luísa Mendonça</strong><span>Empresária, Goiânia</span></div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-aspas">"</div>
+        <p>"Os bioestimuladores que fiz aqui transformaram minha pele. Estou com 45 anos e nunca me senti tão bem. A clínica tem um padrão que não encontro em nenhum outro lugar."</p>
+        <div class="dep-author"><strong>Cristiane Borges</strong><span>Médica, Goiânia</span></div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-aspas">"</div>
+        <p>"Ambiente impecável, profissional extremamente capacitada e resultado incrível no preenchimento labial. A AlphaBeauty é outra categoria — recomendo sem hesitar."</p>
+        <div class="dep-author"><strong>Amanda Ramos</strong><span>Advogada, Setor Pedro Ludovico</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Sua melhor versão começa aqui</h2>
+    <p>Agende sua avaliação exclusiva e descubra o protocolo ideal para você. Vagas limitadas por semana.</p>
+    <a href="https://wa.me/5562992678341" class="btn-dark" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Agendar Agora no WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo-g">AlphaBeauty</div>
+  <div class="footer-sub-g">Clínica Premium</div>
+  <p>Goiânia — Setor Pedro Ludovico, GO</p>
+  <p>Instagram: <a href="https://instagram.com/alphabeauty.goiania" target="_blank">@alphabeauty.goiania</a></p>
+  <p><a href="https://wa.me/5562992678341">WhatsApp: (62) 99267-8341</a></p>
+  <div class="footer-copy">© 2026 AlphaBeauty Clínica. Todos os direitos reservados. | Desenvolvido por VANT Digital Studio</div>
 </footer>
 
-<a href="https://wa.me/5562992678341" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-
-<script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
-</script>
 </body>
 </html>

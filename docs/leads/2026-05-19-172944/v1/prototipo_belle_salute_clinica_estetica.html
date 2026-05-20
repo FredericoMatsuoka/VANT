@@ -2,206 +2,315 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Belle Salute Clínica Estética — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belle Salute Clinica Estetica — Goiania</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Merriweather', serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#C0A0C0;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Be Vietnam Pro', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Merriweather', serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#EDE0ED;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Merriweather', serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#C0A0C0;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --lavanda:#C0A0C0;
+  --lavanda-escuro:#7A5C8A;
+  --lavanda-pale:#EDE0ED;
+  --lavanda-light:#F8F3F8;
+  --branco:#FFFFFF;
+  --dark:#2A1A2A;
+  --texto:#4A3050;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--texto);background:var(--branco);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(192,160,192,0.15)}
+.nav-logo{font-weight:800;font-size:1.05rem;color:var(--lavanda-escuro)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--texto);font-weight:600;font-size:0.87rem;transition:color 0.2s}
+.nav-links a:hover{color:var(--lavanda-escuro)}
+.nav-badge{background:var(--lavanda-pale);color:var(--lavanda-escuro);padding:5px 14px;border-radius:4px;font-size:0.75rem;font-weight:700;margin-right:12px}
+.nav-wa{background:var(--lavanda-escuro);color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.85rem;transition:background 0.2s}
+.nav-wa:hover{background:var(--dark)}
+
+/* HERO — contador animado + prestige */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;padding-top:70px}
+.hero-esq{background:var(--lavanda-light);display:flex;flex-direction:column;justify-content:center;padding:80px 56px;position:relative;overflow:hidden}
+.hero-anos-badge{display:inline-flex;align-items:center;gap:10px;background:var(--lavanda-escuro);color:#fff;padding:10px 20px;border-radius:8px;margin-bottom:28px;width:fit-content}
+.anos-num{font-size:1.5rem;font-weight:800}
+.anos-txt{font-size:0.78rem;font-weight:600;opacity:0.85;line-height:1.3}
+.hero-esq h1{font-size:clamp(1.9rem,3.2vw,3rem);font-weight:800;line-height:1.2;color:var(--dark);margin-bottom:18px}
+.hero-esq h1 span{color:var(--lavanda-escuro)}
+.hero-esq p{font-size:0.97rem;line-height:1.8;color:var(--texto);margin-bottom:36px;max-width:400px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.btn-wa{display:inline-flex;align-items:center;gap:9px;background:#25D366;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.92rem;box-shadow:0 4px 18px rgba(37,211,102,0.3);transition:transform 0.2s}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-wa svg{width:19px;height:19px;fill:#fff}
+.btn-outline{display:inline-flex;align-items:center;background:transparent;color:var(--lavanda-escuro);padding:14px 22px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.92rem;border:2px solid var(--lavanda);transition:all 0.2s}
+.btn-outline:hover{background:var(--lavanda-pale)}
+.hero-contadores{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.contador{background:#fff;border-radius:12px;padding:18px 16px;text-align:center;box-shadow:0 2px 16px rgba(122,92,138,0.08)}
+.contador-val{font-size:1.7rem;font-weight:800;color:var(--lavanda-escuro)}
+.contador-lbl{font-size:0.72rem;font-weight:600;color:#8A7090;text-transform:uppercase;letter-spacing:0.5px;margin-top:4px}
+.hero-dir{position:relative;overflow:hidden}
+.hero-dir img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-dir-info{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(42,26,42,0.85) 0%,transparent 100%);padding:40px 36px 36px}
+.hero-dir-info h3{color:#fff;font-size:1rem;font-weight:700;margin-bottom:6px}
+.hero-dir-info p{color:rgba(255,255,255,0.75);font-size:0.82rem}
+
+/* SERVICOS */
+.servicos{padding:90px 24px;background:#fff}
+.section-header{text-align:center;margin-bottom:56px}
+.sec-tag{font-size:0.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--lavanda-escuro);display:block;margin-bottom:10px}
+.section-header h2{font-size:clamp(1.7rem,2.8vw,2.4rem);font-weight:800;color:var(--dark);margin-bottom:10px}
+.section-header p{font-size:0.94rem;color:#69506f;max-width:500px;margin:0 auto;line-height:1.7}
+.srv-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.srv-card{border:2px solid var(--lavanda-pale);border-radius:16px;padding:36px 28px;transition:all 0.25s}
+.srv-card:hover{border-color:var(--lavanda);box-shadow:0 8px 32px rgba(192,160,192,0.18);transform:translateY(-4px)}
+.srv-num{font-size:0.7rem;font-weight:800;color:var(--lavanda);text-transform:uppercase;letter-spacing:2px;margin-bottom:14px}
+.srv-card h3{font-size:1.02rem;font-weight:700;color:var(--dark);margin-bottom:10px}
+.srv-card p{font-size:0.86rem;color:var(--texto);line-height:1.7}
+
+/* 11 ANOS */
+.anos-section{padding:80px 24px;background:var(--lavanda-escuro)}
+.anos-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.anos-left .num-grande{font-size:8rem;font-weight:800;color:rgba(255,255,255,0.15);line-height:1}
+.anos-left .num-grande span{font-size:3rem;vertical-align:super}
+.anos-right h2{font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;color:#fff;margin-bottom:18px;line-height:1.3}
+.anos-right p{font-size:0.95rem;line-height:1.8;color:rgba(255,255,255,0.78);margin-bottom:14px}
+.anos-stats{display:flex;gap:40px;margin-top:28px}
+.a-stat .val{font-size:2rem;font-weight:800;color:var(--lavanda-pale)}
+.a-stat .lbl{font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.5px}
+
+/* DEPO */
+.depoimentos{padding:90px 24px;background:var(--lavanda-light)}
+.depo-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.depo-card{background:#fff;border-radius:16px;padding:32px 24px;border-top:4px solid var(--lavanda)}
+.depo-stars{display:flex;gap:2px;margin-bottom:14px}
+.depo-stars svg{width:15px;height:15px;fill:#C0A0C0}
+.depo-card p{font-size:0.88rem;line-height:1.72;color:var(--texto);margin-bottom:18px}
+.d-nome{font-weight:700;font-size:0.88rem;color:var(--lavanda-escuro)}
+.d-local{font-size:0.76rem;color:#9A7090;margin-top:3px}
+
+/* CTA */
+.cta{padding:90px 24px;background:#fff;text-align:center}
+.cta h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:var(--dark);margin-bottom:12px}
+.cta p{font-size:0.97rem;color:var(--texto);margin-bottom:38px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.78}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;padding:17px 44px;border-radius:8px;text-decoration:none;font-weight:800;font-size:1rem;box-shadow:0 6px 24px rgba(37,211,102,0.35);transition:transform 0.2s}
+.cta-btn:hover{transform:translateY(-3px)}
+.cta-btn svg{width:22px;height:22px;fill:#fff}
+
+footer{background:var(--dark);color:rgba(255,255,255,0.55);padding:48px 24px 28px;text-align:center}
+.footer-logo{font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:14px}
+.footer-info{font-size:0.82rem;line-height:2}
+.footer-dev{font-size:0.72rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;margin-top:18px;color:rgba(255,255,255,0.28)}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr}
+  .hero-dir{height:280px}
+  .hero-esq{padding:80px 24px 50px}
+  .hero-contadores{grid-template-columns:repeat(3,1fr)}
+  .srv-grid{grid-template-columns:1fr}
+  .anos-inner{grid-template-columns:1fr}
+  .depo-grid{grid-template-columns:1fr}
+  nav{padding:14px 20px}
+  .nav-links,.nav-badge{display:none}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Belle Salute Clínica Estética</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">Belle Salute</div>
+  <ul class="nav-links">
+    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#anos">11 Anos</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:8px">
+    <span class="nav-badge">11 anos</span>
+    <a href="https://wa.me/5562997345612" class="nav-wa" target="_blank">Agendar</a>
   </div>
-  <a href="https://wa.me/5562997345612" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#907890;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div class="blob b1" style="background:rgba(237,224,237,0.35);"></div>
-  <div class="blob b2" style="background:rgba(192,160,192,0.5);"></div>
-  <div class="blob b3" style="background:rgba(189,179,189,0.25);"></div>
-  <div style="position:relative;z-index:2;text-align:center;max-width:700px;padding:60px 40px;background:rgba(255,255,255,0.08);backdrop-filter:blur(40px);border-radius:28px;border:1px solid rgba(255,255,255,0.12);">
-    <h1 style="font-size:clamp(36px,5vw,64px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;font-family:'Be Vietnam Pro', sans-serif;">Estetica de alto padrao</h1>
-    <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:40px;font-family:'Merriweather', serif;">Transformacoes reais no Setor Bueno de Goiânia</p>
-    <div style="display:flex;gap:24px;justify-content:center;margin-bottom:36px;flex-wrap:wrap;">
-      <div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#EDE0ED;">2.400+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Procedimentos</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#EDE0ED;">98%</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Satisfacao</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#EDE0ED;">8+ anos</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Experiencia</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#EDE0ED;">4.9</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Avaliacao</div></div>
+<section class="hero">
+  <div class="hero-esq">
+    <div class="hero-anos-badge">
+      <span class="anos-num">11</span>
+      <span class="anos-txt">Anos sendo<br>referencia em estetica</span>
     </div>
-    <a href="https://wa.me/5562997345612" style="background:#EDE0ED;color:#0a0a0a;padding:16px 40px;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</section>
-<style>
-.blob{position:absolute;border-radius:50%;filter:blur(80px);animation:blobAnim 10s ease-in-out infinite alternate;}
-.b1{width:500px;height:500px;top:-100px;left:-100px;animation-duration:12s;}
-.b2{width:400px;height:400px;bottom:-80px;right:-80px;animation-duration:9s;animation-delay:-3s;}
-.b3{width:350px;height:350px;top:30%;left:30%;animation-duration:14s;animation-delay:-6s;}
-@keyframes blobAnim{0%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%;transform:translate(0,0)}100%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%;transform:translate(30px,-20px)}}
-</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#EDE0ED;margin-bottom:12px;font-family:'Merriweather', serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#867086;font-family:'Be Vietnam Pro', sans-serif;">O que fazemos</h2>
+    <h1>A clinica que <span>Goiania confia</span> ha mais de uma decada</h1>
+    <p>Referencia em estetica facial e corporal no Setor Bueno desde 2014. 5.200 seguidores fieis e milhares de transformacoes reais comprovam nossa excelencia.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562997345612" class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.118 1.526 5.847L.057 23.882l6.207-1.448A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-4.983-1.356l-.357-.212-3.685.860.876-3.595-.233-.369A9.822 9.822 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+        Agendar agora
+      </a>
+      <a href="#servicos" class="btn-outline">Ver servicos</a>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;"><div style="background:#C0A0C0;border-radius:20px;padding:48px;color:#0a0a0a;"><div style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#EDE0ED;margin-bottom:20px;">Destaque</div><h3 style="font-size:28px;font-weight:800;margin-bottom:16px;font-family:'Be Vietnam Pro', sans-serif;">Harmonizacao Facial</h3><p style="font-size:16px;opacity:0.85;line-height:1.7;font-family:'Merriweather', serif;">Equilibrio e naturalidade para o seu rosto com tecnicas avancadas.</p></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;"><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#867086;margin-bottom:8px;font-family:'Be Vietnam Pro', sans-serif;">Botox</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Merriweather', serif;">Suavizacao de rugas e linhas de expressao com resultado natural.</p></div><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#867086;margin-bottom:8px;font-family:'Be Vietnam Pro', sans-serif;">Preenchimento Labial</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Merriweather', serif;">Volume e definicao para labios mais sensuais e harmoniosos.</p></div><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#867086;margin-bottom:8px;font-family:'Be Vietnam Pro', sans-serif;">Limpeza de Pele</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Merriweather', serif;">Limpeza profunda e revitalizacao para uma pele saudavel.</p></div><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#867086;margin-bottom:8px;font-family:'Be Vietnam Pro', sans-serif;">Microagulhamento</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Merriweather', serif;">Estimulo do coleageno para pele renovada e vibrante.</p></div></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#C0A0C0;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="2400" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#EDE0ED;font-family:'Be Vietnam Pro', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(115,96,115,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Merriweather', serif;">Procedimentos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="98" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#EDE0ED;font-family:'Be Vietnam Pro', sans-serif;">0%</div><div style="font-size:14px;color:rgba(115,96,115,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Merriweather', serif;">Satisfacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="8" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#EDE0ED;font-family:'Be Vietnam Pro', sans-serif;">0+ anos</div><div style="font-size:14px;color:rgba(115,96,115,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Merriweather', serif;">Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="49" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#EDE0ED;font-family:'Be Vietnam Pro', sans-serif;">0.</div><div style="font-size:14px;color:rgba(115,96,115,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Merriweather', serif;">Avaliacao</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;min-height:400px;display:flex;align-items:center;">
-  <div style="position:absolute;left:0;top:50%;transform:translateY(-50%);font-size:clamp(120px,20vw,240px);font-weight:900;color:#C0A0C0;opacity:0.08;line-height:1;pointer-events:none;font-family:'Be Vietnam Pro', sans-serif;">8</div>
-  <div style="position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%;">
-    <div>
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#EDE0ED;margin-bottom:12px;font-family:'Merriweather', serif;">Sobre nos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#867086;margin-bottom:20px;font-family:'Be Vietnam Pro', sans-serif;">Belle Salute Clínica Estética</h2>
-      <p style="font-size:16px;color:#555;line-height:1.8;font-family:'Merriweather', serif;">Somos uma clinica estetica dedicada a realcar a beleza natural de cada cliente. Com profissionais altamente capacitados e tecnologia de ponta, oferecemos tratamentos personalizados que respeitam a individualidade de cada pessoa.</p>
-    </div>
-    <div>
-      <div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Merriweather', serif;">Procedimentos</span><span style="font-size:26px;font-weight:800;color:#C0A0C0;font-family:'Be Vietnam Pro', sans-serif;">2.400+</span></div><div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Merriweather', serif;">Satisfacao</span><span style="font-size:26px;font-weight:800;color:#C0A0C0;font-family:'Be Vietnam Pro', sans-serif;">98%</span></div><div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Merriweather', serif;">Experiencia</span><span style="font-size:26px;font-weight:800;color:#C0A0C0;font-family:'Be Vietnam Pro', sans-serif;">8+ anos</span></div><div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Merriweather', serif;">Avaliacao</span><span style="font-size:26px;font-weight:800;color:#C0A0C0;font-family:'Be Vietnam Pro', sans-serif;">4.9</span></div>
-    </div>
-  </div>
-</div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#EDE0ED;margin-bottom:12px;font-family:'Merriweather', serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#867086;font-family:'Be Vietnam Pro', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Merriweather', serif;">"O resultado ficou incrivel, muito natural e exatamente o que eu queria."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#ece2ec;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#C0A0C0;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#867086;font-family:'Be Vietnam Pro', sans-serif;">Maria S.</div><div style="font-size:12px;color:#888;font-family:'Merriweather', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Merriweather', serif;">"Profissionalismo e cuidado excepcionais. Me sinto outra pessoa."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#ece2ec;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#C0A0C0;font-size:14px;">A</div><div><div style="font-weight:700;font-size:14px;color:#867086;font-family:'Be Vietnam Pro', sans-serif;">Ana P.</div><div style="font-size:12px;color:#888;font-family:'Merriweather', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Merriweather', serif;">"Ambiente acolhedor e tratamento de primeira qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#ece2ec;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#C0A0C0;font-size:14px;">J</div><div><div style="font-weight:700;font-size:14px;color:#867086;font-family:'Be Vietnam Pro', sans-serif;">Julia R.</div><div style="font-size:12px;color:#888;font-family:'Merriweather', serif;">Cliente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;max-width:680px;margin:0 auto;padding:20px;">
-  <h2 style="font-size:clamp(30px,4.5vw,56px);font-weight:800;color:#867086;margin-bottom:20px;line-height:1.2;font-family:'Be Vietnam Pro', sans-serif;">Agende sua avaliacao gratuita</h2>
-  <p style="font-size:18px;color:#666;line-height:1.7;margin-bottom:48px;font-family:'Merriweather', serif;">Estamos prontos para atender voce com excelencia.</p>
-  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-    <a href="https://wa.me/5562997345612" style="background:#25D366;color:#fff;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/bellesalute/" style="border:2px solid #C0A0C0;color:#C0A0C0;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#998099;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Be Vietnam Pro', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Belle Salute Clínica Estética</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Merriweather', serif;">Setor Bueno, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562997345612" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/bellesalute/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
+    <div class="hero-contadores">
+      <div class="contador">
+        <div class="contador-val">5.2K</div>
+        <div class="contador-lbl">Seguidores</div>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Be Vietnam Pro', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Merriweather', serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
+      <div class="contador">
+        <div class="contador-val">11</div>
+        <div class="contador-lbl">Anos</div>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Be Vietnam Pro', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Merriweather', serif;">
-          (62) 99734-5612<br>
-          <a href="https://wa.me/5562997345612" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/bellesalute/' style='color:inherit;text-decoration:none;'>Instagram</a>
+      <div class="contador">
+        <div class="contador-val">2K+</div>
+        <div class="contador-lbl">Clientes</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dir">
+    <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=900&h=1100&fit=crop&q=80" alt="Belle Salute clinica">
+    <div class="hero-dir-info">
+      <h3>Setor Bueno — Goiania, GO</h3>
+      <p>Estetica facial e corporal avancada com 11 anos de experiencia e excelencia</p>
+    </div>
+  </div>
+</section>
+
+<section class="servicos" id="servicos">
+  <div class="section-header reveal">
+    <span class="sec-tag">Tratamentos</span>
+    <h2>11 anos de especializacao em cada procedimento</h2>
+    <p>Protocolos refinados ao longo de uma decada para entregar os melhores resultados em estetica facial e corporal.</p>
+  </div>
+  <div class="srv-grid">
+    <div class="srv-card reveal">
+      <div class="srv-num">Facial 01</div>
+      <h3>Limpeza de Pele Avancada</h3>
+      <p>Protocolo de limpeza profunda com vaporizacao, extracao manual e mascara calmante. Pele renovada em uma sessao.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-num">Facial 02</div>
+      <h3>Microagulhamento com PRP</h3>
+      <p>Rejuvenescimento profundo com estimulo de colageno e plasma rico em plaquetas. Resultado clinico comprovado.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-num">Facial 03</div>
+      <h3>Harmonizacao Facial</h3>
+      <p>Botox e preenchimento com resultado sutil e natural. 11 anos de tecnica garantem expressoes autenticas preservadas.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-num">Corporal 01</div>
+      <h3>Drenagem Linfatica Premium</h3>
+      <p>Tecnica manual avancada e pressoterapia combinadas para reducao de inchacos e estimulo da circulacao.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-num">Corporal 02</div>
+      <h3>Criolipasse Corporal</h3>
+      <p>Reducao de gordura localizada por congelamento seletivo. Sem cirurgia, sem downtime, com resultados permanentes.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-num">Corporal 03</div>
+      <h3>Radiofrequencia Tripolar</h3>
+      <p>Tratamento de flacidez facial e corporal com radiofrequencia de ultima geracao. Colageno estimulado em profundidade.</p>
+    </div>
+  </div>
+</section>
+
+<section class="anos-section" id="anos">
+  <div class="anos-inner">
+    <div class="anos-left reveal">
+      <div class="num-grande">11<span>+</span></div>
+    </div>
+    <div class="anos-right reveal">
+      <h2>Uma decada construindo confianca no Setor Bueno de Goiania</h2>
+      <p>A Belle Salute nasceu em 2014 com a missao de ser a referencia em estetica avancada em Goiania. Ao longo de 11 anos, crescemos, evoluimos nossos protocolos e formamos uma base fiel de mais de 2 mil clientes.</p>
+      <p>Nossos 5.200 seguidores no Instagram sao o reflexo de anos de resultados reais compartilhados com transparencia e orgulho.</p>
+      <div class="anos-stats">
+        <div class="a-stat">
+          <div class="val">2014</div>
+          <div class="lbl">Fundacao</div>
+        </div>
+        <div class="a-stat">
+          <div class="val">5.2K</div>
+          <div class="lbl">Seguidores</div>
+        </div>
+        <div class="a-stat">
+          <div class="val">2K+</div>
+          <div class="lbl">Clientes</div>
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Merriweather', serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="depoimentos">
+  <div class="section-header reveal">
+    <span class="sec-tag">Depoimentos</span>
+    <h2>11 anos de historias de transformacao</h2>
+  </div>
+  <div class="depo-grid">
+    <div class="depo-card reveal">
+      <div class="depo-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+      <p>Frequento a Belle Salute ha 5 anos. A consistencia dos resultados e o que mais me impressiona — cada procedimento e executado com a mesma dedicacao e tecnica. Nao troco por nada!</p>
+      <div class="d-nome">Silvia A.</div>
+      <div class="d-local">Setor Bueno, Goiania</div>
+    </div>
+    <div class="depo-card reveal">
+      <div class="depo-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+      <p>Fiz microagulhamento com PRP e os resultados foram excepcionais. Cicatrizes de acne que tinha ha anos praticamente desapareceram. Equipe altamente qualificada e atenciosa.</p>
+      <div class="d-nome">Fernanda T.</div>
+      <div class="d-local">Goiania</div>
+    </div>
+    <div class="depo-card reveal">
+      <div class="depo-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+      <p>Criolipasse foi transformador! Perdi 7cm na cintura em 3 meses sem cirurgia. O acompanhamento pos-procedimento foi impecavel. Indico para todas as amigas sem hesitar.</p>
+      <div class="d-nome">Patricia R.</div>
+      <div class="d-local">Setor Bueno</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <h2 class="reveal">Junte-se a mais de 2 mil clientes satisfeitas</h2>
+  <p class="reveal">11 anos de experiencia e excelencia a sua disposicao. Agende sua avaliacao gratuita e comece sua transformacao com quem entende de estetica de verdade.</p>
+  <a href="https://wa.me/5562997345612" class="cta-btn reveal" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.118 1.526 5.847L.057 23.882l6.207-1.448A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-4.983-1.356l-.357-.212-3.685.860.876-3.595-.233-.369A9.822 9.822 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+    Agendar avaliacao gratuita
+  </a>
+</section>
+
+<footer>
+  <div class="footer-logo">Belle Salute Clinica Estetica</div>
+  <div class="footer-info">
+    Setor Bueno, Goiania — GO<br>
+    (62) 99734-5612<br>
+    @bellesalute
+  </div>
+  <div class="footer-dev">Desenvolvido por VANT Digital Studio</div>
 </footer>
 
-<a href="https://wa.me/5562997345612" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562997345612" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.118 1.526 5.847L.057 23.882l6.207-1.448A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-4.983-1.356l-.357-.212-3.685.860.876-3.595-.233-.369A9.822 9.822 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>

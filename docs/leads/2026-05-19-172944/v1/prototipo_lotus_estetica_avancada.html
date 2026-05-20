@@ -2,205 +2,342 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Lótus Estética Avançada — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lotus Estetica Avancada — Jardim America, Goiania</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Manrope', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#789086;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Manrope', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Manrope', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#90D0B8;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Manrope', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#789086;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --verde:#90D0B8;
+  --verde-escuro:#3D8B72;
+  --verde-pale:#C8F0E0;
+  --verde-light:#F0FAF5;
+  --branco:#FFFFFF;
+  --dark:#1A2E26;
+  --texto:#2E4A3C;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+body{font-family:'Nunito',sans-serif;color:var(--texto);background:var(--branco);overflow-x:hidden}
+h1,h2,h3{font-family:'Josefin Sans',sans-serif;letter-spacing:-0.3px}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(144,208,184,0.2)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:32px;height:32px;background:var(--verde-pale);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.nav-logo-icon svg{width:18px;height:18px;fill:var(--verde-escuro)}
+.nav-logo-txt{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:1.05rem;color:var(--verde-escuro)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--texto);font-size:0.86rem;font-weight:600;transition:color 0.2s}
+.nav-links a:hover{color:var(--verde-escuro)}
+.nav-btn{background:var(--verde-escuro);color:#fff;padding:9px 22px;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.85rem;transition:background 0.2s}
+.nav-btn:hover{background:var(--dark)}
+
+/* HERO — zen, centrado, floresta */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,46,38,0.85) 0%,rgba(26,46,38,0.55) 60%,rgba(26,46,38,0.2) 100%)}
+.hero-content{position:relative;z-index:2;max-width:600px;padding:0 0 0 80px;padding-top:80px}
+.hero-tagline{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.hero-tagline-line{width:40px;height:2px;background:var(--verde)}
+.hero-tagline-txt{font-family:'Josefin Sans',sans-serif;font-size:0.72rem;font-weight:700;color:var(--verde);text-transform:uppercase;letter-spacing:3px}
+.hero-content h1{font-size:clamp(2.2rem,4vw,3.8rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:20px}
+.hero-content h1 em{font-style:normal;color:var(--verde-pale)}
+.hero-content p{font-size:1rem;color:rgba(255,255,255,0.82);line-height:1.82;margin-bottom:36px;max-width:460px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.92rem;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-wa svg{width:19px;height:19px;fill:#fff}
+.btn-saiba{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,0.85);text-decoration:none;font-weight:700;font-size:0.9rem;border-bottom:1px solid rgba(255,255,255,0.35);padding-bottom:2px;transition:color 0.2s}
+.btn-saiba:hover{color:#fff}
+.hero-badges{position:absolute;right:80px;bottom:60px;display:flex;flex-direction:column;gap:14px;z-index:3}
+.h-badge{background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);border:1px solid rgba(144,208,184,0.3);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.h-badge-icon{width:36px;height:36px;background:var(--verde-pale);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.h-badge-icon svg{width:18px;height:18px;fill:var(--verde-escuro)}
+.h-badge-txt h4{color:#fff;font-family:'Josefin Sans',sans-serif;font-size:0.85rem;font-weight:700}
+.h-badge-txt p{color:rgba(255,255,255,0.65);font-size:0.72rem}
+
+/* FILOSOFIA */
+.filosofia{padding:90px 24px;background:var(--verde-light)}
+.filo-inner{max-width:1000px;margin:0 auto;text-align:center}
+.filo-inner .sec-tag{font-family:'Josefin Sans',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--verde-escuro);display:block;margin-bottom:16px}
+.filo-inner h2{font-size:clamp(1.7rem,2.8vw,2.5rem);color:var(--dark);margin-bottom:24px}
+.filo-inner p{font-size:1rem;line-height:1.9;color:var(--texto);max-width:640px;margin:0 auto 50px}
+.filo-pilares{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:20px}
+.pilar{padding:36px 28px;background:#fff;border-radius:16px;border-bottom:3px solid var(--verde)}
+.pilar-icon{width:52px;height:52px;background:var(--verde-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.pilar-icon svg{width:24px;height:24px;fill:var(--verde-escuro)}
+.pilar h3{font-size:0.98rem;font-weight:700;color:var(--dark);margin-bottom:10px}
+.pilar p{font-size:0.84rem;color:var(--texto);line-height:1.7}
+
+/* SERVICOS */
+.servicos{padding:90px 24px;background:#fff}
+.section-header{text-align:center;margin-bottom:56px}
+.sec-tag{font-family:'Josefin Sans',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--verde-escuro);display:block;margin-bottom:10px}
+.section-header h2{font-size:clamp(1.7rem,2.8vw,2.3rem);color:var(--dark)}
+.srv-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.srv-card{background:var(--verde-light);border-radius:16px;padding:32px 26px;transition:all 0.25s}
+.srv-card:hover{background:var(--verde-pale);transform:translateY(-4px)}
+.srv-dot{width:8px;height:8px;background:var(--verde-escuro);border-radius:50%;margin-bottom:16px}
+.srv-card h3{font-family:'Josefin Sans',sans-serif;font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:10px}
+.srv-card p{font-size:0.85rem;color:var(--texto);line-height:1.72}
+
+/* NUMEROS */
+.numeros{padding:70px 24px;background:var(--verde-escuro)}
+.num-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.n-val{font-family:'Josefin Sans',sans-serif;font-size:2.6rem;font-weight:700;color:var(--verde-pale)}
+.n-lbl{font-size:0.76rem;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,0.6);font-weight:700;margin-top:6px}
+
+/* DEPO */
+.depoimentos{padding:90px 24px;background:var(--verde-light)}
+.depo-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.depo-card{background:#fff;border-radius:16px;padding:30px 24px;border-left:3px solid var(--verde)}
+.depo-stars{display:flex;gap:2px;margin-bottom:12px}
+.depo-stars svg{width:14px;height:14px;fill:var(--verde-escuro)}
+.depo-card p{font-size:0.87rem;line-height:1.75;color:var(--texto);margin-bottom:16px}
+.d-nome{font-family:'Josefin Sans',sans-serif;font-weight:700;font-size:0.88rem;color:var(--dark)}
+.d-local{font-size:0.76rem;color:var(--verde-escuro);font-weight:600}
+
+/* CTA */
+.cta{padding:90px 24px;background:linear-gradient(135deg,var(--dark),var(--verde-escuro));text-align:center}
+.cta h2{font-size:clamp(1.8rem,3vw,2.6rem);color:#fff;margin-bottom:12px}
+.cta p{font-size:0.97rem;color:rgba(255,255,255,0.78);margin-bottom:38px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.8}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;padding:16px 44px;border-radius:50px;text-decoration:none;font-weight:700;font-size:1rem;box-shadow:0 6px 24px rgba(37,211,102,0.4);transition:transform 0.2s}
+.cta-btn:hover{transform:translateY(-3px)}
+.cta-btn svg{width:22px;height:22px;fill:#fff}
+
+footer{background:var(--dark);color:rgba(255,255,255,0.55);padding:48px 24px 28px;text-align:center}
+.footer-logo{font-family:'Josefin Sans',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:14px;letter-spacing:0.5px}
+.footer-info{font-size:0.82rem;line-height:2}
+.footer-dev{font-size:0.72rem;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;margin-top:18px;color:rgba(255,255,255,0.28)}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:768px){
+  .hero-content{padding:80px 24px 60px}
+  .hero-badges{display:none}
+  .filo-pilares{grid-template-columns:1fr}
+  .srv-grid{grid-template-columns:1fr}
+  .num-inner{grid-template-columns:repeat(2,1fr)}
+  .depo-grid{grid-template-columns:1fr}
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Lótus Estética Avançada</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+    </div>
+    <span class="nav-logo-txt">Lotus Estetica</span>
   </div>
-  <a href="https://wa.me/5562998423701" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <ul class="nav-links">
+    <li><a href="#servicos">Tratamentos</a></li>
+    <li><a href="#filosofia">Filosofia</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5562998423701" class="nav-btn" target="_blank">Agendar</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#5a6c64;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div class="blob b1" style="background:rgba(144,208,184,0.35);"></div>
-  <div class="blob b2" style="background:rgba(120,144,134,0.5);"></div>
-  <div class="blob b3" style="background:rgba(115,166,147,0.25);"></div>
-  <div style="position:relative;z-index:2;text-align:center;max-width:700px;padding:60px 40px;background:rgba(255,255,255,0.08);backdrop-filter:blur(40px);border-radius:28px;border:1px solid rgba(255,255,255,0.12);">
-    <h1 style="font-size:clamp(36px,5vw,64px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;font-family:'Manrope', sans-serif;">Sua beleza, redefinida</h1>
-    <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:40px;font-family:'Manrope', sans-serif;">Transformacoes reais no Jardim América de Goiânia</p>
-    <div style="display:flex;gap:24px;justify-content:center;margin-bottom:36px;flex-wrap:wrap;">
-      <div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#90D0B8;">2.400+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Procedimentos</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#90D0B8;">98%</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Satisfacao</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#90D0B8;">8+ anos</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Experiencia</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#90D0B8;">4.9</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Avaliacao</div></div>
-    </div>
-    <a href="https://wa.me/5562998423701" style="background:#90D0B8;color:#0a0a0a;padding:16px 40px;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1400&h=900&fit=crop&q=80" alt="Lotus spa natureza">
   </div>
-</section>
-<style>
-.blob{position:absolute;border-radius:50%;filter:blur(80px);animation:blobAnim 10s ease-in-out infinite alternate;}
-.b1{width:500px;height:500px;top:-100px;left:-100px;animation-duration:12s;}
-.b2{width:400px;height:400px;bottom:-80px;right:-80px;animation-duration:9s;animation-delay:-3s;}
-.b3{width:350px;height:350px;top:30%;left:30%;animation-duration:14s;animation-delay:-6s;}
-@keyframes blobAnim{0%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%;transform:translate(0,0)}100%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%;transform:translate(30px,-20px)}}
-</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#90D0B8;margin-bottom:12px;font-family:'Manrope', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#54645d;font-family:'Manrope', sans-serif;">O que fazemos</h2>
+  <div class="hero-content">
+    <div class="hero-tagline">
+      <div class="hero-tagline-line"></div>
+      <span class="hero-tagline-txt">Jardim America, Goiania</span>
     </div>
-    <div style="max-width:700px;"><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90D0B8;opacity:0.3;line-height:1;min-width:80px;font-family:'Manrope', sans-serif;">01</div><div><h3 style="font-size:20px;font-weight:700;color:#54645d;margin-bottom:8px;font-family:'Manrope', sans-serif;">Harmonizacao Facial</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Manrope', sans-serif;">Equilibrio e naturalidade para o seu rosto com tecnicas avancadas.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90D0B8;opacity:0.3;line-height:1;min-width:80px;font-family:'Manrope', sans-serif;">02</div><div><h3 style="font-size:20px;font-weight:700;color:#54645d;margin-bottom:8px;font-family:'Manrope', sans-serif;">Botox</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Manrope', sans-serif;">Suavizacao de rugas e linhas de expressao com resultado natural.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90D0B8;opacity:0.3;line-height:1;min-width:80px;font-family:'Manrope', sans-serif;">03</div><div><h3 style="font-size:20px;font-weight:700;color:#54645d;margin-bottom:8px;font-family:'Manrope', sans-serif;">Preenchimento Labial</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Manrope', sans-serif;">Volume e definicao para labios mais sensuais e harmoniosos.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90D0B8;opacity:0.3;line-height:1;min-width:80px;font-family:'Manrope', sans-serif;">04</div><div><h3 style="font-size:20px;font-weight:700;color:#54645d;margin-bottom:8px;font-family:'Manrope', sans-serif;">Limpeza de Pele</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Manrope', sans-serif;">Limpeza profunda e revitalizacao para uma pele saudavel.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90D0B8;opacity:0.3;line-height:1;min-width:80px;font-family:'Manrope', sans-serif;">05</div><div><h3 style="font-size:20px;font-weight:700;color:#54645d;margin-bottom:8px;font-family:'Manrope', sans-serif;">Microagulhamento</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Manrope', sans-serif;">Estimulo do coleageno para pele renovada e vibrante.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90D0B8;opacity:0.3;line-height:1;min-width:80px;font-family:'Manrope', sans-serif;">06</div><div><h3 style="font-size:20px;font-weight:700;color:#54645d;margin-bottom:8px;font-family:'Manrope', sans-serif;">Bioestimuladores</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Manrope', sans-serif;">Rejuvenescimento profundo com estimulo natural de coleageno.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#90D0B8;opacity:0.3;line-height:1;min-width:80px;font-family:'Manrope', sans-serif;">07</div><div><h3 style="font-size:20px;font-weight:700;color:#54645d;margin-bottom:8px;font-family:'Manrope', sans-serif;">Peeling Quimico</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Manrope', sans-serif;">Renovacao celular e uniformizacao do tom da pele.</p></div></div></div>
+    <h1>Bem-estar que vem de <em>dentro</em> para fora</h1>
+    <p>Estetica avancada com foco em bem-estar integral no Jardim America. Tratamentos que cuidam da pele e elevam a sua energia interior.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562998423701" class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.118 1.526 5.847L.057 23.882l6.207-1.448A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-4.983-1.356l-.357-.212-3.685.860.876-3.595-.233-.369A9.822 9.822 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+        Agendar sessao
+      </a>
+      <a href="#servicos" class="btn-saiba">Ver tratamentos</a>
+    </div>
   </div>
-</section>
-
-<section id="stats" style="background:#789086;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="2400" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#90D0B8;font-family:'Manrope', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Procedimentos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="98" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#90D0B8;font-family:'Manrope', sans-serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Satisfacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="8" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#90D0B8;font-family:'Manrope', sans-serif;">0+ anos</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="49" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#90D0B8;font-family:'Manrope', sans-serif;">0.</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Avaliacao</div></div>
+  <div class="hero-badges">
+    <div class="h-badge">
+      <div class="h-badge-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+      <div class="h-badge-txt"><h4>Bem-estar Integral</h4><p>Corpo, mente e pele</p></div>
+    </div>
+    <div class="h-badge">
+      <div class="h-badge-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg></div>
+      <div class="h-badge-txt"><h4>Jardim America</h4><p>Goiania, GO</p></div>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
-<img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1200&h=800&fit=crop&q=80" alt="Lótus Estética Avançada" style="border-radius:20px;width:100%;height:480px;object-fit:cover;">
-<div>
-  <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#90D0B8;margin-bottom:12px;font-family:'Manrope', sans-serif;">Sobre nos</p>
-  <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#54645d;margin-bottom:20px;line-height:1.2;font-family:'Manrope', sans-serif;">Lótus Estética Avançada</h2>
-  <p style="font-size:16px;color:#555;line-height:1.8;margin-bottom:28px;font-family:'Manrope', sans-serif;">Somos uma clinica estetica dedicada a realcar a beleza natural de cada cliente. Com profissionais altamente capacitados e tecnologia de ponta, oferecemos tratamentos personalizados que respeitam a individualidade de cada pessoa.</p>
-  <div style="display:flex;gap:16px;flex-wrap:wrap;">
-    <div style="background:#e8f5f0;color:#73a693;padding:10px 20px;border-radius:50px;font-size:13px;font-weight:700;">2.400+ Procedimentos</div>
-    <div style="background:#eaeeec;color:#60736b;padding:10px 20px;border-radius:50px;font-size:13px;font-weight:700;">98% Satisfacao</div>
-  </div>
-</div></div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#90D0B8;margin-bottom:12px;font-family:'Manrope', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#54645d;font-family:'Manrope', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"O resultado ficou incrivel, muito natural e exatamente o que eu queria."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#d6ddda;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#789086;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#54645d;font-family:'Manrope', sans-serif;">Maria S.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Profissionalismo e cuidado excepcionais. Me sinto outra pessoa."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#d6ddda;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#789086;font-size:14px;">A</div><div><div style="font-weight:700;font-size:14px;color:#54645d;font-family:'Manrope', sans-serif;">Ana P.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Ambiente acolhedor e tratamento de primeira qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#d6ddda;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#789086;font-size:14px;">J</div><div><div style="font-weight:700;font-size:14px;color:#54645d;font-family:'Manrope', sans-serif;">Julia R.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Cliente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="background:linear-gradient(135deg,#789086 0%,#5a6c64 100%);border-radius:24px;padding:80px 48px;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;opacity:0.03;background-image:url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;200&quot; height=&quot;200&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.65&quot; numOctaves=&quot;3&quot;/></filter><rect width=&quot;200&quot; height=&quot;200&quot; filter=&quot;url(%23n)&quot;/></svg>');background-size:200px;"></div>
-  <div style="position:relative;z-index:2;color:#ffffff;">
-    <div style="display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:8px 20px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;font-family:'Manrope', sans-serif;">Contato</div>
-    <h2 style="font-size:clamp(28px,4.5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Manrope', sans-serif;">Agende sua avaliacao gratuita</h2>
-    <p style="font-size:18px;opacity:0.85;max-width:520px;margin:0 auto 44px;line-height:1.6;font-family:'Manrope', sans-serif;">Atendimento especializado para voce.</p>
-    <a href="https://wa.me/5562998423701" style="display:inline-block;background:#90D0B8;color:#0a0a0a;padding:18px 48px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#60736b;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Manrope', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Lótus Estética Avançada</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Manrope', sans-serif;">Jardim América, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562998423701" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/lotusestetca.gyn/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+<section class="filosofia" id="filosofia">
+  <div class="filo-inner">
+    <span class="sec-tag">Nossa essencia</span>
+    <h2 class="reveal">Estetica como ritual de autocuidado</h2>
+    <p class="reveal">Na Lotus, acreditamos que estetica verdadeira vai alem da aparencia. Cada tratamento e um ritual pensado para restaurar o equilibrio, a energia e a beleza natural de dentro para fora.</p>
+    <div class="filo-pilares">
+      <div class="pilar reveal">
+        <div class="pilar-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
         </div>
+        <h3>Saude da Pele</h3>
+        <p>Tratamentos clinicos baseados em ciencia para pele saudavel, hidratada e radiante a longo prazo.</p>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Manrope', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Manrope', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
+      <div class="pilar reveal">
+        <div class="pilar-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
         </div>
+        <h3>Bem-estar Corporal</h3>
+        <p>Tecnicas que aliviam tensoes, melhoram a circulacao e restauram o equilíbrio energetico do corpo.</p>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Manrope', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Manrope', sans-serif;">
-          (62) 99842-3701<br>
-          <a href="https://wa.me/5562998423701" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/lotusestetca.gyn/' style='color:inherit;text-decoration:none;'>Instagram</a>
+      <div class="pilar reveal">
+        <div class="pilar-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
+        <h3>Cuidado Integral</h3>
+        <p>Cada sessao e personalizada para o seu momento de vida. Ouvimos, entendemos e cuidamos de voce de forma completa.</p>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Manrope', sans-serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="servicos" id="servicos">
+  <div class="section-header reveal">
+    <span class="sec-tag">Tratamentos</span>
+    <h2>Rituais para cada necessidade</h2>
+  </div>
+  <div class="srv-grid">
+    <div class="srv-card reveal">
+      <div class="srv-dot"></div>
+      <h3>Limpeza de Pele Profunda</h3>
+      <p>Ritual de purificacao completa com esfoliacao enzimatica, extracao e mascara calmante com ativos naturais.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-dot"></div>
+      <h3>Hidratacao Intensiva</h3>
+      <p>Protocolo de hidratacao com acidos hidratantes, vitamina C e biocelulase. Pele renovada e luminosa.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-dot"></div>
+      <h3>Massagem Integrativa</h3>
+      <p>Combinacao de tecnicas orientais e ocidentais para relaxamento profundo e reorganizacao energetica do corpo.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-dot"></div>
+      <h3>Drenagem Linfatica</h3>
+      <p>Tecnica Vodder para eliminacao de toxinas, reducao de inchacos e melhora do sistema imunologico.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-dot"></div>
+      <h3>Peeling e Renovacao</h3>
+      <p>Peeling quimico suave a moderado para uniformizacao da pele, reducao de manchas e estimulo celular.</p>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-dot"></div>
+      <h3>Ritual Lotus Completo</h3>
+      <p>Experiencia de 3 horas: limpeza de pele, massagem integrativa e drenagem linfatica em um so momento de puro bem-estar.</p>
+    </div>
+  </div>
+</section>
+
+<section class="numeros">
+  <div class="num-inner">
+    <div class="reveal">
+      <div class="n-val">890</div>
+      <div class="n-lbl">Seguidores</div>
+    </div>
+    <div class="reveal">
+      <div class="n-val">300+</div>
+      <div class="n-lbl">Sessoes</div>
+    </div>
+    <div class="reveal">
+      <div class="n-val">6</div>
+      <div class="n-lbl">Rituais</div>
+    </div>
+    <div class="reveal">
+      <div class="n-val">100%</div>
+      <div class="n-lbl">Bem-estar</div>
+    </div>
+  </div>
+</section>
+
+<section class="depoimentos">
+  <div class="section-header reveal">
+    <span class="sec-tag">Experiencias</span>
+    <h2>Quem viveu o Lotus conta</h2>
+  </div>
+  <div class="depo-grid">
+    <div class="depo-card reveal">
+      <div class="depo-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+      <p>O Ritual Lotus Completo foi a melhor experiencia de bem-estar que ja tive em Goiania. Sai completamente diferente — relaxada, com a pele linda e me sentindo renovada por dentro e por fora.</p>
+      <div class="d-nome">Helena S.</div>
+      <div class="d-local">Jardim America, Goiania</div>
+    </div>
+    <div class="depo-card reveal">
+      <div class="depo-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+      <p>A massagem integrativa aliviou tensoes que eu carregava ha anos. A profissional tem um toque especial e o ambiente e muito acolhedor. Faco mensalmente e nao abro mao!</p>
+      <div class="d-nome">Luciana M.</div>
+      <div class="d-local">Goiania</div>
+    </div>
+    <div class="depo-card reveal">
+      <div class="depo-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+      <p>O tratamento de hidratacao transformou minha pele seca. Apos 3 sessoes minha pele ficou completamente diferente — radiante e uniforme. O conceito de bem-estar da Lotus e unico em Goiania.</p>
+      <div class="d-nome">Carla B.</div>
+      <div class="d-local">Jardim America</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <h2 class="reveal">Comece seu ritual de bem-estar</h2>
+  <p class="reveal">Agende sua sessao no Lotus e descubra o que e cuidar de si de forma completa. Seu corpo e sua pele merecem esse presente.</p>
+  <a href="https://wa.me/5562998423701" class="cta-btn reveal" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.118 1.526 5.847L.057 23.882l6.207-1.448A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-4.983-1.356l-.357-.212-3.685.860.876-3.595-.233-.369A9.822 9.822 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+    Agendar meu ritual
+  </a>
+</section>
+
+<footer>
+  <div class="footer-logo">Lotus Estetica Avancada</div>
+  <div class="footer-info">
+    Jardim America, Goiania — GO<br>
+    (62) 99842-3701<br>
+    @lotusestetca.gyn
+  </div>
+  <div class="footer-dev">Desenvolvido por VANT Digital Studio</div>
 </footer>
 
-<a href="https://wa.me/5562998423701" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562998423701" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.118 1.526 5.847L.057 23.882l6.207-1.448A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.807 9.807 0 01-4.983-1.356l-.357-.212-3.685.860.876-3.595-.233-.369A9.822 9.822 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
