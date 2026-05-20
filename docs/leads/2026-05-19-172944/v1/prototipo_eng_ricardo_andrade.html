@@ -1,140 +1,97 @@
-<!-- Prototipo: Eng. Ricardo Andrade | Gerado em: 2026-05-19 -->
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Eng. Ricardo Andrade — Engenharia em Goiânia</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --c1: #F57F17; --c2: #FFF9C4; --c3: #1A1A1A; --dark: #1A1A1A; --text: #333; }
-  body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--c2); }
-  h1, h2, h3 { font-family: 'DM Sans', serif; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--c1:#F57F17;--acc:#F57F17}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#0f172a;color:#e2e8f0;overflow-x:hidden}
 
-  .hero { background: linear-gradient(135deg, #1A1A1A 0%, #F57F17 100%); min-height: 100vh; display: flex; align-items: center; padding: 80px 24px 60px; position: relative; overflow: hidden; }
-  .hero-inner { max-width: 700px; margin: auto; text-align: center; position: relative; z-index: 1; }
-  .hero-badge { display: inline-block; background: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.4); border-radius: 50px; padding: 6px 18px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dark); margin-bottom: 20px; }
-  .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); color: var(--dark); line-height: 1.15; margin-bottom: 16px; }
-  .hero p { font-size: 1.05rem; color: var(--dark); opacity: 0.8; max-width: 520px; margin: 0 auto 32px; }
-  .hero-circle { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.12); }
-  .hero-circle-1 { width: 400px; height: 400px; top: -100px; right: -100px; }
-  .hero-circle-2 { width: 250px; height: 250px; bottom: -60px; left: -60px; }
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(15,23,42,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+.logo{font-size:1rem;font-weight:700;color:#e2e8f0;letter-spacing:-.01em}.logo span{color:var(--c1)}
+.nav-cta{background:var(--c1);color:#0f172a;padding:9px 22px;border-radius:6px;font-size:.8rem;font-weight:700;text-decoration:none;transition:opacity .2s}.nav-cta:hover{opacity:.88}
 
-  .section { padding: 72px 24px; }
-  .section-inner { max-width: 960px; margin: auto; }
-  .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #F57F17; margin-bottom: 12px; }
-  .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--dark); margin-bottom: 20px; line-height: 1.3; }
-  .section-sub { font-size: 1rem; color: #555; max-width: 560px; line-height: 1.7; }
+.hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:100px 48px 60px;background:#0f172a;position:relative;overflow:hidden;gap:56px}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.acc-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--c1)}
+.d1{top:120px;left:48px}.d2{top:200px;right:200px}.d3{bottom:150px;left:300px}
+.hero-text{position:relative;z-index:2}
+.spec-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);color:var(--c1);border-radius:6px;padding:5px 14px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px}
+.spec-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--c1);animation:blink 1.5s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-text h1{font-size:clamp(2.4rem,4vw,4rem);font-weight:700;color:#f8fafc;line-height:1.08;margin-bottom:18px;letter-spacing:-.02em}
+.hero-text h1 em{color:var(--c1);font-style:normal}
+.hero-text p{font-size:.95rem;color:#94a3b8;line-height:1.78;max-width:420px;margin-bottom:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;font-weight:600;font-size:.84rem;text-decoration:none;transition:all .2s;border-radius:6px}
+.btn-acc{background:var(--c1);color:#0f172a}.btn-acc:hover{opacity:.88;transform:translateY(-1px)}
+.btn-out{border:1px solid rgba(255,255,255,.2);color:#e2e8f0}.btn-out:hover{border-color:var(--c1);color:var(--c1)}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
+.hero-img{position:relative;z-index:2}
+.img-frame{border-radius:12px;overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(255,255,255,.08)}
+.img-frame img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.9)}
+.tag-row{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.tag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:4px 10px;font-size:.7rem;color:#94a3b8;font-family:monospace}
 
-  .services { background: var(--dark); }
-  .services .section-label { color: #F57F17; }
-  .services .section-title { color: #F57F17; }
-  .services .section-sub { color: #aaa; }
-  .srv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-top: 36px; }
-  .srv-item { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 16px 20px; font-size: 0.9rem; color: #eee; font-weight: 500; }
-  .srv-dot { width: 8px; height: 8px; border-radius: 50%; background: #F57F17; flex-shrink: 0; }
+section{padding:96px 48px}.inner{max-width:1120px;margin:auto}
+.s-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--c1);margin-bottom:10px}
+.s-title{font-size:clamp(1.8rem,2.8vw,2.6rem);font-weight:700;color:#f8fafc;margin-bottom:14px;line-height:1.2;letter-spacing:-.02em}
+.s-sub{font-size:.92rem;color:#94a3b8;line-height:1.75;max-width:500px}
 
-  .about { background: #1A1A1A; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-  .about-visual { border-radius: 16px; aspect-ratio: 4/3; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
-  .about-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .about-text p { font-size: 0.95rem; color: #555; line-height: 1.8; margin-bottom: 16px; }
-  .stat-row { display: flex; gap: 32px; margin-top: 24px; }
-  .stat { text-align: center; }
-  .stat-num { font-family: 'DM Sans', serif; font-size: 2rem; font-weight: 700; color: var(--dark); }
-  .stat-lbl { font-size: 0.75rem; color: #777; text-transform: uppercase; letter-spacing: 0.08em; }
+.srv-sec{background:#0a1120;border-top:1px solid rgba(255,255,255,.06)}
+.spec-list{margin-top:48px;display:flex;flex-direction:column;gap:1px}
+.spec{display:flex;gap:24px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.06);transition:all .3s}
+.spec:hover{padding-left:8px}
+.spec-n{font-size:2rem;font-weight:700;color:rgba(249,115,22,.2);flex-shrink:0;min-width:52px;line-height:1;font-family:monospace}
+.spec h3{font-size:.98rem;font-weight:600;color:#e2e8f0;margin-bottom:6px}
+.spec p{font-size:.83rem;color:#64748b;line-height:1.65}
 
-  .contact { background: #F57F17; }
-  .contact .section-label { color: var(--dark); opacity: 0.7; }
-  .contact .section-title { color: var(--dark); }
-  .contact .section-sub { color: var(--dark); opacity: 0.75; }
-  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
-  .cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; }
-  .cta-wa { background: #25D366; color: #fff; }
-  .cta-wa:hover { background: #1ebe5c; transform: translateY(-2px); }
-  .cta-ig { background: var(--dark); color: #fff; }
-  .cta-ig:hover { opacity: 0.85; transform: translateY(-2px); }
+.about-sec{background:#111827}
+.about-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-img{border-radius:12px;overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(255,255,255,.08)}
+.about-img img{width:100%;height:100%;object-fit:cover;display:block}
+.about-text .s-sub{max-width:100%;color:#94a3b8}
+.about-text p{font-size:.88rem;color:#64748b;line-height:1.85;margin-top:14px}
+.data-row{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap}
+.dr{text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:16px 20px;min-width:90px}
+.dr .n{font-size:1.6rem;font-weight:700;color:var(--c1);font-family:monospace}.dr .l{font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.08em}
 
-  footer { background: var(--dark); color: rgba(255,255,255,0.5); text-align: center; padding: 24px; font-size: 0.78rem; }
-  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+.cta-sec{background:var(--c1);text-align:center}
+.cta-sec .s-label{color:rgba(0,0,0,.5)}.cta-sec .s-title{color:#0f172a}.cta-sec .s-sub{color:rgba(0,0,0,.6);margin:0 auto}
+.cta-row{display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+.btn-dark{background:#0f172a;color:#fff}.btn-dark:hover{opacity:.85}
 
-  @media (max-width: 640px) {
-    .about-grid { grid-template-columns: 1fr; }
-    .about-visual { display: none; }
-    .stat-row { gap: 20px; }
-  }
-</style>
-</head>
-<body>
+footer{background:#050a14;color:rgba(255,255,255,.25);text-align:center;padding:22px 40px;font-size:.73rem;border-top:1px solid rgba(255,255,255,.06)}
+footer a{color:rgba(255,255,255,.4);text-decoration:none}
 
+.reveal{opacity:0;clip-path:inset(0 0 100% 0);transition:opacity .75s,clip-path .75s cubic-bezier(0.16,1,0.3,1);transition-delay:var(--d,0s)}.reveal.in{opacity:1;clip-path:inset(0 0 0% 0)}
+@media(max-width:768px){nav{padding:0 20px}.hero{grid-template-columns:1fr;padding:90px 20px 50px}.hero-img{display:none}.about-split{grid-template-columns:1fr}.about-img{display:none}section{padding:60px 20px}}
+</style></head><body>
+<nav><div class="logo">Andrade <span>&middot;</span> Eng.</div><a href="https://wa.me/5562995487024" class="nav-cta">Orçamento</a></nav>
 <section class="hero">
-  <div class="hero-circle hero-circle-1"></div>
-  <div class="hero-circle hero-circle-2"></div>
-  <div class="hero-inner">
-    <div class="hero-badge">Engenharia &middot; Goiânia</div>
-    <h1>Eng. Ricardo Andrade</h1>
+  <div class="grid-bg"></div>
+  <div class="acc-dot d1"></div><div class="acc-dot d2"></div><div class="acc-dot d3"></div>
+  <div class="hero-text">
+    <div class="spec-badge">Engenharia &middot; Goiânia</div>
+    <h1>Projetos que<br><em>Transformam</em><br>Espaços</h1>
     <p>Engenharia e arquitetura de excelência, do projeto à execução.</p>
-    <div class="cta-row" style="justify-content:center">
-      <a href="https://wa.me/5562995487024" class="cta-btn cta-wa"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.5 2C6.262 2 2 6.262 2 11.5c0 1.687.437 3.27 1.203 4.645L2 22l6.015-1.176C9.35 21.576 10.408 22 11.5 22 16.738 22 21 17.738 21 12.5S16.738 2 11.5 2z"/></svg> WhatsApp</a>
-      <a href="https://www.instagram.com/eng.ricardoandrade/" class="cta-btn cta-ig" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.0724.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.9480-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> Instagram</a>
-    </div>
+    <div class="hero-btns"><a href="https://wa.me/5562995487024" class="btn btn-acc"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.5 2C6.262 2 2 6.262 2 11.5c0 1.687.437 3.27 1.203 4.645L2 22l6.015-1.176C9.35 21.576 10.408 22 11.5 22 16.738 22 21 17.738 21 12.5S16.738 2 11.5 2z"/></svg> WhatsApp</a><a href="https://www.instagram.com/eng.ricardoandrade/" class="btn btn-out"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> Instagram</a></div>
+  </div>
+  <div class="hero-img">
+    <div class="img-frame"><img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=700&h=900&fit=crop&q=80" alt="Eng. Ricardo Andrade" loading="eager" fetchpriority="high"></div>
+    <div class="tag-row"><span class="tag">CREA</span><span class="tag">NBR 6118</span><span class="tag">Goiás</span></div>
   </div>
 </section>
+<section class="srv-sec"><div class="inner"><div class="s-label reveal">Atuação</div><h2 class="s-title reveal">Áreas de Serviço</h2><p class="s-sub reveal">Soluções técnicas completas com responsabilidade e inovação.</p><div class="spec-list"><div class="spec reveal" style="--d:0.0s"><div class="spec-n">01</div><div class="spec-body"><h3>Projetos Residenciais</h3><p>Execução técnica com precisão, dentro do prazo e do orçamento.</p></div></div><div class="spec reveal" style="--d:0.08s"><div class="spec-n">02</div><div class="spec-body"><h3>Laudos Técnicos</h3><p>Execução técnica com precisão, dentro do prazo e do orçamento.</p></div></div><div class="spec reveal" style="--d:0.16s"><div class="spec-n">03</div><div class="spec-body"><h3>Reforma e Ampliação</h3><p>Execução técnica com precisão, dentro do prazo e do orçamento.</p></div></div><div class="spec reveal" style="--d:0.24s"><div class="spec-n">04</div><div class="spec-body"><h3>Fiscalização de Obras</h3><p>Execução técnica com precisão, dentro do prazo e do orçamento.</p></div></div><div class="spec reveal" style="--d:0.32s"><div class="spec-n">05</div><div class="spec-body"><h3>Projetos Comerciais</h3><p>Execução técnica com precisão, dentro do prazo e do orçamento.</p></div></div><div class="spec reveal" style="--d:0.4s"><div class="spec-n">06</div><div class="spec-body"><h3>Consultoria</h3><p>Execução técnica com precisão, dentro do prazo e do orçamento.</p></div></div></div></div></section>
+<section class="about-sec"><div class="inner"><div class="about-split"><div class="about-img reveal"><img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=600&h=600&fit=crop&q=80" alt="Sobre" loading="lazy"></div><div><div class="s-label reveal">O Profissional</div><h2 class="s-title reveal">Eng. Ricardo Andrade</h2><p class="s-sub reveal">Engenheiro civil em Goiânia.</p><p class="reveal">Atuamos em Goiânia com rigor técnico e compromisso com cada obra.</p><div class="data-row"><div class="dr reveal"><div class="n" data-to="50" data-suf="+">0</div><div class="l">Obras</div></div><div class="dr reveal" style="--d:.1s"><div class="n">GYN</div><div class="l">Região</div></div><div class="dr reveal" style="--d:.15s"><div class="n">Ativo</div><div class="l">Status</div></div></div></div></div></div></section>
+<section class="cta-sec"><div class="inner"><div class="s-label">Contato</div><h2 class="s-title">Solicite um Orçamento</h2><p class="s-sub">Análise técnica gratuita para o seu projeto.</p><div class="cta-row"><a href="https://wa.me/5562995487024" class="btn btn-dark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.5 2C6.262 2 2 6.262 2 11.5c0 1.687.437 3.27 1.203 4.645L2 22l6.015-1.176C9.35 21.576 10.408 22 11.5 22 16.738 22 21 17.738 21 12.5S16.738 2 11.5 2z"/></svg> WhatsApp</a><a href="https://www.instagram.com/eng.ricardoandrade/" class="btn btn-dark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> Instagram</a></div></div></section>
+<footer><p>&copy; 2026 Eng. Ricardo Andrade &middot; Goiânia &mdash; Protótipo por <a href="https://vant-studio.web.app/">VANT Digital Studio</a></p></footer>
 
-<section class="section services">
-  <div class="section-inner">
-    <div class="section-label">O Que Oferecemos</div>
-    <h2 class="section-title">Nossos Servi&ccedil;os</h2>
-    <p class="section-sub">Solu&ccedil;&otilde;es completas para atender voc&ecirc; com qualidade, cuidado e profissionalismo.</p>
-    <div class="srv-grid">
-    <div class="srv-item"><div class="srv-dot"></div><span>Projetos Residenciais</span></div>
-    <div class="srv-item"><div class="srv-dot"></div><span>Laudos Técnicos</span></div>
-    <div class="srv-item"><div class="srv-dot"></div><span>Reforma e Ampliação</span></div>
-    <div class="srv-item"><div class="srv-dot"></div><span>Fiscalização de Obras</span></div>
-    <div class="srv-item"><div class="srv-dot"></div><span>Projetos Comerciais</span></div>
-    <div class="srv-item"><div class="srv-dot"></div><span>Consultoria</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="section about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="about-text">
-        <div class="section-label">Sobre N&oacute;s</div>
-        <h2 class="section-title">Eng. Ricardo Andrade</h2>
-        <p>Engenheiro civil em Goiânia.</p>
-        <p>Localizado em Goiânia — Setor Marista, atendemos com compromisso, dedica&ccedil;&atilde;o e foco total no resultado do nosso cliente.</p>
-        <div class="stat-row">
-          <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Dedica&ccedil;&atilde;o</div></div>
-          <div class="stat"><div class="stat-num">Ativo</div><div class="stat-lbl">No Mercado</div></div>
-          <div class="stat"><div class="stat-num">GYN</div><div class="stat-lbl">Regi&atilde;o</div></div>
-        </div>
-      </div>
-      <div class="about-visual">
-        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=600&fit=crop&q=80" alt="Eng. Ricardo Andrade" loading="lazy" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section contact">
-  <div class="section-inner" style="text-align:center">
-    <div class="section-label">Fale Conosco</div>
-    <h2 class="section-title">Agende Agora</h2>
-    <p class="section-sub" style="margin:0 auto">Entre em contato pelo WhatsApp ou nos siga no Instagram para acompanhar novidades e ofertas exclusivas.</p>
-    <div class="cta-row" style="justify-content:center">
-      <a href="https://wa.me/5562995487024" class="cta-btn cta-wa"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.5 2C6.262 2 2 6.262 2 11.5c0 1.687.437 3.27 1.203 4.645L2 22l6.015-1.176C9.35 21.576 10.408 22 11.5 22 16.738 22 21 17.738 21 12.5S16.738 2 11.5 2z"/></svg> WhatsApp</a>
-      <a href="https://www.instagram.com/eng.ricardoandrade/" class="cta-btn cta-ig" target="_blank"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="flex-shrink:0"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.0724.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.9480-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> Instagram</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2026 Eng. Ricardo Andrade &middot; Goiânia — Setor Marista</p>
-  <p style="margin-top:6px;font-size:0.7rem">Prot&oacute;tipo desenvolvido por <a href="https://vant-studio.web.app/" target="_blank">VANT Digital Studio</a></p>
-</footer>
-
-</body>
-</html>
+<script>
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const cobs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){animCount(e.target);cobs.unobserve(e.target);}});},{threshold:0.4});
+document.querySelectorAll('[data-to]').forEach(el=>cobs.observe(el));
+function animCount(el){const to=+el.dataset.to,suf=el.dataset.suf||'',dur=1800,step=to/(dur/16);let n=0;const t=setInterval(()=>{n=Math.min(n+step,to);el.textContent=Math.floor(n)+suf;if(n>=to)clearInterval(t);},16);}
+</script>
+</body></html>
