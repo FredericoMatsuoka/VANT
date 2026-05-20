@@ -2,193 +2,231 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Dr. Jorge Santos Advogado — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Jorge Santos — Advocacia em Goiânia GO</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Merriweather', serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#003366;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Raleway', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Merriweather', serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Merriweather', serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#003366;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --navy: #003366;
+  --navy-medio: #1A4A80;
+  --dourado: #C8A840;
+  --dourado-claro: #F0E0A0;
+  --texto: #1A2640;
+  --cinza: #5A6A7A;
+  --branco: #FFFFFF;
+  --fundo: #F8FAFC;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+body{font-family:'Nunito Sans',sans-serif;color:var(--texto);background:var(--branco);}
+h1,h2,h3{font-family:'EB Garamond',serif;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;display:flex;align-items:center;padding:0 40px;background:var(--navy);border-bottom:2px solid var(--dourado);}
+.nav-brand{flex:1;display:flex;align-items:center;gap:14px;}
+.nav-nome{font-family:'EB Garamond',serif;font-size:1rem;color:#fff;font-weight:600;}
+.nav-oab{font-size:0.68rem;color:rgba(200,168,64,0.8);font-family:'Nunito Sans',sans-serif;margin-left:6px;}
+.nav-cta{border:1px solid var(--dourado);color:var(--dourado);padding:9px 22px;text-decoration:none;font-weight:600;font-size:0.82rem;letter-spacing:0.5px;transition:all 0.2s;}
+.nav-cta:hover{background:var(--dourado);color:var(--navy);}
+
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:100px 40px 60px;position:relative;overflow:hidden;}
+.hero::before{content:'§';position:absolute;right:5%;top:50%;transform:translateY(-50%);font-family:'EB Garamond',serif;font-size:clamp(200px,25vw,380px);color:rgba(255,255,255,0.025);pointer-events:none;line-height:1;}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:55% 45%;gap:64px;align-items:center;position:relative;z-index:1;}
+.hero-linha{display:flex;align-items:center;gap:14px;margin-bottom:26px;}
+.h-linha{width:50px;height:1px;background:var(--dourado);}
+.hero-linha span{font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);}
+.hero h1{font-size:clamp(2.2rem,4vw,3.6rem);color:#fff;line-height:1.2;margin-bottom:22px;font-weight:600;}
+.hero h1 em{color:var(--dourado);font-style:italic;}
+.hero-desc{color:rgba(255,255,255,0.65);line-height:1.8;max-width:420px;margin-bottom:36px;font-weight:300;}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 28px;border-radius:4px;text-decoration:none;font-weight:700;font-size:0.88rem;box-shadow:0 4px 20px rgba(37,211,102,0.3);transition:transform 0.2s;}
+.btn-wa:hover{transform:translateY(-2px);}
+.btn-wa svg{width:20px;height:20px;fill:#fff;}
+.hero-dir{display:flex;flex-direction:column;gap:20px;}
+.hero-dir img{width:100%;}
+.hero-areas{background:rgba(255,255,255,0.05);border:1px solid rgba(200,168,64,0.2);padding:24px;}
+.hero-areas-title{font-family:'EB Garamond',serif;font-size:0.88rem;color:var(--dourado);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;}
+.area-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.75);font-size:0.84rem;font-weight:300;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.area-item:last-child{border:none;}
+.area-item::before{content:'';width:4px;height:4px;background:var(--dourado);flex-shrink:0;}
+
+section{padding:88px 24px;}
+.wrap{max-width:1100px;margin:0 auto;}
+.sec-label{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);font-weight:700;display:block;margin-bottom:10px;}
+.sec-top{text-align:center;margin-bottom:56px;}
+.sec-top h2{font-size:clamp(1.9rem,3vw,2.6rem);color:var(--navy);margin-bottom:14px;}
+.sec-top p{color:var(--cinza);max-width:520px;margin:0 auto;line-height:1.7;font-weight:300;}
+
+.servicos{background:var(--fundo);}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.srv-card{background:var(--branco);padding:30px 24px;border:1px solid rgba(0,51,102,0.1);border-left:3px solid var(--navy);transition:transform 0.2s,box-shadow 0.2s;}
+.srv-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,51,102,0.08);}
+.srv-card h3{font-size:1rem;color:var(--navy);margin-bottom:10px;}
+.srv-card p{font-size:0.84rem;color:var(--cinza);line-height:1.6;font-weight:300;}
+
+.sobre{background:var(--navy);}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.sobre-img img{width:100%;}
+.sobre-txt .sec-label{text-align:left;}
+.sobre-txt h2{color:#fff;font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:20px;}
+.sobre-txt p{color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:14px;font-size:0.94rem;font-weight:300;}
+.difs{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:10px;}
+.difs li{display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;color:rgba(255,255,255,0.8);}
+.difs li::before{content:'';width:4px;height:4px;background:var(--dourado);flex-shrink:0;margin-top:8px;}
+
+.depoimentos{background:var(--fundo);}
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.dep-card{background:var(--branco);padding:28px;border:1px solid rgba(0,51,102,0.1);}
+.estrelas{color:var(--dourado);font-size:0.9rem;letter-spacing:2px;margin-bottom:14px;}
+.dep-card p{font-style:italic;color:var(--cinza);font-size:0.87rem;line-height:1.7;margin-bottom:18px;font-weight:300;}
+.dep-autor{display:flex;align-items:center;gap:10px;}
+.dep-av{width:38px;height:38px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:0.9rem;flex-shrink:0;}
+.dep-autor strong{color:var(--navy);font-size:0.84rem;display:block;}
+.dep-autor span{color:var(--cinza);font-size:0.73rem;}
+
+.cta-final{background:var(--dourado);padding:80px 24px;text-align:center;}
+.cta-final h2{font-size:clamp(2rem,4vw,3rem);color:var(--navy);margin-bottom:16px;}
+.cta-final p{color:rgba(0,51,102,0.8);max-width:480px;margin:0 auto 36px;line-height:1.7;font-weight:300;}
+.btn-navy{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;padding:14px 28px;border-radius:4px;text-decoration:none;font-weight:700;font-size:0.88rem;transition:background 0.2s;}
+.btn-navy:hover{background:var(--navy-medio);}
+.btn-navy svg{width:20px;height:20px;fill:#fff;}
+
+footer{background:var(--navy);color:rgba(255,255,255,0.5);padding:48px 24px 24px;text-align:center;}
+.footer-nome{font-family:'EB Garamond',serif;font-size:1.1rem;color:var(--dourado-claro);margin-bottom:8px;}
+footer p{font-size:0.84rem;margin-bottom:5px;}
+footer a{color:var(--dourado);text-decoration:none;}
+.footer-copy{margin-top:24px;border-top:1px solid rgba(255,255,255,0.08);padding-top:18px;font-size:0.76rem;}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;animation:pulse-wa 2s infinite;}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff;}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s;}
+.reveal.visible{opacity:1;transform:none;}
+@media(max-width:900px){.hero-inner,.sobre-grid{grid-template-columns:1fr;}.srv-grid,.dep-grid{grid-template-columns:1fr;}}
+@media(max-width:768px){nav{padding:0 20px;}}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Dr. Jorge Santos Advogado</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-brand">
+    <span class="nav-nome">Dr. Jorge Santos<span class="nav-oab">| OAB-GO</span></span>
   </div>
-  <a href="https://wa.me/5562995830628" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://wa.me/5562995830628" class="nav-cta" target="_blank">Consulta</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#002347;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;">
-  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(100px,18vw,220px);font-weight:900;color:#ffffff;opacity:0.04;pointer-events:none;white-space:nowrap;font-family:'Raleway', sans-serif;">DR.</div>
-  <div style="max-width:1200px;margin:0 auto;padding:120px 60px;display:flex;align-items:center;gap:0;position:relative;z-index:2;">
-    <div style="width:1px;height:70vh;background:#FFFFFF;flex-shrink:0;margin-right:60px;"></div>
+<section class="hero">
+  <div class="hero-inner">
     <div>
-      <p style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#FFFFFF;margin-bottom:24px;font-family:'Merriweather', serif;">Bem-vindo</p>
-      <h1 style="font-size:clamp(48px,7vw,100px);font-weight:800;color:#ffffff;line-height:1.0;margin-bottom:32px;font-family:'Raleway', sans-serif;">Advocacia com competencia</h1>
-      <p style="font-size:18px;color:rgba(255,255,255,0.7);margin-bottom:48px;max-width:480px;line-height:1.7;font-family:'Merriweather', serif;">Escritorio de advocacia em Goiânia</p>
-      <a href="https://wa.me/5562995830628" style="border:1px solid #FFFFFF;color:#FFFFFF;padding:14px 32px;font-size:15px;font-weight:600;text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:all 0.3s;">Entrar em contato</a>
+      <div class="hero-linha"><div class="h-linha"></div><span>Advocacia — Goiânia, GO</span></div>
+      <h1>Seu direito defendido com <em>experiência e dedicação</em></h1>
+      <p class="hero-desc">O Dr. Jorge Santos atua em Goiânia com foco em direito civil, trabalhista e previdenciário. Cada caso recebe atenção personalizada e estratégia jurídica sólida.</p>
+      <a href="https://wa.me/5562995830628" class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <div class="hero-dir">
+      <img src="https://placehold.co/420x220/003366/C8A840?text=Dr.+Jorge+Santos%0aAdvogado+OAB-GO" alt="Dr. Jorge Santos Advogado">
+      <div class="hero-areas">
+        <div class="hero-areas-title">Áreas de Atuação</div>
+        <div class="area-item">Direito Civil e Contratos</div>
+        <div class="area-item">Direito Trabalhista</div>
+        <div class="area-item">Direito Previdenciário</div>
+        <div class="area-item">Direito de Família</div>
+        <div class="area-item">Consultoria Empresarial</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Merriweather', serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#002347;font-family:'Raleway', sans-serif;">O que fazemos</h2>
+<section class="servicos">
+  <div class="wrap">
+    <div class="sec-top reveal">
+      <span class="sec-label">Serviços Jurídicos</span>
+      <h2>Advocacia com expertise e resultados</h2>
+      <p>Atendimento jurídico completo e personalizado para pessoas físicas e empresas em Goiânia.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;"><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#002347;margin-bottom:8px;font-family:'Raleway', sans-serif;">Direito Trabalhista</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Merriweather', serif;">Defesa dos seus direitos nas relacoes de trabalho e emprego.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#002347;margin-bottom:8px;font-family:'Raleway', sans-serif;">Direito Previdenciario</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Merriweather', serif;">Aposentadorias, beneficios e revisoes junto ao INSS.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#002347;margin-bottom:8px;font-family:'Raleway', sans-serif;">Direito de Familia</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Merriweather', serif;">Divorcio, guarda, inventario e questoes familiares.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#002347;margin-bottom:8px;font-family:'Raleway', sans-serif;">Direito Tributario</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Merriweather', serif;">Planejamento e defesa em questoes fiscais e tributarias.</p></div></div>
+    <div class="srv-grid">
+      <div class="srv-card reveal"><h3>Direito Civil</h3><p>Contratos, indenizações e defesa dos seus direitos nas relações civis.</p></div>
+      <div class="srv-card reveal"><h3>Direito Trabalhista</h3><p>Defesa de empregados e empregadores, reclamações e consultoria preventiva.</p></div>
+      <div class="srv-card reveal"><h3>Direito Previdenciário</h3><p>Aposentadorias, benefícios do INSS, revisões e recursos previdenciários.</p></div>
+      <div class="srv-card reveal"><h3>Direito de Família</h3><p>Divórcio, guarda, pensão alimentícia e inventário com discrição.</p></div>
+      <div class="srv-card reveal"><h3>Consultoria Empresarial</h3><p>Análise de contratos, prevenção de litígios e assessoria jurídica empresarial.</p></div>
+      <div class="srv-card reveal"><h3>Recursos e Apelações</h3><p>Representação em instâncias superiores com estratégia fundamentada.</p></div>
+    </div>
   </div>
 </section>
 
-<section id="stats" style="background:#003366;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="1800" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Raleway', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Merriweather', serif;">Casos Resolvidos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="94" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Raleway', sans-serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Merriweather', serif;">Taxa de Exito</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="15" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Raleway', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Merriweather', serif;">Anos de Atuacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="2000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Raleway', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Merriweather', serif;">Clientes Atendidos</div></div>
+<section class="sobre">
+  <div class="wrap">
+    <div class="sobre-grid">
+      <div class="sobre-img reveal">
+        <img src="https://placehold.co/500x420/003366/C8A840?text=Dr.+Jorge+Santos%0aEscritório+Goiânia" alt="Dr. Jorge Santos — Escritório">
+      </div>
+      <div class="sobre-txt reveal">
+        <span class="sec-label">Sobre o Advogado</span>
+        <h2>Mais de 15 anos defendendo direitos em Goiânia</h2>
+        <p>O Dr. Jorge Santos acumula mais de 15 anos de experiência em Goiânia, com atuação destacada em direito civil, trabalhista e previdenciário.</p>
+        <p>Cada cliente é tratado individualmente — porque cada caso é único e merece uma estratégia jurídica exclusiva, construída com cuidado e profundidade.</p>
+        <ul class="difs">
+          <li>Membro ativo da OAB-GO com registro regular</li>
+          <li>Atendimento personalizado desde a consulta inicial</li>
+          <li>Transparência total no andamento do processo</li>
+          <li>Honorários claros e sem surpresas</li>
+          <li>Atendimento presencial e online disponível</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#003366;">
-  <div class="section-inner reveal">
-    <div style="background-image:url('https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?w=1200&h=800&fit=crop&q=80');background-attachment:fixed;background-size:cover;background-position:center;position:relative;">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.85));"></div>
-  <div style="position:relative;z-index:2;text-align:center;padding:100px 40px;color:#fff;max-width:760px;margin:0 auto;">
-    <h2 style="font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.1;margin-bottom:20px;font-family:'Raleway', sans-serif;">Dr. Jorge Santos Advogado</h2>
-    <p style="font-size:18px;opacity:0.85;line-height:1.7;font-family:'Merriweather', serif;">Nosso escritorio de advocacia atua com comprometimento e etica para garantir os melhores resultados aos nossos clientes. Com ampla experiencia nas principais areas do direito, oferecemos assessoria juridica completa e personalizada.</p>
+<section class="depoimentos">
+  <div class="wrap">
+    <div class="sec-top reveal">
+      <span class="sec-label">Depoimentos</span>
+      <h2>Clientes que tiveram seus direitos defendidos</h2>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"O Dr. Jorge cuidou do meu processo trabalhista com muita competência. Consegui uma indenização justa e ele me manteve informado em todo momento. Profissional exemplar!"</p>
+        <div class="dep-autor"><div class="dep-av">A</div><div><strong>Antônio Ferreira</strong><span>Motorista, Goiânia</span></div></div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Resolvi meu divórcio com tranquilidade graças ao Dr. Jorge. Muito humano e profissional ao mesmo tempo. Me senti muito bem assistida durante todo o processo."</p>
+        <div class="dep-autor"><div class="dep-av">L</div><div><strong>Lucia Matos</strong><span>Professora, Goiânia</span></div></div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Consegui minha aposentadoria por invalidez com a ajuda do Dr. Jorge. Ele conhece muito bem o direito previdenciário e lutou pelo meu caso até o final. Muito grato!"</p>
+        <div class="dep-autor"><div class="dep-av">J</div><div><strong>José Rodrigues</strong><span>Comerciante, Aparecida de Goiânia</span></div></div>
+      </div>
+    </div>
   </div>
+</section>
+
+<div class="cta-final">
+  <h2>Consulta Jurídica Gratuita</h2>
+  <p>Fale com o Dr. Jorge Santos pelo WhatsApp e agende sua primeira consulta. Defenda seus direitos com quem entende.</p>
+  <a href="https://wa.me/5562995830628" class="btn-navy" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+    Falar no WhatsApp
+  </a>
 </div>
-  </div>
-</section>
 
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Merriweather', serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#002347;font-family:'Raleway', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Merriweather', serif;">"Resolveram meu caso com agilidade e competencia. Recomendo muito."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2c1d1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#003366;font-size:14px;">P</div><div><div style="font-weight:700;font-size:14px;color:#002347;font-family:'Raleway', sans-serif;">Paulo S.</div><div style="font-size:12px;color:#888;font-family:'Merriweather', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Merriweather', serif;">"Profissionais serios e dedicados. Ganhamos a causa."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2c1d1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#003366;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#002347;font-family:'Raleway', sans-serif;">Marcia T.</div><div style="font-size:12px;color:#888;font-family:'Merriweather', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Merriweather', serif;">"Atendimento humanizado e explicacao clara de todos os passos."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2c1d1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#003366;font-size:14px;">A</div><div><div style="font-weight:700;font-size:14px;color:#002347;font-family:'Raleway', sans-serif;">Andre F.</div><div style="font-size:12px;color:#888;font-family:'Merriweather', serif;">Cliente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="background:linear-gradient(135deg,#003366 0%,#00264c 100%);border-radius:24px;padding:80px 48px;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;opacity:0.03;background-image:url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;200&quot; height=&quot;200&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.65&quot; numOctaves=&quot;3&quot;/></filter><rect width=&quot;200&quot; height=&quot;200&quot; filter=&quot;url(%23n)&quot;/></svg>');background-size:200px;"></div>
-  <div style="position:relative;z-index:2;color:#ffffff;">
-    <div style="display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:8px 20px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;font-family:'Merriweather', serif;">Contato</div>
-    <h2 style="font-size:clamp(28px,4.5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Raleway', sans-serif;">Solicite uma consulta</h2>
-    <p style="font-size:18px;opacity:0.85;max-width:520px;margin:0 auto 44px;line-height:1.6;font-family:'Merriweather', serif;">Atendimento especializado para voce.</p>
-    <a href="https://wa.me/5562995830628" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 48px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#002851;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Raleway', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Dr. Jorge Santos Advogado</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Merriweather', serif;">Centro, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562995830628" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/advogado.goiania/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Raleway', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Merriweather', serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Raleway', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Merriweather', serif;">
-          (62) 99583-0628<br>
-          <a href="https://wa.me/5562995830628" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/advogado.goiania/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Merriweather', serif;">Desenvolvido por VANT Digital Studio</div>
-  </div>
+<footer>
+  <div class="footer-nome">Dr. Jorge Santos — Advocacia</div>
+  <p>Goiânia, Goiás | OAB-GO</p>
+  <p><a href="https://wa.me/5562995830628">WhatsApp: (62) 99583-0628</a></p>
+  <div class="footer-copy">© 2026 Dr. Jorge Santos Advogado. Desenvolvido por VANT Digital Studio</div>
 </footer>
 
-<a href="https://wa.me/5562995830628" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562995830628" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {if(i.isIntersecting) i.target.classList.add('visible');}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

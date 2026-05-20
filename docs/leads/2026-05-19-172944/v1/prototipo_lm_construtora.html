@@ -2,224 +2,208 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>LM Construtora — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LM Construtora — Construção e Reformas | Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Lato', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#1A237E;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'EB Garamond', serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Lato', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Lato', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#1A237E;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --lm-cinza:#455A64;
+  --lm-aco:#B0BEC5;
+  --lm-vermelho:#C62828;
+  --lm-escuro:#1A2326;
+  --lm-creme:#F5F7F8;
+  --lm-medio:#607D8B;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Work Sans',sans-serif;background:#fff;color:var(--lm-escuro);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--lm-escuro);padding:0 64px;height:66px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:14px}
+.nav-lm{font-family:'Lora',serif;font-size:1.4rem;font-weight:700;font-style:italic;color:var(--lm-vermelho);line-height:1}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-brand-text strong{font-size:0.88rem;font-weight:700;color:#fff}
+.nav-brand-text span{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--lm-aco)}
+.nav-cta{background:var(--lm-vermelho);color:#fff;padding:10px 22px;text-decoration:none;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:background 0.3s}
+.nav-cta:hover{background:#B71C1C}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--lm-escuro);padding-top:66px;display:grid;grid-template-columns:55% 45%;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;position:relative;z-index:2}
+.hero-accent{width:48px;height:4px;background:var(--lm-vermelho);margin-bottom:28px}
+.hero-title{font-family:'Lora',serif;font-size:clamp(2.8rem,4.5vw,4.2rem);color:#fff;line-height:1.1;margin-bottom:20px;font-weight:600}
+.hero-title em{font-style:italic;color:var(--lm-aco)}
+.hero-desc{font-size:0.88rem;color:rgba(255,255,255,0.5);line-height:1.9;margin-bottom:44px;max-width:400px;font-weight:300}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:52px}
+.btn-vermelho{background:var(--lm-vermelho);color:#fff;padding:13px 28px;text-decoration:none;font-size:0.77rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:background 0.3s}
+.btn-vermelho:hover{background:#B71C1C}
+.btn-lm-out{border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.65);padding:13px 22px;text-decoration:none;font-size:0.77rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.3s}
+.btn-lm-out:hover{border-color:var(--lm-aco);color:var(--lm-aco)}
+.hero-feats{display:flex;flex-direction:column;gap:10px}
+.feat-row{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.7);font-size:0.85rem;font-weight:500}
+.feat-dot{width:6px;height:6px;background:var(--lm-vermelho);border-radius:50%;flex-shrink:0}
+.hero-right{position:relative;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:60px 48px 60px 0;z-index:2}
+.stat-block{background:rgba(255,255,255,0.04);border-top:2px solid var(--lm-vermelho);padding:24px 28px;transition:background 0.3s}
+.stat-block:hover{background:rgba(198,40,40,0.08)}
+.stat-block strong{display:block;font-family:'Lora',serif;font-size:2.2rem;font-style:italic;color:#fff;line-height:1}
+.stat-block span{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--lm-aco)}
+
+/* ABOUT */
+.about{padding:100px 80px;background:var(--lm-creme);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-label{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--lm-vermelho);font-weight:700;margin-bottom:14px}
+.about-title{font-family:'Lora',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--lm-escuro);line-height:1.2;margin-bottom:24px;font-weight:600}
+.about-text{font-size:0.88rem;color:var(--lm-medio);line-height:1.9;margin-bottom:14px}
+.about-img{width:100%;height:460px;object-fit:cover;border-left:4px solid var(--lm-vermelho)}
+.about-list{margin-top:24px;display:flex;flex-direction:column;gap:8px}
+.ab-item{display:flex;align-items:center;gap:12px;padding:12px;background:#fff}
+.ab-n{width:28px;height:28px;background:var(--lm-vermelho);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;color:#fff;flex-shrink:0}
+.ab-item span{font-size:0.82rem;font-weight:500;color:var(--lm-escuro)}
+
+/* SERVICES */
+.services{padding:100px 80px;background:#fff}
+.sec-hdr{text-align:center;margin-bottom:60px}
+.sec-lbl{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--lm-vermelho);font-weight:700;margin-bottom:12px}
+.sec-ttl{font-family:'Lora',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--lm-escuro);font-weight:600}
+.svc-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.svc-card{padding:40px 32px;border:1px solid #E0E8EC;transition:all 0.3s}
+.svc-card:hover{border-color:var(--lm-vermelho);background:var(--lm-creme)}
+.svc-n{font-family:'Lora',serif;font-size:3rem;font-style:italic;color:rgba(69,90,100,0.1);line-height:1;margin-bottom:14px}
+.svc-card h3{font-size:1rem;font-weight:600;color:var(--lm-escuro);margin-bottom:10px}
+.svc-card p{font-size:0.83rem;color:var(--lm-medio);line-height:1.8}
+
+/* CTA */
+.cta{background:var(--lm-vermelho);padding:80px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.cta h2{font-family:'Lora',serif;font-size:clamp(2rem,3vw,3rem);color:#fff;margin-bottom:12px;font-style:italic}
+.cta p{font-size:0.88rem;color:rgba(255,255,255,0.8);line-height:1.7}
+.cta-btn{background:#fff;color:var(--lm-vermelho);padding:16px 32px;text-decoration:none;font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;transition:all 0.3s}
+.cta-btn:hover{background:var(--lm-escuro);color:#fff}
+
+footer{background:#0D1518;padding:40px 80px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot-brand{font-family:'Lora',serif;font-size:1rem;font-style:italic;color:rgba(255,255,255,0.6)}
+.foot-copy{font-size:0.75rem;color:rgba(255,255,255,0.3)}
+.foot-wa{color:var(--lm-aco);font-size:0.8rem;text-decoration:none}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{padding:40px 32px}
+  .about{grid-template-columns:1fr;padding:60px 32px}
+  .svc-cols{grid-template-columns:1fr}
+  .services,.cta{padding:60px 32px}
+  .cta{grid-template-columns:1fr;text-align:center}
+  nav{padding:0 24px}
+  .hero-left{padding:60px 32px}
+  footer{padding:32px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">LM Construtora</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <div class="nav-lm">LM</div>
+    <div class="nav-brand-text">
+      <strong>LM Construtora</strong>
+      <span>Goiânia, GO</span>
+    </div>
   </div>
-  <a href="https://wa.me/5562996725801" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://wa.me/5562996725801" class="nav-cta">Pedir Orçamento</a>
 </nav>
 
-
-<section class="hero" id="hero">
-  <div class="hero-split-poly">
-    <div class="hero-left" style="background:linear-gradient(135deg,#1A237E 0%,#161d6b 100%);">
-      <div class="hero-left-inner">
-        <p class="hero-eyebrow" style="color:#FFFFFF;font-family:'Lato', sans-serif;">Bem-vindo</p>
-        <h1 style="color:#ffffff;font-family:'EB Garamond', serif;">Seu projeto nas maos certas</h1>
-        <p class="hero-sub" style="color:rgba(255,255,255,0.8);font-family:'Lato', sans-serif;">Obras de qualidade em Goiânia</p>
-        <div class="hero-stats-row">
-          <div class="hero-stat"><span class="stat-val" style="color:#FFFFFF;">250+</span><span class="stat-lbl" style="color:rgba(255,255,255,0.7);">Obras Entregues</span></div>
-          <div class="hero-stat"><span class="stat-val" style="color:#FFFFFF;">18+</span><span class="stat-lbl" style="color:rgba(255,255,255,0.7);">Anos no Mercado</span></div>
-        </div>
-        <div class="hero-btns">
-          <a href="https://wa.me/5562996725801" class="btn-primary" style="background:#FFFFFF;color:#0a0a0a;">Falar no WhatsApp</a>
-          <a href="#servicos" class="btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#ffffff;">Ver servicos</a>
-        </div>
-      </div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-accent"></div>
+    <h1 class="hero-title">Construcoes <em>solidas</em><br>que voce pode confiar</h1>
+    <p class="hero-desc">LM Construtora — obras residenciais e comerciais com rigor tecnico, equipe propria e transparencia em cada etapa do processo construtivo.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562996725801" class="btn-vermelho">Pedir Orçamento</a>
+      <a href="#sobre" class="btn-lm-out">Conhecer a LM</a>
     </div>
-    <div class="hero-right" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&h=800&fit=crop&q=80');clip-path:polygon(14% 0%,100% 0%,100% 100%,0% 100%);background-size:cover;background-position:center;"></div>
-  </div>
-</section>
-<style>
-.hero-split-poly {display:grid;grid-template-columns:56fr 44fr;min-height:100vh;}
-.hero-left {display:flex;align-items:center;padding:120px 60px 80px;}
-.hero-left-inner {max-width:520px;}
-.hero-eyebrow {font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
-.hero-left h1 {font-size:clamp(36px,4vw,64px);font-weight:800;line-height:1.1;margin-bottom:20px;}
-.hero-sub {font-size:18px;line-height:1.6;margin-bottom:40px;}
-.hero-stats-row {display:flex;gap:32px;margin-bottom:40px;}
-.hero-stat {display:flex;flex-direction:column;}
-.stat-val {font-size:28px;font-weight:800;line-height:1;}
-.stat-lbl {font-size:12px;margin-top:4px;letter-spacing:1px;text-transform:uppercase;}
-.hero-btns {display:flex;gap:16px;flex-wrap:wrap;}
-.btn-primary,.btn-ghost {padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.3s;}
-.btn-ghost {background:transparent;border:2px solid;}
-.btn-primary:hover {transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
-.hero-right {min-height:100vh;}
-@media(max-width:768px){.hero-split-poly{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:100px 24px 60px;}}
-</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Lato', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#121858;font-family:'EB Garamond', serif;">O que fazemos</h2>
-    </div>
-    <div style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;"><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#121858;font-family:'EB Garamond', serif;"><span>Construcao Residencial</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Casas e apartamentos construidos com qualidade e prazo.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#121858;font-family:'EB Garamond', serif;"><span>Construcao Comercial</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Galpoes, lojas e edificios comerciais sob medida.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#121858;font-family:'EB Garamond', serif;"><span>Reforma e Ampliacao</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Modernizacao e expansao de espacos existentes.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#121858;font-family:'EB Garamond', serif;"><span>Gerenciamento de Obras</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Gestao completa do processo construtivo.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#121858;font-family:'EB Garamond', serif;"><span>Acabamentos Premium</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Acabamentos de alto padrao para espacos sofisticados.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#121858;font-family:'EB Garamond', serif;"><span>Projetos Arquitetonicos</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Projetos criativos e funcionais para sua obra.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#121858;font-family:'EB Garamond', serif;"><span>Loteamentos</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Desenvolvimento de loteamentos residenciais e comerciais.</p></div></div></div><script>function toggleAcc(el){var body=el.nextElementSibling;var icon=el.querySelector(".acc-icon");if(body.style.maxHeight&&body.style.maxHeight!=="0px"){body.style.maxHeight="0px";icon.textContent="+";}else{body.style.maxHeight=body.scrollHeight+"px";icon.textContent="-";}}</script>
-  </div>
-</section>
-
-<section id="stats" style="background:#1A237E;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="250" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'EB Garamond', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Obras Entregues</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="18" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'EB Garamond', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Anos no Mercado</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="1200002" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'EB Garamond', serif;">0.+ m</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Area Construida</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="98" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'EB Garamond', serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Satisfacao</div></div>
+    <div class="hero-feats">
+      <div class="feat-row"><div class="feat-dot"></div>Equipe propria treinada e certificada</div>
+      <div class="feat-row"><div class="feat-dot"></div>Prazo garantido em contrato</div>
+      <div class="feat-row"><div class="feat-dot"></div>ART e documentacao completa inclusa</div>
     </div>
   </div>
-</section>
-
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
-<img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&h=800&fit=crop&q=80" alt="LM Construtora" style="border-radius:20px;width:100%;height:480px;object-fit:cover;">
-<div>
-  <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Lato', sans-serif;">Sobre nos</p>
-  <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#121858;margin-bottom:20px;line-height:1.2;font-family:'EB Garamond', serif;">LM Construtora</h2>
-  <p style="font-size:16px;color:#555;line-height:1.8;margin-bottom:28px;font-family:'Lato', sans-serif;">Nossa construtora tem mais de 18 anos de experiencia entregando obras com qualidade, solidez e pontualidade. Do projeto a entrega das chaves, acompanhamos cada detalhe para garantir a realizacao do seu sonho.</p>
-  <div style="display:flex;gap:16px;flex-wrap:wrap;">
-    <div style="background:#ffffff;color:#cccccc;padding:10px 20px;border-radius:50px;font-size:13px;font-weight:700;">250+ Obras Entregues</div>
-    <div style="background:#dcdeeb;color:#141c64;padding:10px 20px;border-radius:50px;font-size:13px;font-weight:700;">18+ Anos no Mercado</div>
-  </div>
-</div></div>
+  <div class="hero-right">
+    <div class="stat-block reveal"><strong>10+</strong><span>Anos de mercado</span></div>
+    <div class="stat-block reveal"><strong>120+</strong><span>Obras concluidas</span></div>
+    <div class="stat-block reveal"><strong>CREA</strong><span>GO-Registro ativo</span></div>
+    <img src="https://placehold.co/380x220/455A64/B0BEC5?text=LM+Construtora" alt="LM Construtora" style="width:100%;margin-top:2px;opacity:0.65">
   </div>
 </section>
 
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Lato', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#121858;font-family:'EB Garamond', serif;">O que dizem nossos clientes</h2>
+<section class="about reveal" id="sobre">
+  <div>
+    <div class="about-label">Sobre a LM</div>
+    <h2 class="about-title">Construindo ha mais de 10 anos em Goiânia</h2>
+    <p class="about-text">A LM Construtora e uma empresa de construcao civil com atuacao em obras residenciais e comerciais de pequeno e medio porte em Goiânia e Grande Goiânia. Nossa proposta e simples: qualidade construtiva real, comunicacao honesta e entrega no prazo.</p>
+    <p class="about-text">Cada obra e acompanhada por engenheiro responsavel, com documentacao tecnica organizada, planilha de custos aberta e relatorios semanais de progresso para o contratante.</p>
+    <div class="about-list">
+      <div class="ab-item"><div class="ab-n">1</div><span>Projeto e ART inclusa em todo servico</span></div>
+      <div class="ab-item"><div class="ab-n">2</div><span>Equipe propria com supervisor tecnico na obra diariamente</span></div>
+      <div class="ab-item"><div class="ab-n">3</div><span>Garantia de obra com documentacao assinada</span></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lato', sans-serif;">"Casa entregue no prazo e com acabamento impecavel."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#babdd8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#1A237E;font-size:14px;">G</div><div><div style="font-weight:700;font-size:14px;color:#121858;font-family:'EB Garamond', serif;">Gustavo P.</div><div style="font-size:12px;color:#888;font-family:'Lato', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lato', sans-serif;">"Equipe profissional e comprometida com a qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#babdd8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#1A237E;font-size:14px;">C</div><div><div style="font-weight:700;font-size:14px;color:#121858;font-family:'EB Garamond', serif;">Claudia R.</div><div style="font-size:12px;color:#888;font-family:'Lato', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lato', sans-serif;">"Melhor construtora que ja contratei. Superaram as expectativas."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#babdd8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#1A237E;font-size:14px;">N</div><div><div style="font-weight:700;font-size:14px;color:#121858;font-family:'EB Garamond', serif;">Nelson B.</div><div style="font-size:12px;color:#888;font-family:'Lato', sans-serif;">Cliente</div></div></div></div></div>
   </div>
+  <img class="about-img" src="https://placehold.co/460x460/F5F7F8/455A64?text=Obras+LM" alt="Obras LM Construtora">
 </section>
 
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#1A237E"/></svg>
-  <div style="background:#1A237E;padding:40px 40px 80px;text-align:center;color:#ffffff;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Lato', sans-serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'EB Garamond', serif;">Solicite um orcamento</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Lato', sans-serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562996725801" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/lmconstrutora.gyn/" style="display:inline-block;border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
+<section class="services reveal">
+  <div class="sec-hdr">
+    <div class="sec-lbl">O que fazemos</div>
+    <h2 class="sec-ttl">Servicos de construcao</h2>
   </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#141c64;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'EB Garamond', serif;font-weight:800;font-size:20px;margin-bottom:8px;">LM Construtora</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Lato', sans-serif;">Setor Marista, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562996725801" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/lmconstrutora.gyn/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'EB Garamond', serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Lato', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'EB Garamond', serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Lato', sans-serif;">
-          (62) 99672-5801<br>
-          <a href="https://wa.me/5562996725801" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/lmconstrutora.gyn/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
+  <div class="svc-cols">
+    <div class="svc-card reveal">
+      <div class="svc-n">01</div>
+      <h3>Construcao Residencial</h3>
+      <p>Casas e sobrados do zero com projeto arquitetonico e estrutural incluso, execucao completa e acabamentos de qualidade.</p>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Lato', sans-serif;">Desenvolvido por VANT Digital Studio</div>
+    <div class="svc-card reveal">
+      <div class="svc-n">02</div>
+      <h3>Obras Comerciais</h3>
+      <p>Salas, galpoes e lojas com toda documentacao tecnica para regularizacao e alvara de funcionamento.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-n">03</div>
+      <h3>Reformas Completas</h3>
+      <p>Banheiros, cozinhas, fachadas e reformas gerais com cronograma fixo e orcamento fechado desde o inicio.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-n">04</div>
+      <h3>Fundacoes e Estruturas</h3>
+      <p>Servicos estruturais especializados: fundacoes, pilares, vigas e lajes com calculo e ART do engenheiro.</p>
+    </div>
   </div>
+</section>
+
+<section class="cta reveal">
+  <div>
+    <h2>Fale com a LM Construtora</h2>
+    <p>Orçamento sem compromisso com planilha de custos detalhada. Resposta rapida pelo WhatsApp.</p>
+  </div>
+  <a href="https://wa.me/5562996725801" class="cta-btn">Pedir Orçamento</a>
+</section>
+
+<footer>
+  <span class="foot-brand">LM Construtora</span>
+  <span class="foot-copy">CREA-GO · Goiânia, GO · © 2026</span>
+  <a href="https://wa.me/5562996725801" class="foot-wa">(62) 99672-5801</a>
 </footer>
 
-<a href="https://wa.me/5562996725801" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562996725801" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

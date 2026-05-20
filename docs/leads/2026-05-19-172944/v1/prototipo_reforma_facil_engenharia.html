@@ -2,197 +2,241 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Reforma Fácil Engenharia — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reforma Fácil Engenharia — Reformas e Construções | Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Lato', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#FF6D00;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Cormorant Garamond', serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Lato', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Lato', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#FF6D00;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --reforma-verde:#2E7D32;
+  --reforma-limao:#7CB342;
+  --reforma-escuro:#1A2E1A;
+  --reforma-creme:#F6FAF2;
+  --reforma-medio:#4A6B4A;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:#fff;color:var(--reforma-escuro);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:2px solid var(--reforma-creme);padding:0 64px;height:70px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px rgba(46,125,50,0.08)}
+.nav-logo{display:flex;align-items:center;gap:14px}
+.nav-logo-mark{width:36px;height:36px;background:var(--reforma-verde);border-radius:6px;display:flex;align-items:center;justify-content:center}
+.nav-logo-text strong{display:block;font-size:0.95rem;font-weight:800;color:var(--reforma-escuro)}
+.nav-logo-text span{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--reforma-verde)}
+.nav-cta{background:var(--reforma-verde);color:#fff;padding:10px 22px;text-decoration:none;font-size:0.78rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;border-radius:4px;transition:background 0.3s}
+.nav-cta:hover{background:var(--reforma-limao)}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(150deg,var(--reforma-escuro) 0%,var(--reforma-verde) 60%,var(--reforma-limao) 100%);padding-top:70px;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,0.02) 40px,rgba(255,255,255,0.02) 41px)}
+.hero-inner{position:relative;z-index:2;padding:80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.2);padding:6px 14px;border-radius:100px;margin-bottom:24px;width:fit-content}
+.hero-tag span{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.75);font-weight:700}
+.hero-title{font-family:'Merriweather',serif;font-size:clamp(2.5rem,4vw,3.8rem);color:#fff;line-height:1.1;margin-bottom:20px;font-weight:700}
+.hero-title em{font-style:italic;color:#C8E6C9}
+.hero-sub{font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.9;margin-bottom:44px;max-width:420px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--reforma-verde);padding:14px 32px;text-decoration:none;font-size:0.8rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;border-radius:4px;transition:all 0.3s}
+.btn-white:hover{background:var(--reforma-limao);color:#fff}
+.btn-ghost{border:2px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.85);padding:12px 24px;text-decoration:none;font-size:0.8rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;border-radius:4px;transition:all 0.3s}
+.btn-ghost:hover{border-color:#fff;color:#fff}
+.hero-cards{display:flex;flex-direction:column;gap:12px}
+.hero-card{background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:20px 24px;display:flex;align-items:center;gap:16px;transition:background 0.3s}
+.hero-card:hover{background:rgba(255,255,255,0.12)}
+.hero-card-icon{width:44px;height:44px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hero-card h3{font-size:0.88rem;font-weight:800;color:#fff;margin-bottom:2px}
+.hero-card p{font-size:0.77rem;color:rgba(255,255,255,0.6)}
+
+/* STATS */
+.stats{padding:0 80px;display:grid;grid-template-columns:repeat(4,1fr);background:var(--reforma-verde);margin-top:-1px}
+.stat{padding:32px 24px;text-align:center;border-right:1px solid rgba(255,255,255,0.1)}
+.stat:last-child{border-right:none}
+.stat strong{display:block;font-family:'Merriweather',serif;font-size:2rem;color:#fff;font-weight:700;font-style:italic}
+.stat span{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.7)}
+
+/* SERVICES */
+.services{padding:100px 80px;background:var(--reforma-creme)}
+.sec-hdr{text-align:center;margin-bottom:60px}
+.sec-lbl{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--reforma-verde);font-weight:800;margin-bottom:12px}
+.sec-ttl{font-family:'Merriweather',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--reforma-escuro)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc-card{background:#fff;border-radius:8px;padding:36px 28px;border-bottom:3px solid transparent;transition:all 0.3s}
+.svc-card:hover{border-bottom-color:var(--reforma-verde);box-shadow:0 8px 32px rgba(46,125,50,0.1)}
+.svc-num{font-family:'Merriweather',serif;font-size:2.5rem;font-style:italic;color:rgba(46,125,50,0.15);line-height:1;margin-bottom:16px}
+.svc-card h3{font-size:1rem;font-weight:800;color:var(--reforma-escuro);margin-bottom:10px}
+.svc-card p{font-size:0.85rem;color:var(--reforma-medio);line-height:1.8}
+
+/* PROCESS */
+.process{padding:100px 80px;background:#fff}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;left:12.5%;right:12.5%;height:2px;background:repeating-linear-gradient(90deg,var(--reforma-verde) 0,var(--reforma-verde) 12px,transparent 12px,transparent 24px);z-index:0}
+.p-step{text-align:center;position:relative;z-index:1}
+.p-num{width:56px;height:56px;background:var(--reforma-verde);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.1rem;font-weight:800;box-shadow:0 4px 16px rgba(46,125,50,0.3)}
+.p-step h3{font-size:0.88rem;font-weight:800;color:var(--reforma-escuro);margin-bottom:8px}
+.p-step p{font-size:0.78rem;color:var(--reforma-medio);line-height:1.7;padding:0 8px}
+
+/* CTA */
+.cta{background:var(--reforma-escuro);padding:80px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.cta h2{font-family:'Merriweather',serif;font-size:clamp(1.8rem,3vw,2.8rem);color:#fff;margin-bottom:12px}
+.cta p{font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.7}
+.cta-btn{background:var(--reforma-verde);color:#fff;padding:16px 32px;text-decoration:none;font-size:0.8rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;border-radius:4px;white-space:nowrap;transition:background 0.3s}
+.cta-btn:hover{background:var(--reforma-limao)}
+
+footer{background:#0D1A0D;padding:40px 80px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot-brand{font-family:'Merriweather',serif;font-size:1rem;color:rgba(255,255,255,0.6)}
+.foot-copy{font-size:0.75rem;color:rgba(255,255,255,0.3)}
+.foot-wa{color:var(--reforma-limao);font-size:0.8rem;text-decoration:none}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;padding:60px 32px}
+  .stats{grid-template-columns:1fr 1fr;padding:0}
+  .svc-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr 1fr}
+  .process-steps::before{display:none}
+  .services,.process,.cta{padding:60px 32px}
+  .cta{grid-template-columns:1fr;text-align:center}
+  nav{padding:0 24px}
+  footer{padding:32px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Reforma Fácil Engenharia</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="nav-logo-text">
+      <strong>Reforma Fácil</strong>
+      <span>Engenharia · Goiânia</span>
+    </div>
   </div>
-  <a href="https://wa.me/5562996124308" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://wa.me/5562996124308" class="nav-cta">Pedir Orçamento</a>
 </nav>
 
-
-<section class="hero" id="hero" style="min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;background:#f8f8f8;background-image:radial-gradient(rgba(204,204,204,0.15) 2px,transparent 2px);background-size:32px 32px;">
-  <div style="max-width:1200px;margin:0 auto;padding:120px 60px;">
-    <div style="font-size:120px;font-weight:900;color:#cccccc;opacity:0.12;line-height:1;margin-bottom:-60px;font-family:'Cormorant Garamond', serif;">"</div>
-    <h1 style="font-size:clamp(40px,5.5vw,72px);font-weight:800;color:#7f3600;line-height:1.1;margin-bottom:24px;max-width:700px;font-family:'Cormorant Garamond', serif;">Projetos que constroem sonhos</h1>
-    <p style="font-size:19px;color:#652b00;line-height:1.7;margin-bottom:48px;max-width:580px;font-family:'Lato', sans-serif;">Projetos e laudos no Setor Sul de Goiânia</p>
-    <div style="display:flex;gap:32px;margin-bottom:48px;flex-wrap:wrap;">
-      <div style="border-left:3px solid #cccccc;padding-left:16px;"><div style="font-size:24px;font-weight:800;color:#7f3600;">180+</div><div style="font-size:12px;color:#652b00;letter-spacing:1px;text-transform:uppercase;">Obras Realizadas</div></div><div style="border-left:3px solid #cccccc;padding-left:16px;"><div style="font-size:24px;font-weight:800;color:#7f3600;">12+</div><div style="font-size:12px;color:#652b00;letter-spacing:1px;text-transform:uppercase;">Anos de Experiencia</div></div><div style="border-left:3px solid #cccccc;padding-left:16px;"><div style="font-size:24px;font-weight:800;color:#7f3600;">50.000+ m2</div><div style="font-size:12px;color:#652b00;letter-spacing:1px;text-transform:uppercase;">Area Projetada</div></div><div style="border-left:3px solid #cccccc;padding-left:16px;"><div style="font-size:24px;font-weight:800;color:#7f3600;">100%</div><div style="font-size:12px;color:#652b00;letter-spacing:1px;text-transform:uppercase;">Satisfacao</div></div>
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag"><span>Reformas e Construção · Goiânia, GO</span></div>
+      <h1 class="hero-title">Reformar ficou <em>muito mais facil</em></h1>
+      <p class="hero-sub">Do projeto ao acabamento, reunimos toda a engenharia que voce precisa em um unico lugar. Sem dor de cabeca, sem surpresas no orcamento.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5562996124308" class="btn-white">Pedir Orçamento Grátis</a>
+        <a href="#servicos" class="btn-ghost">Ver servicos</a>
+      </div>
     </div>
-    <a href="https://wa.me/5562996124308" style="background:#FF6D00;color:#ffffff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;margin-right:16px;">Falar no WhatsApp</a>
-    <a href="#servicos" style="border:2px solid #FF6D00;color:#FF6D00;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;">Servicos</a>
-  </div>
-</section>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Lato', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#b24c00;font-family:'Cormorant Garamond', serif;">O que fazemos</h2>
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="hero-card-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h3>Orçamento Gratuito</h3><p>Visita tecnica sem compromisso em ate 24h</p></div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h3>Prazo Garantido</h3><p>Cronograma no contrato com multa por atraso</p></div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h3>Preço Fixo</h3><p>Sem surpresas — valor fechado na proposta</p></div>
+      </div>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px;"><button class="srv-pill" onclick="showPill(this,0)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #FF6D00;background:#FF6D00;color:#ffffff;cursor:pointer;transition:all 0.3s;font-family:'Lato', sans-serif;">Projetos Residenciais</button><button class="srv-pill" onclick="showPill(this,1)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Lato', sans-serif;">Projetos Comerciais</button><button class="srv-pill" onclick="showPill(this,2)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Lato', sans-serif;">Laudos Tecnicos</button><button class="srv-pill" onclick="showPill(this,3)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Lato', sans-serif;">Fiscalizacao de Obras</button><button class="srv-pill" onclick="showPill(this,4)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Lato', sans-serif;">Reforma e Retrofit</button><button class="srv-pill" onclick="showPill(this,5)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Lato', sans-serif;">Consultoria Estrutural</button><button class="srv-pill" onclick="showPill(this,6)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Lato', sans-serif;">Regularizacao de Imoveis</button></div><div class="srv-panel" style="display:block;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#b24c00;margin-bottom:12px;font-family:'Cormorant Garamond', serif;">Projetos Residenciais</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Projetos estruturais e arquitetonicos para residencias.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#b24c00;margin-bottom:12px;font-family:'Cormorant Garamond', serif;">Projetos Comerciais</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Solucoes de engenharia para empresas e estabelecimentos.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#b24c00;margin-bottom:12px;font-family:'Cormorant Garamond', serif;">Laudos Tecnicos</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Laudos estruturais, de vistoria e conformidade tecnica.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#b24c00;margin-bottom:12px;font-family:'Cormorant Garamond', serif;">Fiscalizacao de Obras</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Acompanhamento e controle de qualidade na execucao.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#b24c00;margin-bottom:12px;font-family:'Cormorant Garamond', serif;">Reforma e Retrofit</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Modernizacao e adequacao de edificacoes existentes.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#b24c00;margin-bottom:12px;font-family:'Cormorant Garamond', serif;">Consultoria Estrutural</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Analise e solucao de problemas estruturais.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#b24c00;margin-bottom:12px;font-family:'Cormorant Garamond', serif;">Regularizacao de Imoveis</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Regularizacao junto aos orgaos competentes.</p></div><script>var srvPrimary="#FF6D00",srvAccent="#ffffff";function showPill(el,idx){document.querySelectorAll(".srv-pill").forEach(function(p,i){p.style.background=i===idx?srvPrimary:"transparent";p.style.color=i===idx?srvAccent:"#333";p.style.borderColor=i===idx?srvPrimary:"#ddd";});document.querySelectorAll(".srv-panel").forEach(function(p,i){p.style.display=i===idx?"block":"none";});}</script>
   </div>
 </section>
 
-<section id="stats" style="background:#FF6D00;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="180" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Cormorant Garamond', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Obras Realizadas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Cormorant Garamond', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="500002" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Cormorant Garamond', serif;">0.+ m</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Area Projetada</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="100" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Cormorant Garamond', serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Satisfacao</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
-<img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&h=800&fit=crop&q=80" alt="Reforma Fácil Engenharia" style="border-radius:20px;width:100%;height:480px;object-fit:cover;">
-<div>
-  <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Lato', sans-serif;">Sobre nos</p>
-  <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#b24c00;margin-bottom:20px;line-height:1.2;font-family:'Cormorant Garamond', serif;">Reforma Fácil Engenharia</h2>
-  <p style="font-size:16px;color:#555;line-height:1.8;margin-bottom:28px;font-family:'Lato', sans-serif;">Nosso escritorio de engenharia civil oferece solucoes tecnicas completas com rigor, precisao e compromisso com a qualidade. Desenvolvemos projetos inovadores e acompanhamos cada etapa com dedicacao total.</p>
-  <div style="display:flex;gap:16px;flex-wrap:wrap;">
-    <div style="background:#ffffff;color:#cccccc;padding:10px 20px;border-radius:50px;font-size:13px;font-weight:700;">180+ Obras Realizadas</div>
-    <div style="background:#ffe9d8;color:#cc5700;padding:10px 20px;border-radius:50px;font-size:13px;font-weight:700;">12+ Anos de Experiencia</div>
-  </div>
-</div></div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Lato', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#b24c00;font-family:'Cormorant Garamond', serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lato', sans-serif;">"Projeto entregue no prazo e com qualidade superior ao esperado."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#ffd3b2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#FF6D00;font-size:14px;">F</div><div><div style="font-weight:700;font-size:14px;color:#b24c00;font-family:'Cormorant Garamond', serif;">Fabio N.</div><div style="font-size:12px;color:#888;font-family:'Lato', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lato', sans-serif;">"Profissional serio e extremamente competente. Recomendo."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#ffd3b2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#FF6D00;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#b24c00;font-family:'Cormorant Garamond', serif;">Sandra L.</div><div style="font-size:12px;color:#888;font-family:'Lato', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lato', sans-serif;">"Laudo tecnico preciso que resolveu todos os problemas."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#ffd3b2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#FF6D00;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#b24c00;font-family:'Cormorant Garamond', serif;">Marcos A.</div><div style="font-size:12px;color:#888;font-family:'Lato', sans-serif;">Cliente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="background:linear-gradient(135deg,#FF6D00 0%,#bf5100 100%);border-radius:24px;padding:80px 48px;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;opacity:0.03;background-image:url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;200&quot; height=&quot;200&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.65&quot; numOctaves=&quot;3&quot;/></filter><rect width=&quot;200&quot; height=&quot;200&quot; filter=&quot;url(%23n)&quot;/></svg>');background-size:200px;"></div>
-  <div style="position:relative;z-index:2;color:#ffffff;">
-    <div style="display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:8px 20px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;font-family:'Lato', sans-serif;">Contato</div>
-    <h2 style="font-size:clamp(28px,4.5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Cormorant Garamond', serif;">Solicite um orcamento</h2>
-    <p style="font-size:18px;opacity:0.85;max-width:520px;margin:0 auto 44px;line-height:1.6;font-family:'Lato', sans-serif;">Atendimento especializado para voce.</p>
-    <a href="https://wa.me/5562996124308" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 48px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
+<div class="stats">
+  <div class="stat"><strong>200+</strong><span>Reformas entregues</span></div>
+  <div class="stat"><strong>8+</strong><span>Anos de mercado</span></div>
+  <div class="stat"><strong>97%</strong><span>Clientes satisfeitos</span></div>
+  <div class="stat"><strong>Goiânia</strong><span>e regiao</span></div>
 </div>
+
+<section class="services reveal" id="servicos">
+  <div class="sec-hdr">
+    <div class="sec-lbl">O que fazemos</div>
+    <h2 class="sec-ttl">Servicos completos de reforma</h2>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal">
+      <div class="svc-num">01</div>
+      <h3>Reformas Residenciais</h3>
+      <p>Banheiros, cozinhas, quartos e areas de servico renovados com materiais de qualidade e mao de obra especializada.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">02</div>
+      <h3>Construcao de Casas</h3>
+      <p>Do terreno a entrega das chaves — projetos residenciais completos com ART, alvara e toda documentacao.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">03</div>
+      <h3>Reformas Comerciais</h3>
+      <p>Lojas, escritorios, clinicas e restaurantes reformados com foco em prazo curto e impacto visual positivo.</p>
+    </div>
   </div>
 </section>
 
-<footer style="background:#cc5700;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Cormorant Garamond', serif;font-weight:800;font-size:20px;margin-bottom:8px;">Reforma Fácil Engenharia</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Lato', sans-serif;">Setor Sul, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562996124308" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/reformafacil.eng/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Cormorant Garamond', serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Lato', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Cormorant Garamond', serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Lato', sans-serif;">
-          (62) 99612-4308<br>
-          <a href="https://wa.me/5562996124308" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/reformafacil.eng/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Lato', sans-serif;">Desenvolvido por VANT Digital Studio</div>
+<section class="process reveal">
+  <div class="sec-hdr">
+    <div class="sec-lbl">Como funciona</div>
+    <h2 class="sec-ttl">Simples assim</h2>
   </div>
+  <div class="process-steps">
+    <div class="p-step reveal">
+      <div class="p-num">1</div>
+      <h3>Voce chama</h3>
+      <p>Entra em contato pelo WhatsApp e descreve o que quer reformar ou construir.</p>
+    </div>
+    <div class="p-step reveal">
+      <div class="p-num">2</div>
+      <h3>Nos visitamos</h3>
+      <p>Agendamos visita tecnica gratuita para avaliar o local e entender a demanda.</p>
+    </div>
+    <div class="p-step reveal">
+      <div class="p-num">3</div>
+      <h3>Proposta clara</h3>
+      <p>Recebe orçamento detalhado com materiais, mao de obra e cronograma de entrega.</p>
+    </div>
+    <div class="p-step reveal">
+      <div class="p-num">4</div>
+      <h3>Obra entregue</h3>
+      <p>Acompanhamento tecnico do inicio ao fim e entrega no prazo contratado.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta reveal">
+  <div>
+    <h2>Quer reformar sem complicacao?</h2>
+    <p>Fale agora pelo WhatsApp e receba orçamento gratuito em ate 24 horas.</p>
+  </div>
+  <a href="https://wa.me/5562996124308" class="cta-btn">Pedir Orçamento Grátis</a>
+</section>
+
+<footer>
+  <span class="foot-brand">Reforma Fácil Engenharia</span>
+  <span class="foot-copy">CREA-GO · Goiânia, GO · © 2026</span>
+  <a href="https://wa.me/5562996124308" class="foot-wa">(62) 99612-4308</a>
 </footer>
 
-<a href="https://wa.me/5562996124308" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562996124308" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

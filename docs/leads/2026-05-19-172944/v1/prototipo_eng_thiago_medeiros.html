@@ -2,189 +2,196 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Eng. Thiago Medeiros — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eng. Thiago Medeiros — Construção e Reforma | Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Space Grotesk', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#37474F;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Fraunces', serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Space Grotesk', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Space Grotesk', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#37474F;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --thiago-laranja:#E65100;
+  --thiago-ambar:#FF8F00;
+  --thiago-escuro:#1A0C00;
+  --thiago-creme:#FFF8F2;
+  --thiago-medio:#7A3D10;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:#fff;color:var(--thiago-escuro);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,248,242,0.97);backdrop-filter:blur(10px);border-bottom:3px solid var(--thiago-laranja);padding:0 64px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:var(--thiago-escuro);letter-spacing:-0.01em}
+.nav-brand span{color:var(--thiago-laranja)}
+.nav-cta{background:var(--thiago-laranja);color:#fff;padding:10px 22px;text-decoration:none;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.3s}
+.nav-cta:hover{background:var(--thiago-ambar)}
+
+/* HERO — bold orange split */
+.hero{min-height:100vh;padding-top:68px;display:grid;grid-template-columns:48% 52%}
+.hero-left{background:var(--thiago-laranja);display:flex;flex-direction:column;justify-content:center;padding:80px 60px;position:relative;overflow:hidden}
+.hero-left::before{content:'';position:absolute;top:-80px;left:-80px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,0.06)}
+.hero-left::after{content:'';position:absolute;bottom:-60px;right:-60px;width:240px;height:240px;border-radius:50%;background:rgba(0,0,0,0.1)}
+.hero-tag{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.7);font-weight:600;margin-bottom:24px;position:relative;z-index:1}
+.hero-title{font-family:'Fraunces',serif;font-size:clamp(2.8rem,4.5vw,4.5rem);color:#fff;line-height:1.05;margin-bottom:24px;font-weight:700;position:relative;z-index:1}
+.hero-sub{font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:44px;position:relative;z-index:1}
+.hero-btn{display:inline-block;background:#fff;color:var(--thiago-laranja);padding:14px 32px;text-decoration:none;font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.3s;position:relative;z-index:1}
+.hero-btn:hover{background:var(--thiago-escuro);color:#fff}
+.hero-right{background:var(--thiago-creme);display:flex;flex-direction:column;justify-content:center;padding:60px 48px;gap:24px}
+.hero-img{width:100%;height:340px;object-fit:cover;border-radius:4px}
+.hero-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.h-stat{padding:20px;background:#fff;text-align:center;border-top:3px solid var(--thiago-laranja)}
+.h-stat strong{display:block;font-family:'Fraunces',serif;font-size:2rem;color:var(--thiago-laranja);line-height:1;font-weight:700}
+.h-stat span{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--thiago-medio)}
+
+/* ABOUT */
+.about{padding:100px 80px;background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--thiago-laranja);font-weight:700;margin-bottom:14px}
+.about-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--thiago-escuro);line-height:1.2;margin-bottom:24px}
+.about-text{font-size:0.9rem;color:var(--thiago-medio);line-height:1.9;margin-bottom:14px}
+.about-img{width:100%;height:460px;object-fit:cover;border-radius:4px}
+.skills{margin-top:28px;display:flex;flex-direction:column;gap:8px}
+.skill{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--thiago-creme)}
+.skill span{font-size:0.82rem;font-weight:600;color:var(--thiago-escuro)}
+.skill-bar{height:4px;background:rgba(0,0,0,0.08);flex:1;margin:0 16px;position:relative}
+.skill-fill{position:absolute;top:0;left:0;height:100%;background:var(--thiago-laranja);border-radius:2px}
+
+/* SERVICES */
+.services{padding:100px 80px;background:var(--thiago-creme)}
+.sec-hdr{text-align:center;margin-bottom:60px}
+.sec-lbl{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--thiago-laranja);font-weight:700;margin-bottom:12px}
+.sec-ttl{font-family:'Fraunces',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--thiago-escuro)}
+.svc-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.svc-card{background:#fff;padding:40px 32px;transition:box-shadow 0.3s}
+.svc-card:hover{box-shadow:0 8px 40px rgba(230,81,0,0.1)}
+.svc-icon{width:48px;height:48px;background:var(--thiago-laranja);display:flex;align-items:center;justify-content:center;border-radius:2px;margin-bottom:20px}
+.svc-card h3{font-family:'Fraunces',serif;font-size:1.2rem;color:var(--thiago-escuro);margin-bottom:10px}
+.svc-card p{font-size:0.85rem;color:var(--thiago-medio);line-height:1.8}
+
+/* CTA */
+.cta{background:var(--thiago-escuro);padding:100px 80px;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 100%,rgba(230,81,0,0.2) 0%,transparent 60%)}
+.cta-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--thiago-ambar);font-weight:700;margin-bottom:20px;position:relative;z-index:1}
+.cta-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3vw,3rem);color:#fff;margin-bottom:16px;position:relative;z-index:1}
+.cta-sub{font-size:0.9rem;color:rgba(255,255,255,0.6);margin-bottom:44px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.8;position:relative;z-index:1}
+.cta-btn{display:inline-block;background:var(--thiago-laranja);color:#fff;padding:16px 40px;text-decoration:none;font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.3s;position:relative;z-index:1}
+.cta-btn:hover{background:var(--thiago-ambar)}
+
+footer{background:#0D0600;padding:40px 80px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot-brand{font-family:'Fraunces',serif;font-size:1rem;color:rgba(255,255,255,0.6)}
+.foot-copy{font-size:0.75rem;color:rgba(255,255,255,0.3)}
+.foot-wa{color:var(--thiago-ambar);font-size:0.8rem;text-decoration:none}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr;padding:60px 32px}
+  .svc-cols{grid-template-columns:1fr}
+  .services,.cta{padding:60px 32px}
+  nav{padding:0 24px}
+  .hero-left,.hero-right{padding:60px 32px}
+  footer{padding:32px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Eng. Thiago Medeiros</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </div>
-  <a href="https://wa.me/5562990634128" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<nav>
+  <div class="nav-brand">Thiago <span>Medeiros</span> Eng.</div>
+  <a href="https://wa.me/5562990634128" class="nav-cta">Pedir Orçamento</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#e1e3e4;position:relative;overflow:hidden;">
-  <div style="max-width:1200px;margin:0 auto;padding:120px 40px 100px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
-    <div>
-      <p style="font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Space Grotesk', sans-serif;">Bem-vindo</p>
-      <h1 style="font-size:clamp(36px,4vw,60px);font-weight:800;color:#212a2f;line-height:1.15;margin-bottom:20px;font-family:'Fraunces', serif;">Solucoes de engenharia civil</h1>
-      <p style="font-size:18px;color:#1d252a;line-height:1.7;margin-bottom:36px;font-family:'Space Grotesk', sans-serif;">Engenharia de qualidade em Goiânia</p>
-      <a href="https://wa.me/5562990634128" style="display:inline-block;background:#37474F;color:#ffffff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;margin-right:16px;">Falar no WhatsApp</a>
-      <a href="#servicos" style="display:inline-block;border:2px solid #37474F;color:#37474F;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;">Servicos</a>
-    </div>
-    <div><img src="https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=1200&h=800&fit=crop&q=80" alt="Eng. Thiago Medeiros" style="width:100%;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,0.15);"></div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Engenharia Civil · Goiânia, GO</div>
+    <h1 class="hero-title">Construcoes que falam por si mesmas</h1>
+    <p class="hero-sub">Do projeto ao acabamento, obras residenciais e comerciais executadas com tecnica, qualidade de material e total transparencia no processo.</p>
+    <a href="https://wa.me/5562990634128" class="hero-btn">Solicitar Orçamento</a>
   </div>
-  <svg style="position:absolute;bottom:-1px;left:0;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 80V40C360 0 720 80 1080 40L1440 0V80H0Z" fill="#ffffff"/></svg>
-</section>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Space Grotesk', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#263137;font-family:'Fraunces', serif;">O que fazemos</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#212a2f;font-family:'Fraunces', serif;">Projetos Residenciais</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Projetos estruturais e arquitetonicos para residencias.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#212a2f;font-family:'Fraunces', serif;">Projetos Comerciais</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Solucoes de engenharia para empresas e estabelecimentos.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#212a2f;font-family:'Fraunces', serif;">Laudos Tecnicos</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Laudos estruturais, de vistoria e conformidade tecnica.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#212a2f;font-family:'Fraunces', serif;">Fiscalizacao de Obras</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Acompanhamento e controle de qualidade na execucao.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#212a2f;font-family:'Fraunces', serif;">Reforma e Retrofit</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Modernizacao e adequacao de edificacoes existentes.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#212a2f;font-family:'Fraunces', serif;">Consultoria Estrutural</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Analise e solucao de problemas estruturais.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#212a2f;font-family:'Fraunces', serif;">Regularizacao de Imoveis</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Regularizacao junto aos orgaos competentes.</p></div></div><style>.srv-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,0.12)!important;}@media(max-width:768px){.srv-card+.srv-card+.srv-card,.srv-card+.srv-card,.srv-card{}div[style*="repeat(3"]{}}</style>
-  </div>
-</section>
-
-<section id="stats" style="background:#37474F;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="180" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Fraunces', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Space Grotesk', sans-serif;">Obras Realizadas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Fraunces', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Space Grotesk', sans-serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="500002" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Fraunces', serif;">0.+ m</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Space Grotesk', sans-serif;">Area Projetada</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="100" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Fraunces', serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Space Grotesk', sans-serif;">Satisfacao</div></div>
+  <div class="hero-right">
+    <img class="hero-img" src="https://placehold.co/500x340/E65100/FFF8F2?text=Thiago+Medeiros" alt="Eng. Thiago Medeiros">
+    <div class="hero-stats-row">
+      <div class="h-stat"><strong>10+</strong><span>Anos de exp.</span></div>
+      <div class="h-stat"><strong>85+</strong><span>Obras entregues</span></div>
+      <div class="h-stat"><strong>CREA</strong><span>Registro ativo</span></div>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:48px;"><h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#263137;font-family:'Fraunces', serif;">Eng. Thiago Medeiros</h2></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#263137;margin-bottom:12px;font-family:'Fraunces', serif;">Nossa Missao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Space Grotesk', sans-serif;">Entregar servicos de excelencia que superam expectativas e transformam a experiencia dos nossos clientes.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#263137;margin-bottom:12px;font-family:'Fraunces', serif;">Nossa Visao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Space Grotesk', sans-serif;">Ser referencia de qualidade e inovacao, reconhecida pela excelencia e pelo impacto positivo que geramos.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#263137;margin-bottom:12px;font-family:'Fraunces', serif;">Nossos Valores</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Space Grotesk', sans-serif;">Etica, transparencia e compromisso guiam cada decisao e cada relacionamento que construimos.</p></div></div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Space Grotesk', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#263137;font-family:'Fraunces', serif;">O que dizem nossos clientes</h2>
+<section class="about reveal" id="sobre">
+  <div>
+    <div class="about-label">Sobre</div>
+    <h2 class="about-title">Tecnica a servico do que voce sonhou</h2>
+    <p class="about-text">Thiago Medeiros e engenheiro civil registrado no CREA-GO com experiencia em obras residenciais e comerciais de pequeno e medio porte. Sua abordagem valoriza o planejamento detalhado antes de qualquer obra comecar — o que garante menos imprevistos e mais qualidade no resultado final.</p>
+    <p class="about-text">Atua com equipe propria e fornecedores confiantes de materiais de construcao, oferecendo proposta completa com planilha de custos, cronograma fisico-financeiro e ART de projeto e execucao.</p>
+    <div class="skills">
+      <div class="skill"><span>Estrutura e Fundacao</span><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+      <div class="skill"><span>Gerenciamento de Obra</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+      <div class="skill"><span>Reformas e Renovacoes</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Space Grotesk', sans-serif;">"Projeto entregue no prazo e com qualidade superior ao esperado."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c3c7ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#37474F;font-size:14px;">F</div><div><div style="font-weight:700;font-size:14px;color:#263137;font-family:'Fraunces', serif;">Fabio N.</div><div style="font-size:12px;color:#888;font-family:'Space Grotesk', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Space Grotesk', sans-serif;">"Profissional serio e extremamente competente. Recomendo."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c3c7ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#37474F;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#263137;font-family:'Fraunces', serif;">Sandra L.</div><div style="font-size:12px;color:#888;font-family:'Space Grotesk', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Space Grotesk', sans-serif;">"Laudo tecnico preciso que resolveu todos os problemas."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c3c7ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#37474F;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#263137;font-family:'Fraunces', serif;">Marcos A.</div><div style="font-size:12px;color:#888;font-family:'Space Grotesk', sans-serif;">Cliente</div></div></div></div></div>
   </div>
+  <img class="about-img" src="https://placehold.co/460x460/FFF8F2/E65100?text=Obras+TM" alt="Obras Thiago Medeiros">
 </section>
 
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#37474F"/></svg>
-  <div style="background:#37474F;padding:40px 40px 80px;text-align:center;color:#ffffff;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Space Grotesk', sans-serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'Fraunces', serif;">Solicite um orcamento</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Space Grotesk', sans-serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562990634128" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/thiagomed.eng/" style="display:inline-block;border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
+<section class="services reveal">
+  <div class="sec-hdr">
+    <div class="sec-lbl">Servicos</div>
+    <h2 class="sec-ttl">O que fazemos</h2>
   </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#2c383f;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Fraunces', serif;font-weight:800;font-size:20px;margin-bottom:8px;">Eng. Thiago Medeiros</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Space Grotesk', sans-serif;">Setor Norte, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562990634128" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/thiagomed.eng/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
+  <div class="svc-cols">
+    <div class="svc-card reveal">
+      <div class="svc-icon">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Fraunces', serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Space Grotesk', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Fraunces', serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Space Grotesk', sans-serif;">
-          (62) 99063-4128<br>
-          <a href="https://wa.me/5562990634128" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/thiagomed.eng/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
+      <h3>Construcao do Zero</h3>
+      <p>Casas, sobrados e comerciais com projeto, estrutura, alvenaria e acabamentos — tudo incluso em proposta unica.</p>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Space Grotesk', sans-serif;">Desenvolvido por VANT Digital Studio</div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Reformas Completas</h3>
+      <p>Banheiros, cozinhas, ampliações e reformas gerais com equipe experiente e materiais selecionados.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Projetos e Documentacao</h3>
+      <p>Projetos executivos, ARTs, laudos de vistoria e documentacao para aprovacao em prefeitura e cartorio.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Gerenciamento Terceirizado</h3>
+      <p>Fiscalizacao e gerenciamento de obras em andamento para garantir qualidade e prazo do servico de terceiros.</p>
+    </div>
   </div>
+</section>
+
+<section class="cta reveal">
+  <div class="cta-label">Entre em contato</div>
+  <h2 class="cta-title">Vamos construir algo juntos?</h2>
+  <p class="cta-sub">Orçamento detalhado e sem compromisso. Resposta em ate 24 horas pelo WhatsApp.</p>
+  <a href="https://wa.me/5562990634128" class="cta-btn">Falar pelo WhatsApp</a>
+</section>
+
+<footer>
+  <span class="foot-brand">Eng. Thiago Medeiros</span>
+  <span class="foot-copy">CREA-GO · Goiânia, GO · © 2026</span>
+  <a href="https://wa.me/5562990634128" class="foot-wa">(62) 99063-4128</a>
 </footer>
 
-<a href="https://wa.me/5562990634128" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562990634128" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

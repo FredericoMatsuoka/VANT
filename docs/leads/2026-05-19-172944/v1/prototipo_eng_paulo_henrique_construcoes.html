@@ -2,196 +2,215 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Eng. Paulo Henrique Construções — Aparecida de Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eng. Paulo Henrique Construções — Obras Civis | Aparecida de Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Merriweather', serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#BF360C;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Be Vietnam Pro', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Merriweather', serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Merriweather', serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#BF360C;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --paulo-tijolo:#BF360C;
+  --paulo-laranja:#FF6D3B;
+  --paulo-escuro:#1A0A04;
+  --paulo-creme:#FBF7F5;
+  --paulo-medio:#7A4030;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:#fff;color:var(--paulo-escuro);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--paulo-escuro);padding:0 48px;height:66px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:14px}
+.nav-badge{width:38px;height:38px;background:var(--paulo-tijolo);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#fff}
+.nav-name{color:#fff;font-size:0.88rem;font-weight:700;line-height:1.3}
+.nav-name small{display:block;color:var(--paulo-laranja);font-size:0.62rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase}
+.nav-cta{background:var(--paulo-tijolo);color:#fff;padding:10px 22px;text-decoration:none;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:background 0.3s}
+.nav-cta:hover{background:var(--paulo-medio)}
+
+.hero{min-height:100vh;background:var(--paulo-escuro);display:grid;grid-template-columns:55% 45%;padding-top:66px;overflow:hidden}
+.hero-left{padding:80px 60px 80px 48px;display:flex;flex-direction:column;justify-content:center}
+.hero-tag{display:flex;align-items:center;gap:10px;margin-bottom:28px}
+.hero-tag-bar{width:32px;height:3px;background:var(--paulo-tijolo);flex-shrink:0}
+.hero-tag span{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--paulo-laranja);font-weight:600}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4vw,3.8rem);color:#fff;line-height:1.1;margin-bottom:20px;font-weight:700}
+.hero-title span{display:block;color:var(--paulo-laranja)}
+.hero-desc{font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.9;margin-bottom:44px;max-width:400px;font-weight:300}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:52px}
+.btn-primary{background:var(--paulo-tijolo);color:#fff;padding:13px 28px;text-decoration:none;font-size:0.77rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.3s}
+.btn-primary:hover{background:var(--paulo-medio)}
+.btn-border{border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);padding:13px 22px;text-decoration:none;font-size:0.77rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.3s}
+.btn-border:hover{border-color:var(--paulo-laranja);color:var(--paulo-laranja)}
+.hero-stats{display:flex;gap:0}
+.h-stat{padding:20px 28px;border-right:1px solid rgba(255,255,255,0.1)}
+.h-stat:last-child{border-right:none}
+.h-stat strong{display:block;font-family:'Playfair Display',serif;font-size:2rem;color:var(--paulo-laranja);font-style:italic;line-height:1}
+.h-stat span{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5)}
+.hero-right{position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.hero-img{width:100%;height:100%;object-fit:cover;opacity:0.7;filter:brightness(0.6)}
+.hero-right-overlay{position:absolute;bottom:0;left:0;right:0;padding:40px;background:linear-gradient(to top,rgba(26,10,4,0.95),transparent)}
+.hero-right-overlay p{font-size:0.9rem;color:rgba(255,255,255,0.8);font-style:italic;line-height:1.7}
+
+/* ABOUT */
+.about{padding:100px 80px;background:var(--paulo-creme);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-label{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--paulo-tijolo);font-weight:700;margin-bottom:14px}
+.about-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--paulo-escuro);line-height:1.2;margin-bottom:24px}
+.about-text{font-size:0.88rem;color:var(--paulo-medio);line-height:1.9;margin-bottom:14px}
+.about-img{width:100%;height:460px;object-fit:cover;border-radius:4px}
+.about-divider{width:48px;height:3px;background:var(--paulo-tijolo);margin:24px 0}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.tag{padding:6px 14px;background:#fff;border:1px solid rgba(191,54,12,0.2);font-size:0.72rem;font-weight:600;color:var(--paulo-tijolo);letter-spacing:0.06em}
+
+/* SERVICES */
+.services{padding:100px 80px;background:#fff}
+.sec-hdr{text-align:center;margin-bottom:60px}
+.sec-lbl{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--paulo-tijolo);font-weight:700;margin-bottom:12px}
+.sec-ttl{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--paulo-escuro)}
+.svc-list{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--paulo-creme)}
+.svc-item{background:#fff;padding:44px 40px;transition:box-shadow 0.3s}
+.svc-item:hover{box-shadow:inset 0 0 0 2px var(--paulo-tijolo)}
+.svc-n{font-family:'Playfair Display',serif;font-size:3rem;color:rgba(191,54,12,0.12);font-style:italic;line-height:1;margin-bottom:16px}
+.svc-item h3{font-size:1rem;font-weight:700;color:var(--paulo-escuro);margin-bottom:10px;letter-spacing:0.02em}
+.svc-item p{font-size:0.85rem;color:var(--paulo-medio);line-height:1.8;font-weight:400}
+
+/* CTA */
+.cta{background:var(--paulo-tijolo);padding:100px 80px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.cta-text h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,2.8rem);color:#fff;margin-bottom:14px}
+.cta-text p{font-size:0.9rem;color:rgba(255,255,255,0.8);line-height:1.8}
+.cta-btn{display:inline-block;background:#fff;color:var(--paulo-tijolo);padding:18px 40px;text-decoration:none;font-size:0.82rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;transition:all 0.3s}
+.cta-btn:hover{background:var(--paulo-escuro);color:#fff}
+
+footer{background:var(--paulo-escuro);padding:40px 80px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot-brand{font-family:'Playfair Display',serif;font-size:1rem;color:rgba(255,255,255,0.65)}
+.foot-copy{font-size:0.75rem;color:rgba(255,255,255,0.3)}
+.foot-wa{color:var(--paulo-laranja);font-size:0.8rem;text-decoration:none}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{min-height:300px}
+  .about{grid-template-columns:1fr;padding:60px 32px}
+  .svc-list{grid-template-columns:1fr}
+  .services{padding:60px 32px}
+  .cta{grid-template-columns:1fr;padding:60px 32px;text-align:center}
+  nav{padding:0 24px}
+  .hero-left{padding:60px 32px}
+  footer{padding:32px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Eng. Paulo Henrique Construções</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <div class="nav-badge">PH</div>
+    <div class="nav-name">
+      Paulo Henrique
+      <small>Construcoes Civis</small>
+    </div>
   </div>
-  <a href="https://wa.me/5562997235801" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://wa.me/5562997235801" class="nav-cta">Solicitar Orçamento</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#8f2809;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div class="blob b1" style="background:rgba(255,255,255,0.35);"></div>
-  <div class="blob b2" style="background:rgba(191,54,12,0.5);"></div>
-  <div class="blob b3" style="background:rgba(204,204,204,0.25);"></div>
-  <div style="position:relative;z-index:2;text-align:center;max-width:700px;padding:60px 40px;background:rgba(255,255,255,0.08);backdrop-filter:blur(40px);border-radius:28px;border:1px solid rgba(255,255,255,0.12);">
-    <h1 style="font-size:clamp(36px,5vw,64px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;font-family:'Be Vietnam Pro', sans-serif;">Projetos que constroem sonhos</h1>
-    <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:40px;font-family:'Merriweather', serif;">Engenharia de qualidade em Aparecida de Goiânia</p>
-    <div style="display:flex;gap:24px;justify-content:center;margin-bottom:36px;flex-wrap:wrap;">
-      <div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#FFFFFF;">180+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Obras Realizadas</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#FFFFFF;">12+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Anos de Experiencia</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#FFFFFF;">50.000+ m2</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Area Projetada</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#FFFFFF;">100%</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Satisfacao</div></div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">
+      <div class="hero-tag-bar"></div>
+      <span>Engenharia Civil · Aparecida de Goiânia</span>
     </div>
-    <a href="https://wa.me/5562997235801" style="background:#FFFFFF;color:#0a0a0a;padding:16px 40px;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</section>
-<style>
-.blob{position:absolute;border-radius:50%;filter:blur(80px);animation:blobAnim 10s ease-in-out infinite alternate;}
-.b1{width:500px;height:500px;top:-100px;left:-100px;animation-duration:12s;}
-.b2{width:400px;height:400px;bottom:-80px;right:-80px;animation-duration:9s;animation-delay:-3s;}
-.b3{width:350px;height:350px;top:30%;left:30%;animation-duration:14s;animation-delay:-6s;}
-@keyframes blobAnim{0%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%;transform:translate(0,0)}100%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%;transform:translate(30px,-20px)}}
-</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Merriweather', serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#852508;font-family:'Be Vietnam Pro', sans-serif;">O que fazemos</h2>
+    <h1 class="hero-title">
+      Construindo com
+      <span>solidez e precisao</span>
+    </h1>
+    <p class="hero-desc">Obras residenciais e comerciais executadas com materiais de qualidade, equipe propria e acompanhamento tecnico constante. Seu projeto em maos experientes.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562997235801" class="btn-primary">Pedir Orçamento</a>
+      <a href="#sobre" class="btn-border">Ver projetos</a>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px;"><button class="srv-pill" onclick="showPill(this,0)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #BF360C;background:#BF360C;color:#ffffff;cursor:pointer;transition:all 0.3s;font-family:'Merriweather', serif;">Projetos Residenciais</button><button class="srv-pill" onclick="showPill(this,1)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Merriweather', serif;">Projetos Comerciais</button><button class="srv-pill" onclick="showPill(this,2)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Merriweather', serif;">Laudos Tecnicos</button><button class="srv-pill" onclick="showPill(this,3)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Merriweather', serif;">Fiscalizacao de Obras</button><button class="srv-pill" onclick="showPill(this,4)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Merriweather', serif;">Reforma e Retrofit</button><button class="srv-pill" onclick="showPill(this,5)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Merriweather', serif;">Consultoria Estrutural</button><button class="srv-pill" onclick="showPill(this,6)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Merriweather', serif;">Regularizacao de Imoveis</button></div><div class="srv-panel" style="display:block;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#852508;margin-bottom:12px;font-family:'Be Vietnam Pro', sans-serif;">Projetos Residenciais</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Merriweather', serif;">Projetos estruturais e arquitetonicos para residencias.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#852508;margin-bottom:12px;font-family:'Be Vietnam Pro', sans-serif;">Projetos Comerciais</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Merriweather', serif;">Solucoes de engenharia para empresas e estabelecimentos.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#852508;margin-bottom:12px;font-family:'Be Vietnam Pro', sans-serif;">Laudos Tecnicos</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Merriweather', serif;">Laudos estruturais, de vistoria e conformidade tecnica.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#852508;margin-bottom:12px;font-family:'Be Vietnam Pro', sans-serif;">Fiscalizacao de Obras</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Merriweather', serif;">Acompanhamento e controle de qualidade na execucao.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#852508;margin-bottom:12px;font-family:'Be Vietnam Pro', sans-serif;">Reforma e Retrofit</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Merriweather', serif;">Modernizacao e adequacao de edificacoes existentes.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#852508;margin-bottom:12px;font-family:'Be Vietnam Pro', sans-serif;">Consultoria Estrutural</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Merriweather', serif;">Analise e solucao de problemas estruturais.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#852508;margin-bottom:12px;font-family:'Be Vietnam Pro', sans-serif;">Regularizacao de Imoveis</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Merriweather', serif;">Regularizacao junto aos orgaos competentes.</p></div><script>var srvPrimary="#BF360C",srvAccent="#ffffff";function showPill(el,idx){document.querySelectorAll(".srv-pill").forEach(function(p,i){p.style.background=i===idx?srvPrimary:"transparent";p.style.color=i===idx?srvAccent:"#333";p.style.borderColor=i===idx?srvPrimary:"#ddd";});document.querySelectorAll(".srv-panel").forEach(function(p,i){p.style.display=i===idx?"block":"none";});}</script>
+    <div class="hero-stats">
+      <div class="h-stat"><strong>15+</strong><span>Anos mercado</span></div>
+      <div class="h-stat"><strong>120+</strong><span>Obras entregues</span></div>
+      <div class="h-stat"><strong>0</strong><span>Obras atrasadas</span></div>
+    </div>
   </div>
-</section>
-
-<section id="stats" style="background:#BF360C;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="180" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Be Vietnam Pro', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Merriweather', serif;">Obras Realizadas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Be Vietnam Pro', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Merriweather', serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="500002" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Be Vietnam Pro', sans-serif;">0.+ m</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Merriweather', serif;">Area Projetada</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="100" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Be Vietnam Pro', sans-serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Merriweather', serif;">Satisfacao</div></div>
+  <div class="hero-right">
+    <img class="hero-img" src="https://placehold.co/600x700/BF360C/FF6D3B?text=Obra+em+andamento" alt="Obra em andamento">
+    <div class="hero-right-overlay">
+      <p>"Construimos nao so paredes, mas a historia das familias que vao viver nelas."</p>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:48px;"><h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#852508;font-family:'Be Vietnam Pro', sans-serif;">Eng. Paulo Henrique Construções</h2></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#852508;margin-bottom:12px;font-family:'Be Vietnam Pro', sans-serif;">Nossa Missao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Merriweather', serif;">Entregar servicos de excelencia que superam expectativas e transformam a experiencia dos nossos clientes.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#852508;margin-bottom:12px;font-family:'Be Vietnam Pro', sans-serif;">Nossa Visao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Merriweather', serif;">Ser referencia de qualidade e inovacao, reconhecida pela excelencia e pelo impacto positivo que geramos.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#852508;margin-bottom:12px;font-family:'Be Vietnam Pro', sans-serif;">Nossos Valores</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Merriweather', serif;">Etica, transparencia e compromisso guiam cada decisao e cada relacionamento que construimos.</p></div></div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Merriweather', serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#852508;font-family:'Be Vietnam Pro', sans-serif;">O que dizem nossos clientes</h2>
+<section class="about reveal" id="sobre">
+  <div>
+    <div class="about-label">Quem somos</div>
+    <h2 class="about-title">15 anos construindo confianca</h2>
+    <p class="about-text">Paulo Henrique Construcoes nasceu da experiencia pratica em obras e do compromisso com a excelencia. Com equipe propria treinada e processos rigorosos de controle de qualidade, entregamos obras nos prazos combinados e com acabamento impecavel.</p>
+    <div class="about-divider"></div>
+    <p class="about-text">Atuamos em Aparecida de Goiânia e regiao metropolitana em obras residenciais, predios comerciais, reformas e construtivas. Cada projeto e acompanhado com planilha de medicao, cronograma e fotos de evolucao para o contratante.</p>
+    <div class="about-tags">
+      <span class="tag">CREA-GO</span>
+      <span class="tag">Equipe propria</span>
+      <span class="tag">Garantia de obra</span>
+      <span class="tag">ART inclusa</span>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Merriweather', serif;">"Projeto entregue no prazo e com qualidade superior ao esperado."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#ebc2b6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#BF360C;font-size:14px;">F</div><div><div style="font-weight:700;font-size:14px;color:#852508;font-family:'Be Vietnam Pro', sans-serif;">Fabio N.</div><div style="font-size:12px;color:#888;font-family:'Merriweather', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Merriweather', serif;">"Profissional serio e extremamente competente. Recomendo."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#ebc2b6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#BF360C;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#852508;font-family:'Be Vietnam Pro', sans-serif;">Sandra L.</div><div style="font-size:12px;color:#888;font-family:'Merriweather', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Merriweather', serif;">"Laudo tecnico preciso que resolveu todos os problemas."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#ebc2b6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#BF360C;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#852508;font-family:'Be Vietnam Pro', sans-serif;">Marcos A.</div><div style="font-size:12px;color:#888;font-family:'Merriweather', serif;">Cliente</div></div></div></div></div>
   </div>
+  <img class="about-img" src="https://placehold.co/460x460/FBF7F5/BF360C?text=Escritorio+PH" alt="Escritório Paulo Henrique">
 </section>
 
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#BF360C"/></svg>
-  <div style="background:#BF360C;padding:40px 40px 80px;text-align:center;color:#ffffff;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Merriweather', serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'Be Vietnam Pro', sans-serif;">Solicite um orcamento</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Merriweather', serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562997235801" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/eng.paulohenrique.construcoes/" style="display:inline-block;border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
+<section class="services reveal">
+  <div class="sec-hdr">
+    <div class="sec-lbl">Especialidades</div>
+    <h2 class="sec-ttl">O que construimos</h2>
   </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#982b09;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Be Vietnam Pro', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Eng. Paulo Henrique Construções</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Merriweather', serif;">Setor Industrial, Aparecida de Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562997235801" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/eng.paulohenrique.construcoes/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Be Vietnam Pro', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Merriweather', serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Be Vietnam Pro', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Merriweather', serif;">
-          (62) 99723-5801<br>
-          <a href="https://wa.me/5562997235801" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/eng.paulohenrique.construcoes/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
+  <div class="svc-list">
+    <div class="svc-item reveal">
+      <div class="svc-n">01</div>
+      <h3>Obras Residenciais</h3>
+      <p>Casas e sobrados do zero, com projeto, estrutura, alvenaria e todos os acabamentos incluidos em proposta unica.</p>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Merriweather', serif;">Desenvolvido por VANT Digital Studio</div>
+    <div class="svc-item reveal">
+      <div class="svc-n">02</div>
+      <h3>Construcoes Comerciais</h3>
+      <p>Salas, lojas, galpoes e predios comerciais com laudo de estabilidade e documentacao para alvara de funcionamento.</p>
+    </div>
+    <div class="svc-item reveal">
+      <div class="svc-n">03</div>
+      <h3>Reformas Estruturais</h3>
+      <p>Ampliações, aberturas de vãos, reforcos de estrutura e reformas completas com ART do engenheiro responsavel.</p>
+    </div>
+    <div class="svc-item reveal">
+      <div class="svc-n">04</div>
+      <h3>Regularizacao e Documentacao</h3>
+      <p>Emissao de ART, habite-se, projeto legal e toda documentacao necessaria para regularizacao do seu imovel.</p>
+    </div>
   </div>
+</section>
+
+<section class="cta reveal">
+  <div class="cta-text">
+    <h2>Pronto para começar sua obra?</h2>
+    <p>Solicite um orçamento detalhado sem compromisso. Apresentamos planilha de custos, cronograma e proposta tecnica completa.</p>
+  </div>
+  <a href="https://wa.me/5562997235801" class="cta-btn">Pedir Orçamento Agora</a>
+</section>
+
+<footer>
+  <span class="foot-brand">Eng. Paulo Henrique Construções</span>
+  <span class="foot-copy">CREA-GO · Aparecida de Goiânia · © 2026</span>
+  <a href="https://wa.me/5562997235801" class="foot-wa">(62) 99723-5801</a>
 </footer>
 
-<a href="https://wa.me/5562997235801" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562997235801" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

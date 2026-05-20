@@ -2,220 +2,206 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>RS Engenharia e Construção — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RS Engenharia e Construção | Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Figtree', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#263238;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Libre Baskerville', serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Figtree', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Figtree', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#263238;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --rs-azul:#1565C0;
+  --rs-aco:#90CAF9;
+  --rs-escuro:#0D2040;
+  --rs-creme:#F0F4F8;
+  --rs-medio:#3A5A80;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Work Sans',sans-serif;background:#fff;color:var(--rs-escuro);overflow-x:hidden}
+
+nav{position:fixed;top:0;width:100%;z-index:100;background:var(--rs-escuro);padding:0 64px;height:66px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:14px}
+.nav-emblem{width:40px;height:40px;border:2px solid var(--rs-azul);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8rem;color:#fff;letter-spacing:0.05em}
+.nav-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-text strong{font-size:0.9rem;font-weight:700;color:#fff}
+.nav-text span{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rs-aco)}
+.nav-cta{background:var(--rs-azul);color:#fff;padding:10px 22px;text-decoration:none;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.3s}
+.nav-cta:hover{background:#1976D2}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:66px;background:var(--rs-escuro);display:grid;grid-template-columns:60% 40%;position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;position:relative;z-index:2}
+.hero-line{width:60px;height:3px;background:var(--rs-azul);margin-bottom:32px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,4.5vw,4.5rem);color:#fff;line-height:1.08;margin-bottom:24px;font-weight:700}
+.hero-title span{display:block;color:var(--rs-aco);font-style:italic;font-weight:400}
+.hero-desc{font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.9;margin-bottom:44px;max-width:420px;font-weight:300}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-rs{background:var(--rs-azul);color:#fff;padding:13px 28px;text-decoration:none;font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.3s}
+.btn-rs:hover{background:#1976D2}
+.btn-rs-out{border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);padding:13px 22px;text-decoration:none;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.3s}
+.btn-rs-out:hover{border-color:var(--rs-aco);color:var(--rs-aco)}
+.hero-right{position:relative;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:60px 48px 60px 0;z-index:2}
+.hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(144,202,249,0.15);border-left:3px solid var(--rs-azul);padding:20px 24px;transition:background 0.3s}
+.hero-card:hover{background:rgba(21,101,192,0.1)}
+.hero-card strong{display:block;font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--rs-aco);font-style:italic;line-height:1}
+.hero-card span{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+
+/* ABOUT */
+.about{padding:100px 80px;background:var(--rs-creme);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--rs-azul);font-weight:700;margin-bottom:14px}
+.about-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--rs-escuro);line-height:1.2;margin-bottom:24px}
+.about-text{font-size:0.88rem;color:var(--rs-medio);line-height:1.9;margin-bottom:14px}
+.about-img{width:100%;height:460px;object-fit:cover}
+.about-highlights{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.highlight{padding:16px;background:#fff;border-top:2px solid var(--rs-azul)}
+.highlight strong{display:block;font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--rs-azul);font-style:italic;line-height:1}
+.highlight span{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rs-medio)}
+
+/* SERVICES */
+.services{padding:100px 80px;background:#fff}
+.sec-hdr{margin-bottom:60px}
+.sec-lbl{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--rs-azul);font-weight:700;margin-bottom:12px}
+.sec-ttl{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--rs-escuro)}
+.svc-rows{display:flex;flex-direction:column;gap:2px}
+.svc-row{display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:32px;padding:28px 32px;border:1px solid #E0E8F0;transition:all 0.3s}
+.svc-row:hover{border-color:var(--rs-azul);background:var(--rs-creme)}
+.svc-row-n{font-family:'Playfair Display',serif;font-size:2.5rem;font-style:italic;color:rgba(21,101,192,0.2);line-height:1}
+.svc-row-body h3{font-size:1rem;font-weight:600;color:var(--rs-escuro);margin-bottom:4px}
+.svc-row-body p{font-size:0.82rem;color:var(--rs-medio);line-height:1.6}
+.svc-row-cta{width:40px;height:40px;border:1px solid var(--rs-azul);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--rs-azul);transition:all 0.3s}
+.svc-row:hover .svc-row-cta{background:var(--rs-azul);color:#fff}
+
+/* CTA */
+.cta{background:var(--rs-azul);padding:80px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.cta h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,3rem);color:#fff;margin-bottom:12px}
+.cta p{font-size:0.88rem;color:rgba(255,255,255,0.75);line-height:1.7}
+.cta-btn{background:#fff;color:var(--rs-azul);padding:16px 32px;text-decoration:none;font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;transition:all 0.3s}
+.cta-btn:hover{background:var(--rs-escuro);color:#fff}
+
+footer{background:var(--rs-escuro);padding:40px 80px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot-brand{font-family:'Playfair Display',serif;font-size:1rem;color:rgba(255,255,255,0.6);font-style:italic}
+.foot-copy{font-size:0.75rem;color:rgba(255,255,255,0.3)}
+.foot-wa{color:var(--rs-aco);font-size:0.8rem;text-decoration:none}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{padding:40px 32px}
+  .about{grid-template-columns:1fr;padding:60px 32px}
+  .svc-row{grid-template-columns:60px 1fr}
+  .svc-row-cta{display:none}
+  .services,.cta{padding:60px 32px}
+  .cta{grid-template-columns:1fr;text-align:center}
+  nav{padding:0 24px}
+  .hero-left{padding:60px 32px}
+  footer{padding:32px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">RS Engenharia e Construção</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <div class="nav-emblem">RS</div>
+    <div class="nav-text">
+      <strong>RS Engenharia</strong>
+      <span>e Construção</span>
+    </div>
   </div>
-  <a href="https://wa.me/5562995673024" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://wa.me/5562995673024" class="nav-cta">Solicitar Orçamento</a>
 </nav>
 
-
-<section class="hero" id="hero">
-  <div class="hero-split-poly">
-    <div class="hero-left" style="background:linear-gradient(135deg,#263238 0%,#202a2f 100%);">
-      <div class="hero-left-inner">
-        <p class="hero-eyebrow" style="color:#FFFFFF;font-family:'Figtree', sans-serif;">Bem-vindo</p>
-        <h1 style="color:#ffffff;font-family:'Libre Baskerville', serif;">Qualidade que fica em pe</h1>
-        <p class="hero-sub" style="color:rgba(255,255,255,0.8);font-family:'Figtree', sans-serif;">Construcao e reforma no Setor Coimbra de Goiânia</p>
-        <div class="hero-stats-row">
-          <div class="hero-stat"><span class="stat-val" style="color:#FFFFFF;">250+</span><span class="stat-lbl" style="color:rgba(255,255,255,0.7);">Obras Entregues</span></div>
-          <div class="hero-stat"><span class="stat-val" style="color:#FFFFFF;">18+</span><span class="stat-lbl" style="color:rgba(255,255,255,0.7);">Anos no Mercado</span></div>
-        </div>
-        <div class="hero-btns">
-          <a href="https://wa.me/5562995673024" class="btn-primary" style="background:#FFFFFF;color:#0a0a0a;">Falar no WhatsApp</a>
-          <a href="#servicos" class="btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#ffffff;">Ver servicos</a>
-        </div>
-      </div>
-    </div>
-    <div class="hero-right" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&h=800&fit=crop&q=80');clip-path:polygon(14% 0%,100% 0%,100% 100%,0% 100%);background-size:cover;background-position:center;"></div>
-  </div>
-</section>
-<style>
-.hero-split-poly {display:grid;grid-template-columns:56fr 44fr;min-height:100vh;}
-.hero-left {display:flex;align-items:center;padding:120px 60px 80px;}
-.hero-left-inner {max-width:520px;}
-.hero-eyebrow {font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
-.hero-left h1 {font-size:clamp(36px,4vw,64px);font-weight:800;line-height:1.1;margin-bottom:20px;}
-.hero-sub {font-size:18px;line-height:1.6;margin-bottom:40px;}
-.hero-stats-row {display:flex;gap:32px;margin-bottom:40px;}
-.hero-stat {display:flex;flex-direction:column;}
-.stat-val {font-size:28px;font-weight:800;line-height:1;}
-.stat-lbl {font-size:12px;margin-top:4px;letter-spacing:1px;text-transform:uppercase;}
-.hero-btns {display:flex;gap:16px;flex-wrap:wrap;}
-.btn-primary,.btn-ghost {padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.3s;}
-.btn-ghost {background:transparent;border:2px solid;}
-.btn-primary:hover {transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
-.hero-right {min-height:100vh;}
-@media(max-width:768px){.hero-split-poly{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:100px 24px 60px;}}
-</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Figtree', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#1a2327;font-family:'Libre Baskerville', serif;">O que fazemos</h2>
-    </div>
-    <div style="border-radius:16px;overflow:hidden;"><div style="display:grid;grid-template-columns:1fr 1fr;min-height:380px;"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=800&fit=crop&q=80" style="width:100%;height:380px;object-fit:cover;" alt="Construcao Residencial"><div style="padding:60px 48px;display:flex;flex-direction:column;justify-content:center;"><h3 style="font-size:26px;font-weight:700;color:#1a2327;margin-bottom:16px;font-family:'Libre Baskerville', serif;">Construcao Residencial</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Figtree', sans-serif;">Casas e apartamentos construidos com qualidade e prazo.</p></div></div><div style="display:grid;grid-template-columns:1fr 1fr;min-height:380px;"><div style="padding:60px 48px;display:flex;flex-direction:column;justify-content:center;background:#f9f9f9;"><h3 style="font-size:26px;font-weight:700;color:#1a2327;margin-bottom:16px;font-family:'Libre Baskerville', serif;">Construcao Comercial</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Figtree', sans-serif;">Galpoes, lojas e edificios comerciais sob medida.</p></div><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&h=800&fit=crop&q=80" style="width:100%;height:380px;object-fit:cover;" alt="Construcao Comercial"></div><div style="display:grid;grid-template-columns:1fr 1fr;min-height:380px;"><img src="https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=1200&h=800&fit=crop&q=80" style="width:100%;height:380px;object-fit:cover;" alt="Reforma e Ampliacao"><div style="padding:60px 48px;display:flex;flex-direction:column;justify-content:center;"><h3 style="font-size:26px;font-weight:700;color:#1a2327;margin-bottom:16px;font-family:'Libre Baskerville', serif;">Reforma e Ampliacao</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Figtree', sans-serif;">Modernizacao e expansao de espacos existentes.</p></div></div><div style="display:grid;grid-template-columns:1fr 1fr;min-height:380px;"><div style="padding:60px 48px;display:flex;flex-direction:column;justify-content:center;background:#f9f9f9;"><h3 style="font-size:26px;font-weight:700;color:#1a2327;margin-bottom:16px;font-family:'Libre Baskerville', serif;">Gerenciamento de Obras</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Figtree', sans-serif;">Gestao completa do processo construtivo.</p></div><img src="https://images.unsplash.com/photo-1626885930974-4b69aa21bbf9?w=1200&h=800&fit=crop&q=80" style="width:100%;height:380px;object-fit:cover;" alt="Gerenciamento de Obras"></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#263238;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="250" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Libre Baskerville', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Figtree', sans-serif;">Obras Entregues</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="18" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Libre Baskerville', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Figtree', sans-serif;">Anos no Mercado</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="1200002" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Libre Baskerville', serif;">0.+ m</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Figtree', sans-serif;">Area Construida</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="98" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Libre Baskerville', serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Figtree', sans-serif;">Satisfacao</div></div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-line"></div>
+    <h1 class="hero-title">
+      Engenharia com
+      <span>solidez comprovada</span>
+    </h1>
+    <p class="hero-desc">RS Engenharia e Construcao — projetos estruturais, obras completas e gerenciamento tecnico em Goiânia com equipe qualificada e resultados documentados.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562995673024" class="btn-rs">Solicitar Orçamento</a>
+      <a href="#sobre" class="btn-rs-out">Conhecer a empresa</a>
     </div>
   </div>
-</section>
-
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:64px;">
-  <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#1a2327;margin-bottom:16px;font-family:'Libre Baskerville', serif;">RS Engenharia e Construção</h2>
-  <p style="font-size:16px;color:#555;max-width:640px;margin:0 auto;line-height:1.7;font-family:'Figtree', sans-serif;">Nossa construtora tem mais de 18 anos de experiencia entregando obras com qualidade, solidez e pontualidade. Do projeto a entrega das chaves, acompanhamos cada detalhe para garantir a realizacao do seu sonho.</p>
-</div>
-<div style="position:relative;display:flex;gap:0;margin-top:40px;">
-  <div style="position:absolute;top:8px;left:10%;right:10%;height:2px;background:linear-gradient(to right,#ffffff,#FFFFFF,#ffffff);z-index:1;"></div>
-  <div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#1a2327;margin-bottom:8px;font-family:'Libre Baskerville', serif;">Fundacao</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Figtree', sans-serif;">Inicio das atividades com foco em qualidade e excelencia.</p></div><div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#1a2327;margin-bottom:8px;font-family:'Libre Baskerville', serif;">Crescimento</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Figtree', sans-serif;">Expansao da equipe e dos servicos oferecidos aos clientes.</p></div><div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#1a2327;margin-bottom:8px;font-family:'Libre Baskerville', serif;">Referencia</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Figtree', sans-serif;">Consolidacao como referencia no mercado regional.</p></div>
-</div>
+  <div class="hero-right">
+    <div class="hero-card"><strong>12+</strong><span>Anos de mercado</span></div>
+    <div class="hero-card"><strong>150+</strong><span>Obras entregues</span></div>
+    <div class="hero-card"><strong>CREA</strong><span>GO-Registro ativo</span></div>
+    <img src="https://placehold.co/400x240/1565C0/90CAF9?text=RS+Engenharia" alt="RS Engenharia" style="width:100%;margin-top:12px;opacity:0.7">
   </div>
 </section>
 
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Figtree', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#1a2327;font-family:'Libre Baskerville', serif;">O que dizem nossos clientes</h2>
+<section class="about reveal" id="sobre">
+  <div>
+    <div class="about-label">Sobre a RS</div>
+    <h2 class="about-title">Uma empresa construida sobre confianca</h2>
+    <p class="about-text">A RS Engenharia e Construcao foi fundada com o compromisso de entregar obras com qualidade tecnica documentada, prazo cumprido e equipe propria treinada. Em mais de 12 anos, construimos historias em Goiânia e regiao metropolitana.</p>
+    <p class="about-text">Trabalhamos com projetos residenciais, obras comerciais, reformas e gerenciamento tecnico de obras em andamento. Cada projeto e acompanhado com planilha de cronograma, medicoes e relatorios fotograficos periodicos.</p>
+    <div class="about-highlights">
+      <div class="highlight"><strong>150+</strong><span>Obras entregues</span></div>
+      <div class="highlight"><strong>100%</strong><span>ART inclusa</span></div>
+      <div class="highlight"><strong>Equipe</strong><span>Propria treinada</span></div>
+      <div class="highlight"><strong>Prazo</strong><span>Garantido em contrato</span></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Figtree', sans-serif;">"Casa entregue no prazo e com acabamento impecavel."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#bdc1c3;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#263238;font-size:14px;">G</div><div><div style="font-weight:700;font-size:14px;color:#1a2327;font-family:'Libre Baskerville', serif;">Gustavo P.</div><div style="font-size:12px;color:#888;font-family:'Figtree', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Figtree', sans-serif;">"Equipe profissional e comprometida com a qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#bdc1c3;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#263238;font-size:14px;">C</div><div><div style="font-weight:700;font-size:14px;color:#1a2327;font-family:'Libre Baskerville', serif;">Claudia R.</div><div style="font-size:12px;color:#888;font-family:'Figtree', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Figtree', sans-serif;">"Melhor construtora que ja contratei. Superaram as expectativas."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#bdc1c3;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#263238;font-size:14px;">N</div><div><div style="font-weight:700;font-size:14px;color:#1a2327;font-family:'Libre Baskerville', serif;">Nelson B.</div><div style="font-size:12px;color:#888;font-family:'Figtree', sans-serif;">Cliente</div></div></div></div></div>
   </div>
+  <img class="about-img" src="https://placehold.co/460x460/F0F4F8/1565C0?text=Obras+RS" alt="Obras RS Engenharia">
 </section>
 
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="background:linear-gradient(135deg,#263238 0%,#1c252a 100%);border-radius:24px;padding:80px 48px;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;opacity:0.03;background-image:url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;200&quot; height=&quot;200&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.65&quot; numOctaves=&quot;3&quot;/></filter><rect width=&quot;200&quot; height=&quot;200&quot; filter=&quot;url(%23n)&quot;/></svg>');background-size:200px;"></div>
-  <div style="position:relative;z-index:2;color:#ffffff;">
-    <div style="display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:8px 20px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;font-family:'Figtree', sans-serif;">Contato</div>
-    <h2 style="font-size:clamp(28px,4.5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Libre Baskerville', serif;">Solicite um orcamento</h2>
-    <p style="font-size:18px;opacity:0.85;max-width:520px;margin:0 auto 44px;line-height:1.6;font-family:'Figtree', sans-serif;">Atendimento especializado para voce.</p>
-    <a href="https://wa.me/5562995673024" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 48px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
+<section class="services reveal">
+  <div class="sec-hdr">
+    <div class="sec-lbl">Especialidades</div>
+    <h2 class="sec-ttl">O que a RS constrói</h2>
   </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#1e282c;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Libre Baskerville', serif;font-weight:800;font-size:20px;margin-bottom:8px;">RS Engenharia e Construção</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Figtree', sans-serif;">Setor Coimbra, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562995673024" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/rsengenharia.construcao/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Libre Baskerville', serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Figtree', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Libre Baskerville', serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Figtree', sans-serif;">
-          (62) 99567-3024<br>
-          <a href="https://wa.me/5562995673024" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/rsengenharia.construcao/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
+  <div class="svc-rows">
+    <div class="svc-row reveal">
+      <div class="svc-row-n">01</div>
+      <div class="svc-row-body"><h3>Construcoes Residenciais</h3><p>Casas e sobrados do zero, com projeto arquitetonico e estrutural, execucao e acabamento final.</p></div>
+      <a href="https://wa.me/5562995673024" class="svc-row-cta"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Figtree', sans-serif;">Desenvolvido por VANT Digital Studio</div>
+    <div class="svc-row reveal">
+      <div class="svc-row-n">02</div>
+      <div class="svc-row-body"><h3>Obras Comerciais</h3><p>Galpoes, salas comerciais, clinicas e lojas com documentacao completa para liberacao de alvara.</p></div>
+      <a href="https://wa.me/5562995673024" class="svc-row-cta"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="svc-row reveal">
+      <div class="svc-row-n">03</div>
+      <div class="svc-row-body"><h3>Reformas e Ampliações</h3><p>Reformas completas com controle tecnico, materiais selecionados e equipe propria especializada.</p></div>
+      <a href="https://wa.me/5562995673024" class="svc-row-cta"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="svc-row reveal">
+      <div class="svc-row-n">04</div>
+      <div class="svc-row-body"><h3>Gerenciamento Tecnico</h3><p>Acompanhamento e fiscalizacao de obras com cronograma, medicoes e relatorios de progresso.</p></div>
+      <a href="https://wa.me/5562995673024" class="svc-row-cta"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
   </div>
+</section>
+
+<section class="cta reveal">
+  <div>
+    <h2>Fale com a RS Engenharia</h2>
+    <p>Orçamento tecnico detalhado e sem compromisso. Atendimento rapido pelo WhatsApp.</p>
+  </div>
+  <a href="https://wa.me/5562995673024" class="cta-btn">Solicitar Orçamento</a>
+</section>
+
+<footer>
+  <span class="foot-brand">RS Engenharia e Construção</span>
+  <span class="foot-copy">CREA-GO · Goiânia, GO · © 2026</span>
+  <a href="https://wa.me/5562995673024" class="foot-wa">(62) 99567-3024</a>
 </footer>
 
-<a href="https://wa.me/5562995673024" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562995673024" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

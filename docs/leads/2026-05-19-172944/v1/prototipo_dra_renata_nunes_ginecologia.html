@@ -2,195 +2,253 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Dra. Renata Nunes Ginecologia — Aparecida de Goiânia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Renata Nunes - Ginecologia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Crimson Pro', serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#E91E8C;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Outfit', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Crimson Pro', serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#F8BBD9;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Crimson Pro', serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#E91E8C;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root {
+  --renata-rosa:#E91E8C;
+  --renata-rosa-suave:#FCE4F5;
+  --renata-roxo:#880E4F;
+  --renata-claro:#FFF5FB;
+  --renata-texto:#2A0016;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Jost',sans-serif;color:var(--renata-texto);background:#fff}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.98);border-bottom:1px solid rgba(233,30,140,0.1)}
+.nav-logo{display:flex;flex-direction:column}
+.logo-dr{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;font-style:italic;color:var(--renata-rosa)}
+.logo-spec{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(136,14,79,0.5)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:12px;font-weight:500;color:var(--renata-texto);text-decoration:none;opacity:0.65;transition:opacity 0.2s}
+.nav-links a:hover{opacity:1;color:var(--renata-rosa)}
+.nav-btn{background:var(--renata-rosa);color:#fff;text-decoration:none;padding:10px 22px;border-radius:50px;font-size:12px;font-weight:700;transition:background 0.2s}
+.nav-btn:hover{background:var(--renata-roxo)}
+/* HERO */
+.hero{min-height:100vh;background:var(--renata-claro);display:grid;grid-template-columns:1fr 1fr;align-items:center;overflow:hidden;padding-top:60px;position:relative}
+.hero-bg-circle{position:absolute;right:-120px;top:-120px;width:600px;height:600px;border-radius:50%;background:rgba(233,30,140,0.05);z-index:0}
+.hero-left{padding:60px 60px;position:relative;z-index:2}
+.hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--renata-rosa);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.hero-eyebrow::after{content:'';flex:1;height:1px;background:rgba(233,30,140,0.2);max-width:40px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,6vw,76px);font-weight:300;line-height:1.1;color:var(--renata-texto);margin-bottom:12px}
+.hero h1 strong{font-weight:600;color:var(--renata-rosa)}
+.hero-crm{font-size:12px;font-weight:600;letter-spacing:2px;color:rgba(136,14,79,0.5);margin-bottom:24px;text-transform:uppercase}
+.hero-bio{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:rgba(42,0,22,0.65);line-height:1.8;max-width:420px;margin-bottom:36px}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--renata-rosa);color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-size:13px;font-weight:700;transition:background 0.2s,transform 0.2s}
+.hero-cta:hover{background:var(--renata-roxo);transform:translateY(-2px)}
+.hero-cta svg{width:18px;height:18px;fill:currentColor}
+.hero-right{padding:40px 48px 40px 0;position:relative;z-index:2;display:flex;flex-direction:column;gap:20px;align-items:flex-end}
+.hero-photo{width:100%;max-width:400px;height:480px;object-fit:cover;border-radius:200px 200px 12px 12px}
+.hero-badge{background:#fff;border-radius:12px;padding:16px 20px;box-shadow:0 4px 24px rgba(233,30,140,0.1);display:flex;align-items:center;gap:14px;max-width:260px;align-self:flex-start}
+.badge-icon{width:36px;height:36px;background:var(--renata-rosa-suave);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.badge-icon svg{width:20px;height:20px}
+.badge-text strong{display:block;font-size:16px;font-weight:700;color:var(--renata-rosa)}
+.badge-text span{font-size:11px;color:#888}
+/* SERVICES */
+.services{padding:100px 60px;background:#fff}
+.section-eyebrow{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--renata-rosa);margin-bottom:10px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,48px);font-weight:400;color:var(--renata-texto);margin-bottom:56px;line-height:1.2}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.svc-card{border:1px solid rgba(233,30,140,0.1);border-radius:12px;padding:32px 24px;transition:border-color 0.25s,transform 0.25s}
+.svc-card:hover{border-color:var(--renata-rosa);transform:translateY(-4px)}
+.svc-dot{width:8px;height:8px;background:var(--renata-rosa);border-radius:50%;margin-bottom:16px}
+.svc-card h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--renata-texto);margin-bottom:10px}
+.svc-card p{font-size:14px;color:#777;line-height:1.7}
+/* ABOUT */
+.about{padding:100px 60px;background:var(--renata-rosa-suave);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-photo{width:100%;height:440px;object-fit:cover;border-radius:12px}
+.about-content .section-title{margin-bottom:20px}
+.about-text{font-family:'Cormorant Garamond',serif;font-size:18px;color:#555;line-height:1.9;margin-bottom:24px}
+.about-list{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.about-item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--renata-texto)}
+.about-item svg{width:16px;height:16px;flex-shrink:0}
+.btn-cta{display:inline-flex;align-items:center;gap:10px;background:var(--renata-rosa);color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-size:13px;font-weight:700;transition:background 0.2s}
+.btn-cta:hover{background:var(--renata-roxo)}
+.btn-cta svg{width:18px;height:18px;fill:currentColor}
+/* CONTACT */
+.contact{padding:100px 60px;background:var(--renata-texto)}
+.contact .section-eyebrow{color:var(--renata-rosa)}
+.contact .section-title{font-family:'Cormorant Garamond',serif;color:#fff;margin-bottom:48px}
+.contact-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:880px}
+.info-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:28px;display:flex;gap:14px}
+.info-icon{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+.info-card strong{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--renata-rosa);display:block;margin-bottom:6px}
+.info-card p{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.65);line-height:1.6}
+.cta-wa{background:rgba(233,30,140,0.1);border:1px solid rgba(233,30,140,0.25);border-radius:12px;padding:36px;grid-column:1/-1}
+.cta-wa h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#fff;margin-bottom:10px}
+.cta-wa p{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:24px}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-size:13px;font-weight:700;transition:transform 0.2s}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-wa svg{width:18px;height:18px;fill:currentColor}
+/* FOOTER */
+footer{background:#150009;padding:24px 60px;display:flex;justify-content:space-between;align-items:center}
+footer p{font-size:11px;color:rgba(255,255,255,0.3)}
+footer strong{color:rgba(255,255,255,0.6)}
+/* FLOAT WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  .nav-links,.nav-btn{display:none}
+  .hero{grid-template-columns:1fr;padding-top:60px}
+  .hero-right{display:none}
+  .hero-left{padding:40px 24px 60px}
+  .services,.about,.contact{padding:60px 24px}
+  .about{grid-template-columns:1fr}
+  .contact-cols{grid-template-columns:1fr}
+  .cta-wa{grid-column:1}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Dra. Renata Nunes Ginecologia</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <span class="logo-dr">Dra. Renata Nunes</span>
+    <span class="logo-spec">CRM-GO 18.729 — Ginecologia</span>
   </div>
-  <a href="https://wa.me/5562991745632" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <ul class="nav-links">
+    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5562991745632" class="nav-btn">Agendar Consulta</a>
 </nav>
 
-
-<section class="hero" id="hero" style="min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;background:#f8f8f8;background-image:radial-gradient(rgba(248,187,217,0.15) 2px,transparent 2px);background-size:32px 32px;">
-  <div style="max-width:1200px;margin:0 auto;padding:120px 60px;">
-    <div style="font-size:120px;font-weight:900;color:#F8BBD9;opacity:0.12;line-height:1;margin-bottom:-60px;font-family:'Outfit', sans-serif;">"</div>
-    <h1 style="font-size:clamp(40px,5.5vw,72px);font-weight:800;color:#1a1a1a;line-height:1.1;margin-bottom:24px;max-width:700px;font-family:'Outfit', sans-serif;">Medicina humanizada</h1>
-    <p style="font-size:19px;color:#141414;line-height:1.7;margin-bottom:48px;max-width:580px;font-family:'Crimson Pro', serif;">Clinica medica em Aparecida de Goiânia</p>
-    <div style="display:flex;gap:32px;margin-bottom:48px;flex-wrap:wrap;">
-      <div style="border-left:3px solid #F8BBD9;padding-left:16px;"><div style="font-size:24px;font-weight:800;color:#1a1a1a;">15.000+</div><div style="font-size:12px;color:#141414;letter-spacing:1px;text-transform:uppercase;">Consultas</div></div><div style="border-left:3px solid #F8BBD9;padding-left:16px;"><div style="font-size:24px;font-weight:800;color:#1a1a1a;">12</div><div style="font-size:12px;color:#141414;letter-spacing:1px;text-transform:uppercase;">Especialidades</div></div><div style="border-left:3px solid #F8BBD9;padding-left:16px;"><div style="font-size:24px;font-weight:800;color:#1a1a1a;">10+</div><div style="font-size:12px;color:#141414;letter-spacing:1px;text-transform:uppercase;">Anos de Atuacao</div></div><div style="border-left:3px solid #F8BBD9;padding-left:16px;"><div style="font-size:24px;font-weight:800;color:#1a1a1a;">3.500+</div><div style="font-size:12px;color:#141414;letter-spacing:1px;text-transform:uppercase;">Pacientes</div></div>
-    </div>
-    <a href="https://wa.me/5562991745632" style="background:#E91E8C;color:#ffffff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;margin-right:16px;">Falar no WhatsApp</a>
-    <a href="#servicos" style="border:2px solid #E91E8C;color:#E91E8C;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;">Servicos</a>
+<section class="hero">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-left">
+    <p class="hero-eyebrow">Ginecologia e Obstetricia</p>
+    <h1>Dra. Renata<br><strong>Nunes</strong></h1>
+    <p class="hero-crm">CRM-GO 18.729 — Especialista em Ginecologia</p>
+    <p class="hero-bio">Dedicada ao cuidado integral da saude feminina com atendimento humanizado, discreto e de excelencia. Da adolescencia a menopausa, estou aqui para voce.</p>
+    <a href="https://wa.me/5562991745632" class="hero-cta">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Marcar Consulta
+    </a>
   </div>
-</section>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#F8BBD9;margin-bottom:12px;font-family:'Crimson Pro', serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#a31562;font-family:'Outfit', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;"><div style="background:#E91E8C;border-radius:20px;padding:48px;color:#ffffff;"><div style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#F8BBD9;margin-bottom:20px;">Destaque</div><h3 style="font-size:28px;font-weight:800;margin-bottom:16px;font-family:'Outfit', sans-serif;">Clinica Geral</h3><p style="font-size:16px;opacity:0.85;line-height:1.7;font-family:'Crimson Pro', serif;">Atendimento medico completo para adultos e idosos.</p></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;"><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#a31562;margin-bottom:8px;font-family:'Outfit', sans-serif;">Check-up Completo</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Crimson Pro', serif;">Avaliacao geral da saude com exames e orientacoes.</p></div><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#a31562;margin-bottom:8px;font-family:'Outfit', sans-serif;">Telemedicina</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Crimson Pro', serif;">Consultas online com a comodidade da sua casa.</p></div><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#a31562;margin-bottom:8px;font-family:'Outfit', sans-serif;">Saude da Mulher</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Crimson Pro', serif;">Ginecologia e acompanhamento especializado feminino.</p></div><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#a31562;margin-bottom:8px;font-family:'Outfit', sans-serif;">Pediatria</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Crimson Pro', serif;">Cuidado medico especializado para criancas e adolescentes.</p></div></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#E91E8C;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="15000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#F8BBD9;font-family:'Outfit', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Consultas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#F8BBD9;font-family:'Outfit', sans-serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="10" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#F8BBD9;font-family:'Outfit', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Anos de Atuacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="3500" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#F8BBD9;font-family:'Outfit', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Pacientes</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre" style="background:#E91E8C;">
-  <div class="section-inner reveal">
-    <div style="background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=800&fit=crop&q=80');background-attachment:fixed;background-size:cover;background-position:center;position:relative;">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.85));"></div>
-  <div style="position:relative;z-index:2;text-align:center;padding:100px 40px;color:#fff;max-width:760px;margin:0 auto;">
-    <h2 style="font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.1;margin-bottom:20px;font-family:'Outfit', sans-serif;">Dra. Renata Nunes Ginecologia</h2>
-    <p style="font-size:18px;opacity:0.85;line-height:1.7;font-family:'Crimson Pro', serif;">Nossa clinica medica oferece atendimento humanizado e de qualidade para cuidar da sua saude com dedicacao. Contamos com medicos especializados e infraestrutura moderna para proporcionar o melhor cuidado possivel.</p>
-  </div>
-</div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#F8BBD9;margin-bottom:12px;font-family:'Crimson Pro', serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#a31562;font-family:'Outfit', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"Medico atencioso e dedicado. Me sinto em boas maos."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#f8bbdc;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#E91E8C;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#a31562;font-family:'Outfit', sans-serif;">Silvia A.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"Atendimento rapido e profissional de alta qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#f8bbdc;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#E91E8C;font-size:14px;">E</div><div><div style="font-weight:700;font-size:14px;color:#a31562;font-family:'Outfit', sans-serif;">Eduardo R.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"Clinica moderna e equipe muito atenciosa e humanizada."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#f8bbdc;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#E91E8C;font-size:14px;">P</div><div><div style="font-weight:700;font-size:14px;color:#a31562;font-family:'Outfit', sans-serif;">Patricia L.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Paciente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="background:#F8BBD9;border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;">
-  <div style="padding:64px 48px;color:#0a0a0a;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;opacity:0.7;margin-bottom:16px;font-family:'Crimson Pro', serif;">Contato</p>
-    <h2 style="font-size:clamp(26px,3.5vw,44px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Outfit', sans-serif;">Agende sua consulta</h2>
-    <p style="font-size:16px;opacity:0.85;line-height:1.7;font-family:'Crimson Pro', serif;">Entre em contato e receba atendimento personalizado.</p>
-  </div>
-  <div style="background:#fff;padding:48px;display:flex;flex-direction:column;gap:16px;justify-content:center;">
-    <a href="https://wa.me/5562991745632" style="display:block;background:#25D366;color:#fff;padding:16px 24px;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none;text-align:center;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/drarenata.gine/" style="display:block;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:14px 24px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;text-align:center;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#ba1870;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Outfit', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Dra. Renata Nunes Ginecologia</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Crimson Pro', serif;">Setor Garavelo, Aparecida de Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562991745632" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/drarenata.gine/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
+  <div class="hero-right">
+    <div class="hero-badge">
+      <div class="badge-icon">
+        <svg viewBox="0 0 20 20" fill="none" stroke="#E91E8C" stroke-width="1.5"><path d="M10 2l1.6 4.9H17l-4.2 3 1.6 4.9L10 12l-4.4 2.8 1.6-4.9L3 7h5.4L10 2z" stroke-linejoin="round"/></svg>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Outfit', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Crimson Pro', serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Outfit', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Crimson Pro', serif;">
-          (62) 99174-5632<br>
-          <a href="https://wa.me/5562991745632" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/drarenata.gine/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
+      <div class="badge-text">
+        <strong>15+ anos</strong>
+        <span>de experiencia</span>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Crimson Pro', serif;">Desenvolvido por VANT Digital Studio</div>
+    <img src="https://placehold.co/400x480/FCE4F5/880E4F?text=Dra.+Renata" alt="Dra. Renata Nunes" class="hero-photo">
   </div>
+</section>
+
+<section class="services" id="servicos">
+  <p class="section-eyebrow reveal">Minha Atuacao</p>
+  <h2 class="section-title reveal">Cuidado especializado<br>para cada fase da vida</h2>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <div class="svc-dot"></div>
+      <h3>Consulta Ginecologica</h3>
+      <p>Exame preventivo, Papanicolau, colposcopia e acompanhamento rotineiro da saude ginecologica.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-dot"></div>
+      <h3>Pre-Natal</h3>
+      <p>Acompanhamento gestacional completo com exames, ultrassom e orientacao para um parto seguro.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-dot"></div>
+      <h3>Saude Hormonal</h3>
+      <p>Tratamento de irregularidades menstruais, SOP, menopausa e reposicao hormonal.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-dot"></div>
+      <h3>Planejamento Familiar</h3>
+      <p>Orientacao sobre metodos contraceptivos, DIU, implante e planejamento de gravide</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-dot"></div>
+      <h3>Ginecologia da Adolescencia</h3>
+      <p>Atendimento especializado e acolhedor para jovens em todas as etapas do desenvolvimento.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-dot"></div>
+      <h3>Uroginecologia</h3>
+      <p>Tratamento de incontinencia urinaria, prolapso e outras condicoes do assoalho pelvico.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="sobre">
+  <img src="https://placehold.co/520x440/F8BBD9/880E4F?text=Dra.+Renata+Nunes" alt="Dra. Renata Nunes" class="reveal">
+  <div class="about-content">
+    <p class="section-eyebrow reveal">Sobre a Medica</p>
+    <h2 class="section-title reveal">Medicina com<br>Empatia e<br>Excelencia</h2>
+    <p class="about-text reveal">A Dra. Renata Nunes e ginecologista e obstetra com mais de 15 anos de experiencia. Formada pela UFG com especializacao em endoscopia ginecologica, ela e reconhecida pelo atendimento acolhedor e pela competencia tecnica que transmite seguranca a cada consulta.</p>
+    <div class="about-list reveal">
+      <div class="about-item">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#E91E8C" stroke-width="1.5"><path d="M3 8l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Graduada em Medicina pela UFG
+      </div>
+      <div class="about-item">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#E91E8C" stroke-width="1.5"><path d="M3 8l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Especializacao em Endoscopia Ginecologica
+      </div>
+      <div class="about-item">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#E91E8C" stroke-width="1.5"><path d="M3 8l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Membro da FEBRASGO
+      </div>
+    </div>
+    <a href="https://wa.me/5562991745632" class="btn-cta reveal">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Agendar Consulta
+    </a>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <p class="section-eyebrow reveal">Fale Comigo</p>
+  <h2 class="section-title reveal">Agende sua<br>consulta com sigilo<br>e conforto</h2>
+  <div class="contact-cols">
+    <div class="info-card reveal">
+      <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M10 2C6.686 2 4 4.686 4 8c0 5 6 10 6 10s6-5 6-10c0-3.314-2.686-6-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" fill="rgba(233,30,140,0.7)"/></svg>
+      <div><strong>Consultorio</strong><p>Av. T-10, 1560 — Setor Bueno<br>Goiania, GO</p></div>
+    </div>
+    <div class="info-card reveal">
+      <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm3 1v2h10V5H5zm0 4v2h10V9H5zm0 4v2h6v-2H5z" fill="rgba(233,30,140,0.7)"/></svg>
+      <div><strong>Horario</strong><p>Seg, Ter, Qui, Sex: 08h00 — 18h00<br>Quarta: Teleconsulta disponivel</p></div>
+    </div>
+    <div class="cta-wa reveal">
+      <h3>Agende com sigilo e conforto</h3>
+      <p>Nossa secretaria atende com toda a discricao pelo WhatsApp para facilitar seu agendamento.</p>
+      <a href="https://wa.me/5562991745632" class="btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Dra. Renata Nunes</strong> — CRM-GO 18.729 — Goiania, GO</p>
+  <p>Desenvolvido por <strong>VANT Digital Studio</strong></p>
 </footer>
 
-<a href="https://wa.me/5562991745632" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562991745632" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

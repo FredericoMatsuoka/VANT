@@ -2,193 +2,271 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Instituto Florescer Psicologia — Aparecida de Goiânia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instituto Florescer - Psicologia e Bem-Estar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Spectral:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Spectral', serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#66BB6A;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Montserrat', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Spectral', serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Spectral', serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#66BB6A;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root {
+  --florescer-lilas:#7B5EA7;
+  --florescer-rosa:#C2869E;
+  --florescer-claro:#F8F4FF;
+  --florescer-creme:#FDF9F5;
+  --florescer-texto:#1E1526;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--florescer-texto);background:#fff}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.98);box-shadow:0 1px 0 rgba(123,94,167,0.08)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:20px;color:var(--florescer-lilas)}
+.logo-bloom{width:28px;height:28px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--florescer-texto);text-decoration:none;opacity:0.55;transition:opacity 0.2s}
+.nav-links a:hover{opacity:1}
+.nav-btn{background:var(--florescer-lilas);color:#fff;text-decoration:none;padding:10px 22px;border-radius:50px;font-size:12px;font-weight:700;transition:background 0.2s}
+.nav-btn:hover{background:var(--florescer-rosa)}
+/* HERO */
+.hero{min-height:100vh;background:var(--florescer-claro);padding-top:62px;display:grid;grid-template-columns:1fr 1fr;align-items:center;overflow:hidden;position:relative}
+.hero-circles{position:absolute;right:-60px;top:-60px;z-index:0}
+.hero-c1{width:400px;height:400px;border-radius:50%;border:2px solid rgba(123,94,167,0.1);position:absolute}
+.hero-c2{width:280px;height:280px;border-radius:50%;border:2px solid rgba(123,94,167,0.08);position:absolute;top:60px;left:60px}
+.hero-left{padding:60px 60px;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:50px;padding:8px 16px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--florescer-lilas);margin-bottom:24px;box-shadow:0 2px 16px rgba(123,94,167,0.1)}
+.badge-dot{width:6px;height:6px;background:var(--florescer-rosa);border-radius:50%}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(44px,5.5vw,70px);font-weight:400;line-height:1.15;color:var(--florescer-texto);margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--florescer-lilas)}
+.hero-sub{font-size:16px;font-weight:300;color:rgba(30,21,38,0.6);line-height:1.8;max-width:420px;margin-bottom:36px}
+.hero-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
+.pill{background:#fff;border:1px solid rgba(123,94,167,0.15);border-radius:50px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--florescer-lilas)}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--florescer-lilas);color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-size:14px;font-weight:700;transition:background 0.2s,transform 0.2s}
+.hero-cta:hover{background:var(--florescer-rosa);transform:translateY(-2px)}
+.hero-cta svg{width:18px;height:18px;fill:currentColor}
+.hero-right{padding:40px 48px 40px 0;position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:20px}
+.hero-photo{width:100%;max-width:400px;height:460px;object-fit:cover;border-radius:200px 200px 12px 12px}
+.hero-mini-card{background:#fff;border-radius:14px;padding:16px 20px;box-shadow:0 4px 24px rgba(123,94,167,0.1);display:flex;align-items:center;gap:14px;max-width:260px;align-self:flex-start}
+.mini-icon{width:36px;height:36px;background:var(--florescer-claro);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mini-icon svg{width:20px;height:20px}
+.mini-text strong{display:block;font-size:15px;font-weight:700;color:var(--florescer-lilas)}
+.mini-text span{font-size:12px;color:#999}
+/* APPROACH */
+.approach{padding:100px 60px;background:#fff}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--florescer-rosa);margin-bottom:12px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,46px);font-weight:400;color:var(--florescer-texto);margin-bottom:56px;line-height:1.2}
+.approach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.approach-card{background:var(--florescer-creme);border-radius:14px;padding:32px 24px;transition:transform 0.25s,box-shadow 0.25s}
+.approach-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(123,94,167,0.08)}
+.approach-num{font-family:'Playfair Display',serif;font-size:44px;font-weight:400;color:var(--florescer-lilas);opacity:0.2;line-height:1;margin-bottom:12px}
+.approach-card h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--florescer-texto);margin-bottom:10px}
+.approach-card p{font-size:14px;color:#888;line-height:1.7}
+/* TEAM */
+.team{padding:100px 60px;background:var(--florescer-claro);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.team-photo{width:100%;height:440px;object-fit:cover;border-radius:12px}
+.team-content .section-title{margin-bottom:20px}
+.team-text{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:#666;line-height:1.9;margin-bottom:28px}
+.team-list{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.team-item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--florescer-texto)}
+.team-item svg{width:16px;height:16px;flex-shrink:0}
+.btn-team{display:inline-flex;align-items:center;gap:10px;background:var(--florescer-lilas);color:#fff;text-decoration:none;padding:13px 26px;border-radius:50px;font-size:13px;font-weight:700;transition:background 0.2s}
+.btn-team:hover{background:var(--florescer-rosa)}
+.btn-team svg{width:18px;height:18px;fill:currentColor}
+/* CONTACT */
+.contact{padding:100px 60px;background:var(--florescer-lilas)}
+.contact .section-eyebrow{color:rgba(255,255,255,0.6)}
+.contact .section-title{font-family:'Playfair Display',serif;color:#fff;margin-bottom:48px}
+.contact-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:880px}
+.info-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:28px;display:flex;gap:14px}
+.info-icon{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+.info-card strong{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.6);display:block;margin-bottom:6px}
+.info-card p{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.75);line-height:1.6}
+.cta-card{background:#fff;border-radius:14px;padding:40px;grid-column:1/-1}
+.cta-card h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--florescer-lilas);margin-bottom:12px}
+.cta-card p{font-size:15px;color:#777;line-height:1.7;margin-bottom:28px}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-size:14px;font-weight:700;transition:transform 0.2s}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-wa svg{width:18px;height:18px;fill:currentColor}
+/* FOOTER */
+footer{background:#100C1A;padding:24px 60px;display:flex;justify-content:space-between;align-items:center}
+footer p{font-size:12px;color:rgba(255,255,255,0.35)}
+footer strong{color:rgba(255,255,255,0.65)}
+/* FLOAT WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  .nav-links,.nav-btn{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-right,.hero-circles{display:none}
+  .hero-left{padding:40px 24px 60px}
+  .approach,.team,.contact{padding:60px 24px}
+  .team{grid-template-columns:1fr}
+  .contact-cols{grid-template-columns:1fr}
+  .cta-card{grid-column:1}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Instituto Florescer Psicologia</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <svg class="logo-bloom" viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="4" fill="#7B5EA7"/>
+      <circle cx="14" cy="6" r="3" fill="#C2869E"/>
+      <circle cx="14" cy="22" r="3" fill="#C2869E"/>
+      <circle cx="6" cy="14" r="3" fill="#C2869E"/>
+      <circle cx="22" cy="14" r="3" fill="#C2869E"/>
+    </svg>
+    Instituto Florescer
   </div>
-  <a href="https://wa.me/5562993874128" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <ul class="nav-links">
+    <li><a href="#abordagem">Abordagem</a></li>
+    <li><a href="#equipe">Equipe</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5562995283614" class="nav-btn">Agendar</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#47824a;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;">
-  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(100px,18vw,220px);font-weight:900;color:#ffffff;opacity:0.04;pointer-events:none;white-space:nowrap;font-family:'Montserrat', sans-serif;">INSTITUTO</div>
-  <div style="max-width:1200px;margin:0 auto;padding:120px 60px;display:flex;align-items:center;gap:0;position:relative;z-index:2;">
-    <div style="width:1px;height:70vh;background:#FFFFFF;flex-shrink:0;margin-right:60px;"></div>
-    <div>
-      <p style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#FFFFFF;margin-bottom:24px;font-family:'Spectral', serif;">Bem-vindo</p>
-      <h1 style="font-size:clamp(48px,7vw,100px);font-weight:800;color:#ffffff;line-height:1.0;margin-bottom:32px;font-family:'Montserrat', sans-serif;">Cuidado psicologico</h1>
-      <p style="font-size:18px;color:rgba(255,255,255,0.7);margin-bottom:48px;max-width:480px;line-height:1.7;font-family:'Spectral', serif;">Psicologia em Aparecida de Goiânia</p>
-      <a href="https://wa.me/5562993874128" style="border:1px solid #FFFFFF;color:#FFFFFF;padding:14px 32px;font-size:15px;font-weight:600;text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:all 0.3s;">Entrar em contato</a>
+<section class="hero">
+  <div class="hero-circles">
+    <div class="hero-c1"></div>
+    <div class="hero-c2"></div>
+  </div>
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Psicologia e Bem-Estar — Goiania
     </div>
-  </div>
-</section>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Spectral', serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#47824a;font-family:'Montserrat', sans-serif;">O que fazemos</h2>
+    <h1>Um lugar para<br>voce <em>florescer</em></h1>
+    <p class="hero-sub">O Instituto Florescer oferece psicoterapia especializada para criancas, adolescentes e adultos. Um espaco acolhedor onde o crescimento pessoal se torna possivel.</p>
+    <div class="hero-pills">
+      <span class="pill">Terapia Individual</span>
+      <span class="pill">Terapia Infantil</span>
+      <span class="pill">Online</span>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px;"><button class="srv-pill" onclick="showPill(this,0)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #66BB6A;background:#66BB6A;color:#ffffff;cursor:pointer;transition:all 0.3s;font-family:'Spectral', serif;">Terapia Individual</button><button class="srv-pill" onclick="showPill(this,1)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Spectral', serif;">Terapia de Casal</button><button class="srv-pill" onclick="showPill(this,2)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Spectral', serif;">Psicologia Infantil</button><button class="srv-pill" onclick="showPill(this,3)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Spectral', serif;">Neuropsicologia</button><button class="srv-pill" onclick="showPill(this,4)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Spectral', serif;">EMDR</button><button class="srv-pill" onclick="showPill(this,5)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Spectral', serif;">Terapia Online</button><button class="srv-pill" onclick="showPill(this,6)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Spectral', serif;">Avaliacao Psicologica</button></div><div class="srv-panel" style="display:block;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#47824a;margin-bottom:12px;font-family:'Montserrat', sans-serif;">Terapia Individual</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Spectral', serif;">Espaco seguro para autoconhecimento e desenvolvimento pessoal.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#47824a;margin-bottom:12px;font-family:'Montserrat', sans-serif;">Terapia de Casal</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Spectral', serif;">Fortalecimento do relacionamento e resolucao de conflitos.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#47824a;margin-bottom:12px;font-family:'Montserrat', sans-serif;">Psicologia Infantil</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Spectral', serif;">Suporte especializado para o desenvolvimento saudavel infantil.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#47824a;margin-bottom:12px;font-family:'Montserrat', sans-serif;">Neuropsicologia</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Spectral', serif;">Avaliacao e reabilitacao das funcoes cognitivas e cerebrais.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#47824a;margin-bottom:12px;font-family:'Montserrat', sans-serif;">EMDR</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Spectral', serif;">Tecnica especializada para processamento de traumas.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#47824a;margin-bottom:12px;font-family:'Montserrat', sans-serif;">Terapia Online</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Spectral', serif;">Atendimento psicologico pelo computador ou smartphone.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#47824a;margin-bottom:12px;font-family:'Montserrat', sans-serif;">Avaliacao Psicologica</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Spectral', serif;">Avaliacao completa para diagnostico e orientacao.</p></div><script>var srvPrimary="#66BB6A",srvAccent="#ffffff";function showPill(el,idx){document.querySelectorAll(".srv-pill").forEach(function(p,i){p.style.background=i===idx?srvPrimary:"transparent";p.style.color=i===idx?srvAccent:"#333";p.style.borderColor=i===idx?srvPrimary:"#ddd";});document.querySelectorAll(".srv-panel").forEach(function(p,i){p.style.display=i===idx?"block":"none";});}</script>
+    <a href="https://wa.me/5562995283614" class="hero-cta">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Agendar Sessao
+    </a>
   </div>
-</section>
-
-<section id="stats" style="background:#66BB6A;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="1200" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Montserrat', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Spectral', serif;">Pacientes</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="10" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Montserrat', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Spectral', serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="7" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Montserrat', sans-serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Spectral', serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Montserrat', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Spectral', serif;">Sessoes Realizadas</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre" style="background:#66BB6A;">
-  <div class="section-inner reveal">
-    <div style="background-image:url('https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?w=1200&h=800&fit=crop&q=80');background-attachment:fixed;background-size:cover;background-position:center;position:relative;">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.85));"></div>
-  <div style="position:relative;z-index:2;text-align:center;padding:100px 40px;color:#fff;max-width:760px;margin:0 auto;">
-    <h2 style="font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.1;margin-bottom:20px;font-family:'Montserrat', sans-serif;">Instituto Florescer Psicologia</h2>
-    <p style="font-size:18px;opacity:0.85;line-height:1.7;font-family:'Spectral', serif;">Acreditamos que a saude mental e fundamental para uma vida plena e feliz. Nosso trabalho e baseado em escuta ativa, empatia e tecnicas cientificamente comprovadas para ajudar cada pessoa a superar seus desafios.</p>
-  </div>
-</div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Spectral', serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#47824a;font-family:'Montserrat', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Spectral', serif;">"A terapia mudou minha vida. Me sinto muito mais equilibrado."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#d1ead2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#66BB6A;font-size:14px;">C</div><div><div style="font-weight:700;font-size:14px;color:#47824a;font-family:'Montserrat', sans-serif;">Camila B.</div><div style="font-size:12px;color:#888;font-family:'Spectral', serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Spectral', serif;">"Profissional excepcional com abordagem acolhedora e eficaz."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#d1ead2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#66BB6A;font-size:14px;">T</div><div><div style="font-weight:700;font-size:14px;color:#47824a;font-family:'Montserrat', sans-serif;">Thiago M.</div><div style="font-size:12px;color:#888;font-family:'Spectral', serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Spectral', serif;">"Recomendo de coracao. Espaco seguro e transformador."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#d1ead2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#66BB6A;font-size:14px;">R</div><div><div style="font-weight:700;font-size:14px;color:#47824a;font-family:'Montserrat', sans-serif;">Renata C.</div><div style="font-size:12px;color:#888;font-family:'Spectral', serif;">Paciente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="background:linear-gradient(135deg,#66BB6A 0%,#4c8c4f 100%);border-radius:24px;padding:80px 48px;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;opacity:0.03;background-image:url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;200&quot; height=&quot;200&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.65&quot; numOctaves=&quot;3&quot;/></filter><rect width=&quot;200&quot; height=&quot;200&quot; filter=&quot;url(%23n)&quot;/></svg>');background-size:200px;"></div>
-  <div style="position:relative;z-index:2;color:#ffffff;">
-    <div style="display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:8px 20px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;font-family:'Spectral', serif;">Contato</div>
-    <h2 style="font-size:clamp(28px,4.5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Montserrat', sans-serif;">Inicie sua jornada</h2>
-    <p style="font-size:18px;opacity:0.85;max-width:520px;margin:0 auto 44px;line-height:1.6;font-family:'Spectral', serif;">Atendimento especializado para voce.</p>
-    <a href="https://wa.me/5562993874128" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 48px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#519554;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Montserrat', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Instituto Florescer Psicologia</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Spectral', serif;">Centro, Aparecida de Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562993874128" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/institutoflorescer.psi/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
+  <div class="hero-right">
+    <div class="hero-mini-card">
+      <div class="mini-icon">
+        <svg viewBox="0 0 20 20" fill="none" stroke="#7B5EA7" stroke-width="1.5"><path d="M10 2l1.4 4.3H16l-3.6 2.7 1.4 4.3L10 11l-3.8 2.3 1.4-4.3L4 6.3h4.6L10 2z" stroke-linejoin="round"/></svg>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Montserrat', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Spectral', serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Montserrat', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Spectral', serif;">
-          (62) 99387-4128<br>
-          <a href="https://wa.me/5562993874128" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/institutoflorescer.psi/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
+      <div class="mini-text">
+        <strong>5+ Anos</strong>
+        <span>de atendimento</span>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Spectral', serif;">Desenvolvido por VANT Digital Studio</div>
+    <img src="https://placehold.co/400x460/F0EAFF/7B5EA7?text=Instituto+Florescer" alt="Instituto Florescer" class="hero-photo">
   </div>
+</section>
+
+<section class="approach" id="abordagem">
+  <p class="section-eyebrow reveal">Nossa Abordagem</p>
+  <h2 class="section-title reveal">Psicoterapia que<br>acolhe e transforma</h2>
+  <div class="approach-grid">
+    <div class="approach-card reveal">
+      <div class="approach-num">01</div>
+      <h3>Terapia Cognitivo-Comportamental</h3>
+      <p>Identifica padroes de pensamento e comportamento para criar mudancas duradouras e resultados concretos.</p>
+    </div>
+    <div class="approach-card reveal">
+      <div class="approach-num">02</div>
+      <h3>Psicoterapia Infantil</h3>
+      <p>Atendimento especializado para criancas com dificuldades emocionais, comportamentais e de aprendizagem.</p>
+    </div>
+    <div class="approach-card reveal">
+      <div class="approach-num">03</div>
+      <h3>Psicologia do Adolescente</h3>
+      <p>Espaco seguro para que adolescentes expressem e elaborem suas dificuldades de identidade e relacoes.</p>
+    </div>
+    <div class="approach-card reveal">
+      <div class="approach-num">04</div>
+      <h3>Terapia de Casal</h3>
+      <p>Trabalho conjunto para melhorar a comunicacao, resolver conflitos e fortalecer vinculos afetivos.</p>
+    </div>
+    <div class="approach-card reveal">
+      <div class="approach-num">05</div>
+      <h3>Saude Mental Corporativa</h3>
+      <p>Atendimento a empresas e equipes para prevencao de burnout e promoção do bem-estar organizacional.</p>
+    </div>
+    <div class="approach-card reveal">
+      <div class="approach-num">06</div>
+      <h3>Sessoes Online</h3>
+      <p>Atendimento seguro e sigiloso por videoconferencia para todo o Brasil.</p>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="equipe">
+  <img src="https://placehold.co/520x440/EDE4FF/7B5EA7?text=Equipe+Florescer" alt="Equipe Instituto Florescer" class="reveal">
+  <div class="team-content">
+    <p class="section-eyebrow reveal">Nossa Equipe</p>
+    <h2 class="section-title reveal">Psicologos<br>dedicados ao<br>seu florescimento</h2>
+    <p class="team-text reveal">O Instituto Florescer reune profissionais especializados em diferentes abordagens e publicos. Todos os nossos psicologos sao registrados no CRP e comprometidos com a etica e a excelencia no atendimento.</p>
+    <div class="team-list reveal">
+      <div class="team-item">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#7B5EA7" stroke-width="1.5"><path d="M3 8l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Equipe multidisciplinar especializada
+      </div>
+      <div class="team-item">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#7B5EA7" stroke-width="1.5"><path d="M3 8l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Ambiente acolhedor e sigiloso
+      </div>
+      <div class="team-item">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#7B5EA7" stroke-width="1.5"><path d="M3 8l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Atendimento presencial e online
+      </div>
+    </div>
+    <a href="https://wa.me/5562995283614" class="btn-team reveal">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Agendar pelo WhatsApp
+    </a>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <p class="section-eyebrow reveal">Fale Conosco</p>
+  <h2 class="section-title reveal">O primeiro passo<br>para florescer</h2>
+  <div class="contact-cols">
+    <div class="info-card reveal">
+      <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M10 2C6.686 2 4 4.686 4 8c0 5 6 10 6 10s6-5 6-10c0-3.314-2.686-6-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" fill="rgba(255,255,255,0.7)"/></svg>
+      <div><strong>Endereco</strong><p>R. 4, 980 — Setor Oeste<br>Goiania, GO</p></div>
+    </div>
+    <div class="info-card reveal">
+      <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm3 1v2h10V5H5zm0 4v2h10V9H5zm0 4v2h6v-2H5z" fill="rgba(255,255,255,0.7)"/></svg>
+      <div><strong>Horario</strong><p>Seg a Sex: 08h00 — 21h00<br>Sab: 09h00 — 14h00</p></div>
+    </div>
+    <div class="cta-card reveal">
+      <h3>Agende sua primeira sessao</h3>
+      <p>Entre em contato pelo WhatsApp. Respondemos rapidamente e encontramos o melhor horario para voce.</p>
+      <a href="https://wa.me/5562995283614" class="btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Instituto Florescer</strong> — Psicologia e Bem-Estar — Goiania, GO</p>
+  <p>Desenvolvido por <strong>VANT Digital Studio</strong></p>
 </footer>
 
-<a href="https://wa.me/5562993874128" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562995283614" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

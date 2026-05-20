@@ -2,207 +2,275 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Sorriso Pleno Odontologia — Aparecida de Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorriso Pleno Odontologia — Aparecida de Goiânia GO</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Inter', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#3498DB;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Syne', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Inter', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#D6EEF8;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Inter', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#3498DB;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --azul: #3498DB;
+  --azul-claro: #D6EEF8;
+  --azul-medio: #8EC6E8;
+  --azul-escuro: #1A5C82;
+  --texto: #1A2E3D;
+  --cinza: #5A7080;
+  --branco: #FFFFFF;
+  --fundo: #F0F8FF;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--texto);background:var(--branco);}
+h1,h2,h3{font-family:'Syne',sans-serif;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:70px;display:flex;align-items:center;padding:0 40px;background:var(--azul-escuro);}
+.nav-nome{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:#fff;flex:1;letter-spacing:0.5px;}
+.nav-links{display:flex;gap:28px;margin-right:24px;}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.82rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{background:var(--azul);color:#fff;padding:10px 22px;border-radius:6px;text-decoration:none;font-weight:700;font-size:0.82rem;transition:background 0.2s;}
+.nav-cta:hover{background:#2980B9;}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;background:var(--azul-escuro);padding:100px 40px 0;position:relative;overflow:hidden;}
+.hero-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(120px,18vw,240px);color:rgba(255,255,255,0.03);pointer-events:none;white-space:nowrap;}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding-bottom:60px;}
+.hero-sup{font-size:0.7rem;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--azul-claro);margin-bottom:20px;}
+.hero h1{font-size:clamp(2.6rem,5vw,4.2rem);color:#fff;line-height:1.1;margin-bottom:22px;}
+.hero h1 span{color:var(--azul);}
+.hero-desc{color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:36px;font-size:0.95rem;}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.88rem;box-shadow:0 4px 20px rgba(37,211,102,0.3);transition:transform 0.2s;}
+.btn-wa:hover{transform:translateY(-2px);}
+.btn-wa svg{width:20px;height:20px;fill:#fff;}
+.hero-card{background:rgba(255,255,255,0.06);border:1px solid rgba(214,238,248,0.15);border-radius:16px;padding:32px;}
+.hero-card-label{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--azul-claro);font-weight:600;margin-bottom:20px;}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+.stat-box{background:rgba(52,152,219,0.15);border-radius:10px;padding:18px;text-align:center;}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;color:#fff;}
+.stat-unit{font-size:0.7rem;color:var(--azul-claro);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+.hero-card img{width:100%;border-radius:10px;margin-top:4px;}
+
+.hero-wave{display:block;width:100%;height:80px;background:var(--fundo);}
+
+section{padding:88px 24px;}
+.wrap{max-width:1100px;margin:0 auto;}
+.sec-label{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--azul);font-weight:700;display:block;margin-bottom:10px;}
+.sec-top{text-align:center;margin-bottom:56px;}
+.sec-top h2{font-size:clamp(1.9rem,3vw,2.6rem);color:var(--azul-escuro);margin-bottom:14px;}
+.sec-top p{color:var(--cinza);max-width:520px;margin:0 auto;line-height:1.7;}
+
+.servicos{background:var(--fundo);}
+.srv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.srv-card{background:var(--branco);border-radius:12px;padding:24px;border-top:3px solid var(--azul);transition:transform 0.2s,box-shadow 0.2s;}
+.srv-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(52,152,219,0.1);}
+.srv-ico{width:44px;height:44px;background:var(--azul-claro);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.srv-ico svg{width:22px;height:22px;stroke:var(--azul);fill:none;stroke-width:2;}
+.srv-card h3{font-family:'Syne',sans-serif;font-size:0.88rem;color:var(--azul-escuro);margin-bottom:8px;font-weight:800;}
+.srv-card p{font-size:0.8rem;color:var(--cinza);line-height:1.6;}
+
+.sobre{background:var(--branco);}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.sobre-img{position:relative;}
+.sobre-img img{width:100%;border-radius:12px;box-shadow:0 16px 48px rgba(26,92,130,0.1);}
+.sobre-badge{position:absolute;top:20px;left:-20px;background:var(--azul);color:#fff;padding:14px 18px;border-radius:10px;font-size:0.78rem;font-weight:600;box-shadow:0 6px 24px rgba(52,152,219,0.3);}
+.sobre-badge strong{display:block;font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;}
+.sobre-txt .sec-label{text-align:left;}
+.sobre-txt h2{font-size:clamp(1.8rem,3vw,2.4rem);color:var(--azul-escuro);margin-bottom:20px;}
+.sobre-txt p{color:var(--cinza);line-height:1.8;margin-bottom:14px;font-size:0.93rem;}
+.difs{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:10px;}
+.difs li{display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;color:var(--texto);}
+.difs li::before{content:'';display:inline-block;width:8px;height:8px;background:var(--azul);border-radius:50%;margin-top:7px;flex-shrink:0;}
+
+.depoimentos{background:var(--azul-escuro);}
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.dep-card{background:rgba(255,255,255,0.06);border:1px solid rgba(142,198,232,0.15);border-radius:12px;padding:28px;}
+.estrelas{color:var(--azul);font-size:0.9rem;letter-spacing:2px;margin-bottom:14px;}
+.dep-card p{font-style:italic;color:rgba(255,255,255,0.75);font-size:0.87rem;line-height:1.7;margin-bottom:18px;}
+.dep-autor{display:flex;align-items:center;gap:10px;}
+.dep-av{width:38px;height:38px;border-radius:50%;background:var(--azul);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:0.9rem;flex-shrink:0;}
+.dep-autor strong{color:#fff;font-size:0.84rem;display:block;}
+.dep-autor span{color:var(--azul-claro);font-size:0.73rem;}
+
+.cta-final{background:var(--azul);padding:80px 24px;text-align:center;}
+.cta-final h2{font-size:clamp(2rem,4vw,3rem);color:#fff;margin-bottom:16px;}
+.cta-final p{color:rgba(255,255,255,0.85);max-width:480px;margin:0 auto 36px;line-height:1.7;}
+
+footer{background:var(--azul-escuro);color:rgba(255,255,255,0.5);padding:48px 24px 24px;text-align:center;}
+.footer-nome{font-family:'Syne',sans-serif;font-size:1.1rem;color:var(--azul-claro);font-weight:800;margin-bottom:8px;}
+footer p{font-size:0.84rem;margin-bottom:5px;}
+footer a{color:var(--azul);text-decoration:none;}
+.footer-copy{margin-top:24px;border-top:1px solid rgba(255,255,255,0.08);padding-top:18px;font-size:0.76rem;}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;animation:pulse-wa 2s infinite;}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff;}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s;}
+.reveal.visible{opacity:1;transform:none;}
+
+@media(max-width:900px){.hero-inner,.sobre-grid{grid-template-columns:1fr;}.srv-grid{grid-template-columns:repeat(2,1fr);}.dep-grid{grid-template-columns:1fr;}}
+@media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Sorriso Pleno Odontologia</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
+<nav>
+  <div class="nav-nome">Sorriso Pleno Odontologia</div>
+  <div class="nav-links">
+    <a href="#servicos">Serviços</a>
     <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+    <a href="#depoimentos">Depoimentos</a>
   </div>
-  <a href="https://wa.me/5562998230541" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://wa.me/5562998230541" class="nav-cta" target="_blank">Agendar</a>
 </nav>
 
+<section class="hero" style="padding:100px 40px 0;">
+  <div class="hero-bg-text">SORRISO</div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-sup">Odontologia completa — Aparecida de Goiânia</div>
+      <h1>Seu sorriso <span>pleno</span> começa aqui</h1>
+      <p class="hero-desc">A Sorriso Pleno é referência em saúde bucal em Aparecida de Goiânia. Mais de 3.200 sorrisos transformados com excelência técnica e atendimento humanizado.</p>
+      <a href="https://wa.me/5562998230541" class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-label">Resultados que comprovamos</div>
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-num">3.2k</div><div class="stat-unit">Sorrisos</div></div>
+        <div class="stat-box"><div class="stat-num">12+</div><div class="stat-unit">Anos</div></div>
+        <div class="stat-box"><div class="stat-num">99%</div><div class="stat-unit">Satisfação</div></div>
+        <div class="stat-box"><div class="stat-num">8</div><div class="stat-unit">Espec.</div></div>
+      </div>
+      <img src="https://placehold.co/360x160/3498DB/D6EEF8?text=Sorriso+Pleno%0aOdontologia" alt="Sorriso Pleno">
+    </div>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 40C240 80 480 0 720 40C960 80 1200 0 1440 40V80H0V40Z" fill="#F0F8FF"/></svg>
+</section>
 
-<section class="hero" id="hero">
-  <div class="hero-full" style="background-image:url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1200&h=800&fit=crop&q=80');">
-    <div class="hero-full-overlay"></div>
-    <div class="hero-full-content">
-      <h1 class="hero-full-title" style="font-family:'Syne', sans-serif;">Saude bucal de excelencia<span class="title-line" style="background:#D6EEF8;"></span></h1>
-      <p style="font-size:20px;line-height:1.6;max-width:560px;margin:0 auto 40px;opacity:0.9;font-family:'Inter', sans-serif;">Odontologia especializada em Aparecida de Goiânia</p>
-      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-        <a href="https://wa.me/5562998230541" style="background:#D6EEF8;color:#0a0a0a;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;transition:all 0.3s;">Falar no WhatsApp</a>
-        <a href="#servicos" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.3);color:#fff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;">Ver servicos</a>
+<section class="servicos" id="servicos">
+  <div class="wrap">
+    <div class="sec-top reveal">
+      <span class="sec-label">Especialidades</span>
+      <h2>Cuidado completo para toda a família</h2>
+      <p>8 especialidades sob o mesmo teto, com equipe preparada para cada necessidade.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card reveal">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12"/></svg></div>
+        <h3>Clareamento</h3>
+        <p>Sorriso mais branco com segurança e durabilidade.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Implante</h3>
+        <p>Substituição definitiva com osseointegração comprovada.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3>Facetas</h3>
+        <p>Porcelana ultrafina para sorriso natural e luminoso.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M3 15h18M9 3v18"/></svg></div>
+        <h3>Ortodontia</h3>
+        <p>Aparelhos tradicionais e estéticos para alinhamento.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <h3>Periodontia</h3>
+        <p>Saúde gengival e prevenção de doenças periodontais.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h3>Pediatria</h3>
+        <p>Cuidado especializado para crianças com leveza.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <h3>Canal</h3>
+        <p>Endodontia sem dor para salvar seus dentes naturais.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Próteses</h3>
+        <p>Reabilitação oral completa com materiais premium.</p>
       </div>
     </div>
   </div>
 </section>
-<style>
-.hero-full{position:relative;min-height:100vh;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;}
-.hero-full-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.85));}
-.hero-full-content{position:relative;text-align:center;color:#fff;padding:40px 24px;max-width:720px;}
-.hero-full-title{font-size:clamp(40px,6vw,80px);font-weight:800;line-height:1.1;margin-bottom:24px;position:relative;display:inline-block;}
-.title-line{display:block;height:4px;width:0;border-radius:2px;margin:16px auto 0;animation:lineGrow 1s 0.5s forwards;}
-@keyframes lineGrow{to{width:80%;}}
-</style>
 
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#D6EEF8;margin-bottom:12px;font-family:'Inter', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#246a99;font-family:'Syne', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;"><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#246a99;font-family:'Syne', sans-serif;"><span>Clareamento Dental</span><span class="acc-icon" style="font-size:20px;color:#D6EEF8;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Inter', sans-serif;">Sorriso mais branco e luminoso com tecnologia segura e eficaz.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#246a99;font-family:'Syne', sans-serif;"><span>Facetas de Porcelana</span><span class="acc-icon" style="font-size:20px;color:#D6EEF8;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Inter', sans-serif;">Transforme seu sorriso com facetas ultrafinas e naturais.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#246a99;font-family:'Syne', sans-serif;"><span>Implante Dentario</span><span class="acc-icon" style="font-size:20px;color:#D6EEF8;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Inter', sans-serif;">Substituicao permanente de dentes com estetica e funcao.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#246a99;font-family:'Syne', sans-serif;"><span>Ortodontia</span><span class="acc-icon" style="font-size:20px;color:#D6EEF8;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Inter', sans-serif;">Alinhamento perfeito com aparelhos modernos e esteticos.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#246a99;font-family:'Syne', sans-serif;"><span>Tratamento de Canal</span><span class="acc-icon" style="font-size:20px;color:#D6EEF8;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Inter', sans-serif;">Procedimento seguro para salvar seu dente com conforto.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#246a99;font-family:'Syne', sans-serif;"><span>Proteses Dentarias</span><span class="acc-icon" style="font-size:20px;color:#D6EEF8;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Inter', sans-serif;">Recupere a funcao e estetica com proteses de alta qualidade.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#246a99;font-family:'Syne', sans-serif;"><span>Odontopediatria</span><span class="acc-icon" style="font-size:20px;color:#D6EEF8;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Inter', sans-serif;">Cuidado especializado para a saude bucal das criancas.</p></div></div></div><script>function toggleAcc(el){var body=el.nextElementSibling;var icon=el.querySelector(".acc-icon");if(body.style.maxHeight&&body.style.maxHeight!=="0px"){body.style.maxHeight="0px";icon.textContent="+";}else{body.style.maxHeight=body.scrollHeight+"px";icon.textContent="-";}}</script>
-  </div>
-</section>
-
-<section id="stats" style="background:#3498DB;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="3200" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#D6EEF8;font-family:'Syne', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Sorrisos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#D6EEF8;font-family:'Syne', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="8" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#D6EEF8;font-family:'Syne', sans-serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="99" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#D6EEF8;font-family:'Syne', sans-serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Satisfacao</div></div>
+<section class="sobre" id="sobre">
+  <div class="wrap">
+    <div class="sobre-grid">
+      <div class="sobre-img reveal">
+        <img src="https://placehold.co/500x420/D6EEF8/3498DB?text=Nossa+Clínica%0aAparecida+de+Goiânia" alt="Sorriso Pleno — Clínica">
+        <div class="sobre-badge"><strong>12+</strong> Anos de<br>experiência</div>
+      </div>
+      <div class="sobre-txt reveal">
+        <span class="sec-label">Nossa Clínica</span>
+        <h2>12 anos transformando sorrisos em Aparecida</h2>
+        <p>A Sorriso Pleno é uma clínica completa com 8 especialidades e equipe dedicada a transformar a saúde bucal dos pacientes de Aparecida de Goiânia e região.</p>
+        <p>Contamos com tecnologia moderna, ambiente acolhedor e a missão de oferecer o melhor cuidado para toda a família.</p>
+        <ul class="difs">
+          <li>Clínica multidisciplinar com 8 especialidades</li>
+          <li>Radiografia digital com menor radiação</li>
+          <li>Atendimento de urgência disponível</li>
+          <li>Parcelamento facilitado e convênios</li>
+          <li>Agendamento rápido pelo WhatsApp</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#3498DB;">
-  <div class="section-inner reveal">
-    <div style="position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=1200&h=800&fit=crop&q=80');background-size:cover;background-position:center;opacity:0.08;"></div>
-  <div style="position:relative;z-index:2;text-align:center;max-width:760px;margin:0 auto;padding:80px 40px;">
-    <div style="font-size:120px;font-weight:900;color:#D6EEF8;line-height:0.6;margin-bottom:32px;font-family:'Syne', sans-serif;">"</div>
-    <p style="font-size:clamp(20px,2.5vw,30px);font-weight:600;color:#ffffff;line-height:1.5;margin-bottom:32px;font-family:'Syne', sans-serif;">Nossa clinica odontologica combina tecnologia de ponta com atendimento humanizado para transformar sorrisos e proporcionar saude bucal completa</p>
-    <p style="font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#D6EEF8;margin-bottom:48px;">— Sorriso Pleno Odontologia</p>
-    <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
-      <div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#D6EEF8;">3.200+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Sorrisos</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#D6EEF8;">12+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Anos de Experiencia</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#D6EEF8;">8</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Especialidades</div></div>
+<section class="depoimentos" id="depoimentos">
+  <div class="wrap">
+    <div class="sec-top reveal" style="margin-bottom:40px;">
+      <span class="sec-label" style="color:var(--azul);">Depoimentos</span>
+      <h2 style="color:#fff;margin-bottom:0;">O que nossos pacientes dizem</h2>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Meu sorriso mudou completamente! Fiz implante e o resultado ficou perfeito. A equipe da Sorriso Pleno é muito profissional e cuidadosa. Me sinto muito mais confiante!"</p>
+        <div class="dep-autor"><div class="dep-av">J</div><div><strong>Juliana Reis</strong><span>Professora, Aparecida de Goiânia</span></div></div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Atendimento excelente, sem dor e com resultado perfeito no clareamento. Profissionais dedicados que realmente se importam com o paciente. Recomendo muito!"</p>
+        <div class="dep-autor"><div class="dep-av">M</div><div><strong>Marcos Oliveira</strong><span>Empresário, Goiânia</span></div></div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Levo minha família toda na Sorriso Pleno há 5 anos. Melhor clínica da região! Equipe acolhedora, atendimento rápido e qualidade impecável em tudo!"</p>
+        <div class="dep-autor"><div class="dep-av">A</div><div><strong>Adriana Santos</strong><span>Enfermeira, Aparecida de Goiânia</span></div></div>
+      </div>
     </div>
   </div>
+</section>
+
+<div class="cta-final">
+  <h2>Agende sua consulta</h2>
+  <p>Fale com a Sorriso Pleno pelo WhatsApp e garanta o seu horário. Atendemos em Aparecida de Goiânia.</p>
+  <a href="https://wa.me/5562998230541" class="btn-wa" target="_blank" style="display:inline-flex;">
+    <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+    Agendar pelo WhatsApp
+  </a>
 </div>
-  </div>
-</section>
 
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#D6EEF8;margin-bottom:12px;font-family:'Inter', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#246a99;font-family:'Syne', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Inter', sans-serif;">"Meu sorriso mudou completamente. Me sinto muito mais confiante."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c2e0f4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#3498DB;font-size:14px;">C</div><div><div style="font-weight:700;font-size:14px;color:#246a99;font-family:'Syne', sans-serif;">Carlos M.</div><div style="font-size:12px;color:#888;font-family:'Inter', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Inter', sans-serif;">"Atendimento excelente, sem dor e com resultado perfeito."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c2e0f4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#3498DB;font-size:14px;">F</div><div><div style="font-weight:700;font-size:14px;color:#246a99;font-family:'Syne', sans-serif;">Fernanda L.</div><div style="font-size:12px;color:#888;font-family:'Inter', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Inter', sans-serif;">"Profissionais dedicados que realmente se importam com o paciente."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c2e0f4;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#3498DB;font-size:14px;">R</div><div><div style="font-weight:700;font-size:14px;color:#246a99;font-family:'Syne', sans-serif;">Roberto A.</div><div style="font-size:12px;color:#888;font-family:'Inter', sans-serif;">Paciente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#3498DB"/></svg>
-  <div style="background:#3498DB;padding:40px 40px 80px;text-align:center;color:#ffffff;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#D6EEF8;margin-bottom:16px;font-family:'Inter', sans-serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'Syne', sans-serif;">Agende sua consulta</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Inter', sans-serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562998230541" style="display:inline-block;background:#D6EEF8;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/sorrisopleno.aparecida/" style="display:inline-block;border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#2979af;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Syne', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Sorriso Pleno Odontologia</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Inter', sans-serif;">Setor Anhanguera, Aparecida de Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562998230541" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/sorrisopleno.aparecida/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Syne', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Inter', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Syne', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Inter', sans-serif;">
-          (62) 99823-0541<br>
-          <a href="https://wa.me/5562998230541" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/sorrisopleno.aparecida/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Inter', sans-serif;">Desenvolvido por VANT Digital Studio</div>
-  </div>
+<footer>
+  <div class="footer-nome">Sorriso Pleno Odontologia</div>
+  <p>Aparecida de Goiânia, GO</p>
+  <p><a href="https://wa.me/5562998230541">WhatsApp: (62) 99823-0541</a></p>
+  <div class="footer-copy">© 2026 Sorriso Pleno Odontologia. Desenvolvido por VANT Digital Studio</div>
 </footer>
 
-<a href="https://wa.me/5562998230541" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562998230541" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {if(i.isIntersecting) i.target.classList.add('visible');}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

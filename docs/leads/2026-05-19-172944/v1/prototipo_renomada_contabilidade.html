@@ -2,219 +2,220 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Renomada Contabilidade — Goiânia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renomada Contabilidade | Goiânia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Figtree', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#37474F;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Libre Baskerville', serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Figtree', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Figtree', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#37474F;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cinza:#37474F;
+  --cinza-medio:#455A64;
+  --cinza-claro:#607D8B;
+  --cinza-suave:#ECEFF1;
+  --creme:#F7F5F2;
+  --gold:#C9A84C;
+  --branco:#FFFFFF;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--cinza);background:var(--branco);overflow-x:hidden}
+
+.hero{min-height:100vh;background:var(--cinza);display:grid;grid-template-columns:1fr 500px;position:relative;overflow:hidden}
+.hero::before{content:'RENOMADA';position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-family:'DM Serif Display',serif;font-size:clamp(80px,10vw,160px);color:rgba(255,255,255,0.03);white-space:nowrap;pointer-events:none;line-height:1}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px;position:relative;z-index:2}
+.hero-medalha{width:64px;height:64px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:32px}
+.hero-titulo{font-family:'DM Serif Display',serif;font-size:clamp(38px,4.2vw,62px);color:var(--branco);line-height:1.12;margin-bottom:20px}
+.hero-titulo em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.58);line-height:1.72;max-width:440px;margin-bottom:48px;font-weight:300}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;background:var(--gold);color:var(--cinza);padding:17px 36px;border-radius:4px;text-decoration:none;font-weight:700;font-size:15px;transition:all 0.3s;width:fit-content}
+.hero-cta:hover{background:#DDB85C;transform:translateY(-2px)}
+.hero-right{background:var(--cinza-medio);display:flex;flex-direction:column;justify-content:flex-end;padding:60px 50px;position:relative;overflow:hidden}
+.hero-right::before{content:'';position:absolute;inset:0;background:url('https://placehold.co/500x700/455A64/ECEFF1?text=Renomada+Contabilidade') center/cover no-repeat;opacity:0.25}
+.hero-stats{position:relative;z-index:1;display:flex;flex-direction:column;gap:2px}
+.h-stat{background:rgba(0,0,0,0.45);backdrop-filter:blur(10px);border-left:3px solid var(--gold);padding:18px 22px}
+.h-stat strong{display:block;font-family:'DM Serif Display',serif;font-size:32px;color:var(--branco);font-weight:400}
+.h-stat span{font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1.5px;text-transform:uppercase;display:block;margin-top:3px}
+
+.servicos{padding:100px 80px;background:var(--creme)}
+.s-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.s-titulo{font-family:'DM Serif Display',serif;font-size:clamp(28px,3vw,44px);color:var(--cinza);margin-bottom:14px}
+.s-sub{font-size:16px;color:#5A6A78;line-height:1.68;max-width:520px;margin-bottom:56px}
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.serv-card{background:var(--branco);border-radius:4px;padding:36px 28px;transition:all 0.35s;box-shadow:0 2px 12px rgba(55,71,79,0.06)}
+.serv-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(55,71,79,0.14)}
+.serv-n{font-family:'DM Serif Display',serif;font-size:52px;color:var(--cinza-suave);font-weight:400;line-height:1;margin-bottom:12px}
+.serv-titulo{font-family:'DM Serif Display',serif;font-size:20px;color:var(--cinza);margin-bottom:10px}
+.serv-desc{font-size:14px;color:#5A6A78;line-height:1.65}
+
+.pilares{padding:100px 80px;background:var(--cinza)}
+.pilares-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.pilares-img{border-radius:4px;overflow:hidden;aspect-ratio:4/3}
+.pilares-img img{width:100%;height:100%;object-fit:cover;opacity:0.55}
+.pilares .s-label{color:rgba(255,255,255,0.5)}
+.pilares .s-titulo{color:var(--branco)}
+.pilar-lista{display:flex;flex-direction:column;gap:16px;margin-top:36px}
+.pilar-item{display:flex;gap:16px;align-items:flex-start;padding:20px;background:rgba(255,255,255,0.06);border-radius:4px;border:1px solid rgba(255,255,255,0.1);transition:background 0.3s}
+.pilar-item:hover{background:rgba(255,255,255,0.1)}
+.pi-num{font-family:'DM Serif Display',serif;font-size:20px;color:var(--gold);font-weight:400;flex-shrink:0;min-width:28px}
+.pi-txt strong{display:block;color:var(--branco);font-size:15px;font-weight:600;margin-bottom:3px}
+.pi-txt span{color:rgba(255,255,255,0.5);font-size:13px;line-height:1.55}
+
+.depo{padding:100px 80px;background:var(--branco)}
+.depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:54px}
+.d-card{background:var(--creme);border-radius:4px;padding:34px 28px;transition:transform 0.3s}
+.d-card:hover{transform:translateY(-5px)}
+.d-aspas{font-family:'DM Serif Display',serif;font-size:54px;color:var(--gold);line-height:1;margin-bottom:14px}
+.d-texto{font-family:'DM Serif Display',serif;font-size:16px;color:#2A3A42;line-height:1.72;margin-bottom:20px;font-style:italic}
+.d-autor strong{font-size:14px;color:var(--cinza);font-weight:700}
+.d-autor span{display:block;font-size:12px;color:var(--cinza-claro);margin-top:2px}
+
+.cta-final{padding:100px 80px;background:var(--gold);text-align:center}
+.cta-final h2{font-family:'DM Serif Display',serif;font-size:clamp(28px,3vw,48px);color:var(--cinza);margin-bottom:18px}
+.cta-final p{font-size:17px;color:rgba(55,71,79,0.8);margin-bottom:42px;max-width:500px;margin-inline:auto;line-height:1.7}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;background:var(--cinza);color:var(--branco);padding:18px 44px;border-radius:4px;text-decoration:none;font-weight:700;font-size:16px;transition:all 0.3s}
+.cta-btn:hover{background:var(--cinza-medio);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,0.25)}
+
+footer{background:#263238;border-top:1px solid rgba(255,255,255,0.08);padding:36px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+footer p{color:rgba(255,255,255,0.4);font-size:13px}
+footer strong{color:var(--branco)}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:60px 24px}
+  .servicos{padding:60px 24px}.serv-grid{grid-template-columns:1fr}
+  .pilares{padding:60px 24px}.pilares-grid{grid-template-columns:1fr}.pilares-img{display:none}
+  .depo{padding:60px 24px}.depo-grid{grid-template-columns:1fr}
+  .cta-final{padding:60px 24px}footer{padding:28px 24px;flex-direction:column;text-align:center}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Renomada Contabilidade</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<a class="wa-float" href="https://wa.me/5562999165042" target="_blank" rel="noopener" aria-label="WhatsApp">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<section class="hero">
+  <div class="hero-left reveal">
+    <div class="hero-medalha">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+    </div>
+    <h1 class="hero-titulo">Contabilidade<br><em>renomada</em> que<br>sua empresa merece</h1>
+    <p class="hero-sub">Assessoria contabil com reputacao construida ao longo de anos em Goiania. Qualidade, etica e resultados que falam por si.</p>
+    <a class="hero-cta" href="https://wa.me/5562999165042" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      Solicitar consulta gratuita
+    </a>
   </div>
-  <a href="https://wa.me/5562999165042" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="h-stat"><strong>20+</strong><span>Anos de reputacao</span></div>
+      <div class="h-stat"><strong>500+</strong><span>Empresas atendidas</span></div>
+      <div class="h-stat"><strong>98%</strong><span>Indice de retencao</span></div>
+    </div>
+  </div>
+</section>
 
+<section class="servicos">
+  <div class="s-label reveal">Servicos</div>
+  <h2 class="s-titulo reveal">Solucoes contabeis de alto padrao</h2>
+  <p class="s-sub reveal">Cada servico entregue com rigor tecnico e atencao a cada detalhe da sua empresa.</p>
+  <div class="serv-grid">
+    <div class="serv-card reveal">
+      <div class="serv-n">01</div>
+      <h3 class="serv-titulo">Contabilidade</h3>
+      <p class="serv-desc">Escrituracao contabil completa, balancos e demonstracoes financeiras mensais e anuais.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-n">02</div>
+      <h3 class="serv-titulo">Tributario</h3>
+      <p class="serv-desc">Planejamento tributario para todos os regimes: Simples, Presumido e Real.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-n">03</div>
+      <h3 class="serv-titulo">Departamento Pessoal</h3>
+      <p class="serv-desc">Folha de pagamento, ESOCIAL, gestao de colaboradores e obrigacoes trabalhistas.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-n">04</div>
+      <h3 class="serv-titulo">Abertura de Empresa</h3>
+      <p class="serv-desc">Constituicao de empresa com orientacao sobre enquadramento e regime tributario.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-n">05</div>
+      <h3 class="serv-titulo">IRPF</h3>
+      <p class="serv-desc">Declaracao completa do Imposto de Renda Pessoa Fisica para maximizar restituicao.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-n">06</div>
+      <h3 class="serv-titulo">Consultoria Estrategica</h3>
+      <p class="serv-desc">Analise financeira, precificacao e orientacao para decisoes estrategicas de crescimento.</p>
+    </div>
+  </div>
+</section>
 
-<section class="hero" id="hero">
-  <div class="hero-split-poly">
-    <div class="hero-left" style="background:linear-gradient(135deg,#37474F 0%,#2e3c43 100%);">
-      <div class="hero-left-inner">
-        <p class="hero-eyebrow" style="color:#FFFFFF;font-family:'Figtree', sans-serif;">Bem-vindo</p>
-        <h1 style="color:#ffffff;font-family:'Libre Baskerville', serif;">Numeros certos para crescer</h1>
-        <p class="hero-sub" style="color:rgba(255,255,255,0.8);font-family:'Figtree', sans-serif;">Escritorio contabil em Goiânia</p>
-        <div class="hero-stats-row">
-          <div class="hero-stat"><span class="stat-val" style="color:#FFFFFF;">340+</span><span class="stat-lbl" style="color:rgba(255,255,255,0.7);">Empresas Atendidas</span></div>
-          <div class="hero-stat"><span class="stat-val" style="color:#FFFFFF;">10+</span><span class="stat-lbl" style="color:rgba(255,255,255,0.7);">Anos de Mercado</span></div>
-        </div>
-        <div class="hero-btns">
-          <a href="https://wa.me/5562999165042" class="btn-primary" style="background:#FFFFFF;color:#0a0a0a;">Falar no WhatsApp</a>
-          <a href="#servicos" class="btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#ffffff;">Ver servicos</a>
-        </div>
+<section class="pilares">
+  <div class="pilares-grid">
+    <div class="pilares-img reveal">
+      <img src="https://placehold.co/600x450/455A64/ECEFF1?text=Renomada+Contabilidade" alt="Pilares Renomada Contabilidade">
+    </div>
+    <div>
+      <div class="s-label reveal">Nossos pilares</div>
+      <h2 class="s-titulo reveal">O que sustenta nossa reputacao</h2>
+      <div class="pilar-lista">
+        <div class="pilar-item reveal"><div class="pi-num">I</div><div class="pi-txt"><strong>Precisao tecnica</strong><span>Conformidade total com normas contabeis e legislacao tributaria vigente.</span></div></div>
+        <div class="pilar-item reveal"><div class="pi-num">II</div><div class="pi-txt"><strong>Etica e transparencia</strong><span>Relacionamento honesto com clareza em custos, prazos e procedimentos.</span></div></div>
+        <div class="pilar-item reveal"><div class="pi-num">III</div><div class="pi-txt"><strong>Proatividade</strong><span>Antecipamos problemas e oportunidades antes de serem demandados.</span></div></div>
+        <div class="pilar-item reveal"><div class="pi-num">IV</div><div class="pi-txt"><strong>Relacionamento duradouro</strong><span>98% dos nossos clientes permanecem conosco ha mais de 3 anos.</span></div></div>
       </div>
     </div>
-    <div class="hero-right" style="background-image:url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=800&fit=crop&q=80');clip-path:polygon(14% 0%,100% 0%,100% 100%,0% 100%);background-size:cover;background-position:center;"></div>
   </div>
 </section>
-<style>
-.hero-split-poly {display:grid;grid-template-columns:56fr 44fr;min-height:100vh;}
-.hero-left {display:flex;align-items:center;padding:120px 60px 80px;}
-.hero-left-inner {max-width:520px;}
-.hero-eyebrow {font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
-.hero-left h1 {font-size:clamp(36px,4vw,64px);font-weight:800;line-height:1.1;margin-bottom:20px;}
-.hero-sub {font-size:18px;line-height:1.6;margin-bottom:40px;}
-.hero-stats-row {display:flex;gap:32px;margin-bottom:40px;}
-.hero-stat {display:flex;flex-direction:column;}
-.stat-val {font-size:28px;font-weight:800;line-height:1;}
-.stat-lbl {font-size:12px;margin-top:4px;letter-spacing:1px;text-transform:uppercase;}
-.hero-btns {display:flex;gap:16px;flex-wrap:wrap;}
-.btn-primary,.btn-ghost {padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.3s;}
-.btn-ghost {background:transparent;border:2px solid;}
-.btn-primary:hover {transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
-.hero-right {min-height:100vh;}
-@media(max-width:768px){.hero-split-poly{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:100px 24px 60px;}}
-</style>
 
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Figtree', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#263137;font-family:'Libre Baskerville', serif;">O que fazemos</h2>
+<section class="depo">
+  <div class="s-label reveal">Reputacao</div>
+  <h2 class="s-titulo reveal">Clientes que validam nossa reputacao</h2>
+  <div class="depo-grid">
+    <div class="d-card reveal">
+      <div class="d-aspas">"</div>
+      <p class="d-texto">20 anos de parceria. A Renomada Contabilidade e mais do que contador, e um pilar estrategico do nosso negocio.</p>
+      <div class="d-autor"><strong>Jorge Fonseca</strong><span>Industria &mdash; Goiania</span></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;"><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#263137;margin-bottom:8px;font-family:'Libre Baskerville', serif;">Abertura de Empresa</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Figtree', sans-serif;">Registro e formalizacao da sua empresa com agilidade.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#263137;margin-bottom:8px;font-family:'Libre Baskerville', serif;">Simples Nacional e MEI</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Figtree', sans-serif;">Gestao tributaria otimizada para pequenas empresas.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#263137;margin-bottom:8px;font-family:'Libre Baskerville', serif;">IRPF e IRPJ</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Figtree', sans-serif;">Declaracao de imposto de renda com maxima restituicao.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#263137;margin-bottom:8px;font-family:'Libre Baskerville', serif;">Folha de Pagamento</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Figtree', sans-serif;">Gestao completa de folha, ferias, 13o e encargos.</p></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#37474F;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="340" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Libre Baskerville', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Figtree', sans-serif;">Empresas Atendidas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="10" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Libre Baskerville', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Figtree', sans-serif;">Anos de Mercado</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="5000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Libre Baskerville', serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Figtree', sans-serif;">Declaracoes</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="100" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Libre Baskerville', serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Figtree', sans-serif;">Conformidade</div></div>
+    <div class="d-card reveal">
+      <div class="d-aspas">"</div>
+      <p class="d-texto">Equipe extraordinaria. Nunca precisei me preocupar com fiscal desde que contratei a Renomada ha 7 anos.</p>
+      <div class="d-autor"><strong>Simone Dutra</strong><span>Rede de Comercio &mdash; Goiania</span></div>
+    </div>
+    <div class="d-card reveal">
+      <div class="d-aspas">"</div>
+      <p class="d-texto">A qualidade do servico e o atendimento proativo fazem toda a diferenca. Vale cada centavo investido.</p>
+      <div class="d-autor"><strong>Helio Braga</strong><span>Construtora &mdash; Goiania</span></div>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:64px;">
-  <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#263137;margin-bottom:16px;font-family:'Libre Baskerville', serif;">Renomada Contabilidade</h2>
-  <p style="font-size:16px;color:#555;max-width:640px;margin:0 auto;line-height:1.7;font-family:'Figtree', sans-serif;">Nosso escritorio contabil oferece solucoes completas para empresas de todos os portes. Com equipe especializada e tecnologia de ponta, garantimos a saude financeira e fiscal do seu negocio com total seguranca e transparencia.</p>
-</div>
-<div style="position:relative;display:flex;gap:0;margin-top:40px;">
-  <div style="position:absolute;top:8px;left:10%;right:10%;height:2px;background:linear-gradient(to right,#ffffff,#FFFFFF,#ffffff);z-index:1;"></div>
-  <div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#263137;margin-bottom:8px;font-family:'Libre Baskerville', serif;">Fundacao</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Figtree', sans-serif;">Inicio das atividades com foco em qualidade e excelencia.</p></div><div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#263137;margin-bottom:8px;font-family:'Libre Baskerville', serif;">Crescimento</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Figtree', sans-serif;">Expansao da equipe e dos servicos oferecidos aos clientes.</p></div><div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#263137;margin-bottom:8px;font-family:'Libre Baskerville', serif;">Referencia</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Figtree', sans-serif;">Consolidacao como referencia no mercado regional.</p></div>
-</div>
-  </div>
+<section class="cta-final reveal">
+  <h2>Experimente a diferenca da contabilidade renomada</h2>
+  <p>Conversa inicial gratuita para entender como podemos ajudar sua empresa a crescer com seguranca.</p>
+  <a class="cta-btn" href="https://wa.me/5562999165042" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Falar com Renomada Contabilidade
+  </a>
 </section>
 
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Figtree', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#263137;font-family:'Libre Baskerville', serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Figtree', sans-serif;">"Reduziram nossa carga tributaria significativamente. Excelente trabalho."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c3c7ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#37474F;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#263137;font-family:'Libre Baskerville', serif;">Marcos O.</div><div style="font-size:12px;color:#888;font-family:'Figtree', sans-serif;">Empresario</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Figtree', sans-serif;">"Atendimento rapido e sempre disponivel para tirar duvidas."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c3c7ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#37474F;font-size:14px;">L</div><div><div style="font-weight:700;font-size:14px;color:#263137;font-family:'Libre Baskerville', serif;">Lucia M.</div><div style="font-size:12px;color:#888;font-family:'Figtree', sans-serif;">Empresaria</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Figtree', sans-serif;">"Profissionais confiaveis que cuidam da nossa empresa com dedicacao."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c3c7ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#37474F;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#263137;font-family:'Libre Baskerville', serif;">Sergio P.</div><div style="font-size:12px;color:#888;font-family:'Figtree', sans-serif;">Empresario</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;max-width:680px;margin:0 auto;padding:20px;">
-  <h2 style="font-size:clamp(30px,4.5vw,56px);font-weight:800;color:#263137;margin-bottom:20px;line-height:1.2;font-family:'Libre Baskerville', serif;">Fale com um contador</h2>
-  <p style="font-size:18px;color:#666;line-height:1.7;margin-bottom:48px;font-family:'Figtree', sans-serif;">Estamos prontos para atender voce com excelencia.</p>
-  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-    <a href="https://wa.me/5562999165042" style="background:#25D366;color:#fff;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/renomadacontabilidade/" style="border:2px solid #37474F;color:#37474F;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#2c383f;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Libre Baskerville', serif;font-weight:800;font-size:20px;margin-bottom:8px;">Renomada Contabilidade</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Figtree', sans-serif;">Setor Leste, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562999165042" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/renomadacontabilidade/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Libre Baskerville', serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Figtree', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Libre Baskerville', serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Figtree', sans-serif;">
-          (62) 99916-5042<br>
-          <a href="https://wa.me/5562999165042" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/renomadacontabilidade/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Figtree', sans-serif;">Desenvolvido por VANT Digital Studio</div>
-  </div>
+<footer>
+  <p><strong>Renomada Contabilidade</strong> &mdash; Goiania, GO</p>
+  <p>CRC/GO &mdash; 20 anos de reputacao</p>
 </footer>
 
-<a href="https://wa.me/5562999165042" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

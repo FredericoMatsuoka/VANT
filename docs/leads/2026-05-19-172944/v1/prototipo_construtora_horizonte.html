@@ -2,189 +2,226 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Construtora Horizonte — Aparecida de Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Construtora Horizonte — Construção e Incorporação | Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Manrope', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#01579B;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Manrope', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Manrope', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Manrope', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#01579B;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --horizonte-azul:#0D47A1;
+  --horizonte-cobre:#FF6F00;
+  --horizonte-claro:#E3F2FD;
+  --horizonte-escuro:#071C40;
+  --horizonte-medio:#2E5080;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:#fff;color:var(--horizonte-escuro);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--horizonte-escuro);padding:0 64px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-h{font-size:1.3rem;font-weight:800;color:var(--horizonte-cobre);line-height:1}
+.nav-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-text strong{font-size:0.88rem;font-weight:700;color:#fff}
+.nav-text span{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+.nav-cta{background:var(--horizonte-cobre);color:#fff;padding:10px 22px;text-decoration:none;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:background 0.3s}
+.nav-cta:hover{background:#F57F17}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--horizonte-escuro);padding-top:68px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:8px;background:var(--horizonte-cobre);z-index:1}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 80px 80px 80px;position:relative;z-index:2}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,111,0,0.12);border:1px solid rgba(255,111,0,0.3);padding:6px 14px;border-radius:2px;margin-bottom:28px;width:fit-content}
+.hero-pill span{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--horizonte-cobre);font-weight:700}
+.hero-title{font-family:'Merriweather',serif;font-size:clamp(2.5rem,4vw,3.8rem);color:#fff;line-height:1.1;margin-bottom:20px;font-weight:700}
+.hero-title em{font-style:italic;color:var(--horizonte-cobre)}
+.hero-sub{font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.9;margin-bottom:44px;max-width:400px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-cobre{background:var(--horizonte-cobre);color:#fff;padding:13px 28px;text-decoration:none;font-size:0.77rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;transition:background 0.3s}
+.btn-cobre:hover{background:#F57F17}
+.btn-wire{border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.65);padding:13px 22px;text-decoration:none;font-size:0.77rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:all 0.3s}
+.btn-wire:hover{border-color:var(--horizonte-cobre);color:var(--horizonte-cobre)}
+.hero-right{display:flex;flex-direction:column;justify-content:center;padding:60px 80px 60px 60px;gap:12px;position:relative;z-index:2}
+.hero-stat-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:24px 28px;transition:background 0.3s}
+.hero-stat-card:hover{background:rgba(255,111,0,0.08);border-color:rgba(255,111,0,0.2)}
+.hero-stat-card strong{display:block;font-family:'Merriweather',serif;font-size:2.2rem;color:var(--horizonte-cobre);font-style:italic;line-height:1}
+.hero-stat-card span{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+
+/* STRIP */
+.strip{background:var(--horizonte-azul);padding:28px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.strip-item{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.8)}
+.strip-item svg{color:var(--horizonte-cobre)}
+.strip-item span{font-size:0.8rem;font-weight:500}
+
+/* ABOUT */
+.about{padding:100px 80px;background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--horizonte-cobre);font-weight:700;margin-bottom:14px}
+.about-title{font-family:'Merriweather',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--horizonte-escuro);line-height:1.2;margin-bottom:24px}
+.about-text{font-size:0.88rem;color:var(--horizonte-medio);line-height:1.9;margin-bottom:14px}
+.about-img{width:100%;height:460px;object-fit:cover}
+.about-grid{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ab-card{padding:16px;background:var(--horizonte-claro);border-top:3px solid var(--horizonte-azul)}
+.ab-card strong{display:block;font-family:'Merriweather',serif;font-size:1.5rem;color:var(--horizonte-azul);font-style:italic;line-height:1}
+.ab-card span{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--horizonte-medio)}
+
+/* SERVICES */
+.services{padding:100px 80px;background:var(--horizonte-claro)}
+.sec-hdr{text-align:center;margin-bottom:60px}
+.sec-lbl{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--horizonte-cobre);font-weight:700;margin-bottom:12px}
+.sec-ttl{font-family:'Merriweather',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--horizonte-escuro)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(0,0,0,0.05)}
+.svc-card{background:#fff;padding:40px 32px;transition:all 0.3s}
+.svc-card:hover{background:var(--horizonte-escuro)}
+.svc-card:hover h3,.svc-card:hover p{color:#fff}
+.svc-card:hover .svc-num{color:var(--horizonte-cobre)}
+.svc-num{font-family:'Merriweather',serif;font-size:3rem;font-style:italic;color:rgba(13,71,161,0.1);line-height:1;margin-bottom:14px;transition:color 0.3s}
+.svc-card h3{font-size:0.95rem;font-weight:700;color:var(--horizonte-escuro);margin-bottom:10px;transition:color 0.3s}
+.svc-card p{font-size:0.83rem;color:var(--horizonte-medio);line-height:1.8;transition:color 0.3s}
+
+/* CTA */
+.cta{background:var(--horizonte-escuro);padding:80px;display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.cta h2{font-family:'Merriweather',serif;font-size:clamp(2rem,3vw,3rem);color:#fff;margin-bottom:12px}
+.cta p{font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.7}
+.cta-btn{background:var(--horizonte-cobre);color:#fff;padding:18px 36px;text-decoration:none;font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;transition:background 0.3s}
+.cta-btn:hover{background:#F57F17}
+
+footer{background:#04101F;padding:40px 80px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot-brand{font-family:'Merriweather',serif;font-size:1rem;font-style:italic;color:rgba(255,255,255,0.6)}
+.foot-copy{font-size:0.75rem;color:rgba(255,255,255,0.3)}
+.foot-wa{color:var(--horizonte-cobre);font-size:0.8rem;text-decoration:none}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero::before{display:none}
+  .hero-right{padding:40px 32px 60px}
+  .about{grid-template-columns:1fr;padding:60px 32px}
+  .svc-grid{grid-template-columns:1fr}
+  .strip{padding:24px 32px}
+  .services,.cta{padding:60px 32px}
+  .cta{grid-template-columns:1fr;text-align:center}
+  nav{padding:0 24px}
+  .hero-left{padding:60px 32px}
+  footer{padding:32px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Construtora Horizonte</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <div class="nav-h">H</div>
+    <div class="nav-text">
+      <strong>Construtora Horizonte</strong>
+      <span>Construção e Incorporação</span>
+    </div>
   </div>
-  <a href="https://wa.me/5562991247038" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://wa.me/5562991247038" class="nav-cta">Solicitar Orçamento</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#01579B;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(100px,18vw,220px);font-weight:900;color:#ffffff;opacity:0.04;pointer-events:none;white-space:nowrap;font-family:'Manrope', sans-serif;">CONSTRUTORA</div>
-  <div style="position:relative;z-index:2;text-align:center;color:#ffffff;max-width:720px;padding:40px 24px;">
-    <h1 style="font-size:clamp(40px,6vw,76px);font-weight:800;line-height:1.1;margin-bottom:24px;font-family:'Manrope', sans-serif;">Construcao com solidez</h1>
-    <p style="font-size:20px;opacity:0.85;line-height:1.6;margin-bottom:48px;font-family:'Manrope', sans-serif;">Obras de qualidade em Aparecida de Goiânia</p>
-    <a href="https://wa.me/5562991247038" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</section>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Manrope', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#003c6c;font-family:'Manrope', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;"><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#003c6c;font-family:'Manrope', sans-serif;"><span>Construcao Residencial</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Casas e apartamentos construidos com qualidade e prazo.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#003c6c;font-family:'Manrope', sans-serif;"><span>Construcao Comercial</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Galpoes, lojas e edificios comerciais sob medida.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#003c6c;font-family:'Manrope', sans-serif;"><span>Reforma e Ampliacao</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Modernizacao e expansao de espacos existentes.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#003c6c;font-family:'Manrope', sans-serif;"><span>Gerenciamento de Obras</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Gestao completa do processo construtivo.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#003c6c;font-family:'Manrope', sans-serif;"><span>Acabamentos Premium</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Acabamentos de alto padrao para espacos sofisticados.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#003c6c;font-family:'Manrope', sans-serif;"><span>Projetos Arquitetonicos</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Projetos criativos e funcionais para sua obra.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#003c6c;font-family:'Manrope', sans-serif;"><span>Loteamentos</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Desenvolvimento de loteamentos residenciais e comerciais.</p></div></div></div><script>function toggleAcc(el){var body=el.nextElementSibling;var icon=el.querySelector(".acc-icon");if(body.style.maxHeight&&body.style.maxHeight!=="0px"){body.style.maxHeight="0px";icon.textContent="+";}else{body.style.maxHeight=body.scrollHeight+"px";icon.textContent="-";}}</script>
-  </div>
-</section>
-
-<section id="stats" style="background:#01579B;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="250" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Manrope', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Obras Entregues</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="18" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Manrope', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Anos no Mercado</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="1200002" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Manrope', sans-serif;">0.+ m</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Area Construida</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="98" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Manrope', sans-serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Satisfacao</div></div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-pill"><span>Construtora · Goiânia, GO</span></div>
+    <h1 class="hero-title">Construcoes que <em>definem horizontes</em></h1>
+    <p class="hero-sub">Mais de uma decada erguendo residencias e empreendimentos comerciais com qualidade construtiva, prazo cumprido e transparencia total no processo.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562991247038" class="btn-cobre">Solicitar Orçamento</a>
+      <a href="#sobre" class="btn-wire">Conhecer a empresa</a>
     </div>
   </div>
+  <div class="hero-right">
+    <div class="hero-stat-card reveal"><strong>14+</strong><span>Anos no mercado</span></div>
+    <div class="hero-stat-card reveal"><strong>200+</strong><span>Unidades entregues</span></div>
+    <div class="hero-stat-card reveal"><strong>CREA</strong><span>GO-Registro ativo</span></div>
+    <img src="https://placehold.co/440x260/0D47A1/E3F2FD?text=Construtora+Horizonte" alt="Construtora Horizonte" style="width:100%;margin-top:12px;opacity:0.75">
+  </div>
 </section>
 
-<section id="sobre" style="background:#01579B;">
-  <div class="section-inner reveal">
-    <div style="background-image:url('https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=1200&h=800&fit=crop&q=80');background-attachment:fixed;background-size:cover;background-position:center;position:relative;">
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.85));"></div>
-  <div style="position:relative;z-index:2;text-align:center;padding:100px 40px;color:#fff;max-width:760px;margin:0 auto;">
-    <h2 style="font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.1;margin-bottom:20px;font-family:'Manrope', sans-serif;">Construtora Horizonte</h2>
-    <p style="font-size:18px;opacity:0.85;line-height:1.7;font-family:'Manrope', sans-serif;">Nossa construtora tem mais de 18 anos de experiencia entregando obras com qualidade, solidez e pontualidade. Do projeto a entrega das chaves, acompanhamos cada detalhe para garantir a realizacao do seu sonho.</p>
+<div class="strip">
+  <div class="strip-item">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>CREA-GO Registrada</span>
+  </div>
+  <div class="strip-item">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Prazo garantido em contrato</span>
+  </div>
+  <div class="strip-item">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Orçamento transparente</span>
+  </div>
+  <div class="strip-item">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="2"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" stroke="currentColor" stroke-width="2"/></svg>
+    <span>Goiânia e Grande Goiânia</span>
   </div>
 </div>
-  </div>
-</section>
 
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Manrope', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#003c6c;font-family:'Manrope', sans-serif;">O que dizem nossos clientes</h2>
+<section class="about reveal" id="sobre">
+  <div>
+    <div class="about-label">Quem somos</div>
+    <h2 class="about-title">Construtora Horizonte — 14 anos erguendo sonhos</h2>
+    <p class="about-text">A Construtora Horizonte nasceu da determinacao de oferecer qualidade construtiva real, com materiais de primeira linha, mao de obra especializada e gestao tecnica rigorosa em cada etapa da obra. Em 14 anos, nos tornamos referencia em Goiânia para quem busca construcao com seriedade.</p>
+    <p class="about-text">Atuamos em residencias unifamiliares, sobrados, predios e espacos comerciais. Do projeto ao habite-se, voce tem um responsavel tecnico disponivel e comunicacao constante sobre o andamento da sua obra.</p>
+    <div class="about-grid">
+      <div class="ab-card"><strong>200+</strong><span>Unidades entregues</span></div>
+      <div class="ab-card"><strong>14+</strong><span>Anos de mercado</span></div>
+      <div class="ab-card"><strong>CREA</strong><span>Registro ativo</span></div>
+      <div class="ab-card"><strong>100%</strong><span>ART inclusa</span></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Casa entregue no prazo e com acabamento impecavel."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2cce1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#01579B;font-size:14px;">G</div><div><div style="font-weight:700;font-size:14px;color:#003c6c;font-family:'Manrope', sans-serif;">Gustavo P.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Equipe profissional e comprometida com a qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2cce1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#01579B;font-size:14px;">C</div><div><div style="font-weight:700;font-size:14px;color:#003c6c;font-family:'Manrope', sans-serif;">Claudia R.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Melhor construtora que ja contratei. Superaram as expectativas."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2cce1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#01579B;font-size:14px;">N</div><div><div style="font-weight:700;font-size:14px;color:#003c6c;font-family:'Manrope', sans-serif;">Nelson B.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Cliente</div></div></div></div></div>
   </div>
+  <img class="about-img" src="https://placehold.co/460x460/E3F2FD/0D47A1?text=Obra+Horizonte" alt="Obra Construtora Horizonte">
 </section>
 
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="background:linear-gradient(135deg,#01579B 0%,#004174 100%);border-radius:24px;padding:80px 48px;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;opacity:0.03;background-image:url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;200&quot; height=&quot;200&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.65&quot; numOctaves=&quot;3&quot;/></filter><rect width=&quot;200&quot; height=&quot;200&quot; filter=&quot;url(%23n)&quot;/></svg>');background-size:200px;"></div>
-  <div style="position:relative;z-index:2;color:#ffffff;">
-    <div style="display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:8px 20px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;font-family:'Manrope', sans-serif;">Contato</div>
-    <h2 style="font-size:clamp(28px,4.5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Manrope', sans-serif;">Solicite um orcamento</h2>
-    <p style="font-size:18px;opacity:0.85;max-width:520px;margin:0 auto 44px;line-height:1.6;font-family:'Manrope', sans-serif;">Atendimento especializado para voce.</p>
-    <a href="https://wa.me/5562991247038" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 48px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
+<section class="services reveal">
+  <div class="sec-hdr">
+    <div class="sec-lbl">Especialidades</div>
+    <h2 class="sec-ttl">O que construimos</h2>
   </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#00457c;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Manrope', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Construtora Horizonte</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Manrope', sans-serif;">Setor Novo Horizonte, Aparecida de Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562991247038" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/construtora.horizonte.go/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Manrope', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Manrope', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Manrope', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Manrope', sans-serif;">
-          (62) 99124-7038<br>
-          <a href="https://wa.me/5562991247038" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/construtora.horizonte.go/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal">
+      <div class="svc-num">01</div>
+      <h3>Residencias e Sobrados</h3>
+      <p>Casas e sobrados completos com projeto, estrutura, alvenaria, instalacoes e acabamentos da mais alta qualidade.</p>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Manrope', sans-serif;">Desenvolvido por VANT Digital Studio</div>
+    <div class="svc-card reveal">
+      <div class="svc-num">02</div>
+      <h3>Edificios Comerciais</h3>
+      <p>Salas comerciais, lojas, galpoes e pequenos predios com documentacao completa para regularizacao.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">03</div>
+      <h3>Reformas e Ampliações</h3>
+      <p>Reformas completas com equipe propria, materiais selecionados e prazo definido desde o inicio.</p>
+    </div>
   </div>
+</section>
+
+<section class="cta reveal">
+  <div>
+    <h2>Pronto para construir com a Horizonte?</h2>
+    <p>Solicite orçamento sem compromisso e converse com nosso engenheiro responsavel. Retorno em ate 24h.</p>
+  </div>
+  <a href="https://wa.me/5562991247038" class="cta-btn">Solicitar Orçamento</a>
+</section>
+
+<footer>
+  <span class="foot-brand">Construtora Horizonte</span>
+  <span class="foot-copy">CREA-GO · Goiânia, GO · © 2026</span>
+  <a href="https://wa.me/5562991247038" class="foot-wa">(62) 99124-7038</a>
 </footer>
 
-<a href="https://wa.me/5562991247038" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562991247038" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

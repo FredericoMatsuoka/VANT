@@ -2,223 +2,261 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Dr. Eduardo Oliveira Clínica Geral — Goiânia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Eduardo Oliveira - Clinica Geral</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Plus Jakarta Sans', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#0288D1;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Plus Jakarta Sans', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Plus Jakarta Sans', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#E1F5FE;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Plus Jakarta Sans', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#0288D1;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root {
+  --dr-azul:#0288D1;
+  --dr-azul-escuro:#01579B;
+  --dr-claro:#E1F5FE;
+  --dr-fundo:#F7FBFE;
+  --dr-texto:#012A4A;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;color:var(--dr-texto);background:#fff}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.98);box-shadow:0 1px 0 rgba(2,136,209,0.1)}
+.nav-logo{display:flex;flex-direction:column;gap:0}
+.logo-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--dr-azul-escuro)}
+.logo-cred{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(1,87,155,0.5)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:12px;font-weight:500;color:var(--dr-texto);text-decoration:none;opacity:0.65;transition:opacity 0.2s}
+.nav-links a:hover{opacity:1}
+.nav-btn{background:var(--dr-azul);color:#fff;text-decoration:none;padding:10px 22px;border-radius:4px;font-size:12px;font-weight:600;transition:background 0.2s}
+.nav-btn:hover{background:var(--dr-azul-escuro)}
+/* HERO — professional split with photo */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:60px;overflow:hidden}
+.hero-left{background:var(--dr-azul-escuro);display:flex;flex-direction:column;justify-content:center;padding:80px 60px;position:relative;overflow:hidden}
+.hero-left::after{content:'';position:absolute;bottom:-80px;right:-80px;width:320px;height:320px;border-radius:50%;border:2px solid rgba(255,255,255,0.06)}
+.hero-left::before{content:'';position:absolute;bottom:-40px;right:-40px;width:200px;height:200px;border-radius:50%;border:2px solid rgba(255,255,255,0.04)}
+.hero-credential{display:inline-flex;align-items:center;gap:8px;background:rgba(2,136,209,0.3);border:1px solid rgba(2,136,209,0.4);padding:6px 14px;margin-bottom:24px;width:fit-content}
+.credential-bar{width:3px;height:16px;background:var(--dr-azul)}
+.hero-credential span{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,5.5vw,68px);font-weight:700;line-height:1.1;color:#fff;margin-bottom:12px}
+.hero h1 em{font-style:italic;font-weight:400;display:block;font-size:0.6em;color:rgba(255,255,255,0.5);margin-bottom:8px}
+.hero-spec{font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--dr-azul);margin-bottom:28px}
+.hero-bio{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.65);line-height:1.8;max-width:420px;margin-bottom:40px}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--dr-azul);color:#fff;text-decoration:none;padding:14px 28px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:background 0.2s}
+.hero-cta:hover{background:#0297E0}
+.hero-cta svg{width:18px;height:18px;fill:currentColor}
+.hero-right{background:var(--dr-fundo);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px 48px;gap:24px}
+.hero-photo{width:100%;max-width:400px;height:400px;object-fit:cover}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(2,136,209,0.15);width:100%;max-width:400px}
+.h-stat{background:#fff;padding:18px 12px;text-align:center}
+.h-stat-n{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--dr-azul);line-height:1;margin-bottom:4px}
+.h-stat-l{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#999}
+/* SERVICES */
+.services{padding:100px 60px;background:#fff}
+.section-eyebrow{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--dr-azul);margin-bottom:10px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:700;color:var(--dr-texto);margin-bottom:56px;line-height:1.2}
+.services-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(2,136,209,0.08)}
+.svc{background:#fff;padding:36px 32px;border-bottom:3px solid transparent;transition:border-color 0.25s}
+.svc:hover{border-bottom-color:var(--dr-azul)}
+.svc-num{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--dr-azul);opacity:0.2;line-height:1;margin-bottom:12px}
+.svc h3{font-size:14px;font-weight:700;color:var(--dr-texto);margin-bottom:10px;letter-spacing:0.5px}
+.svc p{font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:#777;line-height:1.7}
+/* BIO */
+.bio{padding:100px 60px;background:var(--dr-fundo);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.bio-img{width:100%;height:440px;object-fit:cover}
+.bio-content .section-title{margin-bottom:20px;line-height:1.15}
+.bio-text{font-family:'Playfair Display',serif;font-size:16px;color:#555;line-height:1.9;margin-bottom:20px}
+.bio-credentials{display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.cred-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--dr-texto)}
+.cred-item svg{width:16px;height:16px;flex-shrink:0}
+.bio-cta{display:inline-flex;align-items:center;gap:10px;background:var(--dr-azul-escuro);color:#fff;text-decoration:none;padding:13px 26px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:background 0.2s}
+.bio-cta:hover{background:var(--dr-azul)}
+.bio-cta svg{width:18px;height:18px;fill:currentColor}
+/* CONTACT */
+.contact{padding:100px 60px;background:var(--dr-azul-escuro)}
+.contact .section-eyebrow{color:var(--dr-azul)}
+.contact .section-title{color:#fff;margin-bottom:48px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:880px}
+.info-box{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);padding:28px;display:flex;gap:14px}
+.info-icon{width:18px;height:18px;flex-shrink:0;margin-top:3px}
+.info-box strong{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dr-azul);display:block;margin-bottom:6px}
+.info-box p{font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:rgba(255,255,255,0.6);line-height:1.6}
+.cta-wa{background:rgba(2,136,209,0.15);border:1px solid rgba(2,136,209,0.3);padding:36px;grid-column:1/-1}
+.cta-wa h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px}
+.cta-wa p{font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:24px}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;padding:14px 28px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:transform 0.2s}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-wa svg{width:18px;height:18px;fill:currentColor}
+/* FOOTER */
+footer{background:#001F3D;padding:24px 60px;display:flex;justify-content:space-between;align-items:center}
+footer p{font-size:11px;color:rgba(255,255,255,0.3)}
+footer strong{color:rgba(255,255,255,0.6)}
+/* FLOAT WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  .nav-links,.nav-btn{display:none}
+  .hero{grid-template-columns:1fr;padding-top:60px}
+  .hero-right{display:none}
+  .hero-left{padding:60px 24px}
+  .services,.bio,.contact{padding:60px 24px}
+  .bio{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .cta-wa{grid-column:1}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Dr. Eduardo Oliveira Clínica Geral</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <span class="logo-name">Dr. Eduardo Oliveira</span>
+    <span class="logo-cred">CRM-GO 12.453 — Clinica Geral</span>
   </div>
-  <a href="https://wa.me/5562999537048" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <ul class="nav-links">
+    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5562999537048" class="nav-btn">Agendar Consulta</a>
 </nav>
 
-
-<section class="hero" id="hero">
-  <div class="hero-split-poly">
-    <div class="hero-left" style="background:linear-gradient(135deg,#0288D1 0%,#0173b1 100%);">
-      <div class="hero-left-inner">
-        <p class="hero-eyebrow" style="color:#E1F5FE;font-family:'Plus Jakarta Sans', sans-serif;">Bem-vindo</p>
-        <h1 style="color:#ffffff;font-family:'Plus Jakarta Sans', sans-serif;">Saude com excelencia</h1>
-        <p class="hero-sub" style="color:rgba(255,255,255,0.8);font-family:'Plus Jakarta Sans', sans-serif;">Atendimento medico no Setor Sul de Goiânia</p>
-        <div class="hero-stats-row">
-          <div class="hero-stat"><span class="stat-val" style="color:#E1F5FE;">15.000+</span><span class="stat-lbl" style="color:rgba(255,255,255,0.7);">Consultas</span></div>
-          <div class="hero-stat"><span class="stat-val" style="color:#E1F5FE;">12</span><span class="stat-lbl" style="color:rgba(255,255,255,0.7);">Especialidades</span></div>
-        </div>
-        <div class="hero-btns">
-          <a href="https://wa.me/5562999537048" class="btn-primary" style="background:#E1F5FE;color:#0a0a0a;">Falar no WhatsApp</a>
-          <a href="#servicos" class="btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#ffffff;">Ver servicos</a>
-        </div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-credential">
+      <div class="credential-bar"></div>
+      <span>CRM-GO 12.453 — Clinica Geral</span>
+    </div>
+    <h1><em>Dr.</em>Eduardo<br>Oliveira</h1>
+    <p class="hero-spec">Clinica Geral e Medicina Preventiva</p>
+    <p class="hero-bio">Mais de 18 anos dedicados ao cuidado medico humanizado. Atendimento individualizado com foco na saude integral e qualidade de vida do paciente.</p>
+    <a href="https://wa.me/5562999537048" class="hero-cta">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Marcar Consulta
+    </a>
+  </div>
+  <div class="hero-right">
+    <img src="https://placehold.co/400x400/E1F5FE/01579B?text=Dr.+Eduardo" alt="Dr. Eduardo Oliveira" class="hero-photo">
+    <div class="hero-stats">
+      <div class="h-stat">
+        <div class="h-stat-n">18+</div>
+        <div class="h-stat-l">Anos</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-n">6K+</div>
+        <div class="h-stat-l">Pacientes</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-n">4.9</div>
+        <div class="h-stat-l">Google</div>
       </div>
     </div>
-    <div class="hero-right" style="background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=800&fit=crop&q=80');clip-path:polygon(14% 0%,100% 0%,100% 100%,0% 100%);background-size:cover;background-position:center;"></div>
   </div>
 </section>
-<style>
-.hero-split-poly {display:grid;grid-template-columns:56fr 44fr;min-height:100vh;}
-.hero-left {display:flex;align-items:center;padding:120px 60px 80px;}
-.hero-left-inner {max-width:520px;}
-.hero-eyebrow {font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
-.hero-left h1 {font-size:clamp(36px,4vw,64px);font-weight:800;line-height:1.1;margin-bottom:20px;}
-.hero-sub {font-size:18px;line-height:1.6;margin-bottom:40px;}
-.hero-stats-row {display:flex;gap:32px;margin-bottom:40px;}
-.hero-stat {display:flex;flex-direction:column;}
-.stat-val {font-size:28px;font-weight:800;line-height:1;}
-.stat-lbl {font-size:12px;margin-top:4px;letter-spacing:1px;text-transform:uppercase;}
-.hero-btns {display:flex;gap:16px;flex-wrap:wrap;}
-.btn-primary,.btn-ghost {padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.3s;}
-.btn-ghost {background:transparent;border:2px solid;}
-.btn-primary:hover {transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
-.hero-right {min-height:100vh;}
-@media(max-width:768px){.hero-split-poly{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:100px 24px 60px;}}
-</style>
 
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#E1F5FE;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#015f92;font-family:'Plus Jakarta Sans', sans-serif;">O que fazemos</h2>
+<section class="services" id="servicos">
+  <p class="section-eyebrow reveal">O que ofeco</p>
+  <h2 class="section-title reveal">Servicos Medicos<br>Especializados</h2>
+  <div class="services-list">
+    <div class="svc reveal">
+      <div class="svc-num">01</div>
+      <h3>Consulta Clinica Geral</h3>
+      <p>Avaliacao medica completa para adultos, com exame fisico, diagnostico e orientacao terapeutica.</p>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px;"><button class="srv-pill" onclick="showPill(this,0)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #0288D1;background:#0288D1;color:#ffffff;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Clinica Geral</button><button class="srv-pill" onclick="showPill(this,1)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Check-up Completo</button><button class="srv-pill" onclick="showPill(this,2)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Telemedicina</button><button class="srv-pill" onclick="showPill(this,3)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Saude da Mulher</button><button class="srv-pill" onclick="showPill(this,4)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Pediatria</button><button class="srv-pill" onclick="showPill(this,5)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Pequenas Cirurgias</button><button class="srv-pill" onclick="showPill(this,6)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Medicina Preventiva</button></div><div class="srv-panel" style="display:block;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#015f92;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Clinica Geral</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Atendimento medico completo para adultos e idosos.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#015f92;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Check-up Completo</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Avaliacao geral da saude com exames e orientacoes.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#015f92;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Telemedicina</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Consultas online com a comodidade da sua casa.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#015f92;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Saude da Mulher</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Ginecologia e acompanhamento especializado feminino.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#015f92;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Pediatria</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Cuidado medico especializado para criancas e adolescentes.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#015f92;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Pequenas Cirurgias</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Procedimentos ambulatoriais com seguranca e conforto.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#015f92;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Medicina Preventiva</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Prevencao de doencas e promocao da saude e bem-estar.</p></div><script>var srvPrimary="#0288D1",srvAccent="#ffffff";function showPill(el,idx){document.querySelectorAll(".srv-pill").forEach(function(p,i){p.style.background=i===idx?srvPrimary:"transparent";p.style.color=i===idx?srvAccent:"#333";p.style.borderColor=i===idx?srvPrimary:"#ddd";});document.querySelectorAll(".srv-panel").forEach(function(p,i){p.style.display=i===idx?"block":"none";});}</script>
-  </div>
-</section>
-
-<section id="stats" style="background:#0288D1;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="15000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#E1F5FE;font-family:'Plus Jakarta Sans', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Plus Jakarta Sans', sans-serif;">Consultas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#E1F5FE;font-family:'Plus Jakarta Sans', sans-serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Plus Jakarta Sans', sans-serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="10" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#E1F5FE;font-family:'Plus Jakarta Sans', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Plus Jakarta Sans', sans-serif;">Anos de Atuacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="3500" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#E1F5FE;font-family:'Plus Jakarta Sans', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Plus Jakarta Sans', sans-serif;">Pacientes</div></div>
+    <div class="svc reveal">
+      <div class="svc-num">02</div>
+      <h3>Medicina Preventiva</h3>
+      <p>Check-up anual completo, rastreamento de doencas cronicas e orientacao para estilo de vida saudavel.</p>
     </div>
-  </div>
-</section>
-
-<section id="sobre" style="background:#0288D1;">
-  <div class="section-inner reveal">
-    <div style="position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=1200&h=800&fit=crop&q=80');background-size:cover;background-position:center;opacity:0.08;"></div>
-  <div style="position:relative;z-index:2;text-align:center;max-width:760px;margin:0 auto;padding:80px 40px;">
-    <div style="font-size:120px;font-weight:900;color:#E1F5FE;line-height:0.6;margin-bottom:32px;font-family:'Plus Jakarta Sans', sans-serif;">"</div>
-    <p style="font-size:clamp(20px,2.5vw,30px);font-weight:600;color:#ffffff;line-height:1.5;margin-bottom:32px;font-family:'Plus Jakarta Sans', sans-serif;">Nossa clinica medica oferece atendimento humanizado e de qualidade para cuidar da sua saude com dedicacao</p>
-    <p style="font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#E1F5FE;margin-bottom:48px;">— Dr. Eduardo Oliveira Clínica Geral</p>
-    <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
-      <div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#E1F5FE;">15.000+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Consultas</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#E1F5FE;">12</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Especialidades</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#E1F5FE;">10+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Anos de Atuacao</div></div>
+    <div class="svc reveal">
+      <div class="svc-num">03</div>
+      <h3>Doencas Cronicas</h3>
+      <p>Acompanhamento de hipertensao, diabetes, colesterol e outras condicoes de saude a longo prazo.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-num">04</div>
+      <h3>Saude do Homem</h3>
+      <p>Atendimento especializado para as necessidades de saude masculina em todas as fases da vida.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-num">05</div>
+      <h3>Teleconsulta</h3>
+      <p>Consultas online para retornos, prescricoes de renovacao e orientacoes rapidas.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-num">06</div>
+      <h3>Solicitacao de Exames</h3>
+      <p>Prescricao e interpretacao de exames laboratoriais e de imagem com orientacao detalhada.</p>
     </div>
   </div>
-</div>
-  </div>
 </section>
 
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#E1F5FE;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#015f92;font-family:'Plus Jakarta Sans', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Plus Jakarta Sans', sans-serif;">"Medico atencioso e dedicado. Me sinto em boas maos."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b3dbf1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0288D1;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#015f92;font-family:'Plus Jakarta Sans', sans-serif;">Silvia A.</div><div style="font-size:12px;color:#888;font-family:'Plus Jakarta Sans', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Plus Jakarta Sans', sans-serif;">"Atendimento rapido e profissional de alta qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b3dbf1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0288D1;font-size:14px;">E</div><div><div style="font-weight:700;font-size:14px;color:#015f92;font-family:'Plus Jakarta Sans', sans-serif;">Eduardo R.</div><div style="font-size:12px;color:#888;font-family:'Plus Jakarta Sans', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Plus Jakarta Sans', sans-serif;">"Clinica moderna e equipe muito atenciosa e humanizada."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b3dbf1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0288D1;font-size:14px;">P</div><div><div style="font-weight:700;font-size:14px;color:#015f92;font-family:'Plus Jakarta Sans', sans-serif;">Patricia L.</div><div style="font-size:12px;color:#888;font-family:'Plus Jakarta Sans', sans-serif;">Paciente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="background:linear-gradient(135deg,#0288D1 0%,#01669c 100%);border-radius:24px;padding:80px 48px;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;opacity:0.03;background-image:url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;200&quot; height=&quot;200&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.65&quot; numOctaves=&quot;3&quot;/></filter><rect width=&quot;200&quot; height=&quot;200&quot; filter=&quot;url(%23n)&quot;/></svg>');background-size:200px;"></div>
-  <div style="position:relative;z-index:2;color:#ffffff;">
-    <div style="display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:8px 20px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;font-family:'Plus Jakarta Sans', sans-serif;">Contato</div>
-    <h2 style="font-size:clamp(28px,4.5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Plus Jakarta Sans', sans-serif;">Agende sua consulta</h2>
-    <p style="font-size:18px;opacity:0.85;max-width:520px;margin:0 auto 44px;line-height:1.6;font-family:'Plus Jakarta Sans', sans-serif;">Atendimento especializado para voce.</p>
-    <a href="https://wa.me/5562999537048" style="display:inline-block;background:#E1F5FE;color:#0a0a0a;padding:18px 48px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#016ca7;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Plus Jakarta Sans', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Dr. Eduardo Oliveira Clínica Geral</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Setor Sul, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562999537048" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/dreduardooliveira.med/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
+<section class="bio" id="sobre">
+  <img src="https://placehold.co/520x440/D4EEFF/01579B?text=Dr.+Eduardo+Oliveira" alt="Dr. Eduardo Oliveira" class="reveal">
+  <div class="bio-content">
+    <p class="section-eyebrow reveal">Sobre o Medico</p>
+    <h2 class="section-title reveal">Formacao e<br>Experiencia</h2>
+    <p class="bio-text reveal">Graduado pela UFG e especializado em Clinica Medica, o Dr. Eduardo Oliveira e conhecido pelo atendimento atencioso e pela capacidade de ouvir cada paciente com calma e profundidade. Sua abordagem integra o melhor da medicina tradicional com praticas preventivas modernas.</p>
+    <div class="bio-credentials reveal">
+      <div class="cred-item">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#0288D1" stroke-width="1.5"><path d="M3 8l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Graduado em Medicina pela UFG
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Plus Jakarta Sans', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Plus Jakarta Sans', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
+      <div class="cred-item">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#0288D1" stroke-width="1.5"><path d="M3 8l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Residencia em Clinica Medica — Hospital das Clinicas de Goiania
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Plus Jakarta Sans', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Plus Jakarta Sans', sans-serif;">
-          (62) 99953-7048<br>
-          <a href="https://wa.me/5562999537048" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/dreduardooliveira.med/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
+      <div class="cred-item">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#0288D1" stroke-width="1.5"><path d="M3 8l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Membro da Sociedade Brasileira de Clinica Medica
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Plus Jakarta Sans', sans-serif;">Desenvolvido por VANT Digital Studio</div>
+    <a href="https://wa.me/5562999537048" class="bio-cta reveal">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Agendar Consulta
+    </a>
   </div>
+</section>
+
+<section class="contact" id="contato">
+  <p class="section-eyebrow reveal">Fale Comigo</p>
+  <h2 class="section-title reveal">Agende sua<br>Consulta</h2>
+  <div class="contact-grid">
+    <div class="info-box reveal">
+      <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M10 2C6.686 2 4 4.686 4 8c0 5 6 10 6 10s6-5 6-10c0-3.314-2.686-6-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" fill="#0288D1"/></svg>
+      <div><strong>Consultorio</strong><p>Av. Republica do Libano, 1520<br>Setor Oeste — Goiania, GO</p></div>
+    </div>
+    <div class="info-box reveal">
+      <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm3 1v2h10V5H5zm0 4v2h10V9H5zm0 4v2h6v-2H5z" fill="#0288D1"/></svg>
+      <div><strong>Horario</strong><p>Seg a Sex: 08h00 — 18h00<br>Sabado: Teleconsulta disponivel</p></div>
+    </div>
+    <div class="cta-wa reveal">
+      <h3>Agende pelo WhatsApp</h3>
+      <p>Resposta rapida e agendamento sem burocracia. Nossa secretaria esta disponivel para voce.</p>
+      <a href="https://wa.me/5562999537048" class="btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Dr. Eduardo Oliveira</strong> — CRM-GO 12.453 — Goiania, GO</p>
+  <p>Desenvolvido por <strong>VANT Digital Studio</strong></p>
 </footer>
 
-<a href="https://wa.me/5562999537048" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562999537048" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

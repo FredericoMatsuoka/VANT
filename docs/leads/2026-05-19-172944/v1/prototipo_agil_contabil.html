@@ -2,200 +2,245 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ágil Contábil — Goiânia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ágil Contábil | Goiânia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&family=Spectral:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Lato', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#0288D1;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'EB Garamond', serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Lato', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Lato', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#0288D1;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ciano:#0288D1;
+  --ciano-medio:#0277BD;
+  --ciano-claro:#039BE5;
+  --ceu:#E1F5FE;
+  --ceu-suave:#F0FAFF;
+  --verde-agua:#00BCD4;
+  --branco:#FFFFFF;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+html{scroll-behavior:smooth}
+body{font-family:'Rubik',sans-serif;color:var(--ciano);background:var(--branco);overflow-x:hidden}
+
+.hero{min-height:100vh;background:var(--ciano);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px;position:relative;z-index:2}
+.hero-speed{position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:500px;height:500px;border-radius:50%;border:100px solid rgba(255,255,255,0.05);pointer-events:none}
+.hero-arrow{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.hero-arrow span{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7)}
+.hero-titulo{font-family:'Spectral',serif;font-size:clamp(38px,4.2vw,62px);color:var(--branco);line-height:1.1;margin-bottom:22px;font-weight:700}
+.hero-titulo strong{font-style:italic;color:var(--verde-agua)}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.62);line-height:1.72;max-width:440px;margin-bottom:48px;font-weight:300}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;background:var(--verde-agua);color:var(--branco);padding:17px 36px;border-radius:4px;text-decoration:none;font-weight:700;font-size:15px;transition:all 0.3s;width:fit-content}
+.hero-cta:hover{background:#00CFE8;transform:translateY(-2px)}
+.hero-right{display:flex;flex-direction:column;justify-content:center;padding:60px;background:var(--ceu-suave);gap:20px;position:relative;z-index:2}
+.hero-feat{background:var(--branco);border-radius:8px;padding:24px 22px;display:flex;gap:16px;align-items:flex-start;box-shadow:0 4px 16px rgba(2,136,209,0.08);transition:transform 0.3s}
+.hero-feat:hover{transform:translateY(-4px)}
+.hf-ico{width:46px;height:46px;background:var(--ceu);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hf-txt strong{display:block;font-size:14px;color:var(--ciano);font-weight:700;margin-bottom:3px}
+.hf-txt span{font-size:13px;color:#5A8AAA;line-height:1.5}
+
+.velocidade{padding:60px 80px;background:var(--verde-agua);display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
+.vel-item{padding:24px;border-right:1px solid rgba(255,255,255,0.2)}
+.vel-item:last-child{border-right:none}
+.vel-item strong{display:block;font-family:'Spectral',serif;font-size:44px;color:var(--branco);font-weight:700;line-height:1}
+.vel-item span{font-size:12px;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px;display:block}
+
+.servicos{padding:100px 80px;background:var(--branco)}
+.s-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--verde-agua);margin-bottom:12px}
+.s-titulo{font-family:'Spectral',serif;font-size:clamp(28px,3vw,44px);color:var(--ciano);margin-bottom:14px;font-weight:700}
+.s-sub{font-size:16px;color:#4A7A9A;line-height:1.68;max-width:520px;margin-bottom:56px}
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.serv-card{background:var(--ceu-suave);border-radius:8px;padding:36px 28px;transition:all 0.35s;border-bottom:3px solid transparent}
+.serv-card:hover{border-bottom-color:var(--ciano);transform:translateY(-6px);box-shadow:0 14px 40px rgba(2,136,209,0.12)}
+.serv-ico{width:52px;height:52px;background:var(--ceu);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:background 0.35s}
+.serv-card:hover .serv-ico{background:var(--ciano)}
+.serv-card:hover .serv-ico svg{stroke:var(--branco)}
+.serv-titulo{font-family:'Spectral',serif;font-size:18px;color:var(--ciano);font-weight:700;margin-bottom:8px}
+.serv-desc{font-size:14px;color:#4A7A9A;line-height:1.65}
+
+.diferencial{padding:100px 80px;background:var(--ciano)}
+.dif-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.dif-img{border-radius:8px;overflow:hidden;aspect-ratio:4/3}
+.dif-img img{width:100%;height:100%;object-fit:cover;opacity:0.55}
+.diferencial .s-label{color:rgba(255,255,255,0.55)}
+.diferencial .s-titulo{color:var(--branco)}
+.dif-pts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
+.dif-pt{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:22px 18px;transition:background 0.3s}
+.dif-pt:hover{background:rgba(255,255,255,0.12)}
+.dif-pt strong{display:block;color:var(--branco);font-size:14px;font-weight:700;margin-bottom:4px}
+.dif-pt span{color:rgba(255,255,255,0.5);font-size:13px;line-height:1.5}
+
+.depo{padding:100px 80px;background:var(--ceu-suave)}
+.depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:54px}
+.d-card{background:var(--branco);border-radius:8px;padding:32px 26px;transition:transform 0.3s;box-shadow:0 2px 12px rgba(2,136,209,0.07)}
+.d-card:hover{transform:translateY(-5px)}
+.d-texto{font-family:'Spectral',serif;font-size:15px;color:#1A4A6A;line-height:1.75;margin-bottom:20px;font-style:italic}
+.d-autor strong{font-size:14px;color:var(--ciano);font-weight:700}
+.d-autor span{display:block;font-size:12px;color:#5A8AAA;margin-top:2px}
+
+.cta-final{padding:100px 80px;background:linear-gradient(135deg,var(--ciano) 0%,var(--verde-agua) 100%);text-align:center}
+.cta-final h2{font-family:'Spectral',serif;font-size:clamp(28px,3vw,46px);color:var(--branco);margin-bottom:18px;font-weight:700}
+.cta-final p{font-size:17px;color:rgba(255,255,255,0.75);margin-bottom:42px;max-width:500px;margin-inline:auto;line-height:1.7}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;background:var(--branco);color:var(--ciano);padding:18px 44px;border-radius:4px;text-decoration:none;font-weight:700;font-size:16px;transition:all 0.3s}
+.cta-btn:hover{background:var(--ceu);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,0.25)}
+
+footer{background:#01579B;border-top:1px solid rgba(255,255,255,0.1);padding:36px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+footer p{color:rgba(255,255,255,0.4);font-size:13px}
+footer strong{color:var(--branco)}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:60px 24px}
+  .velocidade{grid-template-columns:1fr 1fr;padding:40px 24px}
+  .servicos{padding:60px 24px}.serv-grid{grid-template-columns:1fr}
+  .diferencial{padding:60px 24px}.dif-grid{grid-template-columns:1fr}.dif-img{display:none}
+  .depo{padding:60px 24px}.depo-grid{grid-template-columns:1fr}
+  .cta-final{padding:60px 24px}footer{padding:28px 24px;flex-direction:column;text-align:center}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Ágil Contábil</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<a class="wa-float" href="https://wa.me/5562995634128" target="_blank" rel="noopener" aria-label="WhatsApp">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<section class="hero">
+  <div class="hero-speed"></div>
+  <div class="hero-left reveal">
+    <div class="hero-arrow">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <span>Contabilidade agil para seu negocio</span>
+    </div>
+    <h1 class="hero-titulo">Agil Contabil:<br>rapidez e <strong>precisao</strong><br>no mesmo lugar</h1>
+    <p class="hero-sub">Contabilidade digital, entrega rapida e assessoria proativa para sua empresa crescer com seguranca fiscal em Goiania.</p>
+    <a class="hero-cta" href="https://wa.me/5562995634128" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      Solicitar proposta agora
+    </a>
   </div>
-  <a href="https://wa.me/5562995634128" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <div class="hero-right reveal">
+    <div class="hero-feat">
+      <div class="hf-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0288D1" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+      <div class="hf-txt"><strong>Resposta em 24h</strong><span>Nenhuma duvida fica sem resposta por mais de 24 horas</span></div>
+    </div>
+    <div class="hero-feat">
+      <div class="hf-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0288D1" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="hf-txt"><strong>Seguranca fiscal garantida</strong><span>Zero multas e conformidade total com o fisco</span></div>
+    </div>
+    <div class="hero-feat">
+      <div class="hf-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0288D1" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <div class="hf-txt"><strong>Reducao de custos fiscais</strong><span>Planejamento tributario para pagar menos imposto legalmente</span></div>
+    </div>
+    <div class="hero-feat">
+      <div class="hf-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0288D1" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg></div>
+      <div class="hf-txt"><strong>100% digital</strong><span>Gestao de documentos, comunicacao e entregas totalmente online</span></div>
+    </div>
+  </div>
+</section>
 
+<div class="velocidade reveal">
+  <div class="vel-item"><strong>9+</strong><span>Anos no mercado</span></div>
+  <div class="vel-item"><strong>160+</strong><span>Clientes ativos</span></div>
+  <div class="vel-item"><strong>24h</strong><span>Suporte garantido</span></div>
+  <div class="vel-item"><strong>Zero</strong><span>Multas fiscais</span></div>
+</div>
 
-<section class="hero" id="hero" style="background:#d9edf8;position:relative;overflow:hidden;">
-  <div style="max-width:1200px;margin:0 auto;padding:120px 40px 100px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+<section class="servicos">
+  <div class="s-label reveal">Servicos</div>
+  <h2 class="s-titulo reveal">Contabilidade agil e completa</h2>
+  <p class="s-sub reveal">Todos os servicos que sua empresa precisa, entregues com a agilidade que seu negocio merece.</p>
+  <div class="serv-grid">
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0288D1" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg></div>
+      <h3 class="serv-titulo">Contabilidade</h3>
+      <p class="serv-desc">Escrituracao e demonstracoes financeiras mensais com entrega garantida no prazo.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0288D1" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
+      <h3 class="serv-titulo">Fiscal</h3>
+      <p class="serv-desc">Gestao completa de obrigacoes fiscais para todos os regimes tributarios.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0288D1" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/></svg></div>
+      <h3 class="serv-titulo">Depto Pessoal</h3>
+      <p class="serv-desc">Folha, ferias, 13, ESOCIAL e gestao de colaboradores sem dor de cabeca.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0288D1" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/></svg></div>
+      <h3 class="serv-titulo">Abertura de Empresa</h3>
+      <p class="serv-desc">Constituicao rapida de MEI, ME e LTDA com orientacao completa.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0288D1" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></div>
+      <h3 class="serv-titulo">IRPF</h3>
+      <p class="serv-desc">Declaracao de Imposto de Renda com analise completa para maximizar restituicao.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0288D1" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <h3 class="serv-titulo">Planejamento Tributario</h3>
+      <p class="serv-desc">Estrategia fiscal personalizada para reducao legal da carga tributaria.</p>
+    </div>
+  </div>
+</section>
+
+<section class="diferencial">
+  <div class="dif-grid">
+    <div class="dif-img reveal">
+      <img src="https://placehold.co/600x450/0277BD/E1F5FE?text=Agil+Contabil" alt="Agil Contabil">
+    </div>
     <div>
-      <p style="font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Lato', sans-serif;">Bem-vindo</p>
-      <h1 style="font-size:clamp(36px,4vw,60px);font-weight:800;color:#01517d;line-height:1.15;margin-bottom:20px;font-family:'EB Garamond', serif;">Contabilidade que impulsiona</h1>
-      <p style="font-size:18px;color:#004870;line-height:1.7;margin-bottom:36px;font-family:'Lato', sans-serif;">Gestao fiscal em Goiânia</p>
-      <a href="https://wa.me/5562995634128" style="display:inline-block;background:#0288D1;color:#ffffff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;margin-right:16px;">Falar no WhatsApp</a>
-      <a href="#servicos" style="display:inline-block;border:2px solid #0288D1;color:#0288D1;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;">Servicos</a>
-    </div>
-    <div><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=800&fit=crop&q=80" alt="Ágil Contábil" style="width:100%;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,0.15);"></div>
-  </div>
-  <svg style="position:absolute;bottom:-1px;left:0;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 80V40C360 0 720 80 1080 40L1440 0V80H0Z" fill="#ffffff"/></svg>
-</section>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Lato', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#015f92;font-family:'EB Garamond', serif;">O que fazemos</h2>
-    </div>
-    <div style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;"><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#015f92;font-family:'EB Garamond', serif;"><span>Abertura de Empresa</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Registro e formalizacao da sua empresa com agilidade.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#015f92;font-family:'EB Garamond', serif;"><span>Simples Nacional e MEI</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Gestao tributaria otimizada para pequenas empresas.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#015f92;font-family:'EB Garamond', serif;"><span>IRPF e IRPJ</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Declaracao de imposto de renda com maxima restituicao.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#015f92;font-family:'EB Garamond', serif;"><span>Folha de Pagamento</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Gestao completa de folha, ferias, 13o e encargos.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#015f92;font-family:'EB Garamond', serif;"><span>Planejamento Tributario</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Reducao legal da carga tributaria da sua empresa.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#015f92;font-family:'EB Garamond', serif;"><span>Contabilidade Digital</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Escrituracao contabil moderna com acesso online.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#015f92;font-family:'EB Garamond', serif;"><span>BPO Financeiro</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Lato', sans-serif;">Terceirizacao do financeiro para voce focar no negocio.</p></div></div></div><script>function toggleAcc(el){var body=el.nextElementSibling;var icon=el.querySelector(".acc-icon");if(body.style.maxHeight&&body.style.maxHeight!=="0px"){body.style.maxHeight="0px";icon.textContent="+";}else{body.style.maxHeight=body.scrollHeight+"px";icon.textContent="-";}}</script>
-  </div>
-</section>
-
-<section id="stats" style="background:#0288D1;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="340" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'EB Garamond', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Empresas Atendidas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="10" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'EB Garamond', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Anos de Mercado</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="5000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'EB Garamond', serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Declaracoes</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="100" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'EB Garamond', serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Conformidade</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre" style="background:#0288D1;">
-  <div class="section-inner reveal">
-    <div style="position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop&q=80');background-size:cover;background-position:center;opacity:0.08;"></div>
-  <div style="position:relative;z-index:2;text-align:center;max-width:760px;margin:0 auto;padding:80px 40px;">
-    <div style="font-size:120px;font-weight:900;color:#FFFFFF;line-height:0.6;margin-bottom:32px;font-family:'EB Garamond', serif;">"</div>
-    <p style="font-size:clamp(20px,2.5vw,30px);font-weight:600;color:#ffffff;line-height:1.5;margin-bottom:32px;font-family:'EB Garamond', serif;">Nosso escritorio contabil oferece solucoes completas para empresas de todos os portes</p>
-    <p style="font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#FFFFFF;margin-bottom:48px;">— Ágil Contábil</p>
-    <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
-      <div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#FFFFFF;">340+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Empresas Atendidas</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#FFFFFF;">10+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Anos de Mercado</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#FFFFFF;">5.000+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Declaracoes</div></div>
-    </div>
-  </div>
-</div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Lato', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#015f92;font-family:'EB Garamond', serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lato', sans-serif;">"Reduziram nossa carga tributaria significativamente. Excelente trabalho."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b3dbf1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0288D1;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#015f92;font-family:'EB Garamond', serif;">Marcos O.</div><div style="font-size:12px;color:#888;font-family:'Lato', sans-serif;">Empresario</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lato', sans-serif;">"Atendimento rapido e sempre disponivel para tirar duvidas."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b3dbf1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0288D1;font-size:14px;">L</div><div><div style="font-weight:700;font-size:14px;color:#015f92;font-family:'EB Garamond', serif;">Lucia M.</div><div style="font-size:12px;color:#888;font-family:'Lato', sans-serif;">Empresaria</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lato', sans-serif;">"Profissionais confiaveis que cuidam da nossa empresa com dedicacao."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b3dbf1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0288D1;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#015f92;font-family:'EB Garamond', serif;">Sergio P.</div><div style="font-size:12px;color:#888;font-family:'Lato', sans-serif;">Empresario</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="background:#FFFFFF;border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;">
-  <div style="padding:64px 48px;color:#0a0a0a;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;opacity:0.7;margin-bottom:16px;font-family:'Lato', sans-serif;">Contato</p>
-    <h2 style="font-size:clamp(26px,3.5vw,44px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'EB Garamond', serif;">Fale com um contador</h2>
-    <p style="font-size:16px;opacity:0.85;line-height:1.7;font-family:'Lato', sans-serif;">Entre em contato e receba atendimento personalizado.</p>
-  </div>
-  <div style="background:#fff;padding:48px;display:flex;flex-direction:column;gap:16px;justify-content:center;">
-    <a href="https://wa.me/5562995634128" style="display:block;background:#25D366;color:#fff;padding:16px 24px;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none;text-align:center;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/agilcontabil.gyn/" style="display:block;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:14px 24px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;text-align:center;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#016ca7;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'EB Garamond', serif;font-weight:800;font-size:20px;margin-bottom:8px;">Ágil Contábil</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Lato', sans-serif;">Setor Leste, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562995634128" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/agilcontabil.gyn/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'EB Garamond', serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Lato', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'EB Garamond', serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Lato', sans-serif;">
-          (62) 99563-4128<br>
-          <a href="https://wa.me/5562995634128" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/agilcontabil.gyn/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
+      <div class="s-label reveal">Diferenciais</div>
+      <h2 class="s-titulo reveal">Por que a Agil Contabil e diferente</h2>
+      <div class="dif-pts">
+        <div class="dif-pt reveal"><strong>Agilidade real</strong><span>Respostas em 24h. Nao deixamos voce esperando.</span></div>
+        <div class="dif-pt reveal"><strong>Digital total</strong><span>Nada de papel. Tudo online, seguro e organizado.</span></div>
+        <div class="dif-pt reveal"><strong>Preco justo</strong><span>Servico de qualidade sem cobrar mais que o necessario.</span></div>
+        <div class="dif-pt reveal"><strong>Zero multas</strong><span>Historial limpo. Entregamos no prazo, sempre.</span></div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Lato', sans-serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="depo">
+  <div class="s-label reveal">Clientes</div>
+  <h2 class="s-titulo reveal">O que dizem sobre a Agil Contabil</h2>
+  <div class="depo-grid">
+    <div class="d-card reveal">
+      <p class="d-texto">"Chamei de agil e e mesmo! Resposta rapida, entrega no prazo e preco honesto. Melhor contador que ja tive."</p>
+      <div class="d-autor"><strong>Thiago Andrade</strong><span>E-commerce &mdash; Goiania</span></div>
+    </div>
+    <div class="d-card reveal">
+      <p class="d-texto">"Abri minha empresa em 3 dias com a Agil Contabil. Processo simples e suporte total durante todo o caminho."</p>
+      <div class="d-autor"><strong>Natalia Coelho</strong><span>Servicos &mdash; Goiania</span></div>
+    </div>
+    <div class="d-card reveal">
+      <p class="d-texto">"Trocado de contador antigo por este e a diferenca foi imediata. Mais organizacao, mais clareza e mais economia."</p>
+      <div class="d-autor"><strong>Rui Carvalho</strong><span>Consultoria &mdash; Goiania</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final reveal">
+  <h2>Contabilidade agil para sua empresa crescer</h2>
+  <p>Primeira conversa gratuita. Sem burocracia, sem demora, sem compromisso.</p>
+  <a class="cta-btn" href="https://wa.me/5562995634128" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Falar com Agil Contabil agora
+  </a>
+</section>
+
+<footer>
+  <p><strong>Agil Contabil</strong> &mdash; Goiania, GO</p>
+  <p>CRC/GO &mdash; Rapido, preciso e digital</p>
 </footer>
 
-<a href="https://wa.me/5562995634128" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

@@ -2,212 +2,240 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Smile Canedo Odontologia — Senador Canedo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smile Canedo Odontologia — Senador Canedo GO</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Lora', serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#1E90FF;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Work Sans', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Lora', serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#A0C8F0;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Lora', serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#1E90FF;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --sky: #1E90FF;
+  --sky-claro: #A0C8F0;
+  --sky-suave: #EBF4FF;
+  --navy: #0A2A5C;
+  --texto: #1A2B3C;
+  --cinza: #5B6B7A;
+  --branco: #FFFFFF;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+body{font-family:'Outfit',sans-serif;color:var(--texto);background:var(--branco);}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(30,144,255,0.15);}
+.nav-logo{display:flex;align-items:center;gap:12px;}
+.nav-logo-circle{width:36px;height:36px;background:var(--sky);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:0.85rem;}
+.nav-nome{font-weight:700;font-size:1rem;color:var(--navy);}
+.nav-cta{background:var(--sky);color:#fff;padding:10px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:0.84rem;transition:background 0.2s;}
+.nav-cta:hover{background:var(--navy);}
+
+.hero{min-height:100vh;display:flex;align-items:center;background:var(--navy);position:relative;overflow:hidden;padding:100px 40px 60px;}
+.hero::before{content:'SMILE';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(80px,14vw,180px);font-weight:800;color:rgba(30,144,255,0.06);letter-spacing:-4px;pointer-events:none;white-space:nowrap;}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(30,144,255,0.15);border:1px solid rgba(30,144,255,0.3);padding:7px 16px;border-radius:30px;margin-bottom:26px;}
+.hero-tag-dot{width:6px;height:6px;background:var(--sky);border-radius:50%;}
+.hero-tag span{font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--sky-claro);}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.4rem,4.5vw,4rem);color:#fff;line-height:1.15;margin-bottom:22px;}
+.hero h1 mark{background:transparent;color:var(--sky);}
+.hero-desc{color:rgba(255,255,255,0.65);font-size:0.95rem;line-height:1.8;margin-bottom:36px;max-width:440px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-wa{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.88rem;box-shadow:0 4px 20px rgba(37,211,102,0.3);transition:transform 0.2s;}
+.btn-wa:hover{transform:translateY(-2px);}
+.btn-wa svg{width:20px;height:20px;fill:#fff;}
+.btn-sec{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(30,144,255,0.4);color:rgba(255,255,255,0.8);padding:13px 24px;border-radius:8px;text-decoration:none;font-weight:500;font-size:0.88rem;transition:border-color 0.2s;}
+.btn-sec:hover{border-color:var(--sky);color:#fff;}
+.hero-card{background:rgba(255,255,255,0.05);border:1px solid rgba(30,144,255,0.2);border-radius:16px;padding:28px;backdrop-filter:blur(10px);}
+.hero-card-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:#fff;margin-bottom:20px;}
+.hero-numeros{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.hero-num-item{text-align:center;padding:16px 10px;background:rgba(30,144,255,0.1);border-radius:10px;}
+.hero-num-val{font-size:1.6rem;font-weight:800;color:var(--sky);}
+.hero-num-lab{font-size:0.72rem;font-weight:500;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+.hero-img{margin-top:20px;}
+.hero-img img{width:100%;border-radius:10px;}
+
+section{padding:88px 24px;}
+.wrap{max-width:1100px;margin:0 auto;}
+.sec-top{text-align:center;margin-bottom:56px;}
+.sec-label{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--sky);font-weight:600;display:block;margin-bottom:10px;}
+.sec-top h2{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,3vw,2.6rem);color:var(--navy);margin-bottom:14px;}
+.sec-top p{color:var(--cinza);max-width:520px;margin:0 auto;line-height:1.7;}
+
+.servicos{background:var(--sky-suave);}
+.srv-lista{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.srv-item{background:var(--branco);border-radius:12px;padding:28px 20px;border-bottom:3px solid var(--sky);text-align:center;transition:transform 0.2s,box-shadow 0.2s;}
+.srv-item:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(30,144,255,0.12);}
+.srv-num{font-size:2rem;font-weight:800;color:var(--sky-claro);line-height:1;margin-bottom:12px;}
+.srv-item h3{font-family:'DM Serif Display',serif;font-size:0.97rem;color:var(--navy);margin-bottom:8px;}
+.srv-item p{font-size:0.8rem;color:var(--cinza);line-height:1.6;}
+
+.sobre{background:var(--branco);}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.sobre-img img{width:100%;border-radius:12px;box-shadow:0 16px 48px rgba(10,42,92,0.1);}
+.sobre-txt .sec-label{text-align:left;}
+.sobre-txt h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--navy);margin-bottom:20px;}
+.sobre-txt p{color:var(--cinza);line-height:1.8;margin-bottom:14px;}
+.difs{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:10px;}
+.difs li{display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;}
+.dif-check{width:20px;height:20px;background:var(--sky);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.dif-check svg{width:11px;height:11px;stroke:#fff;stroke-width:3;fill:none;}
+
+.depoimentos{background:var(--navy);}
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.dep-card{background:rgba(255,255,255,0.06);border:1px solid rgba(30,144,255,0.2);border-radius:12px;padding:28px;}
+.estrelas{color:var(--sky);font-size:0.9rem;letter-spacing:2px;margin-bottom:14px;}
+.dep-card p{font-style:italic;color:rgba(255,255,255,0.75);font-size:0.87rem;line-height:1.7;margin-bottom:18px;}
+.dep-autor{display:flex;align-items:center;gap:10px;}
+.dep-av{width:38px;height:38px;border-radius:50%;background:var(--sky);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:0.9rem;flex-shrink:0;}
+.dep-autor strong{color:#fff;font-size:0.84rem;display:block;}
+.dep-autor span{color:var(--sky-claro);font-size:0.73rem;}
+
+.cta-final{background:var(--sky);padding:80px 24px;text-align:center;}
+.cta-final h2{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4vw,3rem);color:#fff;margin-bottom:16px;}
+.cta-final p{color:rgba(255,255,255,0.85);max-width:480px;margin:0 auto 36px;line-height:1.7;}
+
+footer{background:var(--navy);color:rgba(255,255,255,0.5);padding:48px 24px 24px;text-align:center;}
+.footer-nome{font-family:'DM Serif Display',serif;font-size:1.3rem;color:var(--sky-claro);margin-bottom:8px;}
+footer p{font-size:0.84rem;margin-bottom:5px;}
+footer a{color:var(--sky);text-decoration:none;}
+.footer-copy{margin-top:24px;border-top:1px solid rgba(255,255,255,0.08);padding-top:18px;font-size:0.76rem;}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;animation:pulse-wa 2s infinite;}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff;}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s;}
+.reveal.visible{opacity:1;transform:none;}
+
+@media(max-width:900px){.hero-inner,.sobre-grid{grid-template-columns:1fr;}.srv-lista{grid-template-columns:repeat(2,1fr);}.dep-grid{grid-template-columns:1fr;}}
+@media(max-width:768px){nav{padding:0 20px;}.hero{padding:100px 24px 60px;}}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Smile Canedo Odontologia</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-circle">SC</div>
+    <span class="nav-nome">Smile Canedo</span>
   </div>
-  <a href="https://wa.me/5562995903847" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://wa.me/5562995903847" class="nav-cta" target="_blank">Agendar</a>
 </nav>
 
-
-<section class="hero" id="hero">
-  <div class="hero-split-poly">
-    <div class="hero-left" style="background:linear-gradient(135deg,#1E90FF 0%,#197ad8 100%);">
-      <div class="hero-left-inner">
-        <p class="hero-eyebrow" style="color:#A0C8F0;font-family:'Lora', serif;">Bem-vindo</p>
-        <h1 style="color:#ffffff;font-family:'Work Sans', sans-serif;">O sorriso que voce merece</h1>
-        <p class="hero-sub" style="color:rgba(255,255,255,0.8);font-family:'Lora', serif;">Cuidado dental no Setor Central de Senador Canedo</p>
-        <div class="hero-stats-row">
-          <div class="hero-stat"><span class="stat-val" style="color:#A0C8F0;">3.200+</span><span class="stat-lbl" style="color:rgba(255,255,255,0.7);">Sorrisos</span></div>
-          <div class="hero-stat"><span class="stat-val" style="color:#A0C8F0;">12+</span><span class="stat-lbl" style="color:rgba(255,255,255,0.7);">Anos de Experiencia</span></div>
-        </div>
-        <div class="hero-btns">
-          <a href="https://wa.me/5562995903847" class="btn-primary" style="background:#A0C8F0;color:#0a0a0a;">Falar no WhatsApp</a>
-          <a href="#servicos" class="btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#ffffff;">Ver servicos</a>
-        </div>
+<section class="hero" style="padding-left:40px;padding-right:40px;">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag"><span class="hero-tag-dot"></span><span>Odontologia — Senador Canedo</span></div>
+      <h1>Sorriso bonito começa com <mark>cuidado certo</mark></h1>
+      <p class="hero-desc">A Smile Canedo é referência em odontologia estética e preventiva em Senador Canedo. Modernidade, conforto e resultados que duram — é assim que cuidamos do seu sorriso.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5562995903847" class="btn-wa" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <a href="#servicos" class="btn-sec">Ver tratamentos</a>
       </div>
     </div>
-    <div class="hero-right" style="background-image:url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1200&h=800&fit=crop&q=80');clip-path:polygon(14% 0%,100% 0%,100% 100%,0% 100%);background-size:cover;background-position:center;"></div>
-  </div>
-</section>
-<style>
-.hero-split-poly {display:grid;grid-template-columns:56fr 44fr;min-height:100vh;}
-.hero-left {display:flex;align-items:center;padding:120px 60px 80px;}
-.hero-left-inner {max-width:520px;}
-.hero-eyebrow {font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
-.hero-left h1 {font-size:clamp(36px,4vw,64px);font-weight:800;line-height:1.1;margin-bottom:20px;}
-.hero-sub {font-size:18px;line-height:1.6;margin-bottom:40px;}
-.hero-stats-row {display:flex;gap:32px;margin-bottom:40px;}
-.hero-stat {display:flex;flex-direction:column;}
-.stat-val {font-size:28px;font-weight:800;line-height:1;}
-.stat-lbl {font-size:12px;margin-top:4px;letter-spacing:1px;text-transform:uppercase;}
-.hero-btns {display:flex;gap:16px;flex-wrap:wrap;}
-.btn-primary,.btn-ghost {padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.3s;}
-.btn-ghost {background:transparent;border:2px solid;}
-.btn-primary:hover {transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
-.hero-right {min-height:100vh;}
-@media(max-width:768px){.hero-split-poly{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:100px 24px 60px;}}
-</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#A0C8F0;margin-bottom:12px;font-family:'Lora', serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#1564b2;font-family:'Work Sans', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;"><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#e7f1fb;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A0C8F0" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#1564b2;margin-bottom:8px;font-family:'Work Sans', sans-serif;">Clareamento Dental</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lora', serif;">Sorriso mais branco e luminoso com tecnologia segura e eficaz.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#e7f1fb;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A0C8F0" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#1564b2;margin-bottom:8px;font-family:'Work Sans', sans-serif;">Facetas de Porcelana</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lora', serif;">Transforme seu sorriso com facetas ultrafinas e naturais.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#e7f1fb;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A0C8F0" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#1564b2;margin-bottom:8px;font-family:'Work Sans', sans-serif;">Implante Dentario</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lora', serif;">Substituicao permanente de dentes com estetica e funcao.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#e7f1fb;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A0C8F0" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#1564b2;margin-bottom:8px;font-family:'Work Sans', sans-serif;">Ortodontia</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lora', serif;">Alinhamento perfeito com aparelhos modernos e esteticos.</p></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#1E90FF;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="3200" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#A0C8F0;font-family:'Work Sans', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lora', serif;">Sorrisos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#A0C8F0;font-family:'Work Sans', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lora', serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="8" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#A0C8F0;font-family:'Work Sans', sans-serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lora', serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="99" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#A0C8F0;font-family:'Work Sans', sans-serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lora', serif;">Satisfacao</div></div>
+    <div class="hero-card">
+      <div class="hero-card-title">Por que escolher a Smile Canedo?</div>
+      <div class="hero-numeros">
+        <div class="hero-num-item"><div class="hero-num-val">+2k</div><div class="hero-num-lab">Pacientes</div></div>
+        <div class="hero-num-item"><div class="hero-num-val">10+</div><div class="hero-num-lab">Anos</div></div>
+        <div class="hero-num-item"><div class="hero-num-val">99%</div><div class="hero-num-lab">Satisfação</div></div>
+        <div class="hero-num-item"><div class="hero-num-val">5 esp.</div><div class="hero-num-lab">Especialidades</div></div>
+      </div>
+      <div class="hero-img" style="margin-top:18px;">
+        <img src="https://placehold.co/360x180/1E90FF/A0C8F0?text=Smile+Canedo%0AOdontologia" alt="Smile Canedo">
+      </div>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:48px;"><h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#1564b2;font-family:'Work Sans', sans-serif;">Smile Canedo Odontologia</h2></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#A0C8F0;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#A0C8F0" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#1564b2;margin-bottom:12px;font-family:'Work Sans', sans-serif;">Nossa Missao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Lora', serif;">Entregar servicos de excelencia que superam expectativas e transformam a experiencia dos nossos clientes.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#A0C8F0;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#A0C8F0" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#1564b2;margin-bottom:12px;font-family:'Work Sans', sans-serif;">Nossa Visao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Lora', serif;">Ser referencia de qualidade e inovacao, reconhecida pela excelencia e pelo impacto positivo que geramos.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#A0C8F0;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#A0C8F0" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#1564b2;margin-bottom:12px;font-family:'Work Sans', sans-serif;">Nossos Valores</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Lora', serif;">Etica, transparencia e compromisso guiam cada decisao e cada relacionamento que construimos.</p></div></div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#A0C8F0;margin-bottom:12px;font-family:'Lora', serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#1564b2;font-family:'Work Sans', sans-serif;">O que dizem nossos clientes</h2>
+<section class="servicos" id="servicos">
+  <div class="wrap">
+    <div class="sec-top reveal">
+      <span class="sec-label">Especialidades</span>
+      <h2>Tratamentos para cada necessidade</h2>
+      <p>Do check-up preventivo à reabilitação completa, com equipamentos modernos em Senador Canedo.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lora', serif;">"Meu sorriso mudou completamente. Me sinto muito mais confiante."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#bbddff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#1E90FF;font-size:14px;">C</div><div><div style="font-weight:700;font-size:14px;color:#1564b2;font-family:'Work Sans', sans-serif;">Carlos M.</div><div style="font-size:12px;color:#888;font-family:'Lora', serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lora', serif;">"Atendimento excelente, sem dor e com resultado perfeito."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#bbddff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#1E90FF;font-size:14px;">F</div><div><div style="font-weight:700;font-size:14px;color:#1564b2;font-family:'Work Sans', sans-serif;">Fernanda L.</div><div style="font-size:12px;color:#888;font-family:'Lora', serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lora', serif;">"Profissionais dedicados que realmente se importam com o paciente."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#bbddff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#1E90FF;font-size:14px;">R</div><div><div style="font-weight:700;font-size:14px;color:#1564b2;font-family:'Work Sans', sans-serif;">Roberto A.</div><div style="font-size:12px;color:#888;font-family:'Lora', serif;">Paciente</div></div></div></div></div>
+    <div class="srv-lista">
+      <div class="srv-item reveal"><div class="srv-num">01</div><h3>Clareamento</h3><p>Sorriso mais branco com técnica segura e duradoura.</p></div>
+      <div class="srv-item reveal"><div class="srv-num">02</div><h3>Facetas</h3><p>Porcelana ultrafina para sorriso natural e harmonioso.</p></div>
+      <div class="srv-item reveal"><div class="srv-num">03</div><h3>Implante</h3><p>Substituição definitiva com osseointegração segura.</p></div>
+      <div class="srv-item reveal"><div class="srv-num">04</div><h3>Ortodontia</h3><p>Alinhamento com aparelhos tradicionais ou estéticos.</p></div>
+      <div class="srv-item reveal"><div class="srv-num">05</div><h3>Prevenção</h3><p>Check-up completo e limpeza profissional periódica.</p></div>
+      <div class="srv-item reveal"><div class="srv-num">06</div><h3>Estética</h3><p>Harmonização facial para sorriso equilibrado.</p></div>
+      <div class="srv-item reveal"><div class="srv-num">07</div><h3>Endodontia</h3><p>Tratamento de canal com conforto e precisão.</p></div>
+      <div class="srv-item reveal"><div class="srv-num">08</div><h3>Próteses</h3><p>Reabilitação oral com próteses de alta qualidade.</p></div>
+    </div>
   </div>
 </section>
 
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;max-width:680px;margin:0 auto;padding:20px;">
-  <h2 style="font-size:clamp(30px,4.5vw,56px);font-weight:800;color:#1564b2;margin-bottom:20px;line-height:1.2;font-family:'Work Sans', sans-serif;">Agende sua consulta</h2>
-  <p style="font-size:18px;color:#666;line-height:1.7;margin-bottom:48px;font-family:'Lora', serif;">Estamos prontos para atender voce com excelencia.</p>
-  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-    <a href="https://wa.me/5562995903847" style="background:#25D366;color:#fff;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/smilecanedo/" style="border:2px solid #1E90FF;color:#1E90FF;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;">Instagram</a>
+<section class="sobre">
+  <div class="wrap">
+    <div class="sobre-grid">
+      <div class="sobre-img reveal">
+        <img src="https://placehold.co/500x420/A0C8F0/1E90FF?text=Nossa+Clínica%0aSenador+Canedo" alt="Smile Canedo — Clínica">
+      </div>
+      <div class="sobre-txt reveal">
+        <span class="sec-label">Nossa Clínica</span>
+        <h2>10 anos cuidando de sorrisos em Senador Canedo</h2>
+        <p>A Smile Canedo nasceu com a missão de democratizar a odontologia de qualidade na região de Senador Canedo, oferecendo o mesmo nível de cuidado encontrado nas melhores clínicas do Brasil.</p>
+        <p>Nossa equipe é especializada e atualizada, com cursos de aperfeiçoamento constante para garantir as mais modernas técnicas.</p>
+        <ul class="difs">
+          <li><div class="dif-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Ambiente clínico moderno e acolhedor</li>
+          <li><div class="dif-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Radiografia digital com menor exposição</li>
+          <li><div class="dif-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Parcelamento facilitado</li>
+          <li><div class="dif-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Atendimento por WhatsApp, rápido e fácil</li>
+        </ul>
+      </div>
+    </div>
   </div>
+</section>
+
+<section class="depoimentos">
+  <div class="wrap">
+    <div class="sec-top reveal" style="margin-bottom:40px;">
+      <span class="sec-label" style="color:var(--sky);">Depoimentos</span>
+      <h2 style="color:#fff;margin-bottom:0;">O que nossos pacientes dizem</h2>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Fiz o clareamento na Smile Canedo e ficou perfeito! Resultado incrível e o atendimento é excelente. Me sinto muito mais confiante com meu sorriso!"</p>
+        <div class="dep-autor"><div class="dep-av">A</div><div><strong>Amanda Rocha</strong><span>Enfermeira, Senador Canedo</span></div></div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Coloquei implante aqui há 2 anos e parece um dente natural. Equipe muito profissional e o pós-operatório foi muito tranquilo. Recomendo demais!"</p>
+        <div class="dep-autor"><div class="dep-av">T</div><div><strong>Thiago Mendes</strong><span>Técnico, Aparecida de Goiânia</span></div></div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Levo minha família toda aqui. Crianças, adultos — todo mundo é bem atendido. Clínica limpa, profissional e com preço justo. Melhor da região!"</p>
+        <div class="dep-autor"><div class="dep-av">P</div><div><strong>Patricia Silva</strong><span>Empresária, Senador Canedo</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-final">
+  <h2>Marque sua consulta agora</h2>
+  <p>Atendemos em Senador Canedo com horários flexíveis. Fale com a gente pelo WhatsApp e encontre o melhor horário para você.</p>
+  <a href="https://wa.me/5562995903847" class="btn-wa" target="_blank" style="display:inline-flex;">
+    <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+    Agendar pelo WhatsApp
+  </a>
 </div>
-  </div>
-</section>
 
-<footer style="background:#1873cc;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Work Sans', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Smile Canedo Odontologia</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Lora', serif;">Setor Central, Senador Canedo</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562995903847" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/smilecanedo/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Work Sans', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Lora', serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Work Sans', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Lora', serif;">
-          (62) 99590-3847<br>
-          <a href="https://wa.me/5562995903847" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/smilecanedo/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Lora', serif;">Desenvolvido por VANT Digital Studio</div>
-  </div>
+<footer>
+  <div class="footer-nome">Smile Canedo Odontologia</div>
+  <p>Senador Canedo, Goiás</p>
+  <p><a href="https://wa.me/5562995903847">WhatsApp: (62) 99590-3847</a></p>
+  <div class="footer-copy">© 2026 Smile Canedo Odontologia. Desenvolvido por VANT Digital Studio</div>
 </footer>
 
-<a href="https://wa.me/5562995903847" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562995903847" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {if(i.isIntersecting) i.target.classList.add('visible');}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

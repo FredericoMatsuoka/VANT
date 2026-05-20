@@ -2,219 +2,223 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Eng. Fernanda Ramos — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eng. Fernanda Ramos — Projetos e Reformas | Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Crimson Pro', serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#880E4F;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Outfit', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Crimson Pro', serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Crimson Pro', serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#880E4F;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --fernanda-coral:#BF360C;
+  --fernanda-laranja:#FF6D3B;
+  --fernanda-creme:#FDF6F0;
+  --fernanda-escuro:#1A0A04;
+  --fernanda-medio:#7A4030;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:#fff;color:var(--fernanda-escuro);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,246,240,0.97);backdrop-filter:blur(10px);border-bottom:2px solid rgba(191,54,12,0.12);padding:0 64px;height:70px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:14px}
+.nav-icon{width:38px;height:38px;background:var(--fernanda-coral);display:flex;align-items:center;justify-content:center}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-brand-text strong{font-size:0.9rem;font-weight:700;color:var(--fernanda-escuro)}
+.nav-brand-text span{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--fernanda-coral)}
+.nav-cta{background:var(--fernanda-coral);color:#fff;padding:10px 22px;text-decoration:none;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.3s}
+.nav-cta:hover{background:var(--fernanda-medio)}
+
+/* HERO — diagonal clip */
+.hero{min-height:100vh;padding-top:70px;display:grid;grid-template-columns:1fr 1fr;background:var(--fernanda-creme);position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:0;bottom:0;left:45%;right:0;background:var(--fernanda-escuro);clip-path:polygon(8% 0,100% 0,100% 100%,0% 100%);z-index:0}
+.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(191,54,12,0.1);padding:6px 14px;margin-bottom:24px;width:fit-content}
+.hero-tag span{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--fernanda-coral);font-weight:600}
+.hero-title{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,4vw,3.8rem);color:var(--fernanda-escuro);line-height:1.1;margin-bottom:20px}
+.hero-title em{color:var(--fernanda-coral);font-style:italic}
+.hero-sub{font-size:0.88rem;color:var(--fernanda-medio);line-height:1.9;margin-bottom:44px;max-width:380px;font-weight:400}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.btn-coral{background:var(--fernanda-coral);color:#fff;padding:13px 28px;text-decoration:none;font-size:0.77rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.3s}
+.btn-coral:hover{background:var(--fernanda-medio)}
+.btn-outline{border:2px solid var(--fernanda-coral);color:var(--fernanda-coral);padding:11px 24px;text-decoration:none;font-size:0.77rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.3s}
+.btn-outline:hover{background:var(--fernanda-coral);color:#fff}
+.hero-stats{display:flex;gap:32px}
+.h-stat{text-align:center}
+.h-stat strong{display:block;font-family:'DM Serif Display',serif;font-size:2rem;color:var(--fernanda-coral)}
+.h-stat span{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--fernanda-medio)}
+.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:60px 48px}
+.hero-photo{width:280px;height:400px;object-fit:cover;border-radius:4px;box-shadow:0 24px 60px rgba(0,0,0,0.3)}
+
+/* ABOUT */
+.about{padding:100px 80px;background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-label{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--fernanda-coral);font-weight:700;margin-bottom:14px}
+.about-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--fernanda-escuro);line-height:1.2;margin-bottom:24px}
+.about-text{font-size:0.88rem;color:var(--fernanda-medio);line-height:1.9;margin-bottom:14px;font-weight:400}
+.about-img{width:100%;height:460px;object-fit:cover;border-radius:4px}
+.about-creds{margin-top:28px;display:flex;flex-direction:column;gap:10px}
+.cred-row{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--fernanda-creme);border-left:3px solid var(--fernanda-coral)}
+.cred-row span{font-size:0.82rem;color:var(--fernanda-escuro);font-weight:500}
+
+/* SERVICES */
+.services{padding:100px 80px;background:var(--fernanda-creme)}
+.sec-hdr{text-align:center;margin-bottom:60px}
+.sec-lbl{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--fernanda-coral);font-weight:700;margin-bottom:12px}
+.sec-ttl{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--fernanda-escuro)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc-card{background:#fff;padding:36px 28px;border-top:3px solid transparent;transition:border-color 0.3s,box-shadow 0.3s}
+.svc-card:hover{border-top-color:var(--fernanda-coral);box-shadow:0 8px 32px rgba(191,54,12,0.1)}
+.svc-num{font-family:'DM Serif Display',serif;font-size:2.4rem;color:rgba(191,54,12,0.15);line-height:1;margin-bottom:14px}
+.svc-card h3{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--fernanda-escuro);margin-bottom:10px}
+.svc-card p{font-size:0.85rem;color:var(--fernanda-medio);line-height:1.8}
+
+/* PROCESS */
+.process{padding:100px 80px;background:var(--fernanda-escuro)}
+.process-hdr{text-align:center;margin-bottom:60px}
+.process-hdr .sec-lbl{color:var(--fernanda-laranja)}
+.process-hdr .sec-ttl{color:#fff}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.step{background:rgba(255,255,255,0.04);padding:40px 28px;text-align:center;transition:background 0.3s}
+.step:hover{background:rgba(255,255,255,0.07)}
+.step-n{font-family:'DM Serif Display',serif;font-size:3rem;color:rgba(255,109,59,0.3);line-height:1;margin-bottom:14px}
+.step h3{font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:10px;letter-spacing:0.04em}
+.step p{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.7}
+
+/* CTA */
+.cta{padding:100px 80px;text-align:center;background:var(--fernanda-coral)}
+.cta-title{font-family:'DM Serif Display',serif;font-size:clamp(2rem,3vw,3rem);color:#fff;margin-bottom:16px}
+.cta-sub{font-size:0.9rem;color:rgba(255,255,255,0.8);margin-bottom:40px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.8}
+.cta-btn{display:inline-block;background:#fff;color:var(--fernanda-coral);padding:16px 40px;text-decoration:none;font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.3s}
+.cta-btn:hover{background:var(--fernanda-escuro);color:#fff}
+
+footer{background:var(--fernanda-escuro);padding:40px 80px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot-brand{font-family:'DM Serif Display',serif;font-size:1rem;color:rgba(255,255,255,0.65)}
+.foot-copy{font-size:0.75rem;color:rgba(255,255,255,0.3)}
+.foot-wa{color:var(--fernanda-laranja);font-size:0.8rem;text-decoration:none}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero::after{display:none}
+  .hero-right{background:var(--fernanda-escuro);min-height:360px}
+  .about{grid-template-columns:1fr;padding:60px 32px}
+  .svc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .services,.process,.cta{padding:60px 32px}
+  nav{padding:0 24px}
+  .hero-left{padding:60px 32px}
+  footer{padding:32px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Eng. Fernanda Ramos</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-brand">
+    <div class="nav-icon">
+      <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="nav-brand-text">
+      <strong>Eng. Fernanda Ramos</strong>
+      <span>CREA GO-123456</span>
+    </div>
   </div>
-  <a href="https://wa.me/5562995642307" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://wa.me/5562995642307" class="nav-cta">Solicitar Orçamento</a>
 </nav>
 
-
-<section class="hero" id="hero">
-  <div class="hero-split-poly">
-    <div class="hero-left" style="background:linear-gradient(135deg,#880E4F 0%,#730b43 100%);">
-      <div class="hero-left-inner">
-        <p class="hero-eyebrow" style="color:#FFFFFF;font-family:'Crimson Pro', serif;">Bem-vindo</p>
-        <h1 style="color:#ffffff;font-family:'Outfit', sans-serif;">Projetos que constroem sonhos</h1>
-        <p class="hero-sub" style="color:rgba(255,255,255,0.8);font-family:'Crimson Pro', serif;">Engenharia de qualidade em Goiânia</p>
-        <div class="hero-stats-row">
-          <div class="hero-stat"><span class="stat-val" style="color:#FFFFFF;">180+</span><span class="stat-lbl" style="color:rgba(255,255,255,0.7);">Obras Realizadas</span></div>
-          <div class="hero-stat"><span class="stat-val" style="color:#FFFFFF;">12+</span><span class="stat-lbl" style="color:rgba(255,255,255,0.7);">Anos de Experiencia</span></div>
-        </div>
-        <div class="hero-btns">
-          <a href="https://wa.me/5562995642307" class="btn-primary" style="background:#FFFFFF;color:#0a0a0a;">Falar no WhatsApp</a>
-          <a href="#servicos" class="btn-ghost" style="border-color:rgba(255,255,255,0.4);color:#ffffff;">Ver servicos</a>
-        </div>
-      </div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag"><span>Engenharia Civil · Goiânia, GO</span></div>
+    <h1 class="hero-title">Projetos que <em>constroem</em> sonhos</h1>
+    <p class="hero-sub">Engenharia civil com precisao tecnica e atencao humanizada. Da planta ao acabamento, cada etapa com qualidade e prazo garantidos.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562995642307" class="btn-coral">Solicitar Orçamento</a>
+      <a href="#sobre" class="btn-outline">Conhecer mais</a>
     </div>
-    <div class="hero-right" style="background-image:url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&h=800&fit=crop&q=80');clip-path:polygon(14% 0%,100% 0%,100% 100%,0% 100%);background-size:cover;background-position:center;"></div>
-  </div>
-</section>
-<style>
-.hero-split-poly {display:grid;grid-template-columns:56fr 44fr;min-height:100vh;}
-.hero-left {display:flex;align-items:center;padding:120px 60px 80px;}
-.hero-left-inner {max-width:520px;}
-.hero-eyebrow {font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
-.hero-left h1 {font-size:clamp(36px,4vw,64px);font-weight:800;line-height:1.1;margin-bottom:20px;}
-.hero-sub {font-size:18px;line-height:1.6;margin-bottom:40px;}
-.hero-stats-row {display:flex;gap:32px;margin-bottom:40px;}
-.hero-stat {display:flex;flex-direction:column;}
-.stat-val {font-size:28px;font-weight:800;line-height:1;}
-.stat-lbl {font-size:12px;margin-top:4px;letter-spacing:1px;text-transform:uppercase;}
-.hero-btns {display:flex;gap:16px;flex-wrap:wrap;}
-.btn-primary,.btn-ghost {padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.3s;}
-.btn-ghost {background:transparent;border:2px solid;}
-.btn-primary:hover {transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
-.hero-right {min-height:100vh;}
-@media(max-width:768px){.hero-split-poly{grid-template-columns:1fr;}.hero-right{display:none;}.hero-left{padding:100px 24px 60px;}}
-</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Crimson Pro', serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#5f0937;font-family:'Outfit', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;"><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#5f0937;margin-bottom:8px;font-family:'Outfit', sans-serif;">Projetos Residenciais</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Crimson Pro', serif;">Projetos estruturais e arquitetonicos para residencias.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#5f0937;margin-bottom:8px;font-family:'Outfit', sans-serif;">Projetos Comerciais</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Crimson Pro', serif;">Solucoes de engenharia para empresas e estabelecimentos.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#5f0937;margin-bottom:8px;font-family:'Outfit', sans-serif;">Laudos Tecnicos</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Crimson Pro', serif;">Laudos estruturais, de vistoria e conformidade tecnica.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#5f0937;margin-bottom:8px;font-family:'Outfit', sans-serif;">Fiscalizacao de Obras</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Crimson Pro', serif;">Acompanhamento e controle de qualidade na execucao.</p></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#880E4F;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="180" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Outfit', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Obras Realizadas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Outfit', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="500002" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Outfit', sans-serif;">0.+ m</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Area Projetada</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="100" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Outfit', sans-serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Satisfacao</div></div>
+    <div class="hero-stats">
+      <div class="h-stat"><strong>10+</strong><span>Anos de exp.</span></div>
+      <div class="h-stat"><strong>80+</strong><span>Obras entregues</span></div>
+      <div class="h-stat"><strong>100%</strong><span>No prazo</span></div>
     </div>
   </div>
-</section>
-
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:64px;">
-  <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#5f0937;margin-bottom:16px;font-family:'Outfit', sans-serif;">Eng. Fernanda Ramos</h2>
-  <p style="font-size:16px;color:#555;max-width:640px;margin:0 auto;line-height:1.7;font-family:'Crimson Pro', serif;">Nosso escritorio de engenharia civil oferece solucoes tecnicas completas com rigor, precisao e compromisso com a qualidade. Desenvolvemos projetos inovadores e acompanhamos cada etapa com dedicacao total.</p>
-</div>
-<div style="position:relative;display:flex;gap:0;margin-top:40px;">
-  <div style="position:absolute;top:8px;left:10%;right:10%;height:2px;background:linear-gradient(to right,#ffffff,#FFFFFF,#ffffff);z-index:1;"></div>
-  <div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#5f0937;margin-bottom:8px;font-family:'Outfit', sans-serif;">Fundacao</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Crimson Pro', serif;">Inicio das atividades com foco em qualidade e excelencia.</p></div><div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#5f0937;margin-bottom:8px;font-family:'Outfit', sans-serif;">Crescimento</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Crimson Pro', serif;">Expansao da equipe e dos servicos oferecidos aos clientes.</p></div><div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#5f0937;margin-bottom:8px;font-family:'Outfit', sans-serif;">Referencia</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Crimson Pro', serif;">Consolidacao como referencia no mercado regional.</p></div>
-</div>
+  <div class="hero-right">
+    <img class="hero-photo" src="https://placehold.co/280x400/BF360C/FDF6F0?text=Fernanda+Ramos" alt="Eng. Fernanda Ramos">
   </div>
 </section>
 
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Crimson Pro', serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#5f0937;font-family:'Outfit', sans-serif;">O que dizem nossos clientes</h2>
+<section class="about reveal" id="sobre">
+  <div>
+    <div class="about-label">Sobre</div>
+    <h2 class="about-title">Engenharia com proposito e precisao</h2>
+    <p class="about-text">Sou Fernanda Ramos, engenheira civil com mais de 10 anos de experiencia em projetos residenciais, comerciais e reformas. Minha abordagem une rigor tecnico com escuta ativa — porque entender o que voce sonha e o primeiro passo para construir bem.</p>
+    <p class="about-text">Do gerenciamento de obras a projetos executivos, ofeco servicos completos com transparencia, documentacao organizada e respeito absoluto ao seu investimento.</p>
+    <div class="about-creds">
+      <div class="cred-row"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="#BF360C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>CREA-GO 123456 — Registro ativo</span></div>
+      <div class="cred-row"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" stroke="#BF360C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Formacao — UFG, Especializacao em Gerenciamento</span></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"Projeto entregue no prazo e com qualidade superior ao esperado."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#dbb6ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#880E4F;font-size:14px;">F</div><div><div style="font-weight:700;font-size:14px;color:#5f0937;font-family:'Outfit', sans-serif;">Fabio N.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"Profissional serio e extremamente competente. Recomendo."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#dbb6ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#880E4F;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#5f0937;font-family:'Outfit', sans-serif;">Sandra L.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"Laudo tecnico preciso que resolveu todos os problemas."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#dbb6ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#880E4F;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#5f0937;font-family:'Outfit', sans-serif;">Marcos A.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Cliente</div></div></div></div></div>
   </div>
+  <img class="about-img" src="https://placehold.co/460x460/FDF6F0/BF360C?text=Escritorio" alt="Escritório Fernanda Ramos">
 </section>
 
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;max-width:680px;margin:0 auto;padding:20px;">
-  <h2 style="font-size:clamp(30px,4.5vw,56px);font-weight:800;color:#5f0937;margin-bottom:20px;line-height:1.2;font-family:'Outfit', sans-serif;">Solicite um orcamento</h2>
-  <p style="font-size:18px;color:#666;line-height:1.7;margin-bottom:48px;font-family:'Crimson Pro', serif;">Estamos prontos para atender voce com excelencia.</p>
-  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-    <a href="https://wa.me/5562995642307" style="background:#25D366;color:#fff;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/fernanda.eng.ramos/" style="border:2px solid #880E4F;color:#880E4F;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;">Instagram</a>
+<section class="services reveal">
+  <div class="sec-hdr">
+    <div class="sec-lbl">Servicos</div>
+    <h2 class="sec-ttl">O que fazemos</h2>
   </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#6c0b3f;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Outfit', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Eng. Fernanda Ramos</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Crimson Pro', serif;">Setor Bueno, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562995642307" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/fernanda.eng.ramos/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Outfit', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Crimson Pro', serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Outfit', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Crimson Pro', serif;">
-          (62) 99564-2307<br>
-          <a href="https://wa.me/5562995642307" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/fernanda.eng.ramos/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal">
+      <div class="svc-num">01</div>
+      <h3>Projetos Residenciais</h3>
+      <p>Projetos arquitetonicos e executivos completos para casas e apartamentos, do conceito ao caderno de especificacoes.</p>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Crimson Pro', serif;">Desenvolvido por VANT Digital Studio</div>
+    <div class="svc-card reveal">
+      <div class="svc-num">02</div>
+      <h3>Gerenciamento de Obras</h3>
+      <p>Acompanhamento tecnico completo, controle de cronograma, medicoes e relatorio de andamento para o contratante.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-num">03</div>
+      <h3>Reformas e Ampliações</h3>
+      <p>Planejamento e execucao de reformas com levantamento de custos transparente e equipe confiavel.</p>
+    </div>
   </div>
+</section>
+
+<section class="process reveal">
+  <div class="process-hdr">
+    <div class="sec-lbl">Processo</div>
+    <h2 class="sec-ttl">Como trabalhamos</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal"><div class="step-n">01</div><h3>Reuniao Inicial</h3><p>Entendemos seu projeto, necessidades e orcamento disponivel sem compromisso.</p></div>
+    <div class="step reveal"><div class="step-n">02</div><h3>Proposta Tecnica</h3><p>Apresentamos escopo detalhado, cronograma e valor com transparencia total.</p></div>
+    <div class="step reveal"><div class="step-n">03</div><h3>Execucao</h3><p>Acompanhamento tecnico com relatorios periodicos e comunicacao constante.</p></div>
+    <div class="step reveal"><div class="step-n">04</div><h3>Entrega</h3><p>Vistoria final, documentacao completa e suporte pos-obra.</p></div>
+  </div>
+</section>
+
+<section class="cta reveal">
+  <h2 class="cta-title">Vamos construir juntos?</h2>
+  <p class="cta-sub">Entre em contato e receba um orçamento detalhado sem compromisso. Sua obra merece uma engenheira de confianca.</p>
+  <a href="https://wa.me/5562995642307" class="cta-btn">Falar pelo WhatsApp</a>
+</section>
+
+<footer>
+  <span class="foot-brand">Eng. Fernanda Ramos</span>
+  <span class="foot-copy">CREA-GO 123456 · Goiânia, GO · © 2026</span>
+  <a href="https://wa.me/5562995642307" class="foot-wa">(62) 99564-2307</a>
 </footer>
 
-<a href="https://wa.me/5562995642307" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562995642307" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

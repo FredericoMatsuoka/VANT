@@ -2,205 +2,237 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Lima e Souza Advocacia — Senador Canedo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lima e Souza Advocacia | Goiânia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Crimson Pro', serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#0D47A1;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Outfit', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Crimson Pro', serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Crimson Pro', serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#0D47A1;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --azul:#0D47A1;
+  --azul-medio:#1565C0;
+  --azul-claro:#1E88E5;
+  --ceu:#E3F2FD;
+  --ceu-suave:#F3F9FF;
+  --ouro:#C9A84C;
+  --branco:#FFFFFF;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+html{scroll-behavior:smooth}
+body{font-family:'Lexend',sans-serif;color:var(--azul);background:var(--branco);overflow-x:hidden}
+
+.hero{min-height:100vh;background:var(--azul);position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.hero-bg-text span{font-family:'EB Garamond',serif;font-size:clamp(120px,18vw,280px);font-weight:700;color:rgba(255,255,255,0.04);letter-spacing:-5px;white-space:nowrap}
+.hero-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;padding:0 80px;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center}
+.hero-left{}
+.hero-ano{font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--ouro);margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.hero-ano::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.15);max-width:60px}
+.hero-titulo{font-family:'EB Garamond',serif;font-size:clamp(40px,4.5vw,68px);color:var(--branco);line-height:1.1;margin-bottom:24px;font-weight:700}
+.hero-titulo em{font-style:italic;color:var(--ouro)}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.6);line-height:1.75;margin-bottom:48px;font-weight:300;max-width:440px}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;background:var(--ouro);color:#0A2A5C;padding:17px 36px;border-radius:4px;text-decoration:none;font-weight:700;font-size:15px;transition:all 0.3s}
+.hero-cta:hover{background:#D9B85C;transform:translateY(-2px)}
+.hero-right{display:flex;flex-direction:column;gap:2px}
+.h-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);padding:24px 28px;transition:background 0.3s;backdrop-filter:blur(4px)}
+.h-card:hover{background:rgba(255,255,255,0.12)}
+.h-card strong{display:block;font-family:'EB Garamond',serif;font-size:34px;color:var(--branco);font-weight:700;margin-bottom:4px}
+.h-card span{font-size:12px;color:rgba(255,255,255,0.45);letter-spacing:1.5px;text-transform:uppercase}
+
+.areas{padding:100px 80px;background:var(--ceu-suave)}
+.s-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--azul-claro);margin-bottom:12px}
+.s-titulo{font-family:'EB Garamond',serif;font-size:clamp(28px,3vw,44px);color:var(--azul);margin-bottom:14px;font-weight:700}
+.s-sub{font-size:16px;color:#4A6A90;line-height:1.68;max-width:520px;margin-bottom:56px}
+.areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--ceu)}
+.a-card{background:var(--branco);padding:40px 32px;transition:all 0.35s;position:relative;overflow:hidden}
+.a-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--azul);transform:scaleX(0);transform-origin:left;transition:transform 0.35s}
+.a-card:hover::before{transform:scaleX(1)}
+.a-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(13,71,161,0.12)}
+.a-ico{width:52px;height:52px;background:var(--ceu);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:background 0.35s}
+.a-card:hover .a-ico{background:var(--azul)}
+.a-card:hover .a-ico svg{stroke:var(--branco)}
+.a-titulo{font-family:'EB Garamond',serif;font-size:19px;color:var(--azul);font-weight:700;margin-bottom:8px}
+.a-desc{font-size:14px;color:#4A6A90;line-height:1.65}
+
+.diferenciais{padding:100px 80px;background:var(--azul)}
+.dif-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.dif-img{border-radius:8px;overflow:hidden;aspect-ratio:4/3}
+.dif-img img{width:100%;height:100%;object-fit:cover;opacity:0.6}
+.diferenciais .s-label{color:rgba(255,255,255,0.5)}
+.diferenciais .s-titulo{color:var(--branco)}
+.dif-itens{display:flex;flex-direction:column;gap:24px;margin-top:36px}
+.dif-item{display:flex;gap:16px;align-items:flex-start}
+.dif-check{width:32px;height:32px;border-radius:50%;background:var(--ouro);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dif-txt strong{display:block;color:var(--branco);font-size:15px;font-weight:600;margin-bottom:3px}
+.dif-txt span{color:rgba(255,255,255,0.5);font-size:14px;line-height:1.6}
+
+.depo{padding:100px 80px;background:var(--branco)}
+.depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:54px}
+.d-card{border:1px solid var(--ceu);border-radius:8px;padding:34px 28px;transition:all 0.3s}
+.d-card:hover{border-color:var(--azul);box-shadow:0 8px 32px rgba(13,71,161,0.1);transform:translateY(-4px)}
+.d-aspas{font-family:'EB Garamond',serif;font-size:52px;color:var(--ouro);line-height:1;margin-bottom:14px}
+.d-texto{font-family:'EB Garamond',serif;font-size:15px;color:#3A5A80;line-height:1.75;margin-bottom:20px;font-style:italic}
+.d-autor strong{font-size:14px;color:var(--azul);font-weight:700}
+.d-autor span{display:block;font-size:12px;color:#6A8AAA;margin-top:2px}
+
+.cta-final{padding:100px 80px;background:linear-gradient(135deg,var(--azul) 0%,var(--azul-medio) 100%);text-align:center}
+.cta-final h2{font-family:'EB Garamond',serif;font-size:clamp(28px,3vw,48px);color:var(--branco);margin-bottom:18px;font-weight:700}
+.cta-final p{font-size:17px;color:rgba(255,255,255,0.62);margin-bottom:44px;max-width:500px;margin-inline:auto;line-height:1.7}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;background:var(--ouro);color:#0A2A5C;padding:18px 44px;border-radius:4px;text-decoration:none;font-weight:700;font-size:16px;transition:all 0.3s}
+.cta-btn:hover{background:#D9B85C;transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,0.3)}
+
+footer{background:#071E50;border-top:1px solid rgba(255,255,255,0.08);padding:36px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+footer p{color:rgba(255,255,255,0.4);font-size:13px}
+footer strong{color:var(--branco)}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;padding:60px 24px}.hero-right{display:none}
+  .areas{padding:60px 24px}.areas-grid{grid-template-columns:1fr 1fr}
+  .diferenciais{padding:60px 24px}.dif-grid{grid-template-columns:1fr}.dif-img{display:none}
+  .depo{padding:60px 24px}.depo-grid{grid-template-columns:1fr}
+  .cta-final{padding:60px 24px}footer{padding:28px 24px;flex-direction:column;text-align:center}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Lima e Souza Advocacia</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </div>
-  <a href="https://wa.me/5562995276043" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<a class="wa-float" href="https://wa.me/5562995276043" target="_blank" rel="noopener" aria-label="WhatsApp">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
-
-<section class="hero" id="hero" style="background:#0D47A1;min-height:100vh;display:flex;align-items:center;">
-  <div style="max-width:1200px;margin:0 auto;padding:80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-    <div style="color:#ffffff;">
-      <p style="font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Crimson Pro', serif;">Bem-vindo</p>
-      <h1 style="font-size:clamp(36px,4vw,58px);font-weight:800;line-height:1.15;margin-bottom:20px;font-family:'Outfit', sans-serif;">Advocacia com competencia</h1>
-      <p style="font-size:18px;opacity:0.85;line-height:1.7;margin-bottom:40px;font-family:'Crimson Pro', serif;">Assessoria juridica no Centro de Senador Canedo</p>
-      <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:40px;">
-        <div><div style="font-size:26px;font-weight:800;color:#FFFFFF;">1.800+</div><div style="font-size:12px;opacity:0.7;letter-spacing:1px;text-transform:uppercase;">Casos Resolvidos</div></div><div><div style="font-size:26px;font-weight:800;color:#FFFFFF;">94%</div><div style="font-size:12px;opacity:0.7;letter-spacing:1px;text-transform:uppercase;">Taxa de Exito</div></div><div><div style="font-size:26px;font-weight:800;color:#FFFFFF;">15+</div><div style="font-size:12px;opacity:0.7;letter-spacing:1px;text-transform:uppercase;">Anos de Atuacao</div></div>
-      </div>
-      <a href="https://wa.me/5562995276043" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
+<section class="hero">
+  <div class="hero-bg-text"><span>LIMA&amp;SOUZA</span></div>
+  <div class="hero-inner">
+    <div class="hero-left reveal">
+      <div class="hero-ano">Fundado em 2010 &mdash; Goiania</div>
+      <h1 class="hero-titulo">Advocacia de<br>alto nivel ao<br><em>seu lado</em></h1>
+      <p class="hero-sub">Lima e Souza Advocacia une experiencia, tecnica e compromisso para oferecer solucoes juridicas completas para pessoas e empresas.</p>
+      <a class="hero-cta" href="https://wa.me/5562995276043" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Consulta gratuita
+      </a>
     </div>
-    <div style="position:relative;display:flex;align-items:center;justify-content:center;">
-      <div style="position:absolute;width:500px;height:500px;border:2px solid rgba(255,255,255,0.2);border-radius:50%;"></div>
-      <div style="position:absolute;width:460px;height:460px;border:2px solid rgba(255,255,255,0.1);border-radius:50%;"></div>
-      <div style="width:420px;height:420px;border-radius:50%;overflow:hidden;position:relative;z-index:2;"><img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=1200&h=800&fit=crop&q=80" alt="Lima e Souza Advocacia" style="width:100%;height:100%;object-fit:cover;"></div>
-    </div>
-  </div>
-</section>
-<style>@media(max-width:768px){section .hero > div > div{grid-template-columns:1fr!important;}section .hero [style*="500px"]{display:none;}}</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Crimson Pro', serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#093170;font-family:'Outfit', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="max-width:680px;margin:0 auto;"><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#FFFFFF;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#093170;margin-bottom:6px;font-family:'Outfit', sans-serif;">Direito Trabalhista</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Defesa dos seus direitos nas relacoes de trabalho e emprego.</p></div></div><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#FFFFFF;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#093170;margin-bottom:6px;font-family:'Outfit', sans-serif;">Direito Previdenciario</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Aposentadorias, beneficios e revisoes junto ao INSS.</p></div></div><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#FFFFFF;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#093170;margin-bottom:6px;font-family:'Outfit', sans-serif;">Direito de Familia</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Divorcio, guarda, inventario e questoes familiares.</p></div></div><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#FFFFFF;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#093170;margin-bottom:6px;font-family:'Outfit', sans-serif;">Direito Tributario</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Planejamento e defesa em questoes fiscais e tributarias.</p></div></div><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#FFFFFF;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#093170;margin-bottom:6px;font-family:'Outfit', sans-serif;">Direito Civil</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Contratos, indenizacoes e questoes civis em geral.</p></div></div><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#FFFFFF;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#093170;margin-bottom:6px;font-family:'Outfit', sans-serif;">Direito do Consumidor</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Protecao e defesa dos seus direitos como consumidor.</p></div></div><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#FFFFFF;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#093170;margin-bottom:6px;font-family:'Outfit', sans-serif;">Consultoria Juridica</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Crimson Pro', serif;">Orientacao preventiva para empresas e pessoas fisicas.</p></div></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#0D47A1;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="1800" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Outfit', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Casos Resolvidos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="94" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Outfit', sans-serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Taxa de Exito</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="15" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Outfit', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Anos de Atuacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="2000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Outfit', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Crimson Pro', serif;">Clientes Atendidos</div></div>
+    <div class="hero-right">
+      <div class="h-card"><strong>15 anos</strong><span>No mercado</span></div>
+      <div class="h-card"><strong>+1.000</strong><span>Clientes atendidos</span></div>
+      <div class="h-card"><strong>6</strong><span>Advogados especializados</span></div>
+      <div class="h-card"><strong>91%</strong><span>Taxa de exito</span></div>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#0D47A1;">
-  <div class="section-inner reveal">
-    <div style="position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=800&fit=crop&q=80');background-size:cover;background-position:center;opacity:0.08;"></div>
-  <div style="position:relative;z-index:2;text-align:center;max-width:760px;margin:0 auto;padding:80px 40px;">
-    <div style="font-size:120px;font-weight:900;color:#FFFFFF;line-height:0.6;margin-bottom:32px;font-family:'Outfit', sans-serif;">"</div>
-    <p style="font-size:clamp(20px,2.5vw,30px);font-weight:600;color:#ffffff;line-height:1.5;margin-bottom:32px;font-family:'Outfit', sans-serif;">Nosso escritorio de advocacia atua com comprometimento e etica para garantir os melhores resultados aos nossos clientes</p>
-    <p style="font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#FFFFFF;margin-bottom:48px;">— Lima e Souza Advocacia</p>
-    <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
-      <div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#FFFFFF;">1.800+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Casos Resolvidos</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#FFFFFF;">94%</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Taxa de Exito</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#FFFFFF;">15+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Anos de Atuacao</div></div>
+<section class="areas">
+  <div class="s-label reveal">Praticas</div>
+  <h2 class="s-titulo reveal">Areas de atuacao</h2>
+  <p class="s-sub reveal">Cobertura juridica completa para todas as suas necessidades, com advogados especializados em cada area.</p>
+  <div class="areas-grid">
+    <div class="a-card reveal">
+      <div class="a-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D47A1" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg></div>
+      <h3 class="a-titulo">Trabalhista</h3>
+      <p class="a-desc">Reclamacoes, acordos, demissoes e defesa de empresas em acoes trabalhistas.</p>
+    </div>
+    <div class="a-card reveal">
+      <div class="a-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D47A1" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+      <h3 class="a-titulo">Familia</h3>
+      <p class="a-desc">Divorcio, guarda, pensao, inventario e regularizacao do estado familiar.</p>
+    </div>
+    <div class="a-card reveal">
+      <div class="a-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D47A1" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h3 class="a-titulo">Civil</h3>
+      <p class="a-desc">Contratos, responsabilidade civil, indenizacoes e disputas patrimoniais.</p>
+    </div>
+    <div class="a-card reveal">
+      <div class="a-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D47A1" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg></div>
+      <h3 class="a-titulo">Empresarial</h3>
+      <p class="a-desc">Contratos empresariais, abertura, reestruturacao e protecao juridica corporativa.</p>
+    </div>
+    <div class="a-card reveal">
+      <div class="a-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D47A1" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+      <h3 class="a-titulo">Imobiliario</h3>
+      <p class="a-desc">Compra, venda, locacao e regularizacao de imoveis urbanos e rurais.</p>
+    </div>
+    <div class="a-card reveal">
+      <div class="a-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0D47A1" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+      <h3 class="a-titulo">Previdenciario</h3>
+      <p class="a-desc">Aposentadorias, auxilio-doenca, BPC e recursos junto ao INSS.</p>
     </div>
   </div>
-</div>
-  </div>
 </section>
 
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Crimson Pro', serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#093170;font-family:'Outfit', sans-serif;">O que dizem nossos clientes</h2>
+<section class="diferenciais">
+  <div class="dif-grid">
+    <div class="dif-img reveal">
+      <img src="https://placehold.co/600x450/1565C0/E3F2FD?text=Lima+%26+Souza+Advocacia" alt="Lima e Souza Advocacia">
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"Resolveram meu caso com agilidade e competencia. Recomendo muito."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b6c7e2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0D47A1;font-size:14px;">P</div><div><div style="font-weight:700;font-size:14px;color:#093170;font-family:'Outfit', sans-serif;">Paulo S.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"Profissionais serios e dedicados. Ganhamos a causa."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b6c7e2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0D47A1;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#093170;font-family:'Outfit', sans-serif;">Marcia T.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Crimson Pro', serif;">"Atendimento humanizado e explicacao clara de todos os passos."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b6c7e2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0D47A1;font-size:14px;">A</div><div><div style="font-weight:700;font-size:14px;color:#093170;font-family:'Outfit', sans-serif;">Andre F.</div><div style="font-size:12px;color:#888;font-family:'Crimson Pro', serif;">Cliente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#0D47A1"/></svg>
-  <div style="background:#0D47A1;padding:40px 40px 80px;text-align:center;color:#ffffff;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Crimson Pro', serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'Outfit', sans-serif;">Solicite uma consulta</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Crimson Pro', serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562995276043" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/limasouza.adv/" style="display:inline-block;border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#0a3880;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Outfit', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Lima e Souza Advocacia</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Crimson Pro', serif;">Centro, Senador Canedo</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562995276043" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/limasouza.adv/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <div>
+      <div class="s-label reveal">Nossos diferenciais</div>
+      <h2 class="s-titulo reveal">Por que o Lima e Souza e a escolha certa</h2>
+      <div class="dif-itens">
+        <div class="dif-item reveal">
+          <div class="dif-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A2A5C" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg></div>
+          <div class="dif-txt"><strong>Consultoria preventiva inclusa</strong><span>Ajudamos a evitar problemas juridicos antes que acontecam, economizando tempo e dinheiro.</span></div>
         </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Outfit', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Crimson Pro', serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
+        <div class="dif-item reveal">
+          <div class="dif-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A2A5C" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg></div>
+          <div class="dif-txt"><strong>Comunicacao direta e clara</strong><span>Voce recebe atualizacoes regulares e pode falar diretamente com seu advogado.</span></div>
         </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Outfit', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Crimson Pro', serif;">
-          (62) 99527-6043<br>
-          <a href="https://wa.me/5562995276043" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/limasouza.adv/' style='color:inherit;text-decoration:none;'>Instagram</a>
+        <div class="dif-item reveal">
+          <div class="dif-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A2A5C" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg></div>
+          <div class="dif-txt"><strong>Equipe especializada por area</strong><span>Cada caso e conduzido pelo especialista mais qualificado dentro do escritorio.</span></div>
+        </div>
+        <div class="dif-item reveal">
+          <div class="dif-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A2A5C" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg></div>
+          <div class="dif-txt"><strong>Honorarios transparentes</strong><span>Sem surpresas. Acordamos os honorarios antes de iniciar qualquer trabalho.</span></div>
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Crimson Pro', serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="depo">
+  <div class="s-label reveal">Clientes</div>
+  <h2 class="s-titulo reveal">Quem confia no Lima e Souza</h2>
+  <div class="depo-grid">
+    <div class="d-card reveal">
+      <div class="d-aspas">"</div>
+      <p class="d-texto">Resolveram minha disputa societaria com rapidez e resultado excelente. Equipe de alto nivel e muito profissional.</p>
+      <div class="d-autor"><strong>Gustavo Moraes</strong><span>Direito Empresarial</span></div>
+    </div>
+    <div class="d-card reveal">
+      <div class="d-aspas">"</div>
+      <p class="d-texto">O inventario da familia que estava parado ha anos foi concluido em 5 meses. Atencao e competencia impecaveis.</p>
+      <div class="d-autor"><strong>Cecilia Fontes</strong><span>Familia e Sucessoes</span></div>
+    </div>
+    <div class="d-card reveal">
+      <div class="d-aspas">"</div>
+      <p class="d-texto">Ganhei minha reclamacao trabalhista e recebi todos os valores atrasados. Recomendo o Lima e Souza sem hesitar.</p>
+      <div class="d-autor"><strong>Marcos Abreu</strong><span>Direito Trabalhista</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final reveal">
+  <h2>Pronto para resolver sua questao juridica?</h2>
+  <p>Fale agora com nosso time. Consulta inicial gratuita e sem compromisso.</p>
+  <a class="cta-btn" href="https://wa.me/5562995276043" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Falar com Lima e Souza agora
+  </a>
+</section>
+
+<footer>
+  <p><strong>Lima e Souza Advocacia</strong> &mdash; Goiania, GO</p>
+  <p>OAB/GO &mdash; Fundado em 2010</p>
 </footer>
 
-<a href="https://wa.me/5562995276043" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

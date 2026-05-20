@@ -2,206 +2,271 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Saúde Mais Trindade — Trindade</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saude Mais Trindade</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,400;0,600;1,400&family=Josefin+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Josefin Sans', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#00897B;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Josefin Slab', serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Josefin Sans', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#E0F2F1;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Josefin Sans', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#00897B;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root {
+  --trindade-teal:#00897B;
+  --trindade-verde:#26A69A;
+  --trindade-claro:#E0F2F1;
+  --trindade-fundo:#F7FEFE;
+  --trindade-texto:#00352E;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;color:var(--trindade-texto);background:#fff}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.98);border-bottom:2px solid var(--trindade-teal)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;color:var(--trindade-teal)}
+.logo-icon{width:32px;height:32px;background:var(--trindade-teal);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{width:18px;height:18px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--trindade-texto);text-decoration:none;opacity:0.65;transition:opacity 0.2s}
+.nav-links a:hover{opacity:1}
+.nav-btn{background:var(--trindade-teal);color:#fff;text-decoration:none;padding:10px 22px;border-radius:6px;font-size:13px;font-weight:700;transition:background 0.2s}
+.nav-btn:hover{background:var(--trindade-verde)}
+/* HERO */
+.hero{min-height:100vh;background:var(--trindade-teal);display:grid;grid-template-columns:1fr 1fr;padding-top:60px;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px;position:relative;overflow:hidden}
+.hero-wave{position:absolute;right:-100px;bottom:-100px;width:400px;height:400px;border-radius:50%;border:2px solid rgba(255,255,255,0.08)}
+.hero-wave2{position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;border-radius:50%;border:2px solid rgba(255,255,255,0.06)}
+.hero-tag{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:20px}
+.hero h1{font-family:'Lora',serif;font-size:clamp(44px,5.5vw,70px);font-weight:600;line-height:1.1;color:#fff;margin-bottom:16px}
+.hero h1 em{font-style:italic;display:block;color:rgba(255,255,255,0.65);font-size:0.55em;font-weight:400;margin-bottom:8px}
+.hero-desc{font-size:16px;font-weight:300;color:rgba(255,255,255,0.75);line-height:1.8;max-width:400px;margin-bottom:36px}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--trindade-teal);text-decoration:none;padding:14px 28px;border-radius:8px;font-size:14px;font-weight:700;transition:transform 0.2s}
+.hero-cta:hover{transform:translateY(-2px)}
+.hero-cta svg{width:18px;height:18px;fill:currentColor}
+.hero-right{background:var(--trindade-fundo);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px 48px;gap:24px}
+.hero-img{width:100%;max-width:420px;height:300px;object-fit:cover;border-radius:12px}
+.hero-stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;max-width:420px}
+.h-stat{background:#fff;border-radius:10px;padding:18px;box-shadow:0 4px 16px rgba(0,137,123,0.08)}
+.h-stat-num{font-family:'Lora',serif;font-size:28px;font-weight:600;color:var(--trindade-teal);line-height:1;margin-bottom:4px}
+.h-stat-lbl{font-size:11px;font-weight:600;color:#888}
+/* SERVICES */
+.services{padding:100px 60px;background:#fff}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--trindade-verde);margin-bottom:10px}
+.section-title{font-family:'Lora',serif;font-size:clamp(28px,4vw,44px);font-weight:600;color:var(--trindade-texto);margin-bottom:56px;line-height:1.2}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.svc-card{background:var(--trindade-fundo);border-radius:12px;padding:32px 24px;border-top:4px solid var(--trindade-claro);transition:border-top-color 0.25s,transform 0.25s}
+.svc-card:hover{border-top-color:var(--trindade-teal);transform:translateY(-4px)}
+.svc-icon{width:44px;height:44px;background:var(--trindade-claro);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.svc-icon svg{width:22px;height:22px}
+.svc-card h3{font-size:15px;font-weight:700;color:var(--trindade-texto);margin-bottom:8px}
+.svc-card p{font-family:'Lora',serif;font-size:14px;color:#666;line-height:1.7}
+/* DIFFERENTIALS */
+.differentials{padding:100px 60px;background:var(--trindade-claro)}
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.diff-img{width:100%;height:440px;object-fit:cover;border-radius:16px}
+.diff-content .section-title{margin-bottom:24px}
+.diff-text{font-family:'Lora',serif;font-size:16px;color:#555;line-height:1.9;margin-bottom:28px}
+.diff-list{display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.diff-item{display:flex;align-items:center;gap:12px;background:#fff;border-radius:8px;padding:12px 16px}
+.diff-item svg{width:18px;height:18px;flex-shrink:0}
+.diff-item span{font-size:14px;font-weight:600;color:var(--trindade-texto)}
+.btn-cta{display:inline-flex;align-items:center;gap:10px;background:var(--trindade-teal);color:#fff;text-decoration:none;padding:14px 28px;border-radius:8px;font-size:14px;font-weight:700;transition:background 0.2s}
+.btn-cta:hover{background:var(--trindade-verde)}
+.btn-cta svg{width:18px;height:18px;fill:currentColor}
+/* CONTACT */
+.contact{padding:100px 60px;background:var(--trindade-teal)}
+.contact .section-eyebrow{color:rgba(255,255,255,0.6)}
+.contact .section-title{color:#fff;margin-bottom:48px}
+.contact-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:880px}
+.info-item{background:rgba(255,255,255,0.08);border-radius:10px;padding:24px;display:flex;gap:14px}
+.info-icon{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+.info-item strong{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.5);display:block;margin-bottom:6px}
+.info-item p{font-family:'Lora',serif;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6}
+.cta-box{background:#fff;border-radius:12px;padding:36px;grid-column:1/-1}
+.cta-box h3{font-family:'Lora',serif;font-size:24px;font-weight:600;color:var(--trindade-teal);margin-bottom:10px}
+.cta-box p{font-family:'Lora',serif;font-size:15px;color:#555;line-height:1.7;margin-bottom:24px}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;padding:14px 28px;border-radius:8px;font-size:14px;font-weight:700;transition:transform 0.2s}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-wa svg{width:18px;height:18px;fill:currentColor}
+/* FOOTER */
+footer{background:#00352E;padding:24px 60px;display:flex;justify-content:space-between;align-items:center}
+footer p{font-size:12px;color:rgba(255,255,255,0.4)}
+footer strong{color:rgba(255,255,255,0.7)}
+/* FLOAT WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  .nav-links,.nav-btn{display:none}
+  .hero{grid-template-columns:1fr;padding-top:60px}
+  .hero-right{display:none}
+  .hero-left{padding:60px 24px}
+  .services,.differentials,.contact{padding:60px 24px}
+  .diff-grid{grid-template-columns:1fr}
+  .contact-cols{grid-template-columns:1fr}
+  .cta-box{grid-column:1}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Saúde Mais Trindade</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 18 18" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"><path d="M9 2v14M2 9h14"/></svg>
+    </div>
+    Saude Mais Trindade
   </div>
-  <a href="https://wa.me/5562990614283" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <ul class="nav-links">
+    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#sobre">Diferenciais</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5562990614283" class="nav-btn">Agendar</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#00897B;min-height:100vh;display:flex;align-items:center;">
-  <div style="max-width:1200px;margin:0 auto;padding:80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-    <div style="color:#ffffff;">
-      <p style="font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#E0F2F1;margin-bottom:16px;font-family:'Josefin Sans', sans-serif;">Bem-vindo</p>
-      <h1 style="font-size:clamp(36px,4vw,58px);font-weight:800;line-height:1.15;margin-bottom:20px;font-family:'Josefin Slab', serif;">Cuidado medico que voce merece</h1>
-      <p style="font-size:18px;opacity:0.85;line-height:1.7;margin-bottom:40px;font-family:'Josefin Sans', sans-serif;">Atendimento medico no Centro de Trindade</p>
-      <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:40px;">
-        <div><div style="font-size:26px;font-weight:800;color:#E0F2F1;">15.000+</div><div style="font-size:12px;opacity:0.7;letter-spacing:1px;text-transform:uppercase;">Consultas</div></div><div><div style="font-size:26px;font-weight:800;color:#E0F2F1;">12</div><div style="font-size:12px;opacity:0.7;letter-spacing:1px;text-transform:uppercase;">Especialidades</div></div><div><div style="font-size:26px;font-weight:800;color:#E0F2F1;">10+</div><div style="font-size:12px;opacity:0.7;letter-spacing:1px;text-transform:uppercase;">Anos de Atuacao</div></div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-wave"></div>
+    <div class="hero-wave2"></div>
+    <p class="hero-tag">Clinica de Saude — Trindade, GO</p>
+    <h1><em>Cuidado</em>Saude<br>Mais</h1>
+    <p class="hero-desc">A clinica de saude mais completa de Trindade. Atendimento medico humanizado, com agendamento facil e equipe dedicada ao seu bem-estar.</p>
+    <a href="https://wa.me/5562990614283" class="hero-cta">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Marcar Consulta
+    </a>
+  </div>
+  <div class="hero-right">
+    <img src="https://placehold.co/420x300/E0F2F1/00897B?text=Saude+Mais" alt="Saude Mais Trindade" class="hero-img">
+    <div class="hero-stats-grid">
+      <div class="h-stat">
+        <div class="h-stat-num">8+</div>
+        <div class="h-stat-lbl">Anos em Trindade</div>
       </div>
-      <a href="https://wa.me/5562990614283" style="display:inline-block;background:#E0F2F1;color:#0a0a0a;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-    </div>
-    <div style="position:relative;display:flex;align-items:center;justify-content:center;">
-      <div style="position:absolute;width:500px;height:500px;border:2px solid rgba(224,242,241,0.2);border-radius:50%;"></div>
-      <div style="position:absolute;width:460px;height:460px;border:2px solid rgba(224,242,241,0.1);border-radius:50%;"></div>
-      <div style="width:420px;height:420px;border-radius:50%;overflow:hidden;position:relative;z-index:2;"><img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&h=800&fit=crop&q=80" alt="Saúde Mais Trindade" style="width:100%;height:100%;object-fit:cover;"></div>
-    </div>
-  </div>
-</section>
-<style>@media(max-width:768px){section .hero > div > div{grid-template-columns:1fr!important;}section .hero [style*="500px"]{display:none;}}</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#E0F2F1;margin-bottom:12px;font-family:'Josefin Sans', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#005f56;font-family:'Josefin Slab', serif;">O que fazemos</h2>
-    </div>
-    <div style="max-width:700px;"><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#E0F2F1;opacity:0.3;line-height:1;min-width:80px;font-family:'Josefin Slab', serif;">01</div><div><h3 style="font-size:20px;font-weight:700;color:#005f56;margin-bottom:8px;font-family:'Josefin Slab', serif;">Clinica Geral</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Josefin Sans', sans-serif;">Atendimento medico completo para adultos e idosos.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#E0F2F1;opacity:0.3;line-height:1;min-width:80px;font-family:'Josefin Slab', serif;">02</div><div><h3 style="font-size:20px;font-weight:700;color:#005f56;margin-bottom:8px;font-family:'Josefin Slab', serif;">Check-up Completo</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Josefin Sans', sans-serif;">Avaliacao geral da saude com exames e orientacoes.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#E0F2F1;opacity:0.3;line-height:1;min-width:80px;font-family:'Josefin Slab', serif;">03</div><div><h3 style="font-size:20px;font-weight:700;color:#005f56;margin-bottom:8px;font-family:'Josefin Slab', serif;">Telemedicina</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Josefin Sans', sans-serif;">Consultas online com a comodidade da sua casa.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#E0F2F1;opacity:0.3;line-height:1;min-width:80px;font-family:'Josefin Slab', serif;">04</div><div><h3 style="font-size:20px;font-weight:700;color:#005f56;margin-bottom:8px;font-family:'Josefin Slab', serif;">Saude da Mulher</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Josefin Sans', sans-serif;">Ginecologia e acompanhamento especializado feminino.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#E0F2F1;opacity:0.3;line-height:1;min-width:80px;font-family:'Josefin Slab', serif;">05</div><div><h3 style="font-size:20px;font-weight:700;color:#005f56;margin-bottom:8px;font-family:'Josefin Slab', serif;">Pediatria</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Josefin Sans', sans-serif;">Cuidado medico especializado para criancas e adolescentes.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#E0F2F1;opacity:0.3;line-height:1;min-width:80px;font-family:'Josefin Slab', serif;">06</div><div><h3 style="font-size:20px;font-weight:700;color:#005f56;margin-bottom:8px;font-family:'Josefin Slab', serif;">Pequenas Cirurgias</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Josefin Sans', sans-serif;">Procedimentos ambulatoriais com seguranca e conforto.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#E0F2F1;opacity:0.3;line-height:1;min-width:80px;font-family:'Josefin Slab', serif;">07</div><div><h3 style="font-size:20px;font-weight:700;color:#005f56;margin-bottom:8px;font-family:'Josefin Slab', serif;">Medicina Preventiva</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Josefin Sans', sans-serif;">Prevencao de doencas e promocao da saude e bem-estar.</p></div></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#00897B;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="15000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#E0F2F1;font-family:'Josefin Slab', serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Josefin Sans', sans-serif;">Consultas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#E0F2F1;font-family:'Josefin Slab', serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Josefin Sans', sans-serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="10" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#E0F2F1;font-family:'Josefin Slab', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Josefin Sans', sans-serif;">Anos de Atuacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="3500" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#E0F2F1;font-family:'Josefin Slab', serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Josefin Sans', sans-serif;">Pacientes</div></div>
+      <div class="h-stat">
+        <div class="h-stat-num">3K+</div>
+        <div class="h-stat-lbl">Pacientes</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-num">12</div>
+        <div class="h-stat-lbl">Especialidades</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-num">4.8</div>
+        <div class="h-stat-lbl">Google Rating</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
-<img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&h=800&fit=crop&q=80" alt="Saúde Mais Trindade" style="border-radius:20px;width:100%;height:480px;object-fit:cover;">
-<div>
-  <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#E0F2F1;margin-bottom:12px;font-family:'Josefin Sans', sans-serif;">Sobre nos</p>
-  <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#005f56;margin-bottom:20px;line-height:1.2;font-family:'Josefin Slab', serif;">Saúde Mais Trindade</h2>
-  <p style="font-size:16px;color:#555;line-height:1.8;margin-bottom:28px;font-family:'Josefin Sans', sans-serif;">Nossa clinica medica oferece atendimento humanizado e de qualidade para cuidar da sua saude com dedicacao. Contamos com medicos especializados e infraestrutura moderna para proporcionar o melhor cuidado possivel.</p>
-  <div style="display:flex;gap:16px;flex-wrap:wrap;">
-    <div style="background:#f8fcfc;color:#b3c1c0;padding:10px 20px;border-radius:50px;font-size:13px;font-weight:700;">15.000+ Consultas</div>
-    <div style="background:#d8edeb;color:#006d62;padding:10px 20px;border-radius:50px;font-size:13px;font-weight:700;">12 Especialidades</div>
-  </div>
-</div></div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#E0F2F1;margin-bottom:12px;font-family:'Josefin Sans', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#005f56;font-family:'Josefin Slab', serif;">O que dizem nossos clientes</h2>
+<section class="services" id="servicos">
+  <p class="section-eyebrow reveal">Especialidades</p>
+  <h2 class="section-title reveal">Atendimento Completo<br>para sua Familia</h2>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <div class="svc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#00897B" stroke-width="1.5" stroke-linecap="round"><path d="M11 2v18M2 11h18"/><circle cx="11" cy="11" r="9"/></svg></div>
+      <h3>Clinica Geral</h3>
+      <p>Consultas medicas para adultos e criancas com avaliacao completa e prescricao de tratamentos.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Josefin Sans', sans-serif;">"Medico atencioso e dedicado. Me sinto em boas maos."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2dbd7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#00897B;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#005f56;font-family:'Josefin Slab', serif;">Silvia A.</div><div style="font-size:12px;color:#888;font-family:'Josefin Sans', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Josefin Sans', sans-serif;">"Atendimento rapido e profissional de alta qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2dbd7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#00897B;font-size:14px;">E</div><div><div style="font-weight:700;font-size:14px;color:#005f56;font-family:'Josefin Slab', serif;">Eduardo R.</div><div style="font-size:12px;color:#888;font-family:'Josefin Sans', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Josefin Sans', sans-serif;">"Clinica moderna e equipe muito atenciosa e humanizada."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2dbd7;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#00897B;font-size:14px;">P</div><div><div style="font-weight:700;font-size:14px;color:#005f56;font-family:'Josefin Slab', serif;">Patricia L.</div><div style="font-size:12px;color:#888;font-family:'Josefin Sans', sans-serif;">Paciente</div></div></div></div></div>
+    <div class="svc-card reveal">
+      <div class="svc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#00897B" stroke-width="1.5" stroke-linecap="round"><path d="M11 4a4 4 0 100 8 4 4 0 000-8zM3 18a8 8 0 0116 0"/></svg></div>
+      <h3>Pediatria</h3>
+      <p>Cuidado especializado para bebes e criancas com medico pediatra experiente e acolhedor.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#00897B" stroke-width="1.5" stroke-linecap="round"><path d="M8 4h6v4H8V4zM6 8h10l2 12H4L6 8z"/></svg></div>
+      <h3>Nutricao</h3>
+      <p>Orientacao nutricional para emagrecimento, saude metabolica e qualidade de vida.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#00897B" stroke-width="1.5" stroke-linecap="round"><path d="M11 2C6.5 2 3 5.5 3 10s4.5 10 8 10 8-5.5 8-10S15.5 2 11 2z"/><path d="M11 7v4l3 3"/></svg></div>
+      <h3>Saude Mental</h3>
+      <p>Psicologia clinica e psiquiatria com atendimento humanizado e sigiloso.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#00897B" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h12M12 5l7 7-7 7"/></svg></div>
+      <h3>Exames Laboratoriais</h3>
+      <p>Coleta de exames de sangue, urina e outros com resultados rapidos e online.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#00897B" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l8-6 8 6v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path d="M9 20V12h4v8"/></svg></div>
+      <h3>Vacinacao</h3>
+      <p>Calendario vacinal completo para todas as idades com sala de vacinacao proprio.</p>
+    </div>
   </div>
 </section>
 
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="background:#E0F2F1;border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;">
-  <div style="padding:64px 48px;color:#0a0a0a;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;opacity:0.7;margin-bottom:16px;font-family:'Josefin Sans', sans-serif;">Contato</p>
-    <h2 style="font-size:clamp(26px,3.5vw,44px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Josefin Slab', serif;">Agende sua consulta</h2>
-    <p style="font-size:16px;opacity:0.85;line-height:1.7;font-family:'Josefin Sans', sans-serif;">Entre em contato e receba atendimento personalizado.</p>
-  </div>
-  <div style="background:#fff;padding:48px;display:flex;flex-direction:column;gap:16px;justify-content:center;">
-    <a href="https://wa.me/5562990614283" style="display:block;background:#25D366;color:#fff;padding:16px 24px;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none;text-align:center;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/saudemais.trindade/" style="display:block;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:14px 24px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;text-align:center;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#006d62;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Josefin Slab', serif;font-weight:800;font-size:20px;margin-bottom:8px;">Saúde Mais Trindade</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Josefin Sans', sans-serif;">Centro, Trindade</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562990614283" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/saudemais.trindade/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+<section class="differentials" id="sobre">
+  <div class="diff-grid">
+    <img src="https://placehold.co/520x440/B2DFDB/00897B?text=Clinica+Trindade" alt="Saude Mais Trindade" class="reveal">
+    <div class="diff-content">
+      <p class="section-eyebrow reveal">Por que nos escolher</p>
+      <h2 class="section-title reveal">A Clinica que<br>Trindade Confia</h2>
+      <p class="diff-text reveal">Ha mais de 8 anos a Saude Mais e a clinica de referencia em Trindade. Equipe medica completa, estrutura moderna e atendimento que coloca o paciente em primeiro lugar.</p>
+      <div class="diff-list reveal">
+        <div class="diff-item">
+          <svg viewBox="0 0 18 18" fill="none" stroke="#00897B" stroke-width="1.5"><path d="M4 9l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Agendamento rapido pelo WhatsApp</span>
+        </div>
+        <div class="diff-item">
+          <svg viewBox="0 0 18 18" fill="none" stroke="#00897B" stroke-width="1.5"><path d="M4 9l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Resultados de exames online</span>
+        </div>
+        <div class="diff-item">
+          <svg viewBox="0 0 18 18" fill="none" stroke="#00897B" stroke-width="1.5"><path d="M4 9l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Equipe multidisciplinar em um so lugar</span>
+        </div>
+        <div class="diff-item">
+          <svg viewBox="0 0 18 18" fill="none" stroke="#00897B" stroke-width="1.5"><path d="M4 9l3 3 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Estacionamento gratuito para pacientes</span>
         </div>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Josefin Slab', serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Josefin Sans', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Josefin Slab', serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Josefin Sans', sans-serif;">
-          (62) 99061-4283<br>
-          <a href="https://wa.me/5562990614283" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/saudemais.trindade/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
+      <a href="https://wa.me/5562990614283" class="btn-cta reveal">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Josefin Sans', sans-serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="contact" id="contato">
+  <p class="section-eyebrow reveal">Fale Conosco</p>
+  <h2 class="section-title reveal">Estamos em<br>Trindade para voce</h2>
+  <div class="contact-cols">
+    <div class="info-item reveal">
+      <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M10 2C6.686 2 4 4.686 4 8c0 5 6 10 6 10s6-5 6-10c0-3.314-2.686-6-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" fill="rgba(255,255,255,0.6)"/></svg>
+      <div><strong>Endereco</strong><p>R. Padre Joao, 820 — Centro<br>Trindade, GO</p></div>
+    </div>
+    <div class="info-item reveal">
+      <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm3 1v2h10V5H5zm0 4v2h10V9H5zm0 4v2h6v-2H5z" fill="rgba(255,255,255,0.6)"/></svg>
+      <div><strong>Horario</strong><p>Seg a Sex: 07h00 — 19h00<br>Sabado: 08h00 — 13h00</p></div>
+    </div>
+    <div class="cta-box reveal">
+      <h3>Pronto para cuidar de voce</h3>
+      <p>Agende sua consulta agora pelo WhatsApp. Resposta rapida e atendimento preferencial.</p>
+      <a href="https://wa.me/5562990614283" class="btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Chamar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Saude Mais Trindade</strong> — R. Padre Joao, 820 — Trindade, GO</p>
+  <p>Desenvolvido por <strong>VANT Digital Studio</strong></p>
 </footer>
 
-<a href="https://wa.me/5562990614283" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562990614283" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

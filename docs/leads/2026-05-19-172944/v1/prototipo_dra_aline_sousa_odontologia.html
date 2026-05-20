@@ -2,184 +2,259 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Dra. Aline Sousa Odontologia — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Aline Sousa Odontologia — Goiânia GO</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#2563EB;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'DM Serif Display', serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'DM Sans', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#BFDBFE;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'DM Sans', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#2563EB;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --azul: #2563EB;
+  --azul-claro: #BFDBFE;
+  --azul-medio: #93C5FD;
+  --escuro: #1E3A8A;
+  --texto: #1E293B;
+  --cinza: #64748B;
+  --fundo: #F0F7FF;
+  --branco: #FFFFFF;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+body{font-family:'Space Grotesk',sans-serif;color:var(--texto);background:var(--branco);}
+h1,h2,h3{font-family:'Lora',serif;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--branco);border-bottom:1px solid var(--azul-claro);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;}
+.nav-brand{font-family:'Lora',serif;font-size:1.05rem;color:var(--escuro);font-weight:600;}
+.nav-brand span{color:var(--azul);font-style:italic;}
+.nav-cta{background:var(--azul);color:var(--branco);padding:10px 26px;border-radius:6px;text-decoration:none;font-size:0.84rem;font-weight:600;letter-spacing:0.3px;transition:background 0.2s;}
+.nav-cta:hover{background:var(--escuro);}
+
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;background:var(--branco);}
+.hero-esq{background:var(--escuro);display:flex;flex-direction:column;justify-content:center;padding:120px 56px 80px;position:relative;overflow:hidden;}
+.hero-esq::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;background:rgba(37,99,235,0.15);border-radius:50%;}
+.hero-esq::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;background:rgba(147,197,253,0.1);border-radius:50%;}
+.hero-tag{display:inline-block;background:rgba(37,99,235,0.2);border:1px solid rgba(147,197,253,0.3);color:var(--azul-medio);padding:7px 18px;border-radius:30px;font-size:0.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:30px;}
+.hero h1{font-size:clamp(2.2rem,4vw,3.2rem);color:var(--branco);line-height:1.2;margin-bottom:20px;}
+.hero h1 em{color:var(--azul-medio);font-style:italic;}
+.hero-desc{color:rgba(255,255,255,0.65);line-height:1.8;max-width:400px;margin-bottom:36px;font-family:'Space Grotesk',sans-serif;}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 28px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.88rem;box-shadow:0 4px 20px rgba(37,211,102,0.3);transition:transform 0.2s;}
+.btn-wa:hover{transform:translateY(-2px);}
+.btn-wa svg{width:20px;height:20px;fill:#fff;flex-shrink:0;}
+.hero-dir{display:flex;flex-direction:column;justify-content:center;padding:120px 56px 80px;background:var(--fundo);}
+.hero-img-wrap{position:relative;margin-bottom:28px;}
+.hero-img-wrap img{width:100%;border-radius:12px;box-shadow:0 20px 60px rgba(30,58,138,0.12);}
+.hero-badge{position:absolute;bottom:-14px;left:20px;background:var(--azul);color:var(--branco);padding:12px 20px;border-radius:8px;font-size:0.8rem;font-weight:600;box-shadow:0 6px 24px rgba(37,99,235,0.3);}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.stat-box{background:var(--branco);border:1px solid var(--azul-claro);border-radius:10px;padding:18px;text-align:center;}
+.stat-num{font-family:'Lora',serif;font-size:1.8rem;color:var(--azul);font-weight:600;}
+.stat-lab{font-size:0.75rem;color:var(--cinza);font-weight:500;margin-top:4px;}
+
+section{padding:88px 24px;}
+.wrap{max-width:1100px;margin:0 auto;}
+.sec-top{text-align:center;margin-bottom:56px;}
+.sec-label{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--azul);font-weight:600;display:block;margin-bottom:10px;}
+.sec-top h2{font-size:clamp(1.9rem,3vw,2.6rem);color:var(--escuro);margin-bottom:14px;}
+.sec-top p{color:var(--cinza);max-width:520px;margin:0 auto;line-height:1.7;}
+
+.servicos{background:var(--fundo);}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.srv-card{background:var(--branco);border-radius:12px;padding:32px 24px;border:1px solid var(--azul-claro);transition:box-shadow 0.2s,transform 0.2s;}
+.srv-card:hover{box-shadow:0 10px 32px rgba(37,99,235,0.1);transform:translateY(-3px);}
+.srv-icon{width:48px;height:48px;background:var(--azul-claro);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.srv-icon svg{width:24px;height:24px;stroke:var(--azul);fill:none;stroke-width:2;}
+.srv-card h3{font-family:'Lora',serif;font-size:1.05rem;color:var(--escuro);margin-bottom:10px;}
+.srv-card p{font-size:0.84rem;color:var(--cinza);line-height:1.6;}
+
+.sobre{background:var(--branco);}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.sobre-img img{width:100%;border-radius:12px;box-shadow:0 16px 48px rgba(30,58,138,0.1);}
+.sobre-txt .sec-label{text-align:left;}
+.sobre-txt h2{font-size:clamp(1.8rem,3vw,2.4rem);color:var(--escuro);margin-bottom:20px;}
+.sobre-txt p{color:var(--cinza);line-height:1.8;margin-bottom:14px;}
+.diferenciais{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:10px;}
+.diferenciais li{display:flex;align-items:flex-start;gap:10px;font-size:0.9rem;color:var(--texto);}
+.diferenciais li::before{content:'';display:inline-block;width:8px;height:8px;background:var(--azul);border-radius:50%;margin-top:6px;flex-shrink:0;}
+
+.depoimentos{background:var(--escuro);}
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.dep-card{background:rgba(255,255,255,0.05);border:1px solid rgba(147,197,253,0.15);border-radius:12px;padding:28px;}
+.estrelas{color:var(--azul-medio);font-size:0.9rem;margin-bottom:14px;letter-spacing:2px;}
+.dep-card p{font-style:italic;color:rgba(255,255,255,0.75);font-size:0.87rem;line-height:1.7;margin-bottom:18px;}
+.dep-autor{display:flex;align-items:center;gap:10px;}
+.dep-av{width:38px;height:38px;border-radius:50%;background:var(--azul);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:0.85rem;flex-shrink:0;}
+.dep-autor strong{display:block;color:var(--branco);font-size:0.85rem;}
+.dep-autor span{color:rgba(147,197,253,0.7);font-size:0.74rem;}
+
+.cta-final{background:var(--azul);text-align:center;padding:80px 24px;}
+.cta-final h2{font-size:clamp(2rem,4vw,3rem);color:var(--branco);margin-bottom:16px;}
+.cta-final p{color:rgba(255,255,255,0.8);max-width:480px;margin:0 auto 36px;line-height:1.7;}
+
+footer{background:var(--escuro);color:rgba(255,255,255,0.5);padding:48px 24px 24px;text-align:center;}
+.footer-nome{font-family:'Lora',serif;font-size:1.3rem;color:var(--azul-claro);margin-bottom:8px;}
+footer p{font-size:0.84rem;margin-bottom:5px;}
+footer a{color:var(--azul-medio);text-decoration:none;}
+.footer-copy{margin-top:24px;border-top:1px solid rgba(255,255,255,0.1);padding-top:18px;font-size:0.76rem;}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);animation:pulse-wa 2s infinite;}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff;}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s;}
+.reveal.visible{opacity:1;transform:none;}
+
+@media(max-width:768px){
+  .hero,.sobre-grid{grid-template-columns:1fr;}
+  .hero-esq{padding:100px 28px 60px;}
+  .hero-dir{padding:48px 28px;}
+  .srv-grid,.dep-grid{grid-template-columns:1fr;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Dra. Aline Sousa Odontologia</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </div>
-  <a href="https://wa.me/5562994826193" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<nav>
+  <div class="nav-brand">Dra. <span>Aline Sousa</span> — Odontologia</div>
+  <a href="https://wa.me/5562994826193" class="nav-cta" target="_blank">Agendar Consulta</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#2563EB;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(100px,18vw,220px);font-weight:900;color:#ffffff;opacity:0.04;pointer-events:none;white-space:nowrap;font-family:'DM Serif Display', serif;">DRA.</div>
-  <div style="position:relative;z-index:2;text-align:center;color:#ffffff;max-width:720px;padding:40px 24px;">
-    <h1 style="font-size:clamp(40px,6vw,76px);font-weight:800;line-height:1.1;margin-bottom:24px;font-family:'DM Serif Display', serif;">Seu sorriso e nossa arte</h1>
-    <p style="font-size:20px;opacity:0.85;line-height:1.6;margin-bottom:48px;font-family:'DM Sans', sans-serif;">Odontologia especializada em Goiânia</p>
-    <a href="https://wa.me/5562994826193" style="display:inline-block;background:#BFDBFE;color:#0a0a0a;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
+<section class="hero" style="padding:0;">
+  <div class="hero-esq">
+    <div class="hero-tag">Odontologia — Goiânia, GO</div>
+    <h1>Seu sorriso merece cuidado <em>especializado</em></h1>
+    <p class="hero-desc">A Dra. Aline Sousa combina técnica refinada com atendimento humanizado para transformar sorrisos em Goiânia. Cada consulta é uma experiência de confiança.</p>
+    <a href="https://wa.me/5562994826193" class="btn-wa" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Falar no WhatsApp
+    </a>
   </div>
-</section>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#BFDBFE;margin-bottom:12px;font-family:'DM Sans', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#1945a4;font-family:'DM Serif Display', serif;">O que fazemos</h2>
+  <div class="hero-dir">
+    <div class="hero-img-wrap">
+      <img src="https://placehold.co/480x340/2563EB/BFDBFE?text=Dra.+Aline+Sousa%0AOdontologia" alt="Dra. Aline Sousa Odontologia">
+      <div class="hero-badge">CRO-GO Certificada</div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#eff6fe;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#BFDBFE" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#163b8d;font-family:'DM Serif Display', serif;">Clareamento Dental</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'DM Sans', sans-serif;">Sorriso mais branco e luminoso com tecnologia segura e eficaz.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#eff6fe;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#BFDBFE" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#163b8d;font-family:'DM Serif Display', serif;">Facetas de Porcelana</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'DM Sans', sans-serif;">Transforme seu sorriso com facetas ultrafinas e naturais.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#eff6fe;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#BFDBFE" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#163b8d;font-family:'DM Serif Display', serif;">Implante Dentario</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'DM Sans', sans-serif;">Substituicao permanente de dentes com estetica e funcao.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#eff6fe;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#BFDBFE" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#163b8d;font-family:'DM Serif Display', serif;">Ortodontia</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'DM Sans', sans-serif;">Alinhamento perfeito com aparelhos modernos e esteticos.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#eff6fe;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#BFDBFE" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#163b8d;font-family:'DM Serif Display', serif;">Tratamento de Canal</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'DM Sans', sans-serif;">Procedimento seguro para salvar seu dente com conforto.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#eff6fe;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#BFDBFE" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#163b8d;font-family:'DM Serif Display', serif;">Proteses Dentarias</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'DM Sans', sans-serif;">Recupere a funcao e estetica com proteses de alta qualidade.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#eff6fe;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#BFDBFE" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#163b8d;font-family:'DM Serif Display', serif;">Odontopediatria</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'DM Sans', sans-serif;">Cuidado especializado para a saude bucal das criancas.</p></div></div><style>.srv-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,0.12)!important;}@media(max-width:768px){.srv-card+.srv-card+.srv-card,.srv-card+.srv-card,.srv-card{}div[style*="repeat(3"]{}}</style>
-  </div>
-</section>
-
-<section id="stats" style="background:#2563EB;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="3200" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#BFDBFE;font-family:'DM Serif Display', serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'DM Sans', sans-serif;">Sorrisos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#BFDBFE;font-family:'DM Serif Display', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'DM Sans', sans-serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="8" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#BFDBFE;font-family:'DM Serif Display', serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'DM Sans', sans-serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="99" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#BFDBFE;font-family:'DM Serif Display', serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'DM Sans', sans-serif;">Satisfacao</div></div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="stat-num">+1.800</div><div class="stat-lab">Sorrisos Transformados</div></div>
+      <div class="stat-box"><div class="stat-num">8 anos</div><div class="stat-lab">Experiência Clínica</div></div>
+      <div class="stat-box"><div class="stat-num">100%</div><div class="stat-lab">Satisfação</div></div>
+      <div class="stat-box"><div class="stat-num">6 esp.</div><div class="stat-lab">Especialidades</div></div>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:48px;"><h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#1945a4;font-family:'DM Serif Display', serif;">Dra. Aline Sousa Odontologia</h2></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#BFDBFE;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#BFDBFE" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#1945a4;margin-bottom:12px;font-family:'DM Serif Display', serif;">Nossa Missao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'DM Sans', sans-serif;">Entregar servicos de excelencia que superam expectativas e transformam a experiencia dos nossos clientes.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#BFDBFE;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#BFDBFE" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#1945a4;margin-bottom:12px;font-family:'DM Serif Display', serif;">Nossa Visao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'DM Sans', sans-serif;">Ser referencia de qualidade e inovacao, reconhecida pela excelencia e pelo impacto positivo que geramos.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#BFDBFE;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#BFDBFE" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#1945a4;margin-bottom:12px;font-family:'DM Serif Display', serif;">Nossos Valores</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'DM Sans', sans-serif;">Etica, transparencia e compromisso guiam cada decisao e cada relacionamento que construimos.</p></div></div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#BFDBFE;margin-bottom:12px;font-family:'DM Sans', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#1945a4;font-family:'DM Serif Display', serif;">O que dizem nossos clientes</h2>
+<section class="servicos">
+  <div class="wrap">
+    <div class="sec-top reveal">
+      <span class="sec-label">Tratamentos</span>
+      <h2>Odontologia completa para você</h2>
+      <p>Da prevenção à reabilitação oral, com tecnologia atual e protocolos modernos em Goiânia.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'DM Sans', sans-serif;">"Meu sorriso mudou completamente. Me sinto muito mais confiante."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#bdd0f9;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#2563EB;font-size:14px;">C</div><div><div style="font-weight:700;font-size:14px;color:#1945a4;font-family:'DM Serif Display', serif;">Carlos M.</div><div style="font-size:12px;color:#888;font-family:'DM Sans', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'DM Sans', sans-serif;">"Atendimento excelente, sem dor e com resultado perfeito."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#bdd0f9;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#2563EB;font-size:14px;">F</div><div><div style="font-weight:700;font-size:14px;color:#1945a4;font-family:'DM Serif Display', serif;">Fernanda L.</div><div style="font-size:12px;color:#888;font-family:'DM Sans', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'DM Sans', sans-serif;">"Profissionais dedicados que realmente se importam com o paciente."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#bdd0f9;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#2563EB;font-size:14px;">R</div><div><div style="font-weight:700;font-size:14px;color:#1945a4;font-family:'DM Serif Display', serif;">Roberto A.</div><div style="font-size:12px;color:#888;font-family:'DM Sans', sans-serif;">Paciente</div></div></div></div></div>
+    <div class="srv-grid">
+      <div class="srv-card reveal">
+        <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 3 1.5 5.5 4 7v4h6v-4c2.5-1.5 4-4 4-7 0-4-3-7-7-7z"/></svg></div>
+        <h3>Clareamento Dental</h3>
+        <p>Sorriso mais branco e luminoso com técnica segura e resultado duradouro.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+        <h3>Facetas de Porcelana</h3>
+        <p>Transforme seu sorriso com facetas ultrafinas, naturais e resistentes.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Implante Dentário</h3>
+        <p>Substituição permanente de dentes com estética e funcionalidade completa.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+        <h3>Ortodontia</h3>
+        <p>Alinhamento perfeito com aparelhos modernos e opções estéticas.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <h3>Estética do Sorriso</h3>
+        <p>Harmonização facial e sorriso com proporções naturais e equilibradas.</p>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Tratamento de Canal</h3>
+        <p>Procedimento sem dor para salvar seu dente com segurança e conforto.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#2563EB"/></svg>
-  <div style="background:#2563EB;padding:40px 40px 80px;text-align:center;color:#ffffff;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#BFDBFE;margin-bottom:16px;font-family:'DM Sans', sans-serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'DM Serif Display', serif;">Agende sua consulta</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'DM Sans', sans-serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562994826193" style="display:inline-block;background:#BFDBFE;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/draalinesousa.odonto/" style="display:inline-block;border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
+<section class="sobre">
+  <div class="wrap">
+    <div class="sobre-grid">
+      <div class="sobre-img reveal">
+        <img src="https://placehold.co/500x420/BFDBFE/2563EB?text=Clínica+Dra.+Aline%0AGoiânia" alt="Clínica Dra. Aline Sousa">
+      </div>
+      <div class="sobre-txt reveal">
+        <span class="sec-label">Sobre a Clínica</span>
+        <h2>Expertise que transforma sorrisos em Goiânia</h2>
+        <p>Com 8 anos de atuação em Goiânia, a Dra. Aline Sousa construiu sua reputação em cima de resultados reais e relacionamento de confiança com cada paciente.</p>
+        <p>Especializada em estética dental e implantodontia, com formação continuada e tecnologia de última geração para garantir o melhor tratamento.</p>
+        <ul class="diferenciais">
+          <li>Atendimento individualizado — nenhum paciente é tratado igual</li>
+          <li>Equipamentos modernos e protocolos de biossegurança rigorosos</li>
+          <li>Especialização em clareamento, implantes e facetas</li>
+          <li>Agendamento ágil com confirmação pelo WhatsApp</li>
+          <li>Localização central em Goiânia com fácil acesso</li>
+        </ul>
+      </div>
+    </div>
   </div>
+</section>
+
+<section class="depoimentos">
+  <div class="wrap">
+    <div class="sec-top reveal" style="text-align:center;margin-bottom:48px;">
+      <span class="sec-label" style="color:var(--azul-medio);">Depoimentos</span>
+      <h2 style="color:var(--branco);margin-bottom:10px;">Pacientes que confiam</h2>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Fiz o clareamento e as facetas e o resultado foi incrível! A Dra. Aline é extremamente cuidadosa e explicou cada etapa do tratamento. Meu sorriso nunca esteve tão bonito!"</p>
+        <div class="dep-autor"><div class="dep-av">C</div><div><strong>Cristina Moraes</strong><span>Administradora, Goiânia</span></div></div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Fiz implante dentário aqui e fiquei impressionado com a qualidade. Procedimento tranquilo, sem dor, e o resultado ficou idêntico ao dente natural. Profissional excelente!"</p>
+        <div class="dep-autor"><div class="dep-av">R</div><div><strong>Roberto Souza</strong><span>Empresário, Goiânia</span></div></div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Tinha medo de dentista e a Dra. Aline me deixou completamente à vontade. Fiz tratamento de canal sem sentir dor e agora cuido do sorriso com prazer. Super recomendo!"</p>
+        <div class="dep-autor"><div class="dep-av">M</div><div><strong>Mariana Ferreira</strong><span>Professora, Aparecida de Goiânia</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-final">
+  <h2>Agende sua consulta hoje</h2>
+  <p>Sorrisos mais bonitos e saudáveis começam com um simples contato. Atendemos em Goiânia com horários flexíveis.</p>
+  <a href="https://wa.me/5562994826193" class="btn-wa" target="_blank" style="display:inline-flex;">
+    <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+    Falar no WhatsApp
+  </a>
 </div>
-  </div>
-</section>
 
-<footer style="background:#1d4fbc;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'DM Serif Display', serif;font-weight:800;font-size:20px;margin-bottom:8px;">Dra. Aline Sousa Odontologia</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'DM Sans', sans-serif;">Jardim América, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562994826193" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/draalinesousa.odonto/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'DM Serif Display', serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'DM Sans', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'DM Serif Display', serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'DM Sans', sans-serif;">
-          (62) 99482-6193<br>
-          <a href="https://wa.me/5562994826193" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/draalinesousa.odonto/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'DM Sans', sans-serif;">Desenvolvido por VANT Digital Studio</div>
-  </div>
+<footer>
+  <div class="footer-nome">Dra. Aline Sousa — Odontologia</div>
+  <p>Goiânia, GO</p>
+  <p><a href="https://wa.me/5562994826193">WhatsApp: (62) 99482-6193</a></p>
+  <div class="footer-copy">© 2026 Dra. Aline Sousa Odontologia. Desenvolvido por VANT Digital Studio</div>
 </footer>
 
-<a href="https://wa.me/5562994826193" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562994826193" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>

@@ -2,194 +2,245 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Clínica Família e Saúde — Goiânia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinica Familia e Saude</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Manrope', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#4E342E;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Manrope', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Manrope', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFF8F5;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Manrope', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#4E342E;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root {
+  --familia-cafe:#4E342E;
+  --familia-terracota:#A1614F;
+  --familia-creme:#FBF5F0;
+  --familia-quente:#F5EDE6;
+  --familia-texto:#2B1A14;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Raleway',sans-serif;color:var(--familia-texto);background:#fff}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.98);border-bottom:1px solid rgba(78,52,46,0.08)}
+.nav-logo{font-family:'Spectral',serif;font-size:19px;font-weight:600;color:var(--familia-cafe);display:flex;align-items:center;gap:8px}
+.logo-heart{width:22px;height:22px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--familia-texto);text-decoration:none;opacity:0.6;transition:opacity 0.2s}
+.nav-links a:hover{opacity:1;color:var(--familia-cafe)}
+.nav-btn{background:var(--familia-cafe);color:#fff;text-decoration:none;padding:10px 22px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:background 0.2s}
+.nav-btn:hover{background:var(--familia-terracota)}
+/* HERO — warm centered fullscreen */
+.hero{min-height:100vh;background:var(--familia-creme);display:grid;grid-template-columns:1fr 1fr;align-items:center;overflow:hidden;padding-top:62px;position:relative}
+.hero-orb{position:absolute;right:-100px;bottom:-100px;width:500px;height:500px;border-radius:50%;background:rgba(161,97,79,0.08)}
+.hero-left{padding:60px 60px;position:relative;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--familia-terracota);margin-bottom:20px}
+.hero-tag::before{content:'';width:20px;height:2px;background:var(--familia-terracota)}
+.hero h1{font-family:'Spectral',serif;font-size:clamp(42px,5.5vw,68px);font-weight:300;line-height:1.15;color:var(--familia-cafe);margin-bottom:20px}
+.hero h1 strong{font-weight:600;display:block}
+.hero-sub{font-family:'Spectral',serif;font-size:18px;font-style:italic;color:rgba(43,26,20,0.55);line-height:1.8;max-width:400px;margin-bottom:36px}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--familia-cafe);color:#fff;text-decoration:none;padding:14px 28px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:background 0.2s,transform 0.2s}
+.hero-cta:hover{background:var(--familia-terracota);transform:translateY(-2px)}
+.hero-cta svg{width:18px;height:18px;fill:currentColor}
+.hero-right{padding:60px 48px 60px 0;position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:16px}
+.hero-photo{width:100%;max-width:400px;height:440px;object-fit:cover;border-radius:12px}
+.hero-tags-row{display:flex;gap:10px;flex-wrap:wrap;max-width:400px;align-self:flex-start}
+.tag-chip{background:#fff;border:1px solid rgba(78,52,46,0.12);border-radius:50px;padding:8px 16px;font-size:12px;font-weight:600;color:var(--familia-cafe)}
+/* SERVICES */
+.services{padding:100px 60px;background:#fff}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--familia-terracota);margin-bottom:12px}
+.section-title{font-family:'Spectral',serif;font-size:clamp(28px,4vw,46px);font-weight:300;color:var(--familia-texto);margin-bottom:56px;line-height:1.2}
+.section-title strong{font-weight:600;color:var(--familia-cafe)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.svc-card{background:var(--familia-quente);border-radius:8px;padding:32px 24px;border-bottom:3px solid transparent;transition:border-color 0.25s,transform 0.25s}
+.svc-card:hover{border-bottom-color:var(--familia-cafe);transform:translateY(-3px)}
+.svc-icon{width:40px;height:40px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.svc-icon svg{width:20px;height:20px}
+.svc-card h3{font-size:14px;font-weight:700;color:var(--familia-texto);margin-bottom:8px;letter-spacing:0.3px}
+.svc-card p{font-family:'Spectral',serif;font-size:14px;color:#888;line-height:1.7}
+/* ABOUT */
+.about{padding:100px 60px;background:var(--familia-cafe);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-photo{width:100%;height:440px;object-fit:cover;border-radius:8px;opacity:0.85}
+.about-content .section-eyebrow{color:rgba(255,255,255,0.5)}
+.about-content .section-title{color:#fff;margin-bottom:20px}
+.about-text{font-family:'Spectral',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.7);line-height:1.9;margin-bottom:28px}
+.about-vals{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px}
+.val{background:rgba(255,255,255,0.08);border-radius:6px;padding:14px 16px}
+.val p{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.75)}
+.about-cta{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--familia-cafe);text-decoration:none;padding:14px 28px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:transform 0.2s}
+.about-cta:hover{transform:translateY(-2px)}
+.about-cta svg{width:18px;height:18px;fill:currentColor}
+/* CONTACT */
+.contact{padding:100px 60px;background:var(--familia-creme)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:920px;margin:0 auto;align-items:start}
+.contact .section-title{color:var(--familia-texto);margin-bottom:32px}
+.info-row{display:flex;gap:14px;margin-bottom:20px}
+.info-ico{width:18px;height:18px;flex-shrink:0;margin-top:2px}
+.info-row strong{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--familia-cafe);display:block;margin-bottom:4px}
+.info-row p{font-family:'Spectral',serif;font-size:15px;color:#777;line-height:1.6}
+.cta-card{background:var(--familia-cafe);border-radius:8px;padding:44px 36px}
+.cta-card h3{font-family:'Spectral',serif;font-size:24px;font-weight:300;font-style:italic;color:#fff;margin-bottom:12px}
+.cta-card p{font-family:'Spectral',serif;font-size:15px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:28px}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;padding:14px 28px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:transform 0.2s}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-wa svg{width:18px;height:18px;fill:currentColor}
+/* FOOTER */
+footer{background:var(--familia-texto);padding:24px 60px;display:flex;justify-content:space-between;align-items:center}
+footer p{font-size:11px;color:rgba(255,255,255,0.35)}
+footer strong{color:rgba(255,255,255,0.65)}
+/* FLOAT WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  nav{padding:16px 20px}
+  .nav-links,.nav-btn{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:40px 24px 60px}
+  .services,.about,.contact{padding:60px 24px}
+  .about{grid-template-columns:1fr}
+  .contact-inner{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Clínica Família e Saúde</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <svg class="logo-heart" viewBox="0 0 22 22" fill="none">
+      <path d="M11 19s-8-5-8-11a5 5 0 0110 0 5 5 0 0110 0c0 6-8 11-8 11h-4z" fill="#4E342E"/>
+    </svg>
+    Clinica Familia e Saude
   </div>
-  <a href="https://wa.me/5562993986027" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <ul class="nav-links">
+    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5562993986027" class="nav-btn">Agendar</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#4E342E;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(100px,18vw,220px);font-weight:900;color:#ffffff;opacity:0.04;pointer-events:none;white-space:nowrap;font-family:'Manrope', sans-serif;">CLÍNICA</div>
-  <div style="position:relative;z-index:2;text-align:center;color:#ffffff;max-width:720px;padding:40px 24px;">
-    <h1 style="font-size:clamp(40px,6vw,76px);font-weight:800;line-height:1.1;margin-bottom:24px;font-family:'Manrope', sans-serif;">Saude com excelencia</h1>
-    <p style="font-size:20px;opacity:0.85;line-height:1.6;margin-bottom:48px;font-family:'Manrope', sans-serif;">Clinica medica em Goiânia</p>
-    <a href="https://wa.me/5562993986027" style="display:inline-block;background:#FFF8F5;color:#0a0a0a;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-left">
+    <p class="hero-tag">Cuidado Medico Familiar</p>
+    <h1>Clinica<br><strong>Familia e</strong><br>Saude</h1>
+    <p class="hero-sub">Onde o cuidado medico encontra o acolhimento familiar. Atendemos cada membro da sua familia com dedicacao e carinho.</p>
+    <a href="https://wa.me/5562993986027" class="hero-cta">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Agendar pelo WhatsApp
+    </a>
   </div>
-</section>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFF8F5;margin-bottom:12px;font-family:'Manrope', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#362420;font-family:'Manrope', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;"><div style="background:#4E342E;border-radius:20px;padding:48px;color:#ffffff;"><div style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFF8F5;margin-bottom:20px;">Destaque</div><h3 style="font-size:28px;font-weight:800;margin-bottom:16px;font-family:'Manrope', sans-serif;">Clinica Geral</h3><p style="font-size:16px;opacity:0.85;line-height:1.7;font-family:'Manrope', sans-serif;">Atendimento medico completo para adultos e idosos.</p></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;"><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#362420;margin-bottom:8px;font-family:'Manrope', sans-serif;">Check-up Completo</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Manrope', sans-serif;">Avaliacao geral da saude com exames e orientacoes.</p></div><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#362420;margin-bottom:8px;font-family:'Manrope', sans-serif;">Telemedicina</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Manrope', sans-serif;">Consultas online com a comodidade da sua casa.</p></div><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#362420;margin-bottom:8px;font-family:'Manrope', sans-serif;">Saude da Mulher</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Manrope', sans-serif;">Ginecologia e acompanhamento especializado feminino.</p></div><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#362420;margin-bottom:8px;font-family:'Manrope', sans-serif;">Pediatria</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Manrope', sans-serif;">Cuidado medico especializado para criancas e adolescentes.</p></div></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#4E342E;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="15000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFF8F5;font-family:'Manrope', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Consultas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFF8F5;font-family:'Manrope', sans-serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="10" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFF8F5;font-family:'Manrope', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Anos de Atuacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="3500" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFF8F5;font-family:'Manrope', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Pacientes</div></div>
+  <div class="hero-right">
+    <img src="https://placehold.co/400x440/EDE0D4/4E342E?text=Clinica+Familia" alt="Clinica Familia e Saude" class="hero-photo">
+    <div class="hero-tags-row">
+      <span class="tag-chip">Pediatria</span>
+      <span class="tag-chip">Clinica Geral</span>
+      <span class="tag-chip">Geriatria</span>
+      <span class="tag-chip">Nutricao</span>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#4E342E;">
-  <div class="section-inner reveal">
-    <div style="position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=800&fit=crop&q=80');background-size:cover;background-position:center;opacity:0.08;"></div>
-  <div style="position:relative;z-index:2;text-align:center;max-width:760px;margin:0 auto;padding:80px 40px;">
-    <div style="font-size:120px;font-weight:900;color:#FFF8F5;line-height:0.6;margin-bottom:32px;font-family:'Manrope', sans-serif;">"</div>
-    <p style="font-size:clamp(20px,2.5vw,30px);font-weight:600;color:#ffffff;line-height:1.5;margin-bottom:32px;font-family:'Manrope', sans-serif;">Nossa clinica medica oferece atendimento humanizado e de qualidade para cuidar da sua saude com dedicacao</p>
-    <p style="font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#FFF8F5;margin-bottom:48px;">— Clínica Família e Saúde</p>
-    <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
-      <div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#FFF8F5;">15.000+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Consultas</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#FFF8F5;">12</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Especialidades</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#FFF8F5;">10+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Anos de Atuacao</div></div>
+<section class="services" id="servicos">
+  <p class="section-eyebrow reveal">Especialidades</p>
+  <h2 class="section-title reveal">Cuidado <strong>completo</strong><br>para cada fase</h2>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <div class="svc-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#4E342E" stroke-width="1.5" stroke-linecap="round"><path d="M10 2v16M2 10h16"/><circle cx="10" cy="10" r="8"/></svg></div>
+      <h3>Clinica Geral</h3>
+      <p>Consultas completas para adultos com avaliacao medica, prescricao e acompanhamento continuo.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#4E342E" stroke-width="1.5" stroke-linecap="round"><path d="M10 3a4 4 0 100 8 4 4 0 000-8zM3 17a7 7 0 0114 0"/></svg></div>
+      <h3>Pediatria</h3>
+      <p>Atendimento especializado para bebes, criancas e adolescentes com medico pediatra dedicado.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#4E342E" stroke-width="1.5" stroke-linecap="round"><path d="M10 2C6 2 3 5 3 9s5 9 7 9 7-5 7-9-3-7-7-7z"/><path d="M10 7v3l2 2"/></svg></div>
+      <h3>Geriatria</h3>
+      <p>Cuidado especializado para idosos com acompanhamento da saude e autonomia na terceira idade.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#4E342E" stroke-width="1.5" stroke-linecap="round"><path d="M7 3h6v4H7V3zM5 7h10l2 11H3L5 7z"/></svg></div>
+      <h3>Nutricao Clinica</h3>
+      <p>Orientacao nutricional personalizada para criancas, adultos e idosos com foco em saude.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#4E342E" stroke-width="1.5" stroke-linecap="round"><path d="M4 2h12v14H4z"/><path d="M8 10h4M8 13h4M8 7h4"/></svg></div>
+      <h3>Exames Laboratoriais</h3>
+      <p>Coleta e interpretacao de exames com resultados rapidos e orientacao medica inclusa.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#4E342E" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l7-7 7 7v9a1 1 0 01-1 1H4a1 1 0 01-1-1V9z"/><path d="M8 18V12h4v6"/></svg></div>
+      <h3>Medicina Preventiva</h3>
+      <p>Check-up anual, vacinacao e rastreamento de doencas para manter sua familia protegida.</p>
     </div>
   </div>
-</div>
-  </div>
 </section>
 
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFF8F5;margin-bottom:12px;font-family:'Manrope', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#362420;font-family:'Manrope', sans-serif;">O que dizem nossos clientes</h2>
+<section class="about" id="sobre">
+  <img src="https://placehold.co/520x440/3E2723/A1614F?text=Nossa+Clinica" alt="Clinica Familia e Saude" class="reveal">
+  <div class="about-content">
+    <p class="section-eyebrow reveal">Quem somos</p>
+    <h2 class="section-title reveal">Mais que uma<br>clinica, somos<br>seu parceiro de saude</h2>
+    <p class="about-text reveal">"Tratamos cada paciente como parte da nossa propria familia. O cuidado com a saude e tambem um cuidado com o afeto, com a escuta e com a confianca que se constroi ao longo dos anos."</p>
+    <div class="about-vals reveal">
+      <div class="val"><p>Escuta Ativa</p></div>
+      <div class="val"><p>Empatia e Acolhimento</p></div>
+      <div class="val"><p>Continuidade do Cuidado</p></div>
+      <div class="val"><p>Transparencia</p></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Medico atencioso e dedicado. Me sinto em boas maos."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c9c2c0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#4E342E;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#362420;font-family:'Manrope', sans-serif;">Silvia A.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Atendimento rapido e profissional de alta qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c9c2c0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#4E342E;font-size:14px;">E</div><div><div style="font-weight:700;font-size:14px;color:#362420;font-family:'Manrope', sans-serif;">Eduardo R.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Clinica moderna e equipe muito atenciosa e humanizada."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c9c2c0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#4E342E;font-size:14px;">P</div><div><div style="font-weight:700;font-size:14px;color:#362420;font-family:'Manrope', sans-serif;">Patricia L.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Paciente</div></div></div></div></div>
+    <a href="https://wa.me/5562993986027" class="about-cta reveal">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Agendar Consulta
+    </a>
   </div>
 </section>
 
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#4E342E"/></svg>
-  <div style="background:#4E342E;padding:40px 40px 80px;text-align:center;color:#ffffff;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFF8F5;margin-bottom:16px;font-family:'Manrope', sans-serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'Manrope', sans-serif;">Agende sua consulta</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Manrope', sans-serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562993986027" style="display:inline-block;background:#FFF8F5;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/familiasaude.gyn/" style="display:inline-block;border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#3e2924;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Manrope', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Clínica Família e Saúde</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Manrope', sans-serif;">Setor Coimbra, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562993986027" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/familiasaude.gyn/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
+<section class="contact" id="contato">
+  <div class="contact-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Fale Conosco</p>
+      <h2 class="section-title">Agende sua<br>consulta</h2>
+      <div class="info-row">
+        <svg class="info-ico" viewBox="0 0 20 20" fill="none"><path d="M10 2C6.686 2 4 4.686 4 8c0 5 6 10 6 10s6-5 6-10c0-3.314-2.686-6-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" fill="#4E342E"/></svg>
+        <div><strong>Endereco</strong><p>R. das Familias, 1180 — Jardim das Flores<br>Goiania, GO</p></div>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Manrope', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Manrope', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
+      <div class="info-row">
+        <svg class="info-ico" viewBox="0 0 20 20" fill="none"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" fill="#4E342E"/></svg>
+        <div><strong>Telefone</strong><p>(62) 99398-6027</p></div>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Manrope', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Manrope', sans-serif;">
-          (62) 99398-6027<br>
-          <a href="https://wa.me/5562993986027" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/familiasaude.gyn/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
+      <div class="info-row">
+        <svg class="info-ico" viewBox="0 0 20 20" fill="none"><path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm3 1v2h10V5H5zm0 4v2h10V9H5zm0 4v2h6v-2H5z" fill="#4E342E"/></svg>
+        <div><strong>Horario</strong><p>Seg a Sex: 07h30 — 19h00<br>Sabado: 08h00 — 13h00</p></div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Manrope', sans-serif;">Desenvolvido por VANT Digital Studio</div>
+    <div class="cta-card reveal">
+      <h3>Cuidar de voce<br>e nossa vocacao</h3>
+      <p>Agende agora pelo WhatsApp. Nossa equipe responde com agilidade e carinho.</p>
+      <a href="https://wa.me/5562993986027" class="btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+    </div>
   </div>
+</section>
+
+<footer>
+  <p><strong>Clinica Familia e Saude</strong> — R. das Familias, 1180 — Goiania, GO</p>
+  <p>Desenvolvido por <strong>VANT Digital Studio</strong></p>
 </footer>
 
-<a href="https://wa.me/5562993986027" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562993986027" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

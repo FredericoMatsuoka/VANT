@@ -2,193 +2,276 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Dra. Juliana Figueiredo Psicóloga — Senador Canedo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dra. Juliana Figueiredo — Psicóloga | Senador Canedo</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Inter', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#CE93D8;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Playfair Display', serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Inter', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Inter', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#CE93D8;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --juliana-vinho:#7B1FA2;
+  --juliana-lilas:#CE93D8;
+  --juliana-creme:#FAF5F0;
+  --juliana-escuro:#1C1020;
+  --juliana-medio:#6B4D7A;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Josefin Sans',sans-serif;background:#fff;color:var(--juliana-escuro);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 64px;height:72px;display:flex;align-items:center;justify-content:space-between;background:rgba(250,245,240,0.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(123,31,162,0.1)}
+.nav-logo{display:flex;flex-direction:column}
+.nav-logo span:first-child{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:var(--juliana-escuro);letter-spacing:0.01em}
+.nav-logo span:last-child{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--juliana-vinho);font-weight:600}
+.nav-btn{background:transparent;border:2px solid var(--juliana-vinho);color:var(--juliana-vinho);padding:9px 20px;font-family:'Josefin Sans',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.3s}
+.nav-btn:hover{background:var(--juliana-vinho);color:#fff}
+
+/* HERO — fullscreen with layered shapes */
+.hero{min-height:100vh;background:var(--juliana-escuro);display:grid;grid-template-columns:55% 45%;padding-top:72px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:30%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(123,31,162,0.3) 0%,transparent 70%)}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;position:relative;z-index:2}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--juliana-lilas)}
+.hero-eyebrow span{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--juliana-lilas);font-weight:600}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,4.5vw,4.4rem);color:#fff;line-height:1.1;margin-bottom:24px;font-weight:400}
+.hero-title strong{display:block;font-weight:600}
+.hero-title em{color:var(--juliana-lilas);font-style:italic}
+.hero-desc{font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.9;margin-bottom:48px;max-width:400px;font-weight:300}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-grad{background:linear-gradient(135deg,var(--juliana-vinho),#9C27B0);color:#fff;padding:14px 32px;text-decoration:none;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;transition:opacity 0.3s}
+.btn-grad:hover{opacity:0.85}
+.btn-ghost{border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.8);padding:14px 28px;text-decoration:none;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.3s}
+.btn-ghost:hover{border-color:var(--juliana-lilas);color:var(--juliana-lilas)}
+.hero-right{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:center;padding-bottom:0}
+.hero-img-wrap{position:relative;width:340px}
+.hero-img-wrap img{width:100%;height:520px;object-fit:cover;object-position:top}
+.hero-img-overlay{position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,var(--juliana-escuro),transparent)}
+.hero-stats{position:absolute;left:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:0}
+.stat-block{background:rgba(255,255,255,0.05);backdrop-filter:blur(8px);border-left:3px solid var(--juliana-vinho);padding:16px 20px;margin-bottom:2px}
+.stat-block strong{display:block;font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;line-height:1}
+.stat-block span{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--juliana-lilas)}
+
+/* ABOUT */
+.about{padding:100px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;background:var(--juliana-creme)}
+.about-img-col{position:relative}
+.about-img{width:100%;height:500px;object-fit:cover;border-radius:2px}
+.about-badge{position:absolute;bottom:32px;right:-20px;background:var(--juliana-vinho);color:#fff;padding:20px 24px;text-align:center}
+.about-badge strong{display:block;font-family:'Playfair Display',serif;font-size:1.6rem;line-height:1}
+.about-badge span{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.9}
+.about-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--juliana-vinho);font-weight:700;margin-bottom:16px}
+.about-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,2.8vw,2.6rem);color:var(--juliana-escuro);line-height:1.25;margin-bottom:24px}
+.about-text{font-size:0.88rem;color:var(--juliana-medio);line-height:1.9;margin-bottom:16px;font-weight:300}
+.about-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--juliana-vinho);border-left:3px solid var(--juliana-lilas);padding-left:20px;margin:28px 0;line-height:1.7}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.tag{padding:6px 14px;border:1px solid var(--juliana-lilas);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--juliana-vinho);font-weight:600}
+
+/* APPROACH */
+.approach{padding:100px 80px;background:#fff}
+.approach-header{text-align:center;margin-bottom:64px}
+.section-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--juliana-vinho);font-weight:700;margin-bottom:12px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--juliana-escuro);margin-bottom:16px}
+.approach-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid #e8e0ec;border-left:1px solid #e8e0ec}
+.step{padding:40px 32px;border-right:1px solid #e8e0ec;border-bottom:1px solid #e8e0ec;transition:background 0.3s}
+.step:hover{background:var(--juliana-creme)}
+.step-num{font-family:'Playfair Display',serif;font-size:3rem;color:var(--juliana-lilas);opacity:0.5;line-height:1;margin-bottom:16px}
+.step h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--juliana-escuro);margin-bottom:10px}
+.step p{font-size:0.83rem;color:var(--juliana-medio);line-height:1.8;font-weight:300}
+
+/* SERVICES */
+.services{padding:100px 80px;background:var(--juliana-creme)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.svc-card{background:#fff;padding:40px 32px;position:relative;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s}
+.svc-card::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--juliana-vinho),var(--juliana-lilas));transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(123,31,162,0.12)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--juliana-vinho),#9C27B0);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.svc-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--juliana-escuro);margin-bottom:10px}
+.svc-card p{font-size:0.85rem;color:var(--juliana-medio);line-height:1.8;font-weight:300}
+
+/* CTA */
+.cta-wrap{background:linear-gradient(135deg,var(--juliana-escuro) 0%,#2D1040 100%);padding:100px 80px;text-align:center;position:relative;overflow:hidden}
+.cta-wrap::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237B1FA2' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.cta-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--juliana-lilas);font-weight:700;margin-bottom:20px;position:relative;z-index:1}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3vw,3rem);color:#fff;margin-bottom:16px;font-weight:400;position:relative;z-index:1}
+.cta-title em{color:var(--juliana-lilas);font-style:italic}
+.cta-sub{font-size:0.9rem;color:rgba(255,255,255,0.6);margin-bottom:44px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.8;font-weight:300;position:relative;z-index:1}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,var(--juliana-vinho),#9C27B0);color:#fff;padding:16px 44px;text-decoration:none;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;transition:opacity 0.3s;position:relative;z-index:1}
+.cta-btn:hover{opacity:0.85}
+
+/* FOOTER */
+footer{background:#0D0814;padding:40px 80px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot-brand{font-family:'Playfair Display',serif;font-size:1rem;color:rgba(255,255,255,0.6)}
+.foot-copy{font-size:0.75rem;color:rgba(255,255,255,0.35)}
+.foot-wa{color:var(--juliana-lilas);font-size:0.8rem;text-decoration:none}
+
+/* WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{min-height:360px}
+  .about{grid-template-columns:1fr;padding:60px 32px}
+  .approach-steps{grid-template-columns:1fr 1fr}
+  .svc-grid{grid-template-columns:1fr}
+  .approach,.services,.cta-wrap{padding:60px 32px}
+  nav{padding:0 24px}
+  .hero-left{padding:60px 32px}
+  footer{padding:32px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Dra. Juliana Figueiredo Psicóloga</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <span>Dra. Juliana Figueiredo</span>
+    <span>Psicóloga · CRP 09/01247</span>
   </div>
-  <a href="https://wa.me/5562994962307" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://wa.me/5562994962307" class="nav-btn">Agendar Consulta</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#CE93D8;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(100px,18vw,220px);font-weight:900;color:#ffffff;opacity:0.04;pointer-events:none;white-space:nowrap;font-family:'Playfair Display', serif;">DRA.</div>
-  <div style="position:relative;z-index:2;text-align:center;color:#ffffff;max-width:720px;padding:40px 24px;">
-    <h1 style="font-size:clamp(40px,6vw,76px);font-weight:800;line-height:1.1;margin-bottom:24px;font-family:'Playfair Display', serif;">Saude mental com cuidado</h1>
-    <p style="font-size:20px;opacity:0.85;line-height:1.6;margin-bottom:48px;font-family:'Inter', sans-serif;">Psicologia em Senador Canedo</p>
-    <a href="https://wa.me/5562994962307" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</section>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Inter', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#906697;font-family:'Playfair Display', serif;">O que fazemos</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7b5881;font-family:'Playfair Display', serif;">Terapia Individual</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Espaco seguro para autoconhecimento e desenvolvimento pessoal.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7b5881;font-family:'Playfair Display', serif;">Terapia de Casal</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Fortalecimento do relacionamento e resolucao de conflitos.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7b5881;font-family:'Playfair Display', serif;">Psicologia Infantil</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Suporte especializado para o desenvolvimento saudavel infantil.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7b5881;font-family:'Playfair Display', serif;">Neuropsicologia</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Avaliacao e reabilitacao das funcoes cognitivas e cerebrais.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7b5881;font-family:'Playfair Display', serif;">EMDR</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Tecnica especializada para processamento de traumas.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7b5881;font-family:'Playfair Display', serif;">Terapia Online</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Atendimento psicologico pelo computador ou smartphone.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#7b5881;font-family:'Playfair Display', serif;">Avaliacao Psicologica</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Avaliacao completa para diagnostico e orientacao.</p></div></div><style>.srv-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,0.12)!important;}@media(max-width:768px){.srv-card+.srv-card+.srv-card,.srv-card+.srv-card,.srv-card{}div[style*="repeat(3"]{}}</style>
-  </div>
-</section>
-
-<section id="stats" style="background:#CE93D8;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="1200" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Playfair Display', serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Pacientes</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="10" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Playfair Display', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="7" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Playfair Display', serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Playfair Display', serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Sessoes Realizadas</div></div>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span>Psicologia Clínica · Senador Canedo</span></div>
+    <h1 class="hero-title">
+      <strong>Dra. Juliana</strong>
+      <em>Figueiredo</em>
+    </h1>
+    <p class="hero-desc">Psicóloga com formacao em psicoterapia cognitivo-comportamental, oferecendo acompanhamento especializado para adultos que buscam saude mental com base cientifica e atencao humanizada.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5562994962307" class="btn-grad">Agendar Consulta</a>
+      <a href="#sobre" class="btn-ghost">Conhecer mais</a>
     </div>
   </div>
-</section>
-
-<section id="sobre" style="background:#CE93D8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=1200&h=800&fit=crop&q=80');background-size:cover;background-position:center;opacity:0.08;"></div>
-  <div style="position:relative;z-index:2;text-align:center;max-width:760px;margin:0 auto;padding:80px 40px;">
-    <div style="font-size:120px;font-weight:900;color:#FFFFFF;line-height:0.6;margin-bottom:32px;font-family:'Playfair Display', serif;">"</div>
-    <p style="font-size:clamp(20px,2.5vw,30px);font-weight:600;color:#ffffff;line-height:1.5;margin-bottom:32px;font-family:'Playfair Display', serif;">Acreditamos que a saude mental e fundamental para uma vida plena e feliz</p>
-    <p style="font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#FFFFFF;margin-bottom:48px;">— Dra. Juliana Figueiredo Psicóloga</p>
-    <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
-      <div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#FFFFFF;">1.200+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Pacientes</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#FFFFFF;">10+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Anos de Experiencia</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#FFFFFF;">7</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Especialidades</div></div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="https://placehold.co/340x520/1C1020/CE93D8?text=Dra.+Juliana" alt="Dra. Juliana Figueiredo">
+      <div class="hero-img-overlay"></div>
     </div>
-  </div>
-</div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Inter', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#906697;font-family:'Playfair Display', serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Inter', sans-serif;">"A terapia mudou minha vida. Me sinto muito mais equilibrado."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#f0def3;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#CE93D8;font-size:14px;">C</div><div><div style="font-weight:700;font-size:14px;color:#906697;font-family:'Playfair Display', serif;">Camila B.</div><div style="font-size:12px;color:#888;font-family:'Inter', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Inter', sans-serif;">"Profissional excepcional com abordagem acolhedora e eficaz."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#f0def3;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#CE93D8;font-size:14px;">T</div><div><div style="font-weight:700;font-size:14px;color:#906697;font-family:'Playfair Display', serif;">Thiago M.</div><div style="font-size:12px;color:#888;font-family:'Inter', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Inter', sans-serif;">"Recomendo de coracao. Espaco seguro e transformador."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#f0def3;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#CE93D8;font-size:14px;">R</div><div><div style="font-weight:700;font-size:14px;color:#906697;font-family:'Playfair Display', serif;">Renata C.</div><div style="font-size:12px;color:#888;font-family:'Inter', sans-serif;">Paciente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="background:linear-gradient(135deg,#CE93D8 0%,#9a6ea2 100%);border-radius:24px;padding:80px 48px;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;opacity:0.03;background-image:url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;200&quot; height=&quot;200&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.65&quot; numOctaves=&quot;3&quot;/></filter><rect width=&quot;200&quot; height=&quot;200&quot; filter=&quot;url(%23n)&quot;/></svg>');background-size:200px;"></div>
-  <div style="position:relative;z-index:2;color:#ffffff;">
-    <div style="display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:8px 20px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;font-family:'Inter', sans-serif;">Contato</div>
-    <h2 style="font-size:clamp(28px,4.5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Playfair Display', serif;">Inicie sua jornada</h2>
-    <p style="font-size:18px;opacity:0.85;max-width:520px;margin:0 auto 44px;line-height:1.6;font-family:'Inter', sans-serif;">Atendimento especializado para voce.</p>
-    <a href="https://wa.me/5562994962307" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 48px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#a475ac;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Playfair Display', serif;font-weight:800;font-size:20px;margin-bottom:8px;">Dra. Juliana Figueiredo Psicóloga</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Inter', sans-serif;">Centro, Senador Canedo</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562994962307" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/julianafigueiredo.psi/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
+    <div class="hero-stats">
+      <div class="stat-block">
+        <strong>7+</strong>
+        <span>Anos de clinica</span>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Playfair Display', serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Inter', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
+      <div class="stat-block">
+        <strong>500+</strong>
+        <span>Pacientes atendidos</span>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Playfair Display', serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Inter', sans-serif;">
-          (62) 99496-2307<br>
-          <a href="https://wa.me/5562994962307" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/julianafigueiredo.psi/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
+      <div class="stat-block">
+        <strong>TCC</strong>
+        <span>Especializacao</span>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Inter', sans-serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="about reveal" id="sobre">
+  <div class="about-img-col">
+    <img class="about-img" src="https://placehold.co/480x500/FAF5F0/7B1FA2?text=Consultorio" alt="Consultorio Dra. Juliana">
+    <div class="about-badge">
+      <strong>CRP</strong>
+      <span>09/01247</span>
+    </div>
+  </div>
+  <div>
+    <div class="about-label">Sobre</div>
+    <h2 class="about-title">Psicologia com rigor cientifico e escuta genuina</h2>
+    <p class="about-text">Sou Juliana Figueiredo, psicóloga clinica com especializacao em Terapia Cognitivo-Comportamental. Acredito que o processo terapeutico deve ser construido com base em evidencias, respeito ao tempo de cada pessoa e acolhimento real.</p>
+    <blockquote class="about-quote">"Voce nao precisa ter tudo resolvido para comecar. Voce so precisa dar o primeiro passo."</blockquote>
+    <p class="about-text">Atendo em Senador Canedo com horarios flexiveis e tambem realizo atendimentos online. Meu objetivo e criar um espaco onde voce possa se expressar livremente e encontrar ferramentas praticas para sua vida cotidiana.</p>
+    <div class="about-tags">
+      <span class="tag">TCC</span>
+      <span class="tag">Ansiedade</span>
+      <span class="tag">Depressao</span>
+      <span class="tag">Autoconhecimento</span>
+      <span class="tag">Relacionamentos</span>
+    </div>
+  </div>
+</section>
+
+<section class="approach reveal">
+  <div class="approach-header">
+    <div class="section-label">Metodologia</div>
+    <h2 class="section-title">Como funciona o processo</h2>
+  </div>
+  <div class="approach-steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <h3>Primeira Consulta</h3>
+      <p>Sessao de acolhimento para compreender sua historia, demandas e expectativas com o processo terapeutico.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <h3>Avaliacao Clinica</h3>
+      <p>Mapeamento das queixas principais e definicao do plano terapeutico individualizado baseado em TCC.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <h3>Acompanhamento</h3>
+      <p>Sessoes semanais com tecnicas cognitivas e comportamentais aplicadas ao seu contexto real de vida.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <h3>Autonomia</h3>
+      <p>Desenvolvimento de habilidades para que voce possa lidar de forma mais saudavel com os desafios cotidianos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services reveal">
+  <div class="approach-header">
+    <div class="section-label">Especialidades</div>
+    <h2 class="section-title">Areas de atendimento</h2>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal">
+      <div class="svc-icon">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Ansiedade e Depressao</h3>
+      <p>Tecnicas comprovadas para reducao de sintomas e construcao de estrategias de enfrentamento eficazes no dia a dia.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Autoestima e Identidade</h3>
+      <p>Trabalho com crencas nucleares negativas e padrao de autocritic que limitam seu potencial e relacionamentos.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Relacionamentos</h3>
+      <p>Apoio para padroes relacionais disfuncionais, comunicacao assertiva e construcao de vinculos mais saudaveis.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-wrap reveal">
+  <div class="cta-label">Agende sua consulta</div>
+  <h2 class="cta-title">Pronto para comecar sua <em>jornada</em>?</h2>
+  <p class="cta-sub">Fale diretamente com a Dra. Juliana e agende sua primeira sessao. O primeiro passo e sempre o mais importante.</p>
+  <a href="https://wa.me/5562994962307" class="cta-btn">Agendar pelo WhatsApp</a>
+</section>
+
+<footer>
+  <span class="foot-brand">Dra. Juliana Figueiredo — Psicóloga</span>
+  <span class="foot-copy">CRP 09/01247 · Senador Canedo, GO · © 2026</span>
+  <a href="https://wa.me/5562994962307" class="foot-wa">(62) 99496-2307</a>
 </footer>
 
-<a href="https://wa.me/5562994962307" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562994962307" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

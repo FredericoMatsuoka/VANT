@@ -2,188 +2,262 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Psi. Carol Vieira Neuropsicóloga — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Psi. Carol Vieira — Neuropsicóloga | Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Poppins', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#3F51B5;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Poppins', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Poppins', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Poppins', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#3F51B5;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --carol-azul:#1A237E;
+  --carol-indigo:#3F51B5;
+  --carol-lavanda:#9FA8DA;
+  --carol-creme:#F3F4FF;
+  --carol-escuro:#0D1142;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:#fff;color:var(--carol-escuro);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(13,17,66,0.97);backdrop-filter:blur(12px);padding:0 64px;height:68px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(159,168,218,0.15)}
+.nav-brand{display:flex;align-items:center;gap:14px}
+.nav-brand-dot{width:8px;height:8px;background:var(--carol-lavanda);border-radius:50%}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-brand-text strong{font-size:0.95rem;font-weight:600;color:#fff;letter-spacing:0.02em}
+.nav-brand-text span{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--carol-lavanda)}
+.nav-link{color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.3s}
+.nav-link:hover{color:var(--carol-lavanda)}
+.nav-actions{display:flex;align-items:center;gap:24px}
+.nav-cta{background:var(--carol-indigo);color:#fff;padding:9px 20px;text-decoration:none;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.3s}
+.nav-cta:hover{background:#5C6BC0}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--carol-escuro);padding-top:68px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(159,168,218,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(159,168,218,0.05) 1px,transparent 1px);background-size:60px 60px}
+.hero-bg-orb{position:absolute;top:-100px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(63,81,181,0.25) 0%,transparent 70%)}
+.hero-main{display:grid;grid-template-columns:1fr 1fr;flex:1;align-items:center;padding:60px 80px;position:relative;z-index:2}
+.hero-left{}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(63,81,181,0.2);border:1px solid rgba(159,168,218,0.3);padding:6px 14px;margin-bottom:28px}
+.hero-tag span{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--carol-lavanda);font-weight:600}
+.hero-tag-dot{width:5px;height:5px;background:var(--carol-lavanda);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-title{font-family:'Lora',serif;font-size:clamp(2.8rem,4vw,4rem);color:#fff;line-height:1.1;margin-bottom:24px;font-weight:600}
+.hero-title .name{display:block;font-style:italic;color:var(--carol-lavanda);font-weight:400}
+.hero-desc{font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.9;margin-bottom:44px;max-width:420px;font-weight:300}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:var(--carol-indigo);color:#fff;padding:13px 28px;text-decoration:none;font-size:0.77rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.3s}
+.btn-primary:hover{background:#5C6BC0}
+.btn-ghost{border:1px solid rgba(159,168,218,0.4);color:var(--carol-lavanda);padding:13px 24px;text-decoration:none;font-size:0.77rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.3s}
+.btn-ghost:hover{border-color:var(--carol-lavanda);color:#fff}
+.hero-right{display:flex;align-items:center;justify-content:center;position:relative}
+.hero-card-stack{position:relative;width:320px}
+.hero-photo{width:320px;height:400px;object-fit:cover;object-position:top;border-radius:4px}
+.hero-metrics{position:absolute;bottom:-20px;left:-40px;display:flex;flex-direction:column;gap:4px}
+.metric{background:rgba(255,255,255,0.06);backdrop-filter:blur(12px);border:1px solid rgba(159,168,218,0.2);padding:14px 18px;min-width:140px}
+.metric strong{display:block;font-size:1.5rem;font-weight:700;color:#fff;line-height:1}
+.metric span{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--carol-lavanda)}
+
+/* STATS BAR */
+.stats-bar{background:var(--carol-indigo);padding:28px 80px;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:24px}
+.stat{text-align:center}
+.stat strong{display:block;font-family:'Lora',serif;font-size:2rem;color:#fff;font-style:italic}
+.stat span{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.7)}
+
+/* ABOUT */
+.about{padding:100px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;background:var(--carol-creme)}
+.about-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--carol-indigo);font-weight:700;margin-bottom:16px}
+.about-title{font-family:'Lora',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--carol-escuro);line-height:1.25;margin-bottom:28px}
+.about-text{font-size:0.9rem;color:#4A4F7A;line-height:1.9;margin-bottom:16px;font-weight:400}
+.about-credentials{margin-top:32px;display:flex;flex-direction:column;gap:12px}
+.cred{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border-left:3px solid var(--carol-indigo)}
+.cred span{font-size:0.82rem;color:var(--carol-escuro);font-weight:500}
+.cred svg{color:var(--carol-indigo);flex-shrink:0}
+.about-img-wrap{position:relative}
+.about-img{width:100%;height:500px;object-fit:cover;border-radius:4px}
+
+/* SERVICES */
+.services{padding:100px 80px;background:#fff}
+.sec-header{text-align:center;margin-bottom:64px}
+.sec-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--carol-indigo);font-weight:700;margin-bottom:12px}
+.sec-title{font-family:'Lora',serif;font-size:clamp(2rem,3vw,2.8rem);color:var(--carol-escuro)}
+.svc-list{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.svc-item{padding:36px;border:1px solid #E8EAF6;transition:all 0.3s;position:relative;overflow:hidden}
+.svc-item::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(63,81,181,0.04),transparent);opacity:0;transition:opacity 0.3s}
+.svc-item:hover{border-color:var(--carol-indigo);box-shadow:0 8px 32px rgba(63,81,181,0.1)}
+.svc-item:hover::after{opacity:1}
+.svc-num{font-family:'Lora',serif;font-size:2.5rem;font-style:italic;color:#E8EAF6;line-height:1;margin-bottom:12px}
+.svc-item h3{font-family:'Lora',serif;font-size:1.15rem;color:var(--carol-escuro);margin-bottom:10px}
+.svc-item p{font-size:0.85rem;color:#4A4F7A;line-height:1.8;font-weight:400}
+
+/* CTA */
+.cta{background:var(--carol-escuro);padding:100px 80px;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;bottom:-120px;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(63,81,181,0.2) 0%,transparent 60%)}
+.cta-label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--carol-lavanda);font-weight:700;margin-bottom:20px;position:relative;z-index:1}
+.cta-title{font-family:'Lora',serif;font-size:clamp(2rem,3vw,3rem);color:#fff;margin-bottom:16px;position:relative;z-index:1}
+.cta-title em{color:var(--carol-lavanda)}
+.cta-sub{font-size:0.88rem;color:rgba(255,255,255,0.55);margin-bottom:44px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.8;position:relative;z-index:1}
+.cta-btn{display:inline-block;background:var(--carol-indigo);color:#fff;padding:15px 40px;text-decoration:none;font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;transition:background 0.3s;position:relative;z-index:1}
+.cta-btn:hover{background:#5C6BC0}
+
+footer{background:#070A30;padding:36px 80px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot-brand{font-family:'Lora',serif;font-size:1rem;color:rgba(255,255,255,0.6)}
+.foot-copy{font-size:0.75rem;color:rgba(255,255,255,0.3)}
+.foot-wa{color:var(--carol-lavanda);font-size:0.8rem;text-decoration:none}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero-main{grid-template-columns:1fr;padding:40px 32px}
+  .hero-right{margin-top:40px;justify-content:flex-start}
+  .about{grid-template-columns:1fr;padding:60px 32px}
+  .svc-list{grid-template-columns:1fr}
+  .services,.cta{padding:60px 32px}
+  .stats-bar{padding:24px 32px}
+  nav{padding:0 24px}
+  footer{padding:32px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Psi. Carol Vieira Neuropsicóloga</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-brand">
+    <div class="nav-brand-dot"></div>
+    <div class="nav-brand-text">
+      <strong>Carol Vieira</strong>
+      <span>Neuropsicóloga · CRP 09/01582</span>
+    </div>
   </div>
-  <a href="https://wa.me/5562995325047" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-actions">
+    <a href="#sobre" class="nav-link">Sobre</a>
+    <a href="https://wa.me/5562995325047" class="nav-cta">Agendar</a>
+  </div>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#e2e4f3;position:relative;overflow:hidden;">
-  <div style="max-width:1200px;margin:0 auto;padding:120px 40px 100px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
-    <div>
-      <p style="font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Poppins', sans-serif;">Bem-vindo</p>
-      <h1 style="font-size:clamp(36px,4vw,60px);font-weight:800;color:#25306c;line-height:1.15;margin-bottom:20px;font-family:'Poppins', sans-serif;">Cuidado psicologico</h1>
-      <p style="font-size:18px;color:#212b61;line-height:1.7;margin-bottom:36px;font-family:'Poppins', sans-serif;">Saude mental em Goiânia</p>
-      <a href="https://wa.me/5562995325047" style="display:inline-block;background:#3F51B5;color:#ffffff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;margin-right:16px;">Falar no WhatsApp</a>
-      <a href="#servicos" style="display:inline-block;border:2px solid #3F51B5;color:#3F51B5;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;">Servicos</a>
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-orb"></div>
+  <div class="hero-main">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <div class="hero-tag-dot"></div>
+        <span>Neuropsicologia · Goiânia</span>
+      </div>
+      <h1 class="hero-title">
+        Psi.
+        <span class="name">Carol Vieira</span>
+        Neuropsicóloga
+      </h1>
+      <p class="hero-desc">Especializacao em avaliacao neuropsicologica e reabilitacao cognitiva para adultos e idosos. Ciencia aplicada ao cuidado com o cerebro e a mente.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5562995325047" class="btn-primary">Agendar Avaliacao</a>
+        <a href="#sobre" class="btn-ghost">Saiba mais</a>
+      </div>
     </div>
-    <div><img src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?w=1200&h=800&fit=crop&q=80" alt="Psi. Carol Vieira Neuropsicóloga" style="width:100%;border-radius:24px;box-shadow:0 20px 60px rgba(0,0,0,0.15);"></div>
-  </div>
-  <svg style="position:absolute;bottom:-1px;left:0;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 80V40C360 0 720 80 1080 40L1440 0V80H0Z" fill="#ffffff"/></svg>
-</section>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Poppins', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#2c387e;font-family:'Poppins', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;"><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#2c387e;font-family:'Poppins', sans-serif;"><span>Terapia Individual</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Espaco seguro para autoconhecimento e desenvolvimento pessoal.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#2c387e;font-family:'Poppins', sans-serif;"><span>Terapia de Casal</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Fortalecimento do relacionamento e resolucao de conflitos.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#2c387e;font-family:'Poppins', sans-serif;"><span>Psicologia Infantil</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Suporte especializado para o desenvolvimento saudavel infantil.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#2c387e;font-family:'Poppins', sans-serif;"><span>Neuropsicologia</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Avaliacao e reabilitacao das funcoes cognitivas e cerebrais.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#2c387e;font-family:'Poppins', sans-serif;"><span>EMDR</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Tecnica especializada para processamento de traumas.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#2c387e;font-family:'Poppins', sans-serif;"><span>Terapia Online</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Atendimento psicologico pelo computador ou smartphone.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#2c387e;font-family:'Poppins', sans-serif;"><span>Avaliacao Psicologica</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Avaliacao completa para diagnostico e orientacao.</p></div></div></div><script>function toggleAcc(el){var body=el.nextElementSibling;var icon=el.querySelector(".acc-icon");if(body.style.maxHeight&&body.style.maxHeight!=="0px"){body.style.maxHeight="0px";icon.textContent="+";}else{body.style.maxHeight=body.scrollHeight+"px";icon.textContent="-";}}</script>
-  </div>
-</section>
-
-<section id="stats" style="background:#3F51B5;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="1200" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Poppins', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Poppins', sans-serif;">Pacientes</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="10" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Poppins', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Poppins', sans-serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="7" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Poppins', sans-serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Poppins', sans-serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Poppins', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Poppins', sans-serif;">Sessoes Realizadas</div></div>
+    <div class="hero-right">
+      <div class="hero-card-stack">
+        <img class="hero-photo" src="https://placehold.co/320x400/1A237E/9FA8DA?text=Carol+Vieira" alt="Carol Vieira Neuropsicóloga">
+        <div class="hero-metrics">
+          <div class="metric">
+            <strong>9+</strong>
+            <span>Anos clinica</span>
+          </div>
+          <div class="metric">
+            <strong>300+</strong>
+            <span>Avaliacoes</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:48px;"><h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#2c387e;font-family:'Poppins', sans-serif;">Psi. Carol Vieira Neuropsicóloga</h2></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#2c387e;margin-bottom:12px;font-family:'Poppins', sans-serif;">Nossa Missao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Poppins', sans-serif;">Entregar servicos de excelencia que superam expectativas e transformam a experiencia dos nossos clientes.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#2c387e;margin-bottom:12px;font-family:'Poppins', sans-serif;">Nossa Visao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Poppins', sans-serif;">Ser referencia de qualidade e inovacao, reconhecida pela excelencia e pelo impacto positivo que geramos.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#2c387e;margin-bottom:12px;font-family:'Poppins', sans-serif;">Nossos Valores</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Poppins', sans-serif;">Etica, transparencia e compromisso guiam cada decisao e cada relacionamento que construimos.</p></div></div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Poppins', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#2c387e;font-family:'Poppins', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Poppins', sans-serif;">"A terapia mudou minha vida. Me sinto muito mais equilibrado."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c5cae8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#3F51B5;font-size:14px;">C</div><div><div style="font-weight:700;font-size:14px;color:#2c387e;font-family:'Poppins', sans-serif;">Camila B.</div><div style="font-size:12px;color:#888;font-family:'Poppins', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Poppins', sans-serif;">"Profissional excepcional com abordagem acolhedora e eficaz."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c5cae8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#3F51B5;font-size:14px;">T</div><div><div style="font-weight:700;font-size:14px;color:#2c387e;font-family:'Poppins', sans-serif;">Thiago M.</div><div style="font-size:12px;color:#888;font-family:'Poppins', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Poppins', sans-serif;">"Recomendo de coracao. Espaco seguro e transformador."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c5cae8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#3F51B5;font-size:14px;">R</div><div><div style="font-weight:700;font-size:14px;color:#2c387e;font-family:'Poppins', sans-serif;">Renata C.</div><div style="font-size:12px;color:#888;font-family:'Poppins', sans-serif;">Paciente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="background:linear-gradient(135deg,#3F51B5 0%,#2f3c87 100%);border-radius:24px;padding:80px 48px;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;opacity:0.03;background-image:url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;200&quot; height=&quot;200&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.65&quot; numOctaves=&quot;3&quot;/></filter><rect width=&quot;200&quot; height=&quot;200&quot; filter=&quot;url(%23n)&quot;/></svg>');background-size:200px;"></div>
-  <div style="position:relative;z-index:2;color:#ffffff;">
-    <div style="display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:8px 20px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;font-family:'Poppins', sans-serif;">Contato</div>
-    <h2 style="font-size:clamp(28px,4.5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Poppins', sans-serif;">Inicie sua jornada</h2>
-    <p style="font-size:18px;opacity:0.85;max-width:520px;margin:0 auto 44px;line-height:1.6;font-family:'Poppins', sans-serif;">Atendimento especializado para voce.</p>
-    <a href="https://wa.me/5562995325047" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 48px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
+<div class="stats-bar">
+  <div class="stat"><strong>Neuropsicologia</strong><span>Especializacao principal</span></div>
+  <div class="stat"><strong>CRP 09/01582</strong><span>Registro profissional</span></div>
+  <div class="stat"><strong>Online + Presencial</strong><span>Modalidades de atendimento</span></div>
+  <div class="stat"><strong>Goiânia, GO</strong><span>Cidade de atuacao</span></div>
 </div>
+
+<section class="about reveal" id="sobre">
+  <div>
+    <div class="about-label">Sobre</div>
+    <h2 class="about-title">Neuropsicologia com precisao e humanidade</h2>
+    <p class="about-text">Sou Carol Vieira, neuropsicóloga com atuacao em avaliacao cognitiva e reabilitacao neuropsicológica. Trabalho com adultos e idosos que enfrentam dificuldades de memoria, atencao, linguagem e funcoes executivas — seja por lesoes neurologicas, envelhecimento ou condicoes como TDAH e demencias.</p>
+    <p class="about-text">Acredito que compreender como o cerebro funciona e o primeiro passo para tratar com eficacia. Por isso, cada avaliacao e feita com rigor tecnico e relatorio detalhado para orientar o tratamento mais adequado.</p>
+    <div class="about-credentials">
+      <div class="cred">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Especializacao em Neuropsicologia Clinica</span>
+      </div>
+      <div class="cred">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Mestrado em Neurociencias Cognitivas</span>
+      </div>
+      <div class="cred">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="2"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" stroke="currentColor" stroke-width="2"/></svg>
+        <span>CRP 09/01582 — Goiânia, GO</span>
+      </div>
+    </div>
+  </div>
+  <div class="about-img-wrap">
+    <img class="about-img" src="https://placehold.co/480x500/F3F4FF/1A237E?text=Consultorio" alt="Consultorio">
   </div>
 </section>
 
-<footer style="background:#324090;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Poppins', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Psi. Carol Vieira Neuropsicóloga</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Poppins', sans-serif;">Setor Marista, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562995325047" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/psi.carolvieira/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Poppins', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Poppins', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Poppins', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Poppins', sans-serif;">
-          (62) 99532-5047<br>
-          <a href="https://wa.me/5562995325047" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/psi.carolvieira/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Poppins', sans-serif;">Desenvolvido por VANT Digital Studio</div>
+<section class="services reveal">
+  <div class="sec-header">
+    <div class="sec-label">Especialidades</div>
+    <h2 class="sec-title">Areas de atuacao</h2>
   </div>
+  <div class="svc-list">
+    <div class="svc-item reveal">
+      <div class="svc-num">01</div>
+      <h3>Avaliacao Neuropsicológica</h3>
+      <p>Mapeamento completo das funcoes cognitivas — memoria, atencao, linguagem, funcoes executivas — com relatorio tecnico detalhado.</p>
+    </div>
+    <div class="svc-item reveal">
+      <div class="svc-num">02</div>
+      <h3>Reabilitacao Cognitiva</h3>
+      <p>Programa individualizado de estimulacao e reabilitacao para recuperacao ou compensacao de funcoes cognitivas comprometidas.</p>
+    </div>
+    <div class="svc-item reveal">
+      <div class="svc-num">03</div>
+      <h3>TDAH e Funcoes Executivas</h3>
+      <p>Avaliacao e intervencao especializada para adultos com dificuldades de atencao, planejamento e controle inibitorio.</p>
+    </div>
+    <div class="svc-item reveal">
+      <div class="svc-num">04</div>
+      <h3>Envelhecimento Cognitivo</h3>
+      <p>Acompanhamento para diferenciacao entre envelhecimento normal e inicial de processos demenciais, com estrategias preventivas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta reveal">
+  <div class="cta-label">Agende sua avaliacao</div>
+  <h2 class="cta-title">Entenda como o seu <em>cerebro</em> funciona</h2>
+  <p class="cta-sub">A avaliacao neuropsicológica e o ponto de partida para um cuidado mais preciso e eficaz. Fale comigo pelo WhatsApp.</p>
+  <a href="https://wa.me/5562995325047" class="cta-btn">Falar com Carol Vieira</a>
+</section>
+
+<footer>
+  <span class="foot-brand">Psi. Carol Vieira — Neuropsicóloga</span>
+  <span class="foot-copy">CRP 09/01582 · Goiânia, GO · © 2026</span>
+  <a href="https://wa.me/5562995325047" class="foot-wa">(62) 99532-5047</a>
 </footer>
 
-<a href="https://wa.me/5562995325047" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562995325047" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

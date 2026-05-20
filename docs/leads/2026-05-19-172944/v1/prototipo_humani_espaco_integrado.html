@@ -2,207 +2,289 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Humani Espaço Integrado — Goiânia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Humani Espaco Integrado de Saude</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Poppins', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#4CAF50;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Poppins', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Poppins', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#E8F5E9;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Poppins', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#4CAF50;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root {
+  --humani-verde:#4CAF50;
+  --humani-esmeralda:#2E7D32;
+  --humani-claro:#F1F8E9;
+  --humani-creme:#FDFAF5;
+  --humani-texto:#1B2E1B;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Quicksand',sans-serif;color:var(--humani-texto);background:#fff}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.98);box-shadow:0 1px 0 rgba(76,175,80,0.1)}
+.nav-logo{font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:var(--humani-esmeralda);display:flex;align-items:center;gap:10px}
+.logo-leaf{width:28px;height:28px}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13px;font-weight:600;color:var(--humani-texto);text-decoration:none;opacity:0.65;transition:opacity 0.2s}
+.nav-links a:hover{opacity:1;color:var(--humani-verde)}
+.nav-btn{background:var(--humani-verde);color:#fff;text-decoration:none;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:700;transition:background 0.2s}
+.nav-btn:hover{background:var(--humani-esmeralda)}
+/* HERO */
+.hero{min-height:100vh;background:var(--humani-creme);display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden;padding-top:72px}
+.hero-deco{position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;background:var(--humani-claro);z-index:0}
+.hero-deco-2{position:absolute;left:-60px;bottom:-60px;width:300px;height:300px;border-radius:50%;background:rgba(76,175,80,0.06);z-index:0}
+.hero-left{padding:60px 60px;position:relative;z-index:2}
+.hero-tagline{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--humani-verde);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.hero-tagline::before{content:'';display:inline-block;width:24px;height:2px;background:var(--humani-verde)}
+.hero h1{font-family:'Fraunces',serif;font-size:clamp(44px,5.5vw,68px);font-weight:300;line-height:1.15;color:var(--humani-esmeralda);margin-bottom:20px}
+.hero h1 strong{font-weight:600}
+.hero-sub{font-family:'Fraunces',serif;font-size:17px;font-weight:300;font-style:italic;color:rgba(27,46,27,0.6);line-height:1.8;max-width:420px;margin-bottom:36px}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn-prim{display:inline-flex;align-items:center;gap:10px;background:var(--humani-verde);color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-size:14px;font-weight:700;transition:background 0.2s,transform 0.2s}
+.btn-prim:hover{background:var(--humani-esmeralda);transform:translateY(-2px)}
+.btn-prim svg{width:18px;height:18px;fill:currentColor}
+.btn-link{font-size:14px;font-weight:600;color:var(--humani-esmeralda);text-decoration:underline;text-underline-offset:3px}
+.hero-right{padding:60px 48px 60px 0;position:relative;z-index:2;display:flex;flex-direction:column;gap:20px}
+.hero-img{width:100%;height:360px;object-fit:cover;border-radius:20px}
+.hero-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-card{background:#fff;border-radius:14px;padding:18px 16px;box-shadow:0 4px 20px rgba(76,175,80,0.08)}
+.hc-num{font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--humani-verde);line-height:1}
+.hc-lbl{font-size:11px;font-weight:600;color:#888;margin-top:4px}
+/* SERVICES */
+.services{padding:100px 60px;background:#fff}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--humani-verde);margin-bottom:12px}
+.section-title{font-family:'Fraunces',serif;font-size:clamp(30px,4vw,46px);font-weight:300;color:var(--humani-texto);margin-bottom:56px;line-height:1.2}
+.section-title strong{font-weight:600;color:var(--humani-esmeralda)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.svc-card{background:var(--humani-claro);border-radius:16px;padding:32px 26px;transition:transform 0.2s,box-shadow 0.2s}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(76,175,80,0.12)}
+.svc-icon{width:48px;height:48px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 2px 12px rgba(76,175,80,0.1)}
+.svc-icon svg{width:24px;height:24px}
+.svc-card h3{font-size:15px;font-weight:700;color:var(--humani-esmeralda);margin-bottom:10px}
+.svc-card p{font-family:'Fraunces',serif;font-size:14px;color:#666;line-height:1.7}
+/* PHILOSOPHY */
+.philosophy{padding:100px 60px;background:var(--humani-esmeralda);position:relative;overflow:hidden}
+.philosophy::before{content:'"';position:absolute;left:-20px;top:-40px;font-family:'Fraunces',serif;font-size:320px;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none}
+.phil-inner{max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.phil-quote{font-family:'Fraunces',serif;font-size:clamp(22px,3.5vw,36px);font-weight:300;font-style:italic;color:#fff;line-height:1.5;margin-bottom:24px}
+.phil-attr{font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5)}
+.phil-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:64px}
+.pillar{background:rgba(255,255,255,0.08);border-radius:12px;padding:28px 20px;text-align:center}
+.pillar-icon{width:40px;height:40px;margin:0 auto 12px;background:rgba(255,255,255,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.pillar-icon svg{width:20px;height:20px}
+.pillar h3{font-size:13px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:0.5px}
+.pillar p{font-family:'Fraunces',serif;font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6}
+/* CONTACT */
+.contact{padding:100px 60px;background:var(--humani-creme)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;max-width:960px;margin:0 auto;align-items:start}
+.contact .section-title{margin-bottom:32px}
+.info-row{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start}
+.info-ico{width:20px;height:20px;flex-shrink:0;margin-top:2px}
+.info-row strong{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--humani-verde);display:block;margin-bottom:4px}
+.info-row p{font-family:'Fraunces',serif;font-size:15px;color:#666;line-height:1.6}
+.cta-card{background:var(--humani-verde);border-radius:20px;padding:44px 36px;text-align:center}
+.cta-card h3{font-family:'Fraunces',serif;font-size:26px;font-weight:300;font-style:italic;color:#fff;margin-bottom:12px}
+.cta-card p{font-family:'Fraunces',serif;font-size:15px;color:rgba(255,255,255,0.85);line-height:1.7;margin-bottom:28px}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--humani-verde);text-decoration:none;padding:14px 28px;border-radius:50px;font-size:14px;font-weight:700;transition:transform 0.2s}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-wa svg{width:18px;height:18px;fill:currentColor}
+/* FOOTER */
+footer{background:var(--humani-esmeralda);padding:24px 60px;display:flex;justify-content:space-between;align-items:center}
+footer p{font-size:12px;color:rgba(255,255,255,0.4)}
+footer strong{color:rgba(255,255,255,0.7)}
+/* FLOAT WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  .nav-links,.nav-btn{display:none}
+  .hero{grid-template-columns:1fr;padding-top:72px}
+  .hero-left{padding:40px 24px}
+  .hero-right{padding:0 24px 60px}
+  .services,.philosophy,.contact{padding:60px 24px}
+  .phil-pillars{grid-template-columns:1fr}
+  .contact-inner{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Humani Espaço Integrado</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <svg class="logo-leaf" viewBox="0 0 28 28" fill="none">
+      <path d="M14 4C10 4 4 8 4 14c0 4 2 8 6 10 0-4 1-8 4-10 3 2 4 6 4 10 4-2 6-6 6-10 0-6-6-10-10-10z" fill="#2E7D32"/>
+    </svg>
+    Humani
   </div>
-  <a href="https://wa.me/5562998215703" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <ul class="nav-links">
+    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#sobre">Filosofia</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5562998215703" class="nav-btn">Agendar</a>
 </nav>
 
-
-<section class="hero" id="hero">
-  <div class="hero-full" style="background-image:url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=800&fit=crop&q=80');">
-    <div class="hero-full-overlay"></div>
-    <div class="hero-full-content">
-      <h1 class="hero-full-title" style="font-family:'Poppins', sans-serif;">Cuidado medico que voce merece<span class="title-line" style="background:#E8F5E9;"></span></h1>
-      <p style="font-size:20px;line-height:1.6;max-width:560px;margin:0 auto 40px;opacity:0.9;font-family:'Poppins', sans-serif;">Saude de qualidade em Goiânia</p>
-      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-        <a href="https://wa.me/5562998215703" style="background:#E8F5E9;color:#0a0a0a;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;transition:all 0.3s;">Falar no WhatsApp</a>
-        <a href="#servicos" style="background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,0.3);color:#fff;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;">Ver servicos</a>
+<section class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-deco-2"></div>
+  <div class="hero-left">
+    <p class="hero-tagline">Saude Integrativa — Goiania</p>
+    <h1>Cuidar de<br>voce de forma<br><strong>integrada</strong></h1>
+    <p class="hero-sub">Um espaco de saude que une medicina, bem-estar e humanidade em um atendimento completo e personalizado.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5562998215703" class="btn-prim">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+      <a href="#servicos" class="btn-link">Nossos servicos</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://placehold.co/520x360/F1F8E9/2E7D32?text=Humani+Espaco" alt="Humani Espaco Integrado" class="hero-img">
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="hc-num">10+</div>
+        <div class="hc-lbl">Anos de Historia</div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-num">5K+</div>
+        <div class="hc-lbl">Pacientes</div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-num">15</div>
+        <div class="hc-lbl">Especialidades</div>
+      </div>
+      <div class="hero-card">
+        <div class="hc-num">4.9</div>
+        <div class="hc-lbl">Google Rating</div>
       </div>
     </div>
   </div>
 </section>
-<style>
-.hero-full{position:relative;min-height:100vh;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;}
-.hero-full-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.85));}
-.hero-full-content{position:relative;text-align:center;color:#fff;padding:40px 24px;max-width:720px;}
-.hero-full-title{font-size:clamp(40px,6vw,80px);font-weight:800;line-height:1.1;margin-bottom:24px;position:relative;display:inline-block;}
-.title-line{display:block;height:4px;width:0;border-radius:2px;margin:16px auto 0;animation:lineGrow 1s 0.5s forwards;}
-@keyframes lineGrow{to{width:80%;}}
-</style>
 
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#E8F5E9;margin-bottom:12px;font-family:'Poppins', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#357a38;font-family:'Poppins', sans-serif;">O que fazemos</h2>
+<section class="services" id="servicos">
+  <p class="section-eyebrow reveal">Areas de Atuacao</p>
+  <h2 class="section-title reveal">Cuidado <strong>completo</strong><br>para toda a familia</h2>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="1.5" stroke-linecap="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <h3>Clinica Geral e Preventiva</h3>
+      <p>Consultas medicas com foco em prevencao, rastreamento e cuidado continuado de saude.</p>
     </div>
-    <div style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;"><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#357a38;font-family:'Poppins', sans-serif;"><span>Clinica Geral</span><span class="acc-icon" style="font-size:20px;color:#E8F5E9;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Atendimento medico completo para adultos e idosos.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#357a38;font-family:'Poppins', sans-serif;"><span>Check-up Completo</span><span class="acc-icon" style="font-size:20px;color:#E8F5E9;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Avaliacao geral da saude com exames e orientacoes.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#357a38;font-family:'Poppins', sans-serif;"><span>Telemedicina</span><span class="acc-icon" style="font-size:20px;color:#E8F5E9;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Consultas online com a comodidade da sua casa.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#357a38;font-family:'Poppins', sans-serif;"><span>Saude da Mulher</span><span class="acc-icon" style="font-size:20px;color:#E8F5E9;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Ginecologia e acompanhamento especializado feminino.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#357a38;font-family:'Poppins', sans-serif;"><span>Pediatria</span><span class="acc-icon" style="font-size:20px;color:#E8F5E9;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Cuidado medico especializado para criancas e adolescentes.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#357a38;font-family:'Poppins', sans-serif;"><span>Pequenas Cirurgias</span><span class="acc-icon" style="font-size:20px;color:#E8F5E9;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Procedimentos ambulatoriais com seguranca e conforto.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#357a38;font-family:'Poppins', sans-serif;"><span>Medicina Preventiva</span><span class="acc-icon" style="font-size:20px;color:#E8F5E9;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Poppins', sans-serif;">Prevencao de doencas e promocao da saude e bem-estar.</p></div></div></div><script>function toggleAcc(el){var body=el.nextElementSibling;var icon=el.querySelector(".acc-icon");if(body.style.maxHeight&&body.style.maxHeight!=="0px"){body.style.maxHeight="0px";icon.textContent="+";}else{body.style.maxHeight=body.scrollHeight+"px";icon.textContent="-";}}</script>
-  </div>
-</section>
-
-<section id="stats" style="background:#4CAF50;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="15000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#E8F5E9;font-family:'Poppins', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Poppins', sans-serif;">Consultas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#E8F5E9;font-family:'Poppins', sans-serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Poppins', sans-serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="10" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#E8F5E9;font-family:'Poppins', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Poppins', sans-serif;">Anos de Atuacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="3500" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#E8F5E9;font-family:'Poppins', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Poppins', sans-serif;">Pacientes</div></div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="1.5" stroke-linecap="round"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 9H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5S16.33 9 15.5 9z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 15H10v-1.5c0-.83-.67-1.5-1.5-1.5S7 12.67 7 13.5s.67 1.5 1.5 1.5z"/></svg>
+      </div>
+      <h3>Nutricao Clinica</h3>
+      <p>Orientacao nutricional personalizada para emagrecimento, saude digestiva e performance.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="1.5" stroke-linecap="round"><path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h3>Saude Mental</h3>
+      <p>Psiquiatria e acompanhamento psicologico para equilibrio emocional e qualidade de vida.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="1.5" stroke-linecap="round"><path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z"/></svg>
+      </div>
+      <h3>Medicina de Familia</h3>
+      <p>Acompanhamento continuo de toda a familia com medico de referencia fixo.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="1.5" stroke-linecap="round"><path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      </div>
+      <h3>Exames e Diagnostico</h3>
+      <p>Exames laboratoriais, eletrocardiograma e encaminhamento para imagem com laudo rapido.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="1.5" stroke-linecap="round"><path d="M3 15c0-4.5 4-8 9-8s9 3.5 9 8M12 7V3"/><path d="M5 19h14"/></svg>
+      </div>
+      <h3>Fisioterapia</h3>
+      <p>Reabilitacao fisica, tratamento de dores e cuidado musculoesqueletico integrado.</p>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#4CAF50;">
-  <div class="section-inner reveal">
-    <div style="position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=800&fit=crop&q=80');background-size:cover;background-position:center;opacity:0.08;"></div>
-  <div style="position:relative;z-index:2;text-align:center;max-width:760px;margin:0 auto;padding:80px 40px;">
-    <div style="font-size:120px;font-weight:900;color:#E8F5E9;line-height:0.6;margin-bottom:32px;font-family:'Poppins', sans-serif;">"</div>
-    <p style="font-size:clamp(20px,2.5vw,30px);font-weight:600;color:#ffffff;line-height:1.5;margin-bottom:32px;font-family:'Poppins', sans-serif;">Nossa clinica medica oferece atendimento humanizado e de qualidade para cuidar da sua saude com dedicacao</p>
-    <p style="font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#E8F5E9;margin-bottom:48px;">— Humani Espaço Integrado</p>
-    <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;">
-      <div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#E8F5E9;">15.000+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Consultas</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#E8F5E9;">12</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Especialidades</div></div><div style="text-align:center;"><div style="font-size:28px;font-weight:800;color:#E8F5E9;">10+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:4px;">Anos de Atuacao</div></div>
-    </div>
-  </div>
-</div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#E8F5E9;margin-bottom:12px;font-family:'Poppins', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#357a38;font-family:'Poppins', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Poppins', sans-serif;">"Medico atencioso e dedicado. Me sinto em boas maos."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c9e7ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#4CAF50;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#357a38;font-family:'Poppins', sans-serif;">Silvia A.</div><div style="font-size:12px;color:#888;font-family:'Poppins', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Poppins', sans-serif;">"Atendimento rapido e profissional de alta qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c9e7ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#4CAF50;font-size:14px;">E</div><div><div style="font-weight:700;font-size:14px;color:#357a38;font-family:'Poppins', sans-serif;">Eduardo R.</div><div style="font-size:12px;color:#888;font-family:'Poppins', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Poppins', sans-serif;">"Clinica moderna e equipe muito atenciosa e humanizada."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c9e7ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#4CAF50;font-size:14px;">P</div><div><div style="font-weight:700;font-size:14px;color:#357a38;font-family:'Poppins', sans-serif;">Patricia L.</div><div style="font-size:12px;color:#888;font-family:'Poppins', sans-serif;">Paciente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#4CAF50"/></svg>
-  <div style="background:#4CAF50;padding:40px 40px 80px;text-align:center;color:#ffffff;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#E8F5E9;margin-bottom:16px;font-family:'Poppins', sans-serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'Poppins', sans-serif;">Agende sua consulta</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Poppins', sans-serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562998215703" style="display:inline-block;background:#E8F5E9;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/humaniespacointegrado/" style="display:inline-block;border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#3c8c40;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Poppins', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Humani Espaço Integrado</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Poppins', sans-serif;">Setor Marista, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562998215703" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/humaniespacointegrado/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+<section class="philosophy" id="sobre">
+  <div class="phil-inner">
+    <p class="phil-quote reveal">"Acreditamos que cuidar da saude e um ato de amor proprio. Por isso, cada consulta no Humani e uma experiencia humanizada, acolhedora e integral."</p>
+    <p class="phil-attr reveal">— Fundadoras do Humani Espaco Integrado</p>
+    <div class="phil-pillars">
+      <div class="pillar reveal">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 20 20" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"><path d="M10 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6L10 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
+        <h3>Integratividade</h3>
+        <p>Unimos diferentes areas da saude para um cuidado verdadeiramente completo.</p>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Poppins', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Poppins', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
+      <div class="pillar reveal">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 20 20" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"><path d="M10 9a4 4 0 100-8 4 4 0 000 8zM3 18a7 7 0 0114 0" stroke-linecap="round"/></svg>
         </div>
+        <h3>Humanizacao</h3>
+        <p>Cada paciente e unico. Escutamos, acolhemos e tratamos com empatia e respeito.</p>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Poppins', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Poppins', sans-serif;">
-          (62) 99821-5703<br>
-          <a href="https://wa.me/5562998215703" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/humaniespacointegrado/' style='color:inherit;text-decoration:none;'>Instagram</a>
+      <div class="pillar reveal">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 20 20" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5"><path d="M4 10l4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
+        <h3>Excelencia</h3>
+        <p>Profissionais especializados com atualizacao constante e compromisso com resultados.</p>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Poppins', sans-serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="contact-inner">
+    <div class="reveal">
+      <p class="section-eyebrow">Fale conosco</p>
+      <h2 class="section-title">Agende sua<br>consulta hoje</h2>
+      <div class="info-row">
+        <svg class="info-ico" viewBox="0 0 20 20" fill="none"><path d="M10 2C6.686 2 4 4.686 4 8c0 5 6 10 6 10s6-5 6-10c0-3.314-2.686-6-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" fill="#4CAF50"/></svg>
+        <div><strong>Endereco</strong><p>R. das Flores, 1420 — Jardim Goias<br>Goiania, GO</p></div>
+      </div>
+      <div class="info-row">
+        <svg class="info-ico" viewBox="0 0 20 20" fill="none"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" fill="#4CAF50"/></svg>
+        <div><strong>Telefone</strong><p>(62) 99821-5703</p></div>
+      </div>
+      <div class="info-row">
+        <svg class="info-ico" viewBox="0 0 20 20" fill="none"><path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm3 1v2h10V5H5zm0 4v2h10V9H5zm0 4v2h6v-2H5z" fill="#4CAF50"/></svg>
+        <div><strong>Horario</strong><p>Seg a Sex: 07h30 — 19h00<br>Sabado: 08h00 — 13h00</p></div>
+      </div>
+    </div>
+    <div class="cta-card reveal">
+      <h3>Cuidar de voce<br>e nossa missao</h3>
+      <p>Agende pelo WhatsApp e nossa equipe responde rapidamente para encontrar o melhor horario.</p>
+      <a href="https://wa.me/5562998215703" class="btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Humani Espaco Integrado de Saude</strong> — R. das Flores, 1420 — Goiania, GO</p>
+  <p>Desenvolvido por <strong>VANT Digital Studio</strong></p>
 </footer>
 
-<a href="https://wa.me/5562998215703" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562998215703" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

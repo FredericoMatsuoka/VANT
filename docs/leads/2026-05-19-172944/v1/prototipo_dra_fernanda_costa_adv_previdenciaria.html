@@ -2,189 +2,241 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Dra. Fernanda Costa Adv. Previdenciária — Goiânia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dra. Fernanda Costa | Advocacia Previdenciária | Goiânia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Lora', serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#880E4F;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Work Sans', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Lora', serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Lora', serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#880E4F;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --vinho:#880E4F;
+  --vinho-medio:#AD1457;
+  --vinho-claro:#C2185B;
+  --rosa-claro:#FCE4EC;
+  --rosa-suave:#FFF0F5;
+  --dourado:#E8B86D;
+  --branco:#FFFFFF;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;color:var(--vinho);background:var(--branco);overflow-x:hidden}
+
+.hero{min-height:100vh;background:var(--rosa-suave);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(136,14,79,0.06) 0%,transparent 70%);pointer-events:none}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;position:relative;z-index:2}
+.hero-pich{width:80px;height:4px;background:var(--vinho);margin-bottom:32px;border-radius:2px}
+.hero-titulo{font-family:'Lora',serif;font-size:clamp(38px,4vw,58px);color:var(--vinho);line-height:1.12;margin-bottom:18px;font-weight:700}
+.hero-titulo span{font-style:italic;color:var(--vinho-claro)}
+.hero-cargo{display:inline-flex;align-items:center;gap:10px;background:var(--vinho);border-radius:4px;padding:10px 20px;margin-bottom:28px;width:fit-content}
+.hero-cargo span{color:var(--branco);font-size:13px;font-weight:600;letter-spacing:1px}
+.hero-sub{font-size:17px;color:#6A2040;line-height:1.72;max-width:440px;margin-bottom:44px;font-weight:400}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;background:var(--vinho);color:var(--branco);padding:17px 36px;border-radius:4px;text-decoration:none;font-weight:700;font-size:15px;transition:all 0.3s;width:fit-content}
+.hero-cta:hover{background:var(--vinho-claro);transform:translateY(-2px);box-shadow:0 8px 28px rgba(136,14,79,0.3)}
+.hero-right{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px;position:relative}
+.hero-foto-wrap{position:relative;width:340px}
+.hero-foto{width:100%;aspect-ratio:3/4;border-radius:8px;overflow:hidden}
+.hero-foto img{width:100%;height:100%;object-fit:cover}
+.hero-placa{position:absolute;bottom:-24px;left:-24px;background:var(--vinho);border-radius:8px;padding:20px 24px;box-shadow:0 8px 32px rgba(136,14,79,0.3)}
+.hero-placa strong{display:block;font-family:'Lora',serif;font-size:28px;color:var(--branco);font-weight:700}
+.hero-placa span{font-size:12px;color:rgba(255,255,255,0.7);letter-spacing:1.5px;text-transform:uppercase}
+
+.beneficios{padding:100px 80px;background:var(--branco)}
+.s-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--vinho-claro);margin-bottom:12px}
+.s-titulo{font-family:'Lora',serif;font-size:clamp(28px,3vw,42px);color:var(--vinho);margin-bottom:14px;font-weight:700}
+.s-sub{font-size:16px;color:#8A4060;line-height:1.68;max-width:520px;margin-bottom:56px}
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ben-card{background:var(--rosa-suave);border-radius:8px;padding:36px 28px;border-top:4px solid var(--rosa-claro);transition:all 0.35s}
+.ben-card:hover{border-top-color:var(--vinho);box-shadow:0 12px 40px rgba(136,14,79,0.1);transform:translateY(-5px)}
+.ben-ico{width:54px;height:54px;background:var(--rosa-claro);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:background 0.35s}
+.ben-card:hover .ben-ico{background:var(--vinho)}
+.ben-card:hover .ben-ico svg{stroke:var(--branco)}
+.ben-titulo{font-family:'Lora',serif;font-size:18px;color:var(--vinho);font-weight:700;margin-bottom:10px}
+.ben-desc{font-size:14px;color:#8A4060;line-height:1.65}
+
+.processo{padding:100px 80px;background:var(--vinho)}
+.processo-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.processo-img{border-radius:8px;overflow:hidden;aspect-ratio:4/3}
+.processo-img img{width:100%;height:100%;object-fit:cover;opacity:0.55}
+.processo .s-label{color:rgba(255,255,255,0.6)}
+.processo .s-titulo{color:var(--branco)}
+.passos{display:flex;flex-direction:column;gap:0;margin-top:36px}
+.passo{display:flex;gap:20px;align-items:flex-start;padding-bottom:28px;border-left:2px solid rgba(255,255,255,0.15);margin-left:18px;padding-left:28px;position:relative}
+.passo:last-child{border-left-color:transparent;padding-bottom:0}
+.passo-n{position:absolute;left:-18px;top:0;width:36px;height:36px;border-radius:50%;background:var(--dourado);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:var(--vinho);flex-shrink:0}
+.passo-txt strong{display:block;color:var(--branco);font-size:15px;font-weight:600;margin-bottom:4px}
+.passo-txt span{color:rgba(255,255,255,0.55);font-size:14px;line-height:1.6}
+
+.depo{padding:100px 80px;background:var(--rosa-suave)}
+.depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:54px}
+.d-card{background:var(--branco);border-radius:8px;padding:34px 28px;box-shadow:0 4px 20px rgba(136,14,79,0.07);transition:transform 0.3s}
+.d-card:hover{transform:translateY(-5px)}
+.d-ico{width:40px;height:40px;background:var(--rosa-claro);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.d-texto{font-family:'Lora',serif;font-size:15px;color:#5A2040;line-height:1.75;margin-bottom:20px;font-style:italic}
+.d-autor strong{font-size:14px;color:var(--vinho);font-weight:700}
+.d-autor span{display:block;font-size:12px;color:#AA6080;margin-top:2px}
+
+.cta-final{padding:100px 80px;background:var(--vinho);text-align:center;position:relative;overflow:hidden}
+.cta-final::before{content:'';position:absolute;left:50%;top:-200px;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:rgba(255,255,255,0.04)}
+.cta-final h2{font-family:'Lora',serif;font-size:clamp(28px,3vw,46px);color:var(--branco);margin-bottom:18px;font-weight:700;position:relative;z-index:1}
+.cta-final p{font-size:17px;color:rgba(255,255,255,0.68);margin-bottom:42px;max-width:520px;margin-inline:auto;line-height:1.7;position:relative;z-index:1}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;background:var(--branco);color:var(--vinho);padding:18px 44px;border-radius:4px;text-decoration:none;font-weight:700;font-size:16px;transition:all 0.3s;position:relative;z-index:1}
+.cta-btn:hover{background:var(--rosa-claro);transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,0.25)}
+
+footer{background:#5C0030;border-top:1px solid rgba(255,255,255,0.1);padding:36px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+footer p{color:rgba(255,255,255,0.4);font-size:13px}
+footer strong{color:var(--branco)}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:60px 24px}
+  .beneficios{padding:60px 24px}.ben-grid{grid-template-columns:1fr}
+  .processo{padding:60px 24px}.processo-grid{grid-template-columns:1fr}.processo-img{display:none}
+  .depo{padding:60px 24px}.depo-grid{grid-template-columns:1fr}
+  .cta-final{padding:60px 24px}footer{padding:28px 24px;flex-direction:column;text-align:center}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Dra. Fernanda Costa Adv. Previdenciária</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </div>
-  <a href="https://wa.me/5562990735412" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<a class="wa-float" href="https://wa.me/5562990735412" target="_blank" rel="noopener" aria-label="WhatsApp">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
-
-<section class="hero" id="hero" style="background:#580933;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div class="orb-bg" style="background:radial-gradient(ellipse at center,rgba(255,255,255,0.4) 0%,rgba(136,14,79,0.2) 50%,transparent 70%);"></div>
-  <div style="position:relative;z-index:2;text-align:center;max-width:700px;padding:40px 24px;background:rgba(255,255,255,0.07);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:24px;">
-    <h1 style="font-size:clamp(36px,5vw,66px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;font-family:'Work Sans', sans-serif;">Seus direitos, nossa prioridade</h1>
-    <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:40px;font-family:'Lora', serif;">Assessoria juridica no Setor Oeste de Goiânia</p>
-    <div style="display:flex;gap:12px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;">
-      <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:10px 20px;border-radius:50px;color:#fff;"><strong style="color:#FFFFFF;">1.800+</strong> Casos Resolvidos</div><div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:10px 20px;border-radius:50px;color:#fff;"><strong style="color:#FFFFFF;">94%</strong> Taxa de Exito</div><div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:10px 20px;border-radius:50px;color:#fff;"><strong style="color:#FFFFFF;">15+</strong> Anos de Atuacao</div><div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:10px 20px;border-radius:50px;color:#fff;"><strong style="color:#FFFFFF;">2.000+</strong> Clientes Atendidos</div>
-    </div>
-    <a href="https://wa.me/5562990735412" style="background:#FFFFFF;color:#0a0a0a;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
+<section class="hero">
+  <div class="hero-left reveal">
+    <div class="hero-pich"></div>
+    <div class="hero-cargo"><span>Especialista em Direito Previdenciario</span></div>
+    <h1 class="hero-titulo">Dra. Fernanda<br><span>Costa</span></h1>
+    <p class="hero-sub">Recupere seus direitos junto ao INSS com a advocacia especializada de quem conhece cada detalhe da legislacao previdenciaria brasileira.</p>
+    <a class="hero-cta" href="https://wa.me/5562990735412" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      Analisar meu caso gratuitamente
+    </a>
   </div>
-</section>
-<style>
-.orb-bg{position:absolute;width:120%;height:120%;top:-10%;left:-10%;animation:orbAnim 8s ease-in-out infinite alternate;}
-@keyframes orbAnim{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.1) translate(3%,3%)}}
-</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Lora', serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#5f0937;font-family:'Work Sans', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;"><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#5f0937;margin-bottom:8px;font-family:'Work Sans', sans-serif;">Direito Trabalhista</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lora', serif;">Defesa dos seus direitos nas relacoes de trabalho e emprego.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#5f0937;margin-bottom:8px;font-family:'Work Sans', sans-serif;">Direito Previdenciario</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lora', serif;">Aposentadorias, beneficios e revisoes junto ao INSS.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#5f0937;margin-bottom:8px;font-family:'Work Sans', sans-serif;">Direito de Familia</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lora', serif;">Divorcio, guarda, inventario e questoes familiares.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#5f0937;margin-bottom:8px;font-family:'Work Sans', sans-serif;">Direito Tributario</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lora', serif;">Planejamento e defesa em questoes fiscais e tributarias.</p></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#880E4F;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="1800" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Work Sans', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lora', serif;">Casos Resolvidos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="94" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Work Sans', sans-serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lora', serif;">Taxa de Exito</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="15" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Work Sans', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lora', serif;">Anos de Atuacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="2000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Work Sans', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lora', serif;">Clientes Atendidos</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:48px;"><h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#5f0937;font-family:'Work Sans', sans-serif;">Dra. Fernanda Costa Adv. Previdenciária</h2></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#5f0937;margin-bottom:12px;font-family:'Work Sans', sans-serif;">Nossa Missao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Lora', serif;">Entregar servicos de excelencia que superam expectativas e transformam a experiencia dos nossos clientes.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#5f0937;margin-bottom:12px;font-family:'Work Sans', sans-serif;">Nossa Visao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Lora', serif;">Ser referencia de qualidade e inovacao, reconhecida pela excelencia e pelo impacto positivo que geramos.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#5f0937;margin-bottom:12px;font-family:'Work Sans', sans-serif;">Nossos Valores</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Lora', serif;">Etica, transparencia e compromisso guiam cada decisao e cada relacionamento que construimos.</p></div></div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Lora', serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#5f0937;font-family:'Work Sans', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lora', serif;">"Resolveram meu caso com agilidade e competencia. Recomendo muito."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#dbb6ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#880E4F;font-size:14px;">P</div><div><div style="font-weight:700;font-size:14px;color:#5f0937;font-family:'Work Sans', sans-serif;">Paulo S.</div><div style="font-size:12px;color:#888;font-family:'Lora', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lora', serif;">"Profissionais serios e dedicados. Ganhamos a causa."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#dbb6ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#880E4F;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#5f0937;font-family:'Work Sans', sans-serif;">Marcia T.</div><div style="font-size:12px;color:#888;font-family:'Lora', serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lora', serif;">"Atendimento humanizado e explicacao clara de todos os passos."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#dbb6ca;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#880E4F;font-size:14px;">A</div><div><div style="font-weight:700;font-size:14px;color:#5f0937;font-family:'Work Sans', sans-serif;">Andre F.</div><div style="font-size:12px;color:#888;font-family:'Lora', serif;">Cliente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;max-width:680px;margin:0 auto;padding:20px;">
-  <h2 style="font-size:clamp(30px,4.5vw,56px);font-weight:800;color:#5f0937;margin-bottom:20px;line-height:1.2;font-family:'Work Sans', sans-serif;">Solicite uma consulta</h2>
-  <p style="font-size:18px;color:#666;line-height:1.7;margin-bottom:48px;font-family:'Lora', serif;">Estamos prontos para atender voce com excelencia.</p>
-  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-    <a href="https://wa.me/5562990735412" style="background:#25D366;color:#fff;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/dra.fernandacosta.adv/" style="border:2px solid #880E4F;color:#880E4F;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#6c0b3f;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Work Sans', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Dra. Fernanda Costa Adv. Previdenciária</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Lora', serif;">Setor Oeste, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562990735412" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/dra.fernandacosta.adv/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
+  <div class="hero-right">
+    <div class="hero-foto-wrap">
+      <div class="hero-foto">
+        <img src="https://placehold.co/340x453/880E4F/FCE4EC?text=Dra.+Fernanda+Costa" alt="Dra. Fernanda Costa">
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Work Sans', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Lora', serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
+      <div class="hero-placa">
+        <strong>+600</strong>
+        <span>Beneficios aprovados</span>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Work Sans', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Lora', serif;">
-          (62) 99073-5412<br>
-          <a href="https://wa.me/5562990735412" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/dra.fernandacosta.adv/' style='color:inherit;text-decoration:none;'>Instagram</a>
+    </div>
+  </div>
+</section>
+
+<section class="beneficios">
+  <div class="s-label reveal">Especialidades</div>
+  <h2 class="s-titulo reveal">Beneficios que eu posso conquistar para voce</h2>
+  <p class="s-sub reveal">Conheco cada regra e cada brecha legal para maximizar seus direitos previdenciarios.</p>
+  <div class="ben-grid">
+    <div class="ben-card reveal">
+      <div class="ben-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#880E4F" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M2 21a10 10 0 0120 0"/></svg></div>
+      <h3 class="ben-titulo">Aposentadoria por Idade</h3>
+      <p class="ben-desc">Calculo correto do beneficio, analise do tempo de contribuicao e recursos administrativos.</p>
+    </div>
+    <div class="ben-card reveal">
+      <div class="ben-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#880E4F" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3 class="ben-titulo">Aposentadoria Especial</h3>
+      <p class="ben-desc">Reconhecimento de atividades insalubres e perigosas para aposentadoria antecipada.</p>
+    </div>
+    <div class="ben-card reveal">
+      <div class="ben-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#880E4F" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/></svg></div>
+      <h3 class="ben-titulo">BPC/LOAS</h3>
+      <p class="ben-desc">Beneficio de Prestacao Continuada para idosos e pessoas com deficiencia em situacao de vulnerabilidade.</p>
+    </div>
+    <div class="ben-card reveal">
+      <div class="ben-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#880E4F" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h3 class="ben-titulo">Auxilio por Incapacidade</h3>
+      <p class="ben-desc">Restabelecimento e concessao de beneficio por incapacidade temporaria ou permanente.</p>
+    </div>
+    <div class="ben-card reveal">
+      <div class="ben-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#880E4F" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+      <h3 class="ben-titulo">Pensao por Morte</h3>
+      <p class="ben-desc">Habilitacao de dependentes e recursos em casos de negativa injusta do INSS.</p>
+    </div>
+    <div class="ben-card reveal">
+      <div class="ben-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#880E4F" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div>
+      <h3 class="ben-titulo">Revisao de Beneficios</h3>
+      <p class="ben-desc">Analise e revisao de beneficios concedidos com valor menor que o devido por lei.</p>
+    </div>
+  </div>
+</section>
+
+<section class="processo">
+  <div class="processo-grid">
+    <div class="processo-img reveal">
+      <img src="https://placehold.co/600x450/AD1457/FCE4EC?text=Fernanda+Costa+Adv." alt="Processo de atendimento">
+    </div>
+    <div>
+      <div class="s-label reveal">Como funciona</div>
+      <h2 class="s-titulo reveal">Seu caminho ate o beneficio</h2>
+      <div class="passos">
+        <div class="passo reveal">
+          <div class="passo-n">1</div>
+          <div class="passo-txt"><strong>Analise gratuita do caso</strong><span>Avalio sua situacao previdenciaria sem custo e identifico os beneficios a que voce tem direito.</span></div>
+        </div>
+        <div class="passo reveal">
+          <div class="passo-n">2</div>
+          <div class="passo-txt"><strong>Organizacao da documentacao</strong><span>Auxilio na coleta e organizacao de todos os documentos necessarios para o processo.</span></div>
+        </div>
+        <div class="passo reveal">
+          <div class="passo-n">3</div>
+          <div class="passo-txt"><strong>Protocolo e acompanhamento</strong><span>Protocolo do requerimento e acompanhamento de cada etapa administrativa e judicial.</span></div>
+        </div>
+        <div class="passo reveal">
+          <div class="passo-n">4</div>
+          <div class="passo-txt"><strong>Concessao e revisao</strong><span>Garantia de concessao do beneficio no valor correto e revisao quando necessario.</span></div>
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Lora', serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="depo">
+  <div class="s-label reveal">Historias de sucesso</div>
+  <h2 class="s-titulo reveal">Vidas que transformei com a advocacia previdenciaria</h2>
+  <div class="depo-grid">
+    <div class="d-card reveal">
+      <div class="d-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#880E4F" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg></div>
+      <p class="d-texto">"O INSS havia negado minha aposentadoria por invalidez. A Dra. Fernanda entrou com recurso e em 4 meses tive meu beneficio aprovado."</p>
+      <div class="d-autor"><strong>Joao Batista O.</strong><span>Aposentadoria por Invalidez</span></div>
+    </div>
+    <div class="d-card reveal">
+      <div class="d-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#880E4F" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg></div>
+      <p class="d-texto">"Trabalhei 30 anos como lavadeira sem registro. A Dra. Fernanda provou meu tempo de servico e consegui aposentadoria especial."</p>
+      <div class="d-autor"><strong>Maria Helena S.</strong><span>Aposentadoria Especial</span></div>
+    </div>
+    <div class="d-card reveal">
+      <div class="d-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#880E4F" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg></div>
+      <p class="d-texto">"Meu beneficio estava R$ 600 abaixo do correto. Com a revisao da Dra. Fernanda, recebi os atrasados e valor corrigido desde entao."</p>
+      <div class="d-autor"><strong>Antonia Ribeiro</strong><span>Revisao de Beneficio</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final reveal">
+  <h2>O INSS negou ou pagou menos do que voce merece?</h2>
+  <p>Entre em contato agora. Analise gratuita do seu caso. Sem risco, sem custo inicial.</p>
+  <a class="cta-btn" href="https://wa.me/5562990735412" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Analisar meu beneficio agora
+  </a>
+</section>
+
+<footer>
+  <p><strong>Dra. Fernanda Costa</strong> &mdash; Advocacia Previdenciaria &mdash; Goiania, GO</p>
+  <p>OAB/GO &mdash; Especialista em INSS</p>
 </footer>
 
-<a href="https://wa.me/5562990735412" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

@@ -2,208 +2,230 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>OrthoSmile Goiânia — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OrthoSmile Goiânia — Ortodontia e Estética</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Inter', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#00BCD4;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Syne', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Inter', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#B2EBF2;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Inter', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#00BCD4;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --ciano: #00BCD4;
+  --ciano-claro: #B2EBF2;
+  --ciano-suave: #E0F7FA;
+  --ciano-escuro: #006064;
+  --texto: #0D2E30;
+  --cinza: #4A6367;
+  --branco: #FFFFFF;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+body{font-family:'Barlow',sans-serif;color:var(--texto);background:var(--branco);}
+h1,h2,h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:68px;display:flex;align-items:center;padding:0 40px;background:var(--ciano-escuro);}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.2rem;color:#fff;letter-spacing:1px;flex:1;}
+.nav-logo span{color:var(--ciano-claro);}
+.nav-cta{background:var(--ciano);color:#fff;padding:10px 24px;border-radius:4px;text-decoration:none;font-weight:700;font-size:0.84rem;letter-spacing:0.5px;transition:background 0.2s;}
+.nav-cta:hover{background:#00ACC1;}
+
+.hero{min-height:100vh;display:flex;align-items:center;background:var(--ciano-escuro);overflow:hidden;position:relative;}
+.hero-bg{position:absolute;right:0;top:0;bottom:0;width:45%;background:var(--ciano-suave);clip-path:polygon(15% 0,100% 0,100% 100%,0 100%);}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;padding:100px 40px 60px;display:grid;grid-template-columns:55% 45%;gap:40px;align-items:center;position:relative;z-index:1;}
+.hero-tag{display:inline-block;border:1px solid rgba(178,235,242,0.3);color:var(--ciano-claro);padding:6px 16px;font-size:0.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;}
+.hero h1{font-size:clamp(2.8rem,5.5vw,4.8rem);color:#fff;line-height:1.0;margin-bottom:20px;letter-spacing:-0.5px;}
+.hero h1 em{color:var(--ciano);font-style:normal;}
+.hero-desc{color:rgba(255,255,255,0.65);line-height:1.8;max-width:400px;margin-bottom:36px;font-weight:300;}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 28px;border-radius:4px;text-decoration:none;font-weight:700;font-size:0.88rem;letter-spacing:0.5px;box-shadow:0 4px 20px rgba(37,211,102,0.3);transition:transform 0.2s;}
+.btn-wa:hover{transform:translateY(-2px);}
+.btn-wa svg{width:20px;height:20px;fill:#fff;}
+.hero-dir{position:relative;z-index:2;}
+.hero-dir img{width:100%;border-radius:4px;box-shadow:0 16px 48px rgba(0,96,100,0.2);}
+.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px;}
+.hero-stat{background:rgba(0,188,212,0.1);border:1px solid rgba(0,188,212,0.2);padding:14px;text-align:center;}
+.hero-stat-val{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:800;color:var(--ciano);}
+.hero-stat-lab{font-size:0.7rem;color:rgba(255,255,255,0.6);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+
+section{padding:88px 24px;}
+.wrap{max-width:1100px;margin:0 auto;}
+.sec-label{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--ciano);font-weight:700;display:block;margin-bottom:10px;}
+.sec-top{text-align:center;margin-bottom:56px;}
+.sec-top h2{font-size:clamp(2rem,3.5vw,3rem);color:var(--ciano-escuro);margin-bottom:14px;}
+.sec-top p{color:var(--cinza);max-width:520px;margin:0 auto;line-height:1.7;font-weight:300;}
+
+.servicos{background:var(--ciano-suave);}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(0,188,212,0.15);}
+.srv-card{padding:36px 28px;border-right:1px solid rgba(0,188,212,0.15);border-bottom:1px solid rgba(0,188,212,0.15);background:var(--branco);transition:background 0.2s;}
+.srv-card:hover{background:var(--ciano-escuro);}
+.srv-card:hover h3,.srv-card:hover p{color:#fff;}
+.srv-card:hover .srv-bar{background:#fff;}
+.srv-bar{width:36px;height:3px;background:var(--ciano);margin-bottom:18px;transition:background 0.2s;}
+.srv-card h3{font-size:1.1rem;color:var(--ciano-escuro);margin-bottom:10px;transition:color 0.2s;}
+.srv-card p{font-size:0.84rem;color:var(--cinza);line-height:1.6;font-weight:300;transition:color 0.2s;}
+
+.sobre{background:var(--branco);}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.sobre-img{position:relative;}
+.sobre-img img{width:100%;box-shadow:0 16px 48px rgba(0,96,100,0.1);}
+.sobre-badge{position:absolute;bottom:-16px;right:-16px;background:var(--ciano);color:#fff;padding:18px 22px;text-align:center;}
+.sobre-badge strong{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;display:block;}
+.sobre-badge span{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.85);}
+.sobre-txt .sec-label{text-align:left;}
+.sobre-txt h2{font-size:clamp(2rem,3.5vw,3rem);color:var(--ciano-escuro);margin-bottom:20px;}
+.sobre-txt p{color:var(--cinza);line-height:1.8;margin-bottom:14px;font-weight:300;}
+.difs{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:10px;}
+.difs li{display:flex;align-items:flex-start;gap:10px;font-size:0.88rem;}
+.difs li::before{content:'';display:inline-block;width:6px;height:6px;background:var(--ciano);margin-top:7px;flex-shrink:0;}
+
+.depoimentos{background:var(--ciano-escuro);}
+.dep-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.1);}
+.dep-card{background:var(--ciano-escuro);padding:36px 28px;}
+.estrelas{color:var(--ciano);font-size:0.9rem;letter-spacing:2px;margin-bottom:14px;}
+.dep-card p{font-style:italic;color:rgba(255,255,255,0.7);font-size:0.87rem;line-height:1.7;margin-bottom:18px;font-weight:300;}
+.dep-autor{display:flex;align-items:center;gap:10px;}
+.dep-av{width:38px;height:38px;background:var(--ciano);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:0.9rem;flex-shrink:0;}
+.dep-autor strong{color:#fff;font-size:0.84rem;display:block;}
+.dep-autor span{color:var(--ciano-claro);font-size:0.73rem;}
+
+.cta-final{background:var(--ciano);padding:80px 24px;text-align:center;}
+.cta-final h2{font-size:clamp(2rem,4vw,3.5rem);color:#fff;margin-bottom:16px;}
+.cta-final p{color:rgba(255,255,255,0.85);max-width:480px;margin:0 auto 36px;line-height:1.7;font-weight:300;}
+
+footer{background:var(--ciano-escuro);color:rgba(255,255,255,0.5);padding:48px 24px 24px;text-align:center;}
+.footer-nome{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;color:var(--ciano-claro);font-weight:800;margin-bottom:8px;letter-spacing:1px;}
+footer p{font-size:0.84rem;margin-bottom:5px;}
+footer a{color:var(--ciano);text-decoration:none;}
+.footer-copy{margin-top:24px;border-top:1px solid rgba(255,255,255,0.08);padding-top:18px;font-size:0.76rem;}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;animation:pulse-wa 2s infinite;}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff;}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s;}
+.reveal.visible{opacity:1;transform:none;}
+
+@media(max-width:900px){.hero-inner,.sobre-grid{grid-template-columns:1fr;}.hero-bg{display:none;}.srv-grid,.dep-grid{grid-template-columns:1fr;}}
+@media(max-width:768px){nav{padding:0 20px;}}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">OrthoSmile Goiânia</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </div>
-  <a href="https://wa.me/5562991684025" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<nav>
+  <div class="nav-logo">ORTHO<span>SMILE</span></div>
+  <a href="https://wa.me/5562991684025" class="nav-cta" target="_blank">Agendar Consulta</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#008d9f;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div class="blob b1" style="background:rgba(178,235,242,0.35);"></div>
-  <div class="blob b2" style="background:rgba(0,188,212,0.5);"></div>
-  <div class="blob b3" style="background:rgba(142,188,193,0.25);"></div>
-  <div style="position:relative;z-index:2;text-align:center;max-width:700px;padding:60px 40px;background:rgba(255,255,255,0.08);backdrop-filter:blur(40px);border-radius:28px;border:1px solid rgba(255,255,255,0.12);">
-    <h1 style="font-size:clamp(36px,5vw,64px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;font-family:'Syne', sans-serif;">Saude bucal de excelencia</h1>
-    <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:40px;font-family:'Inter', sans-serif;">Odontologia especializada em Goiânia</p>
-    <div style="display:flex;gap:24px;justify-content:center;margin-bottom:36px;flex-wrap:wrap;">
-      <div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#B2EBF2;">3.200+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Sorrisos</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#B2EBF2;">12+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Anos de Experiencia</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#B2EBF2;">8</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Especialidades</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#B2EBF2;">99%</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Satisfacao</div></div>
-    </div>
-    <a href="https://wa.me/5562991684025" style="background:#B2EBF2;color:#0a0a0a;padding:16px 40px;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</section>
-<style>
-.blob{position:absolute;border-radius:50%;filter:blur(80px);animation:blobAnim 10s ease-in-out infinite alternate;}
-.b1{width:500px;height:500px;top:-100px;left:-100px;animation-duration:12s;}
-.b2{width:400px;height:400px;bottom:-80px;right:-80px;animation-duration:9s;animation-delay:-3s;}
-.b3{width:350px;height:350px;top:30%;left:30%;animation-duration:14s;animation-delay:-6s;}
-@keyframes blobAnim{0%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%;transform:translate(0,0)}100%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%;transform:translate(30px,-20px)}}
-</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#B2EBF2;margin-bottom:12px;font-family:'Inter', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#008394;font-family:'Syne', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="max-width:680px;margin:0 auto;"><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#B2EBF2;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#008394;margin-bottom:6px;font-family:'Syne', sans-serif;">Clareamento Dental</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Sorriso mais branco e luminoso com tecnologia segura e eficaz.</p></div></div><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#B2EBF2;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#008394;margin-bottom:6px;font-family:'Syne', sans-serif;">Facetas de Porcelana</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Transforme seu sorriso com facetas ultrafinas e naturais.</p></div></div><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#B2EBF2;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#008394;margin-bottom:6px;font-family:'Syne', sans-serif;">Implante Dentario</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Substituicao permanente de dentes com estetica e funcao.</p></div></div><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#B2EBF2;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#008394;margin-bottom:6px;font-family:'Syne', sans-serif;">Ortodontia</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Alinhamento perfeito com aparelhos modernos e esteticos.</p></div></div><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#B2EBF2;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#008394;margin-bottom:6px;font-family:'Syne', sans-serif;">Tratamento de Canal</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Procedimento seguro para salvar seu dente com conforto.</p></div></div><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#B2EBF2;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#008394;margin-bottom:6px;font-family:'Syne', sans-serif;">Proteses Dentarias</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Recupere a funcao e estetica com proteses de alta qualidade.</p></div></div><div style="padding:28px 0;border-bottom:1px solid #eee;display:flex;gap:24px;align-items:flex-start;"><div style="color:#B2EBF2;flex-shrink:0;margin-top:4px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div><div><h3 style="font-size:19px;font-weight:700;color:#008394;margin-bottom:6px;font-family:'Syne', sans-serif;">Odontopediatria</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Inter', sans-serif;">Cuidado especializado para a saude bucal das criancas.</p></div></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#00BCD4;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="3200" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#B2EBF2;font-family:'Syne', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(0,112,127,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Sorrisos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#B2EBF2;font-family:'Syne', sans-serif;">0+</div><div style="font-size:14px;color:rgba(0,112,127,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="8" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#B2EBF2;font-family:'Syne', sans-serif;">0</div><div style="font-size:14px;color:rgba(0,112,127,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="99" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#B2EBF2;font-family:'Syne', sans-serif;">0%</div><div style="font-size:14px;color:rgba(0,112,127,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Satisfacao</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;min-height:400px;display:flex;align-items:center;">
-  <div style="position:absolute;left:0;top:50%;transform:translateY(-50%);font-size:clamp(120px,20vw,240px);font-weight:900;color:#00BCD4;opacity:0.08;line-height:1;pointer-events:none;font-family:'Syne', sans-serif;">12</div>
-  <div style="position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%;">
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
     <div>
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#B2EBF2;margin-bottom:12px;font-family:'Inter', sans-serif;">Sobre nos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#008394;margin-bottom:20px;font-family:'Syne', sans-serif;">OrthoSmile Goiânia</h2>
-      <p style="font-size:16px;color:#555;line-height:1.8;font-family:'Inter', sans-serif;">Nossa clinica odontologica combina tecnologia de ponta com atendimento humanizado para transformar sorrisos e proporcionar saude bucal completa. Cada tratamento e personalizado para atender as necessidades unicas de cada paciente.</p>
+      <div class="hero-tag">Ortodontia e Estética — Goiânia, GO</div>
+      <h1>SORRISO ALINHADO.<br><em>CONFIANÇA</em> REAL.</h1>
+      <p class="hero-desc">A OrthoSmile é especializada em ortodontia e estética dental em Goiânia. Alinhamento com precisão e sorrisos que transformam a autoestima dos nossos pacientes.</p>
+      <a href="https://wa.me/5562991684025" class="btn-wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Falar no WhatsApp
+      </a>
     </div>
-    <div>
-      <div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Inter', sans-serif;">Sorrisos</span><span style="font-size:26px;font-weight:800;color:#00BCD4;font-family:'Syne', sans-serif;">3.200+</span></div><div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Inter', sans-serif;">Anos de Experiencia</span><span style="font-size:26px;font-weight:800;color:#00BCD4;font-family:'Syne', sans-serif;">12+</span></div><div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Inter', sans-serif;">Especialidades</span><span style="font-size:26px;font-weight:800;color:#00BCD4;font-family:'Syne', sans-serif;">8</span></div><div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Inter', sans-serif;">Satisfacao</span><span style="font-size:26px;font-weight:800;color:#00BCD4;font-family:'Syne', sans-serif;">99%</span></div>
+    <div class="hero-dir">
+      <img src="https://placehold.co/420x320/00BCD4/B2EBF2?text=OrthoSmile%0aGoiânia" alt="OrthoSmile Goiânia">
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-val">+4.000</div><div class="hero-stat-lab">Pacientes</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">15+</div><div class="hero-stat-lab">Anos</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">98%</div><div class="hero-stat-lab">Satisfação</div></div>
+        <div class="hero-stat"><div class="hero-stat-val">6</div><div class="hero-stat-lab">Especialidades</div></div>
+      </div>
     </div>
   </div>
+</section>
+
+<section class="servicos">
+  <div class="wrap">
+    <div class="sec-top reveal">
+      <span class="sec-label">Especialidades</span>
+      <h2>Do alinhamento à estética completa</h2>
+      <p>Soluções modernas para cada fase do seu tratamento em Goiânia.</p>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card reveal"><div class="srv-bar"></div><h3>Ortodontia Convencional</h3><p>Aparelhos com alta eficiência e resultados precisos para qualquer idade.</p></div>
+      <div class="srv-card reveal"><div class="srv-bar"></div><h3>Alinhadores Transparentes</h3><p>Invisível, confortável e removível — a melhor opção para adultos.</p></div>
+      <div class="srv-card reveal"><div class="srv-bar"></div><h3>Clareamento Dental</h3><p>Sorriso mais luminoso com técnica segura e resultado duradouro.</p></div>
+      <div class="srv-card reveal"><div class="srv-bar"></div><h3>Facetas de Porcelana</h3><p>Acabamento estético de alto nível para o sorriso que você sempre quis.</p></div>
+      <div class="srv-card reveal"><div class="srv-bar"></div><h3>Implante Dentário</h3><p>Substituição permanente integrada ao plano de ortodontia.</p></div>
+      <div class="srv-card reveal"><div class="srv-bar"></div><h3>Contenção</h3><p>Manutenção do resultado com contenções eficientes e confortáveis.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre">
+  <div class="wrap">
+    <div class="sobre-grid">
+      <div class="sobre-img reveal">
+        <img src="https://placehold.co/500x420/B2EBF2/006064?text=OrthoSmile%0aClínica+Goiânia" alt="OrthoSmile — Clínica">
+        <div class="sobre-badge"><strong>15+</strong><span>Anos de<br>Expertise</span></div>
+      </div>
+      <div class="sobre-txt reveal">
+        <span class="sec-label">Nossa Clínica</span>
+        <h2>15 anos de excelência em ortodontia</h2>
+        <p>A OrthoSmile é uma das clínicas de ortodontia mais tradicionais de Goiânia, com mais de 15 anos dedicados ao alinhamento dental e à estética do sorriso.</p>
+        <p>Combinamos tecnologia de ponta — como scaneamento digital 3D e planejamento virtual — com o atendimento personalizado que cada paciente merece.</p>
+        <ul class="difs">
+          <li>Ortodontia convencional e com alinhadores</li>
+          <li>Escaneamento digital 3D para planejamento</li>
+          <li>Equipe especializada e continuamente atualizada</li>
+          <li>Planos de tratamento transparentes e sem surpresas</li>
+          <li>Parcelamento facilitado</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="depoimentos">
+  <div class="wrap">
+    <div class="sec-top reveal" style="margin-bottom:40px;">
+      <span class="sec-label" style="color:var(--ciano);">Depoimentos</span>
+      <h2 style="color:#fff;margin-bottom:0;">Sorrisos que comprovam</h2>
+    </div>
+    <div class="dep-grid">
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Fiz o tratamento completo com alinhadores e o resultado foi incrível! Meu sorriso ficou perfeito e ninguém sequer notou que eu usava aparelho. Profissionalismo nota 10!"</p>
+        <div class="dep-autor"><div class="dep-av">B</div><div><strong>Bruna Alves</strong><span>Advogada, Goiânia</span></div></div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Dois anos de tratamento e o resultado superou tudo que eu esperava. A equipe da OrthoSmile é extremamente competente e o atendimento é sempre muito atencioso!"</p>
+        <div class="dep-autor"><div class="dep-av">H</div><div><strong>Henrique Costa</strong><span>Estudante, Goiânia</span></div></div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="estrelas">★★★★★</div>
+        <p>"Trouxe minha filha adolescente e fiquei encantada com o cuidado. Resultado excelente e minha filha ficou muito feliz com o sorriso novo. Recomendo sem hesitar!"</p>
+        <div class="dep-autor"><div class="dep-av">S</div><div><strong>Silvia Moreira</strong><span>Mãe, Aparecida de Goiânia</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-final">
+  <h2>COMECE SEU TRATAMENTO HOJE</h2>
+  <p>Agende sua avaliação gratuita na OrthoSmile e descubra o plano ideal para o seu sorriso. Atendemos em Goiânia.</p>
+  <a href="https://wa.me/5562991684025" class="btn-wa" target="_blank" style="display:inline-flex;">
+    <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+    Agendar pelo WhatsApp
+  </a>
 </div>
-  </div>
-</section>
 
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#B2EBF2;margin-bottom:12px;font-family:'Inter', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#008394;font-family:'Syne', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Inter', sans-serif;">"Meu sorriso mudou completamente. Me sinto muito mais confiante."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2eaf2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#00BCD4;font-size:14px;">C</div><div><div style="font-weight:700;font-size:14px;color:#008394;font-family:'Syne', sans-serif;">Carlos M.</div><div style="font-size:12px;color:#888;font-family:'Inter', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Inter', sans-serif;">"Atendimento excelente, sem dor e com resultado perfeito."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2eaf2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#00BCD4;font-size:14px;">F</div><div><div style="font-weight:700;font-size:14px;color:#008394;font-family:'Syne', sans-serif;">Fernanda L.</div><div style="font-size:12px;color:#888;font-family:'Inter', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Inter', sans-serif;">"Profissionais dedicados que realmente se importam com o paciente."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2eaf2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#00BCD4;font-size:14px;">R</div><div><div style="font-weight:700;font-size:14px;color:#008394;font-family:'Syne', sans-serif;">Roberto A.</div><div style="font-size:12px;color:#888;font-family:'Inter', sans-serif;">Paciente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#00BCD4"/></svg>
-  <div style="background:#00BCD4;padding:40px 40px 80px;text-align:center;color:#0a0a0a;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#B2EBF2;margin-bottom:16px;font-family:'Inter', sans-serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'Syne', sans-serif;">Agende sua consulta</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Inter', sans-serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562991684025" style="display:inline-block;background:#B2EBF2;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/orthosmile.goiania/" style="display:inline-block;border:2px solid rgba(10,10,10,0.3);color:#0a0a0a;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#0096a9;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Syne', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">OrthoSmile Goiânia</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Inter', sans-serif;">Setor Coimbra, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562991684025" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/orthosmile.goiania/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Syne', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Inter', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Syne', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Inter', sans-serif;">
-          (62) 99168-4025<br>
-          <a href="https://wa.me/5562991684025" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/orthosmile.goiania/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
-      </div>
-    </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Inter', sans-serif;">Desenvolvido por VANT Digital Studio</div>
-  </div>
+<footer>
+  <div class="footer-nome">ORTHOSMILE GOIÂNIA</div>
+  <p>Goiânia, Goiás</p>
+  <p><a href="https://wa.me/5562991684025">WhatsApp: (62) 99168-4025</a></p>
+  <div class="footer-copy">© 2026 OrthoSmile Goiânia. Desenvolvido por VANT Digital Studio</div>
 </footer>
 
-<a href="https://wa.me/5562991684025" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562991684025" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.118.549 4.106 1.508 5.836L0 24l6.336-1.48A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.007-1.374l-.36-.213-3.732.872.888-3.632-.235-.374A9.795 9.795 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {if(i.isIntersecting) i.target.classList.add('visible');}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

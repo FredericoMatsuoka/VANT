@@ -2,207 +2,219 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Turbo Auto Center — Goiânia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turbo Auto Center | Goiânia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Manrope', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#C62828;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Manrope', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Manrope', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Manrope', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#C62828;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --vermelho:#C62828;
+  --vermelho-vivo:#D32F2F;
+  --vermelho-escuro:#8B1A1A;
+  --cinza:#181818;
+  --cinza-medio:#222222;
+  --cinza-claro:#2E2E2E;
+  --amarelo:#FFD600;
+  --branco:#FFFFFF;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+html{scroll-behavior:smooth}
+body{font-family:'Roboto',sans-serif;color:var(--cinza);background:var(--cinza);overflow-x:hidden}
+
+.hero{min-height:100vh;background:var(--cinza);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{background:var(--vermelho);display:flex;flex-direction:column;justify-content:flex-end;padding:80px;position:relative;overflow:hidden}
+.hero-left::before{content:'TURBO';position:absolute;bottom:-20px;left:-10px;font-family:'Bebas Neue',sans-serif;font-size:160px;color:rgba(0,0,0,0.2);line-height:1;pointer-events:none}
+.hero-tag{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:6px;color:rgba(255,255,255,0.6);margin-bottom:16px;position:relative;z-index:1}
+.hero-titulo{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,8vw,110px);color:var(--branco);line-height:0.9;margin-bottom:20px;letter-spacing:2px;position:relative;z-index:1}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.7);line-height:1.65;max-width:380px;margin-bottom:44px;font-weight:300;position:relative;z-index:1}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;background:var(--amarelo);color:var(--cinza);padding:17px 36px;border-radius:4px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:0.5px;transition:all 0.3s;width:fit-content;position:relative;z-index:1}
+.hero-cta:hover{background:#FFE033;transform:translateY(-2px)}
+.hero-right{display:flex;flex-direction:column;justify-content:center;padding:60px;background:var(--cinza-medio);position:relative;overflow:hidden}
+.hero-right img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.2}
+.hero-nums{position:relative;z-index:1;display:flex;flex-direction:column;gap:16px}
+.h-num{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:22px 28px;display:flex;justify-content:space-between;align-items:center}
+.h-num strong{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--branco);letter-spacing:2px}
+.h-num span{font-size:12px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:1.5px;text-align:right}
+
+.servicos{padding:80px 80px;background:var(--cinza-medio)}
+.s-label{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:4px;color:var(--amarelo);margin-bottom:10px}
+.s-titulo{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,60px);color:var(--branco);margin-bottom:12px;letter-spacing:1px;line-height:1}
+.s-sub{font-size:16px;color:rgba(255,255,255,0.45);line-height:1.65;max-width:520px;margin-bottom:52px}
+.serv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.serv-card{background:var(--cinza-claro);padding:32px 22px;border-radius:4px;transition:all 0.3s;text-align:center;border-bottom:3px solid transparent}
+.serv-card:hover{border-bottom-color:var(--vermelho);background:#333}
+.serv-ico{width:48px;height:48px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center}
+.serv-titulo{font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--branco);letter-spacing:1px;margin-bottom:8px}
+.serv-desc{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.55}
+
+.porque{padding:80px 80px;background:var(--cinza)}
+.porque-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.porque-img{border-radius:4px;overflow:hidden;aspect-ratio:4/3}
+.porque-img img{width:100%;height:100%;object-fit:cover;opacity:0.5}
+.porque .s-label{color:var(--vermelho)}
+.porque .s-titulo{color:var(--branco)}
+.porque-lista{display:flex;flex-direction:column;gap:2px;margin-top:36px}
+.p-item{display:flex;gap:14px;align-items:center;padding:16px 20px;background:var(--cinza-medio);border-left:3px solid transparent;transition:all 0.3s}
+.p-item:hover{border-left-color:var(--vermelho);background:var(--cinza-claro)}
+.p-item span{color:rgba(255,255,255,0.7);font-size:14px;font-weight:400}
+
+.depo{padding:80px 80px;background:var(--cinza-medio)}
+.depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px}
+.d-card{background:var(--cinza-claro);padding:30px 24px;border-radius:4px;transition:background 0.3s}
+.d-card:hover{background:#383838}
+.d-texto{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:18px}
+.d-autor strong{font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--branco);letter-spacing:0.5px}
+.d-autor span{display:block;font-size:12px;color:var(--amarelo);margin-top:2px;letter-spacing:0.5px}
+
+.cta-final{padding:80px 80px;background:var(--vermelho);text-align:center}
+.cta-final h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,72px);color:var(--branco);margin-bottom:18px;letter-spacing:2px;line-height:1}
+.cta-final p{font-size:17px;color:rgba(255,255,255,0.8);margin-bottom:40px;max-width:500px;margin-inline:auto;line-height:1.65}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;background:var(--amarelo);color:var(--cinza);padding:18px 44px;border-radius:4px;text-decoration:none;font-weight:700;font-size:16px;letter-spacing:0.5px;transition:all 0.3s}
+.cta-btn:hover{background:#FFE033;transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,0.5)}
+
+footer{background:#0E0E0E;border-top:3px solid var(--vermelho);padding:36px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+footer p{color:rgba(255,255,255,0.3);font-size:13px}
+footer strong{color:var(--branco)}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:60px 24px}
+  .servicos{padding:60px 24px}.serv-grid{grid-template-columns:1fr 1fr}
+  .porque{padding:60px 24px}.porque-grid{grid-template-columns:1fr}.porque-img{display:none}
+  .depo{padding:60px 24px}.depo-grid{grid-template-columns:1fr}
+  .cta-final{padding:60px 24px}footer{padding:28px 24px;flex-direction:column;text-align:center}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Turbo Auto Center</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<a class="wa-float" href="https://wa.me/5562999438012" target="_blank" rel="noopener" aria-label="WhatsApp">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<section class="hero">
+  <div class="hero-left reveal">
+    <div class="hero-tag">Mecanica &amp; Revisao &mdash; Goiania</div>
+    <h1 class="hero-titulo">Turbo Auto Center</h1>
+    <p class="hero-sub">Servico automotivo de alto desempenho. Diagnostico rapido, pecas de qualidade e entrega dentro do prazo prometido.</p>
+    <a class="hero-cta" href="https://wa.me/5562999438012" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      Agendar agora
+    </a>
   </div>
-  <a href="https://wa.me/5562999438012" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-
-<section class="hero" id="hero" style="background:#C62828;min-height:100vh;display:flex;align-items:center;">
-  <div style="max-width:1200px;margin:0 auto;padding:80px 40px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-    <div style="color:#ffffff;">
-      <p style="font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Manrope', sans-serif;">Bem-vindo</p>
-      <h1 style="font-size:clamp(36px,4vw,58px);font-weight:800;line-height:1.15;margin-bottom:20px;font-family:'Manrope', sans-serif;">Seu carro em maos certas</h1>
-      <p style="font-size:18px;opacity:0.85;line-height:1.7;margin-bottom:40px;font-family:'Manrope', sans-serif;">Servicos automotivos no Jardim Goiás de Goiânia</p>
-      <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:40px;">
-        <div><div style="font-size:26px;font-weight:800;color:#FFFFFF;">8.000+</div><div style="font-size:12px;opacity:0.7;letter-spacing:1px;text-transform:uppercase;">Veiculos Atendidos</div></div><div><div style="font-size:26px;font-weight:800;color:#FFFFFF;">14+</div><div style="font-size:12px;opacity:0.7;letter-spacing:1px;text-transform:uppercase;">Anos no Mercado</div></div><div><div style="font-size:26px;font-weight:800;color:#FFFFFF;">12</div><div style="font-size:12px;opacity:0.7;letter-spacing:1px;text-transform:uppercase;">Mecanicos</div></div>
-      </div>
-      <a href="https://wa.me/5562999438012" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-    </div>
-    <div style="position:relative;display:flex;align-items:center;justify-content:center;">
-      <div style="position:absolute;width:500px;height:500px;border:2px solid rgba(255,255,255,0.2);border-radius:50%;"></div>
-      <div style="position:absolute;width:460px;height:460px;border:2px solid rgba(255,255,255,0.1);border-radius:50%;"></div>
-      <div style="width:420px;height:420px;border-radius:50%;overflow:hidden;position:relative;z-index:2;"><img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=1200&h=800&fit=crop&q=80" alt="Turbo Auto Center" style="width:100%;height:100%;object-fit:cover;"></div>
-    </div>
-  </div>
-</section>
-<style>@media(max-width:768px){section .hero > div > div{grid-template-columns:1fr!important;}section .hero [style*="500px"]{display:none;}}</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Manrope', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#8a1c1c;font-family:'Manrope', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;"><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#8a1c1c;font-family:'Manrope', sans-serif;"><span>Alinhamento e Balanceamento</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Direcao perfeita e seguranca nas curvas e frenagens.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#8a1c1c;font-family:'Manrope', sans-serif;"><span>Revisao e Troca de Oleo</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Manutencao preventiva com oleo e filtros de qualidade.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#8a1c1c;font-family:'Manrope', sans-serif;"><span>Freios e Suspensao</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Seguranca e conforto com sistema de freios e suspensao.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#8a1c1c;font-family:'Manrope', sans-serif;"><span>Motor e Cambio</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Diagnostico e reparo completo do motor e transmissao.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#8a1c1c;font-family:'Manrope', sans-serif;"><span>Sistema Eletrico</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Diagnostico eletronico e reparo de problemas eletricos.</p></div></div><div class="acc-item" style="background:#ffffff;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#8a1c1c;font-family:'Manrope', sans-serif;"><span>Ar Condicionado</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Recarga e manutencao do ar condicionado automotivo.</p></div></div><div class="acc-item" style="background:#f9f9f9;border-bottom:1px solid #e5e5e5;"><div class="acc-head" onclick="toggleAcc(this)" style="padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:600;color:#8a1c1c;font-family:'Manrope', sans-serif;"><span>Funilaria e Pintura</span><span class="acc-icon" style="font-size:20px;color:#FFFFFF;">+</span></div><div class="acc-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s ease;"><p style="padding:0 24px 20px;font-size:14px;color:#555;line-height:1.7;font-family:'Manrope', sans-serif;">Recuperacao de lataria e pintura com perfeicao.</p></div></div></div><script>function toggleAcc(el){var body=el.nextElementSibling;var icon=el.querySelector(".acc-icon");if(body.style.maxHeight&&body.style.maxHeight!=="0px"){body.style.maxHeight="0px";icon.textContent="+";}else{body.style.maxHeight=body.scrollHeight+"px";icon.textContent="-";}}</script>
-  </div>
-</section>
-
-<section id="stats" style="background:#C62828;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="8000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Manrope', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Veiculos Atendidos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="14" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Manrope', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Anos no Mercado</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Manrope', sans-serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Mecanicos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="97" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Manrope', sans-serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Satisfacao</div></div>
+  <div class="hero-right">
+    <img src="https://placehold.co/720x900/222222/C62828?text=Turbo+Auto+Center" alt="Turbo Auto Center">
+    <div class="hero-nums">
+      <div class="h-num"><strong>10+</strong><span>Anos</span></div>
+      <div class="h-num"><strong>3.500+</strong><span>Veiculos</span></div>
+      <div class="h-num"><strong>100%</strong><span>Garantia</span></div>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;min-height:400px;display:flex;align-items:center;">
-  <div style="position:absolute;left:0;top:50%;transform:translateY(-50%);font-size:clamp(120px,20vw,240px);font-weight:900;color:#C62828;opacity:0.08;line-height:1;pointer-events:none;font-family:'Manrope', sans-serif;">14</div>
-  <div style="position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%;">
-    <div>
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Manrope', sans-serif;">Sobre nos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#8a1c1c;margin-bottom:20px;font-family:'Manrope', sans-serif;">Turbo Auto Center</h2>
-      <p style="font-size:16px;color:#555;line-height:1.8;font-family:'Manrope', sans-serif;">Nossa oficina mecanica e referencia em qualidade e honestidade. Com equipamentos modernos de diagnostico e profissionais experientes, realizamos servicos de manutencao e reparo com transparencia e garantia nos servicos.</p>
+<section class="servicos">
+  <div class="s-label reveal">Servicos</div>
+  <h2 class="s-titulo reveal">O que fazemos</h2>
+  <p class="s-sub reveal">Tudo que seu carro precisa, com rapidez e qualidade que voce pode confiar.</p>
+  <div class="serv-grid">
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C62828" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4"/></svg></div>
+      <h3 class="serv-titulo">Diagnostico</h3>
+      <p class="serv-desc">Scanner eletronico para identificacao precisa de qualquer problema.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C62828" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></div>
+      <h3 class="serv-titulo">Revisao</h3>
+      <p class="serv-desc">Revisao completa em todos os sistemas do seu veiculo.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C62828" stroke-width="2"><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="10"/></svg></div>
+      <h3 class="serv-titulo">Freios</h3>
+      <p class="serv-desc">Pastilhas, discos e fluido de freio com pecas de primeira linha.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C62828" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/></svg></div>
+      <h3 class="serv-titulo">Ar Condicionado</h3>
+      <p class="serv-desc">Recarga, limpeza e manutencao preventiva do ar condicionado.</p>
+    </div>
+  </div>
+</section>
+
+<section class="porque">
+  <div class="porque-grid">
+    <div class="porque-img reveal">
+      <img src="https://placehold.co/600x450/222222/C62828?text=Turbo+Auto+Center" alt="Turbo Auto Center">
     </div>
     <div>
-      <div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Manrope', sans-serif;">Veiculos Atendidos</span><span style="font-size:26px;font-weight:800;color:#C62828;font-family:'Manrope', sans-serif;">8.000+</span></div><div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Manrope', sans-serif;">Anos no Mercado</span><span style="font-size:26px;font-weight:800;color:#C62828;font-family:'Manrope', sans-serif;">14+</span></div><div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Manrope', sans-serif;">Mecanicos</span><span style="font-size:26px;font-weight:800;color:#C62828;font-family:'Manrope', sans-serif;">12</span></div><div style="padding:20px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;"><span style="font-size:15px;color:#666;font-family:'Manrope', sans-serif;">Satisfacao</span><span style="font-size:26px;font-weight:800;color:#C62828;font-family:'Manrope', sans-serif;">97%</span></div>
-    </div>
-  </div>
-</div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Manrope', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#8a1c1c;font-family:'Manrope', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Honestos e competentes. Nunca cobram o que nao precisa."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#edbebe;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#C62828;font-size:14px;">J</div><div><div style="font-weight:700;font-size:14px;color:#8a1c1c;font-family:'Manrope', sans-serif;">Joao C.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Resolveram o problema do meu carro rapido e com bom preco."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#edbebe;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#C62828;font-size:14px;">B</div><div><div style="font-weight:700;font-size:14px;color:#8a1c1c;font-family:'Manrope', sans-serif;">Beatriz N.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Confio completamente neles para cuidar do meu veiculo."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#edbebe;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#C62828;font-size:14px;">R</div><div><div style="font-weight:700;font-size:14px;color:#8a1c1c;font-family:'Manrope', sans-serif;">Ricardo S.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Cliente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#C62828"/></svg>
-  <div style="background:#C62828;padding:40px 40px 80px;text-align:center;color:#ffffff;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Manrope', sans-serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'Manrope', sans-serif;">Agende sua revisao</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Manrope', sans-serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562999438012" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/turboauto.goiania/" style="display:inline-block;border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#9e2020;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Manrope', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Turbo Auto Center</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Manrope', sans-serif;">Jardim Goiás, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562999438012" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/turboauto.goiania/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+      <div class="s-label reveal">Diferenciais</div>
+      <h2 class="s-titulo reveal">Por que escolher o Turbo</h2>
+      <div class="porque-lista">
+        <div class="p-item reveal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD600" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+          <span>Diagnostico gratuito sem compromisso</span>
         </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Manrope', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Manrope', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
+        <div class="p-item reveal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD600" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+          <span>Orcamento detalhado antes de qualquer servico</span>
         </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Manrope', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Manrope', sans-serif;">
-          (62) 99943-8012<br>
-          <a href="https://wa.me/5562999438012" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/turboauto.goiania/' style='color:inherit;text-decoration:none;'>Instagram</a>
+        <div class="p-item reveal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD600" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+          <span>Mecanicos especializados com 10+ anos</span>
+        </div>
+        <div class="p-item reveal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD600" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+          <span>Entrega no prazo prometido, sempre</span>
+        </div>
+        <div class="p-item reveal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD600" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+          <span>Garantia em todos os servicos realizados</span>
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Manrope', sans-serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="depo">
+  <div class="s-label reveal">Clientes</div>
+  <h2 class="s-titulo reveal">O que falam do Turbo</h2>
+  <div class="depo-grid">
+    <div class="d-card reveal">
+      <p class="d-texto">"Atendimento rapido, diagnostico preciso e servico com qualidade. Turbo Auto Center e minha mecanica de confianca."</p>
+      <div class="d-autor"><strong>Rafael Mota</strong><span>Cliente ha 5 anos</span></div>
+    </div>
+    <div class="d-card reveal">
+      <p class="d-texto">"Freios trocados em 2h com pecas de qualidade e garantia. Preco justo e servico feito com capricho."</p>
+      <div class="d-autor"><strong>Juliana Prado</strong><span>Cliente ha 3 anos</span></div>
+    </div>
+    <div class="d-card reveal">
+      <p class="d-texto">"Revisao completa feita antes da minha viagem. Carro entregue no prazo e revisado de verdade. Excelente!"</p>
+      <div class="d-autor"><strong>Flavio Andrade</strong><span>Cliente ha 2 anos</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final reveal">
+  <h2>Agende sua revisao agora</h2>
+  <p>Diagnostico gratuito. Orcamento sem surpresas. Servico garantido.</p>
+  <a class="cta-btn" href="https://wa.me/5562999438012" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Agendar no Turbo Auto Center
+  </a>
+</section>
+
+<footer>
+  <p><strong>Turbo Auto Center</strong> &mdash; Goiania, GO</p>
+  <p>10 anos de servico automotivo de qualidade</p>
 </footer>
 
-<a href="https://wa.me/5562999438012" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

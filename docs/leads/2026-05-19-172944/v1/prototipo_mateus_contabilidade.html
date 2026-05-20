@@ -2,196 +2,236 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Mateus Contabilidade — Goiânia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mateus Contabilidade | Goiânia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=Bitter:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Lato', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#004D40;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'EB Garamond', serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Lato', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Lato', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#004D40;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --verde:#004D40;
+  --verde-medio:#00695C;
+  --verde-claro:#00897B;
+  --menta:#E0F2F1;
+  --menta-suave:#F0FAF9;
+  --amarelo:#FFD54F;
+  --branco:#FFFFFF;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+html{scroll-behavior:smooth}
+body{font-family:'Figtree',sans-serif;color:var(--verde);background:var(--branco);overflow-x:hidden}
+
+.hero{min-height:100vh;background:var(--verde);position:relative;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,0.02) 0,rgba(255,255,255,0.02) 1px,transparent 0,transparent 50%);background-size:28px 28px;pointer-events:none}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px;position:relative;z-index:2}
+.hero-chip{display:inline-flex;align-items:center;gap:8px;background:var(--amarelo);border-radius:4px;padding:8px 18px;margin-bottom:28px;width:fit-content}
+.hero-chip span{color:var(--verde);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.hero-titulo{font-family:'Bitter',serif;font-size:clamp(38px,4vw,62px);color:var(--branco);line-height:1.1;margin-bottom:22px;font-weight:700}
+.hero-titulo em{color:var(--amarelo);font-style:normal}
+.hero-sub{font-size:17px;color:rgba(255,255,255,0.62);line-height:1.72;max-width:440px;margin-bottom:48px;font-weight:300}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-p{display:inline-flex;align-items:center;gap:10px;background:var(--amarelo);color:var(--verde);padding:16px 34px;border-radius:4px;text-decoration:none;font-weight:800;font-size:15px;transition:all 0.3s}
+.btn-p:hover{background:#FFE082;transform:translateY(-2px)}
+.btn-s{display:inline-flex;align-items:center;gap:10px;background:transparent;color:rgba(255,255,255,0.75);padding:16px 28px;border-radius:4px;text-decoration:none;font-weight:600;font-size:14px;border:1.5px solid rgba(255,255,255,0.25);transition:all 0.3s}
+.btn-s:hover{border-color:var(--amarelo);color:var(--amarelo)}
+.hero-right{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:0;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;opacity:0.3;position:absolute;inset:0}
+.hero-data{position:relative;z-index:1;padding:50px;display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(0,77,64,0.5);backdrop-filter:blur(10px)}
+.hd-item{background:rgba(0,0,0,0.35);padding:28px 24px;text-align:center}
+.hd-item strong{display:block;font-family:'Bitter',serif;font-size:44px;color:var(--branco);font-weight:700;line-height:1}
+.hd-item span{font-size:12px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px;display:block}
+
+.servicos{padding:100px 80px;background:var(--menta-suave)}
+.s-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--verde-claro);margin-bottom:12px}
+.s-titulo{font-family:'Bitter',serif;font-size:clamp(28px,3vw,42px);color:var(--verde);margin-bottom:14px;font-weight:700}
+.s-sub{font-size:16px;color:#2A6060;line-height:1.68;max-width:520px;margin-bottom:56px}
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.serv-card{background:var(--branco);border-radius:8px;padding:36px 28px;border-left:4px solid transparent;transition:all 0.35s;box-shadow:0 2px 12px rgba(0,77,64,0.06)}
+.serv-card:hover{border-left-color:var(--verde);transform:translateX(4px);box-shadow:0 8px 32px rgba(0,77,64,0.12)}
+.serv-ico{width:52px;height:52px;background:var(--menta);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.serv-titulo{font-family:'Bitter',serif;font-size:18px;color:var(--verde);font-weight:700;margin-bottom:10px}
+.serv-desc{font-size:14px;color:#3A6A5A;line-height:1.65}
+
+.diferenciais{padding:100px 80px;background:var(--verde)}
+.dif-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.dif-img{border-radius:8px;overflow:hidden;aspect-ratio:4/3}
+.dif-img img{width:100%;height:100%;object-fit:cover;opacity:0.6}
+.diferenciais .s-label{color:var(--amarelo)}
+.diferenciais .s-titulo{color:var(--branco)}
+.dif-lista{display:flex;flex-direction:column;gap:20px;margin-top:36px}
+.dif-item{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,0.06);border-radius:8px;padding:18px 20px;border:1px solid rgba(255,255,255,0.1);transition:background 0.3s}
+.dif-item:hover{background:rgba(255,255,255,0.1)}
+.dif-ico{width:36px;height:36px;background:var(--amarelo);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.dif-txt strong{display:block;color:var(--branco);font-size:14px;font-weight:700;margin-bottom:2px}
+.dif-txt span{color:rgba(255,255,255,0.52);font-size:13px;line-height:1.5}
+
+.depo{padding:100px 80px;background:var(--menta)}
+.depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:54px}
+.d-card{background:var(--branco);border-radius:8px;padding:32px 26px;transition:transform 0.3s;box-shadow:0 2px 12px rgba(0,77,64,0.07)}
+.d-card:hover{transform:translateY(-5px)}
+.d-texto{font-family:'Bitter',serif;font-size:15px;color:#1A4A3A;line-height:1.75;margin-bottom:20px;font-style:italic}
+.d-autor strong{font-size:14px;color:var(--verde);font-weight:700}
+.d-autor span{display:block;font-size:12px;color:var(--verde-claro);margin-top:2px}
+
+.cta-final{padding:100px 80px;background:var(--verde-medio);text-align:center}
+.cta-final h2{font-family:'Bitter',serif;font-size:clamp(28px,3vw,46px);color:var(--branco);margin-bottom:18px;font-weight:700}
+.cta-final p{font-size:17px;color:rgba(255,255,255,0.68);margin-bottom:42px;max-width:500px;margin-inline:auto;line-height:1.7}
+.cta-btn{display:inline-flex;align-items:center;gap:12px;background:var(--amarelo);color:var(--verde);padding:18px 44px;border-radius:4px;text-decoration:none;font-weight:800;font-size:16px;transition:all 0.3s}
+.cta-btn:hover{background:#FFE082;transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,0.3)}
+
+footer{background:#002D26;border-top:1px solid rgba(255,255,255,0.08);padding:36px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+footer p{color:rgba(255,255,255,0.4);font-size:13px}
+footer strong{color:var(--branco)}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:60px 24px}
+  .servicos{padding:60px 24px}.serv-grid{grid-template-columns:1fr}
+  .diferenciais{padding:60px 24px}.dif-grid{grid-template-columns:1fr}.dif-img{display:none}
+  .depo{padding:60px 24px}.depo-grid{grid-template-columns:1fr}
+  .cta-final{padding:60px 24px}footer{padding:28px 24px;flex-direction:column;text-align:center}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Mateus Contabilidade</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<a class="wa-float" href="https://wa.me/5562993478610" target="_blank" rel="noopener" aria-label="WhatsApp">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-left reveal">
+    <div class="hero-chip"><span>Contabilidade &amp; Assessoria Fiscal</span></div>
+    <h1 class="hero-titulo">Mateus<br>Contabilidade<br><em>simplificada</em></h1>
+    <p class="hero-sub">Clareza, agilidade e seguranca fiscal para micro e pequenas empresas de Goiania. Contabilidade que voce entende.</p>
+    <div class="hero-btns">
+      <a class="btn-p" href="https://wa.me/5562993478610" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Quero uma proposta
+      </a>
+      <a class="btn-s" href="#servicos">Ver servicos</a>
+    </div>
   </div>
-  <a href="https://wa.me/5562993478610" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-
-<section class="hero" id="hero" style="min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#003d33;">
-  <div style="position:absolute;top:-10%;left:-5%;width:55%;height:80%;background:#004D40;clip-path:polygon(0 0,90% 0,100% 100%,0 100%);opacity:0.7;"></div>
-  <div style="position:absolute;top:10%;right:-5%;width:45%;height:70%;background:#003930;clip-path:polygon(10% 0,100% 0,100% 100%,0 100%);opacity:0.5;"></div>
-  <div style="position:absolute;bottom:-5%;left:20%;width:60%;height:40%;background:#FFFFFF;clip-path:polygon(0 30%,100% 0,100% 100%,0 100%);opacity:0.15;"></div>
-  <div style="position:relative;z-index:2;text-align:center;color:#ffffff;max-width:720px;padding:40px 24px;">
-    <h1 style="font-size:clamp(40px,6vw,76px);font-weight:800;line-height:1.1;margin-bottom:24px;font-family:'EB Garamond', serif;">Contabilidade que impulsiona</h1>
-    <p style="font-size:20px;opacity:0.85;line-height:1.6;margin-bottom:44px;font-family:'Lato', sans-serif;">Contabilidade no Centro de Goiânia</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://wa.me/5562993478610" style="background:#FFFFFF;color:#0a0a0a;padding:16px 36px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-      <a href="#servicos" style="background:rgba(255,255,255,0.1);border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;">Saiba mais</a>
+  <div class="hero-right">
+    <img src="https://placehold.co/720x900/00695C/E0F2F1?text=Mateus+Contabilidade" alt="Mateus Contabilidade">
+    <div class="hero-data">
+      <div class="hd-item"><strong>10+</strong><span>Anos</span></div>
+      <div class="hd-item"><strong>280+</strong><span>Clientes</span></div>
+      <div class="hd-item"><strong>0</strong><span>Multas</span></div>
+      <div class="hd-item"><strong>100%</strong><span>Online</span></div>
     </div>
   </div>
 </section>
 
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Lato', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#00352c;font-family:'EB Garamond', serif;">O que fazemos</h2>
+<section class="servicos" id="servicos">
+  <div class="s-label reveal">O que oferecemos</div>
+  <h2 class="s-titulo reveal">Servicos contabeis completos</h2>
+  <p class="s-sub reveal">Tudo que sua empresa precisa em um so lugar, com atendimento personalizado e precos justos.</p>
+  <div class="serv-grid">
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#004D40" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg></div>
+      <h3 class="serv-titulo">Contabilidade</h3>
+      <p class="serv-desc">Escrituracao completa, balancos e demonstrativos financeiros mensais com clareza.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;"><div style="background:#004D40;border-radius:20px;padding:48px;color:#ffffff;"><div style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:20px;">Destaque</div><h3 style="font-size:28px;font-weight:800;margin-bottom:16px;font-family:'EB Garamond', serif;">Abertura de Empresa</h3><p style="font-size:16px;opacity:0.85;line-height:1.7;font-family:'Lato', sans-serif;">Registro e formalizacao da sua empresa com agilidade.</p></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;"><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#00352c;margin-bottom:8px;font-family:'EB Garamond', serif;">Simples Nacional e MEI</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lato', sans-serif;">Gestao tributaria otimizada para pequenas empresas.</p></div><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#00352c;margin-bottom:8px;font-family:'EB Garamond', serif;">IRPF e IRPJ</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lato', sans-serif;">Declaracao de imposto de renda com maxima restituicao.</p></div><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#00352c;margin-bottom:8px;font-family:'EB Garamond', serif;">Folha de Pagamento</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lato', sans-serif;">Gestao completa de folha, ferias, 13o e encargos.</p></div><div style="background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);"><h4 style="font-size:16px;font-weight:700;color:#00352c;margin-bottom:8px;font-family:'EB Garamond', serif;">Planejamento Tributario</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lato', sans-serif;">Reducao legal da carga tributaria da sua empresa.</p></div></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#004D40;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="340" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'EB Garamond', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Empresas Atendidas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="10" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'EB Garamond', serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Anos de Mercado</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="5000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'EB Garamond', serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Declaracoes</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="100" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'EB Garamond', serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Lato', sans-serif;">Conformidade</div></div>
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#004D40" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
+      <h3 class="serv-titulo">Fiscal e Tributario</h3>
+      <p class="serv-desc">Apuracao de impostos e planejamento tributario para reducao legal de custos.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#004D40" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/></svg></div>
+      <h3 class="serv-titulo">Departamento Pessoal</h3>
+      <p class="serv-desc">Folha, admissao, demissao, FGTS, ESOCIAL e obrigacoes trabalhistas.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#004D40" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/></svg></div>
+      <h3 class="serv-titulo">Abertura de CNPJ</h3>
+      <p class="serv-desc">MEI, ME e LTDA com orientacao sobre o melhor enquadramento para seu negocio.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#004D40" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg></div>
+      <h3 class="serv-titulo">Imposto de Renda</h3>
+      <p class="serv-desc">Declaracao do IRPF com maxima restituicao legal garantida.</p>
+    </div>
+    <div class="serv-card reveal">
+      <div class="serv-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#004D40" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <h3 class="serv-titulo">Consultoria Financeira</h3>
+      <p class="serv-desc">Analise de fluxo de caixa, precificacao e saude financeira do negocio.</p>
     </div>
   </div>
 </section>
 
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:64px;">
-  <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#00352c;margin-bottom:16px;font-family:'EB Garamond', serif;">Mateus Contabilidade</h2>
-  <p style="font-size:16px;color:#555;max-width:640px;margin:0 auto;line-height:1.7;font-family:'Lato', sans-serif;">Nosso escritorio contabil oferece solucoes completas para empresas de todos os portes. Com equipe especializada e tecnologia de ponta, garantimos a saude financeira e fiscal do seu negocio com total seguranca e transparencia.</p>
-</div>
-<div style="position:relative;display:flex;gap:0;margin-top:40px;">
-  <div style="position:absolute;top:8px;left:10%;right:10%;height:2px;background:linear-gradient(to right,#ffffff,#FFFFFF,#ffffff);z-index:1;"></div>
-  <div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#00352c;margin-bottom:8px;font-family:'EB Garamond', serif;">Fundacao</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lato', sans-serif;">Inicio das atividades com foco em qualidade e excelencia.</p></div><div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#00352c;margin-bottom:8px;font-family:'EB Garamond', serif;">Crescimento</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lato', sans-serif;">Expansao da equipe e dos servicos oferecidos aos clientes.</p></div><div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#00352c;margin-bottom:8px;font-family:'EB Garamond', serif;">Referencia</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Lato', sans-serif;">Consolidacao como referencia no mercado regional.</p></div>
-</div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Lato', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#00352c;font-family:'EB Garamond', serif;">O que dizem nossos clientes</h2>
+<section class="diferenciais">
+  <div class="dif-grid">
+    <div class="dif-img reveal">
+      <img src="https://placehold.co/600x450/004D40/E0F2F1?text=Mateus+Contabilidade" alt="Diferenciais Mateus Contabilidade">
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lato', sans-serif;">"Reduziram nossa carga tributaria significativamente. Excelente trabalho."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2c9c5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#004D40;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#00352c;font-family:'EB Garamond', serif;">Marcos O.</div><div style="font-size:12px;color:#888;font-family:'Lato', sans-serif;">Empresario</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lato', sans-serif;">"Atendimento rapido e sempre disponivel para tirar duvidas."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2c9c5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#004D40;font-size:14px;">L</div><div><div style="font-weight:700;font-size:14px;color:#00352c;font-family:'EB Garamond', serif;">Lucia M.</div><div style="font-size:12px;color:#888;font-family:'Lato', sans-serif;">Empresaria</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Lato', sans-serif;">"Profissionais confiaveis que cuidam da nossa empresa com dedicacao."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2c9c5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#004D40;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#00352c;font-family:'EB Garamond', serif;">Sergio P.</div><div style="font-size:12px;color:#888;font-family:'Lato', sans-serif;">Empresario</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#004D40"/></svg>
-  <div style="background:#004D40;padding:40px 40px 80px;text-align:center;color:#ffffff;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Lato', sans-serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'EB Garamond', serif;">Fale com um contador</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Lato', sans-serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562993478610" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/mateuscontabil/" style="display:inline-block;border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#003d33;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'EB Garamond', serif;font-weight:800;font-size:20px;margin-bottom:8px;">Mateus Contabilidade</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Lato', sans-serif;">Centro, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562993478610" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/mateuscontabil/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    <div>
+      <div class="s-label reveal">Diferenciais</div>
+      <h2 class="s-titulo reveal">Por que escolher a Mateus Contabilidade</h2>
+      <div class="dif-lista">
+        <div class="dif-item reveal">
+          <div class="dif-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004D40" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></div>
+          <div class="dif-txt"><strong>Linguagem simples e clara</strong><span>Traducao do juridiques contabil para o portugues do dia a dia.</span></div>
         </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'EB Garamond', serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Lato', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
+        <div class="dif-item reveal">
+          <div class="dif-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004D40" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></div>
+          <div class="dif-txt"><strong>Precos acessiveis</strong><span>Qualidade contabil sem pesar no bolso de quem esta crescendo.</span></div>
         </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'EB Garamond', serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Lato', sans-serif;">
-          (62) 99347-8610<br>
-          <a href="https://wa.me/5562993478610" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/mateuscontabil/' style='color:inherit;text-decoration:none;'>Instagram</a>
+        <div class="dif-item reveal">
+          <div class="dif-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004D40" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></div>
+          <div class="dif-txt"><strong>Entrega no prazo sempre</strong><span>Zero atrasos, zero multas. Gestao proativa do calendario fiscal.</span></div>
+        </div>
+        <div class="dif-item reveal">
+          <div class="dif-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#004D40" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg></div>
+          <div class="dif-txt"><strong>Atendimento humanizado</strong><span>Voce fala direto com o contador, sem intermediarios ou demoras.</span></div>
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Lato', sans-serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="depo">
+  <div class="s-label reveal">Clientes</div>
+  <h2 class="s-titulo reveal">Quem confia na Mateus Contabilidade</h2>
+  <div class="depo-grid">
+    <div class="d-card reveal">
+      <p class="d-texto">"Finalmente um contador que explica tudo de forma clara. Nunca mais fiquei sem entender minha propria contabilidade."</p>
+      <div class="d-autor"><strong>Patricia Sousa</strong><span>Doceria &mdash; Goiania</span></div>
+    </div>
+    <div class="d-card reveal">
+      <p class="d-texto">"Passei 5 anos pagando mais imposto do que devia. A Mateus Contabilidade me mostrou o melhor regime tributario."</p>
+      <div class="d-autor"><strong>Diego Martins</strong><span>Comercio &mdash; Goiania</span></div>
+    </div>
+    <div class="d-card reveal">
+      <p class="d-texto">"Abri minha empresa em 4 dias com toda a orientacao necessaria. Profissional, rapido e acessivel."</p>
+      <div class="d-autor"><strong>Camila Torres</strong><span>Consultoria &mdash; Goiania</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final reveal">
+  <h2>Contabilidade clara e sem complicacao</h2>
+  <p>Primeira consulta gratuita. Analise do seu negocio sem compromisso.</p>
+  <a class="cta-btn" href="https://wa.me/5562993478610" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    Falar com Mateus Contabilidade
+  </a>
+</section>
+
+<footer>
+  <p><strong>Mateus Contabilidade</strong> &mdash; Goiania, GO</p>
+  <p>CRC/GO &mdash; Contabilidade simplificada</p>
 </footer>
 
-<a href="https://wa.me/5562993478610" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

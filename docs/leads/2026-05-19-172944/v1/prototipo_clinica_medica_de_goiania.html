@@ -2,194 +2,304 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Clínica Médica de Goiânia — Goiânia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinica Medica de Goiania</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Inter', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#2E4057;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Inter', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Inter', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Inter', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#2E4057;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root {
+  --cmg-azul:#2E4057;
+  --cmg-ciano:#4ECDC4;
+  --cmg-branco:#FAFCFC;
+  --cmg-claro:#EEF4F4;
+  --cmg-texto:#1A2E3A;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito Sans',sans-serif;color:var(--cmg-texto);background:#fff}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 64px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.97);box-shadow:0 1px 0 rgba(46,64,87,0.1);backdrop-filter:blur(8px)}
+.nav-logo{font-family:'Nunito Sans',sans-serif;font-size:17px;font-weight:800;color:var(--cmg-azul);display:flex;align-items:center;gap:8px}
+.logo-cross{width:20px;height:20px;position:relative}
+.logo-cross::before,.logo-cross::after{content:'';position:absolute;background:var(--cmg-ciano);border-radius:2px}
+.logo-cross::before{width:4px;height:100%;left:8px;top:0}
+.logo-cross::after{width:100%;height:4px;top:8px;left:0}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cmg-azul);text-decoration:none;opacity:0.7;transition:opacity 0.2s}
+.nav-links a:hover{opacity:1}
+.nav-cta{background:var(--cmg-azul);color:#fff;text-decoration:none;padding:10px 20px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:background 0.2s}
+.nav-cta:hover{background:var(--cmg-ciano)}
+/* HERO */
+.hero{min-height:100vh;background:var(--cmg-azul);display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 64px;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(78,205,196,0.15);border:1px solid rgba(78,205,196,0.3);padding:8px 16px;margin-bottom:28px;width:fit-content}
+.badge-dot{width:6px;height:6px;background:var(--cmg-ciano);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.badge-text{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cmg-ciano)}
+.hero h1{font-family:'Crimson Pro',serif;font-size:clamp(44px,5.5vw,72px);font-weight:600;line-height:1.1;color:#fff;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--cmg-ciano)}
+.hero-sub{font-family:'Nunito Sans',sans-serif;font-size:14px;font-weight:300;letter-spacing:0.5px;color:rgba(255,255,255,0.6);line-height:1.9;max-width:420px;margin-bottom:40px}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn-prim{display:inline-flex;align-items:center;gap:10px;background:var(--cmg-ciano);color:var(--cmg-azul);text-decoration:none;padding:15px 30px;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;transition:transform 0.2s}
+.btn-prim:hover{transform:translateY(-2px)}
+.btn-prim svg{width:18px;height:18px;fill:currentColor}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.8);text-decoration:none;padding:14px 24px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:border-color 0.2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.7)}
+.hero-right{background:var(--cmg-claro);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px 48px;gap:24px;position:relative}
+.hero-img{width:100%;max-width:440px;height:320px;object-fit:cover}
+.hero-specs{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;max-width:440px}
+.spec-box{background:#fff;padding:20px 18px;border-left:3px solid var(--cmg-ciano)}
+.spec-num{font-family:'Crimson Pro',serif;font-size:30px;font-weight:600;color:var(--cmg-azul);line-height:1;margin-bottom:4px}
+.spec-lbl{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888}
+/* SPECIALTIES */
+.specialties{padding:100px 64px;background:#fff}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--cmg-ciano);margin-bottom:12px}
+.section-title{font-family:'Crimson Pro',serif;font-size:clamp(30px,4vw,46px);font-weight:600;color:var(--cmg-texto);margin-bottom:60px;line-height:1.2}
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.spec-card{background:var(--cmg-claro);padding:36px 28px;text-align:center;transition:transform 0.2s,box-shadow 0.2s}
+.spec-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(46,64,87,0.1)}
+.spec-icon{width:52px;height:52px;background:var(--cmg-azul);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.spec-icon svg{width:26px;height:26px}
+.spec-card h3{font-family:'Nunito Sans',sans-serif;font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--cmg-texto);margin-bottom:10px}
+.spec-card p{font-family:'Crimson Pro',serif;font-size:15px;color:#666;line-height:1.7}
+/* ABOUT */
+.about{padding:100px 64px;background:var(--cmg-claro);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img{width:100%;height:440px;object-fit:cover}
+.about-content .section-title{margin-bottom:24px}
+.about-text{font-family:'Crimson Pro',serif;font-size:16px;color:#555;line-height:1.9;margin-bottom:28px}
+.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pillar{background:#fff;padding:16px 20px;display:flex;align-items:flex-start;gap:10px;border-top:2px solid var(--cmg-ciano)}
+.pillar svg{width:16px;height:16px;flex-shrink:0;margin-top:2px}
+.pillar p{font-size:13px;font-weight:700;color:var(--cmg-texto)}
+/* CONTACT */
+.contact{padding:100px 64px;background:var(--cmg-azul)}
+.contact .section-eyebrow{color:var(--cmg-ciano)}
+.contact .section-title{color:#fff;margin-bottom:48px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:900px}
+.info-item{display:flex;gap:14px;margin-bottom:20px}
+.info-icon{width:18px;height:18px;margin-top:2px;flex-shrink:0}
+.info-item strong{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cmg-ciano);display:block;margin-bottom:4px}
+.info-item p{font-family:'Crimson Pro',serif;font-size:15px;color:rgba(255,255,255,0.65);line-height:1.6}
+.cta-wa{background:rgba(78,205,196,0.1);border:1px solid rgba(78,205,196,0.3);padding:40px 36px}
+.cta-wa h3{font-family:'Crimson Pro',serif;font-size:26px;color:#fff;margin-bottom:12px}
+.cta-wa p{font-family:'Crimson Pro',serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:28px}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;text-decoration:none;padding:14px 28px;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;transition:transform 0.2s}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-wa svg{width:18px;height:18px;fill:currentColor}
+/* FOOTER */
+footer{background:#0D1B2A;padding:24px 64px;display:flex;justify-content:space-between;align-items:center}
+footer p{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+footer strong{color:rgba(255,255,255,0.6)}
+/* FLOAT WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  nav{padding:16px 24px}
+  .nav-links,.nav-cta{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:100px 24px 60px}
+  .specialties,.about,.contact{padding:60px 24px}
+  .about{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Clínica Médica de Goiânia</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-logo">
+    <div class="logo-cross"></div>
+    Clinica Medica de Goiania
   </div>
-  <a href="https://wa.me/5562996135400" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <ul class="nav-links">
+    <li><a href="#especialidades">Especialidades</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5562996135400" class="nav-cta">Agendar Consulta</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#2E4057;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(100px,18vw,220px);font-weight:900;color:#ffffff;opacity:0.04;pointer-events:none;white-space:nowrap;font-family:'Inter', sans-serif;">CLÍNICA</div>
-  <div style="position:relative;z-index:2;text-align:center;color:#ffffff;max-width:720px;padding:40px 24px;">
-    <h1 style="font-size:clamp(40px,6vw,76px);font-weight:800;line-height:1.1;margin-bottom:24px;font-family:'Inter', sans-serif;">Sua saude e nossa missao</h1>
-    <p style="font-size:20px;opacity:0.85;line-height:1.6;margin-bottom:48px;font-family:'Inter', sans-serif;">Saude de qualidade em Goiânia</p>
-    <a href="https://wa.me/5562996135400" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</section>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Inter', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#202c3c;font-family:'Inter', sans-serif;">O que fazemos</h2>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span class="badge-text">Atendimento Disponivel</span>
     </div>
-    <div style="max-width:700px;"><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#FFFFFF;opacity:0.3;line-height:1;min-width:80px;font-family:'Inter', sans-serif;">01</div><div><h3 style="font-size:20px;font-weight:700;color:#202c3c;margin-bottom:8px;font-family:'Inter', sans-serif;">Clinica Geral</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Inter', sans-serif;">Atendimento medico completo para adultos e idosos.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#FFFFFF;opacity:0.3;line-height:1;min-width:80px;font-family:'Inter', sans-serif;">02</div><div><h3 style="font-size:20px;font-weight:700;color:#202c3c;margin-bottom:8px;font-family:'Inter', sans-serif;">Check-up Completo</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Inter', sans-serif;">Avaliacao geral da saude com exames e orientacoes.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#FFFFFF;opacity:0.3;line-height:1;min-width:80px;font-family:'Inter', sans-serif;">03</div><div><h3 style="font-size:20px;font-weight:700;color:#202c3c;margin-bottom:8px;font-family:'Inter', sans-serif;">Telemedicina</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Inter', sans-serif;">Consultas online com a comodidade da sua casa.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#FFFFFF;opacity:0.3;line-height:1;min-width:80px;font-family:'Inter', sans-serif;">04</div><div><h3 style="font-size:20px;font-weight:700;color:#202c3c;margin-bottom:8px;font-family:'Inter', sans-serif;">Saude da Mulher</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Inter', sans-serif;">Ginecologia e acompanhamento especializado feminino.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#FFFFFF;opacity:0.3;line-height:1;min-width:80px;font-family:'Inter', sans-serif;">05</div><div><h3 style="font-size:20px;font-weight:700;color:#202c3c;margin-bottom:8px;font-family:'Inter', sans-serif;">Pediatria</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Inter', sans-serif;">Cuidado medico especializado para criancas e adolescentes.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#FFFFFF;opacity:0.3;line-height:1;min-width:80px;font-family:'Inter', sans-serif;">06</div><div><h3 style="font-size:20px;font-weight:700;color:#202c3c;margin-bottom:8px;font-family:'Inter', sans-serif;">Pequenas Cirurgias</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Inter', sans-serif;">Procedimentos ambulatoriais com seguranca e conforto.</p></div></div><div style="display:flex;gap:32px;align-items:flex-start;padding:32px 0;border-bottom:1px solid #eee;"><div style="font-size:48px;font-weight:900;color:#FFFFFF;opacity:0.3;line-height:1;min-width:80px;font-family:'Inter', sans-serif;">07</div><div><h3 style="font-size:20px;font-weight:700;color:#202c3c;margin-bottom:8px;font-family:'Inter', sans-serif;">Medicina Preventiva</h3><p style="font-size:15px;color:#555;line-height:1.6;font-family:'Inter', sans-serif;">Prevencao de doencas e promocao da saude e bem-estar.</p></div></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#2E4057;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="15000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Inter', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Consultas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Inter', sans-serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="10" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Inter', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Anos de Atuacao</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="3500" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Inter', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Inter', sans-serif;">Pacientes</div></div>
+    <h1>Clinica Medica<br>de <em>Goiania</em></h1>
+    <p class="hero-sub">Cuidado medico humanizado com especialistas dedicados a sua saude. Atendimento completo, consultas rapidas e diagnostico preciso.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5562996135400" class="btn-prim">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Agendar Consulta
+      </a>
+      <a href="#especialidades" class="btn-ghost">Ver Especialidades</a>
     </div>
   </div>
-</section>
-
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
-<img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=800&fit=crop&q=80" alt="Clínica Médica de Goiânia" style="border-radius:20px;width:100%;height:480px;object-fit:cover;">
-<div>
-  <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Inter', sans-serif;">Sobre nos</p>
-  <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#202c3c;margin-bottom:20px;line-height:1.2;font-family:'Inter', sans-serif;">Clínica Médica de Goiânia</h2>
-  <p style="font-size:16px;color:#555;line-height:1.8;margin-bottom:28px;font-family:'Inter', sans-serif;">Nossa clinica medica oferece atendimento humanizado e de qualidade para cuidar da sua saude com dedicacao. Contamos com medicos especializados e infraestrutura moderna para proporcionar o melhor cuidado possivel.</p>
-  <div style="display:flex;gap:16px;flex-wrap:wrap;">
-    <div style="background:#ffffff;color:#cccccc;padding:10px 20px;border-radius:50px;font-size:13px;font-weight:700;">15.000+ Consultas</div>
-    <div style="background:#dfe2e5;color:#243345;padding:10px 20px;border-radius:50px;font-size:13px;font-weight:700;">12 Especialidades</div>
-  </div>
-</div></div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Inter', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#202c3c;font-family:'Inter', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Inter', sans-serif;">"Medico atencioso e dedicado. Me sinto em boas maos."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c0c5cc;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#2E4057;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#202c3c;font-family:'Inter', sans-serif;">Silvia A.</div><div style="font-size:12px;color:#888;font-family:'Inter', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Inter', sans-serif;">"Atendimento rapido e profissional de alta qualidade."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c0c5cc;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#2E4057;font-size:14px;">E</div><div><div style="font-weight:700;font-size:14px;color:#202c3c;font-family:'Inter', sans-serif;">Eduardo R.</div><div style="font-size:12px;color:#888;font-family:'Inter', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Inter', sans-serif;">"Clinica moderna e equipe muito atenciosa e humanizada."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#c0c5cc;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#2E4057;font-size:14px;">P</div><div><div style="font-weight:700;font-size:14px;color:#202c3c;font-family:'Inter', sans-serif;">Patricia L.</div><div style="font-size:12px;color:#888;font-family:'Inter', sans-serif;">Paciente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="position:relative;">
-  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#2E4057"/></svg>
-  <div style="background:#2E4057;padding:40px 40px 80px;text-align:center;color:#ffffff;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Inter', sans-serif;">Pronto para comecar?</p>
-    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'Inter', sans-serif;">Agende sua consulta</h2>
-    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Inter', sans-serif;">Entre em contato e descubra como podemos ajudar voce.</p>
-    <a href="https://wa.me/5562996135400" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/clinicamedicadegoiania/" style="display:inline-block;border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#243345;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Inter', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Clínica Médica de Goiânia</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Inter', sans-serif;">Centro, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562996135400" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/clinicamedicadegoiania/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
+  <div class="hero-right">
+    <img src="https://placehold.co/440x320/EEF4F4/2E4057?text=Clinica+Medica" alt="Clinica Medica de Goiania" class="hero-img">
+    <div class="hero-specs">
+      <div class="spec-box">
+        <div class="spec-num">15+</div>
+        <div class="spec-lbl">Anos de Atendimento</div>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Inter', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Inter', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
+      <div class="spec-box">
+        <div class="spec-num">20+</div>
+        <div class="spec-lbl">Especialidades</div>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Inter', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Inter', sans-serif;">
-          (62) 99613-5400<br>
-          <a href="https://wa.me/5562996135400" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/clinicamedicadegoiania/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
+      <div class="spec-box">
+        <div class="spec-num">8K+</div>
+        <div class="spec-lbl">Pacientes Atendidos</div>
+      </div>
+      <div class="spec-box">
+        <div class="spec-num">4.9</div>
+        <div class="spec-lbl">Avaliacao Media</div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Inter', sans-serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<section class="specialties" id="especialidades">
+  <p class="section-eyebrow reveal">Areas de Atuacao</p>
+  <h2 class="section-title reveal">Especialidades Medicas</h2>
+  <div class="spec-grid">
+    <div class="spec-card reveal">
+      <div class="spec-icon">
+        <svg viewBox="0 0 26 26" fill="none" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round">
+          <path d="M13 2v22M2 13h22"/>
+          <circle cx="13" cy="13" r="11"/>
+        </svg>
+      </div>
+      <h3>Clinica Geral</h3>
+      <p>Atendimento medico completo para adultos e criancas com foco em prevencao e tratamento.</p>
+    </div>
+    <div class="spec-card reveal">
+      <div class="spec-icon">
+        <svg viewBox="0 0 26 26" fill="none" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round">
+          <path d="M13 8a5 5 0 100 10 5 5 0 000-10z"/>
+          <path d="M13 2v4M13 20v4M2 13h4M20 13h4"/>
+        </svg>
+      </div>
+      <h3>Cardiologia</h3>
+      <p>Eletrocardiograma, ecocardiograma e acompanhamento da saude cardiovascular.</p>
+    </div>
+    <div class="spec-card reveal">
+      <div class="spec-icon">
+        <svg viewBox="0 0 26 26" fill="none" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round">
+          <path d="M8 4h10v4H8V4zM6 8h14l2 14H4L6 8zM10 12v6M16 12v6"/>
+        </svg>
+      </div>
+      <h3>Pediatria</h3>
+      <p>Cuidado especializado para bebes, criancas e adolescentes com atencao integral.</p>
+    </div>
+    <div class="spec-card reveal">
+      <div class="spec-icon">
+        <svg viewBox="0 0 26 26" fill="none" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round">
+          <ellipse cx="13" cy="10" rx="6" ry="7"/>
+          <path d="M7 10c0 7 3 12 6 12s6-5 6-12"/>
+          <path d="M4 22c2-4 5-6 9-6s7 2 9 6"/>
+        </svg>
+      </div>
+      <h3>Ginecologia</h3>
+      <p>Saude da mulher com atendimento humanizado e exames preventivos.</p>
+    </div>
+    <div class="spec-card reveal">
+      <div class="spec-icon">
+        <svg viewBox="0 0 26 26" fill="none" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round">
+          <path d="M4 4h18v14H4z"/>
+          <path d="M8 18v4M18 18v4M2 22h22"/>
+        </svg>
+      </div>
+      <h3>Exames Laboratoriais</h3>
+      <p>Coleta e analise de exames com resultados rapidos e confiavels.</p>
+    </div>
+    <div class="spec-card reveal">
+      <div class="spec-icon">
+        <svg viewBox="0 0 26 26" fill="none" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round">
+          <path d="M13 2C7.477 2 3 6.477 3 12s4.477 10 10 10 10-4.477 10-10S18.523 2 13 2z"/>
+          <path d="M13 8v4l3 3"/>
+        </svg>
+      </div>
+      <h3>Teleconsulta</h3>
+      <p>Consultas online para seu conforto e comodidade, sem sair de casa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="sobre">
+  <img src="https://placehold.co/540x440/D4E5EC/2E4057?text=Nossa+Clinica" alt="Clinica Medica de Goiania" class="reveal">
+  <div class="about-content">
+    <p class="section-eyebrow reveal">Nossa Missao</p>
+    <h2 class="section-title reveal">Saude com<br>Humanidade e<br>Excelencia</h2>
+    <p class="about-text reveal">A Clinica Medica de Goiania foi fundada com a missao de oferecer cuidados medicos de alta qualidade de forma acessivel. Nossa equipe multidisciplinar atende com empatia, rigor tecnico e compromisso com o bem-estar de cada paciente.</p>
+    <div class="about-pillars reveal">
+      <div class="pillar">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p>Medicos Especializados</p>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p>Atendimento Humanizado</p>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p>Agenda Flexivel</p>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p>Resultados Online</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <p class="section-eyebrow reveal">Entre em Contato</p>
+  <h2 class="section-title reveal">Agende sua<br>Consulta</h2>
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="info-item">
+        <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M10 2C6.686 2 4 4.686 4 8c0 5 6 10 6 10s6-5 6-10c0-3.314-2.686-6-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" fill="#4ECDC4"/></svg>
+        <div><strong>Endereco</strong><p>Av. Goias, 2200 — Setor Central<br>Goiania, GO</p></div>
+      </div>
+      <div class="info-item">
+        <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" fill="#4ECDC4"/></svg>
+        <div><strong>Telefone</strong><p>(62) 99613-5400</p></div>
+      </div>
+      <div class="info-item">
+        <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm3 1v2h10V5H5zm0 4v2h10V9H5zm0 4v2h6v-2H5z" fill="#4ECDC4"/></svg>
+        <div><strong>Horario</strong><p>Seg a Sex: 07h00 — 20h00<br>Sabado: 08h00 — 14h00</p></div>
+      </div>
+    </div>
+    <div class="cta-wa reveal">
+      <h3>Marque sua consulta<br>agora mesmo</h3>
+      <p>Atendimento rapido pelo WhatsApp. Nossa secretaria responde em minutos.</p>
+      <a href="https://wa.me/5562996135400" class="btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Clinica Medica de Goiania</strong> — Av. Goias, 2200 — Goiania, GO</p>
+  <p>Desenvolvido por <strong>VANT Digital Studio</strong></p>
 </footer>
 
-<a href="https://wa.me/5562996135400" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562996135400" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

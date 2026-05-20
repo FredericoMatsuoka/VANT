@@ -2,194 +2,285 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Ana Carolina Psicóloga EMDR — Goiânia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ana Carolina Psicóloga — Terapia EMDR | Goiânia</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Plus Jakarta Sans', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#009688;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Plus Jakarta Sans', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Plus Jakarta Sans', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Plus Jakarta Sans', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#009688;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root{
+  --carolina-dourado:#C8963A;
+  --carolina-creme:#F8F0E3;
+  --carolina-bege:#EFE0C4;
+  --carolina-escuro:#2C2316;
+  --carolina-medio:#6B5340;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Raleway',sans-serif;background:#fff;color:var(--carolina-escuro);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,248,235,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(200,150,58,0.15)}
+.nav-brand{display:flex;flex-direction:column;line-height:1}
+.nav-brand span:first-child{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--carolina-escuro);letter-spacing:0.02em}
+.nav-brand span:last-child{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--carolina-dourado);font-weight:600}
+.nav-cta{background:var(--carolina-dourado);color:#fff;border:none;padding:10px 22px;font-family:'Raleway',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background 0.3s}
+.nav-cta:hover{background:#b07e29}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--carolina-creme);display:grid;grid-template-columns:1fr 1fr;padding-top:80px}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;position:relative}
+.hero-left::after{content:'';position:absolute;top:0;right:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,var(--carolina-dourado),transparent)}
+.hero-eyebrow{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--carolina-dourado);font-weight:700;margin-bottom:20px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,4.5vw,4.2rem);font-weight:600;color:var(--carolina-escuro);line-height:1.12;margin-bottom:12px}
+.hero-title em{font-style:italic;color:var(--carolina-dourado)}
+.hero-subtitle{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--carolina-medio);margin-bottom:36px;line-height:1.6}
+.hero-desc{font-size:0.92rem;color:var(--carolina-medio);line-height:1.8;margin-bottom:44px;max-width:420px}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn-primary{background:var(--carolina-dourado);color:#fff;padding:14px 32px;text-decoration:none;font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.3s;border:2px solid var(--carolina-dourado)}
+.btn-primary:hover{background:transparent;color:var(--carolina-dourado)}
+.btn-outline{border:2px solid var(--carolina-escuro);color:var(--carolina-escuro);padding:12px 28px;text-decoration:none;font-size:0.82rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.3s}
+.btn-outline:hover{background:var(--carolina-escuro);color:#fff}
+.hero-right{position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--carolina-bege) 0%,var(--carolina-creme) 100%)}
+.hero-photo-wrap{position:relative;width:340px;height:420px}
+.hero-photo-wrap img{width:100%;height:100%;object-fit:cover;border-radius:200px 200px 160px 160px}
+.hero-badge{position:absolute;bottom:-18px;right:-24px;background:var(--carolina-dourado);color:#fff;padding:18px 24px;text-align:center}
+.hero-badge strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;line-height:1}
+.hero-badge span{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.9}
+.hero-deco{position:absolute;top:60px;left:40px;width:80px;height:80px;border:1px solid rgba(200,150,58,0.3);border-radius:50%}
+.hero-deco::after{content:'';position:absolute;top:10px;left:10px;right:10px;bottom:10px;border:1px solid rgba(200,150,58,0.3);border-radius:50%}
+
+/* CREDENTIALS BAR */
+.cred-bar{background:var(--carolina-escuro);padding:28px 80px;display:flex;align-items:center;gap:48px;justify-content:center;flex-wrap:wrap}
+.cred-item{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85)}
+.cred-item svg{flex-shrink:0;color:var(--carolina-dourado)}
+.cred-item span{font-size:0.82rem;letter-spacing:0.05em}
+.cred-sep{width:1px;height:32px;background:rgba(255,255,255,0.15)}
+
+/* ABOUT */
+.about{padding:100px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--carolina-dourado);font-weight:700;margin-bottom:16px}
+.about-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:600;color:var(--carolina-escuro);line-height:1.25;margin-bottom:24px}
+.about-text{font-size:0.92rem;color:var(--carolina-medio);line-height:1.9;margin-bottom:16px}
+.about-quote{border-left:3px solid var(--carolina-dourado);padding-left:24px;margin:32px 0;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--carolina-escuro);line-height:1.7}
+.about-right{position:relative}
+.about-img{width:100%;height:480px;object-fit:cover;border-radius:4px}
+.about-tag{position:absolute;top:32px;left:-24px;background:#fff;border:1px solid var(--carolina-bege);padding:16px 20px;box-shadow:0 4px 24px rgba(0,0,0,0.08)}
+.about-tag strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--carolina-dourado)}
+.about-tag span{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--carolina-medio)}
+
+/* EMDR SECTION */
+.emdr{background:var(--carolina-creme);padding:100px 80px}
+.section-header{text-align:center;margin-bottom:64px}
+.section-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--carolina-dourado);font-weight:700;margin-bottom:12px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:600;color:var(--carolina-escuro);margin-bottom:16px}
+.section-sub{font-size:0.9rem;color:var(--carolina-medio);max-width:540px;margin:0 auto;line-height:1.8}
+.emdr-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.emdr-card{background:#fff;padding:40px 32px;border-top:3px solid transparent;transition:border-color 0.3s,box-shadow 0.3s}
+.emdr-card:hover{border-top-color:var(--carolina-dourado);box-shadow:0 8px 40px rgba(200,150,58,0.12)}
+.emdr-icon{width:52px;height:52px;background:var(--carolina-bege);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.emdr-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--carolina-escuro);margin-bottom:12px}
+.emdr-card p{font-size:0.88rem;color:var(--carolina-medio);line-height:1.8}
+
+/* SERVICES */
+.services{padding:100px 80px;background:#fff}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:64px;border:2px solid var(--carolina-bege)}
+.svc-item{padding:40px;border-right:2px solid var(--carolina-bege);border-bottom:2px solid var(--carolina-bege);transition:background 0.3s}
+.svc-item:hover{background:var(--carolina-creme)}
+.svc-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;color:var(--carolina-bege);font-weight:600;margin-bottom:12px;line-height:1}
+.svc-item h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--carolina-escuro);margin-bottom:8px}
+.svc-item p{font-size:0.85rem;color:var(--carolina-medio);line-height:1.7}
+
+/* CTA */
+.cta-section{background:var(--carolina-escuro);padding:100px 80px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;border:1px solid rgba(200,150,58,0.2);border-radius:50%}
+.cta-section::after{content:'';position:absolute;bottom:-80px;left:-80px;width:320px;height:320px;border:1px solid rgba(200,150,58,0.15);border-radius:50%}
+.cta-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--carolina-dourado);font-weight:700;margin-bottom:20px}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,3rem);color:#fff;margin-bottom:16px;font-weight:600}
+.cta-sub{font-size:0.92rem;color:rgba(255,255,255,0.65);margin-bottom:44px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.8}
+.cta-btn{display:inline-block;background:var(--carolina-dourado);color:#fff;padding:16px 44px;text-decoration:none;font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;transition:all 0.3s;position:relative;z-index:1}
+.cta-btn:hover{background:#b07e29}
+
+/* FOOTER */
+footer{background:#1a1208;padding:40px 80px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer .brand{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,0.7)}
+footer .copy{font-size:0.78rem;color:rgba(255,255,255,0.4)}
+footer .wa-link{color:var(--carolina-dourado);font-size:0.82rem;text-decoration:none;letter-spacing:0.05em}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{min-height:400px}
+  .about{grid-template-columns:1fr;padding:60px 32px}
+  .emdr-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  .emdr,.services,.cta-section{padding:60px 32px}
+  nav{padding:16px 24px}
+  .hero-left{padding:60px 32px}
+  .cred-bar{padding:24px 32px}
+  footer{padding:32px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">Ana Carolina Psicóloga EMDR</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
+<nav>
+  <div class="nav-brand">
+    <span>Ana Carolina</span>
+    <span>Psicóloga EMDR · CRP 09/00843</span>
   </div>
-  <a href="https://wa.me/5562996438012" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="https://wa.me/5562996438012" class="nav-cta">Agendar Consulta</a>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#00695f;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;">
-  <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:clamp(100px,18vw,220px);font-weight:900;color:#ffffff;opacity:0.04;pointer-events:none;white-space:nowrap;font-family:'Plus Jakarta Sans', sans-serif;">ANA</div>
-  <div style="max-width:1200px;margin:0 auto;padding:120px 60px;display:flex;align-items:center;gap:0;position:relative;z-index:2;">
-    <div style="width:1px;height:70vh;background:#FFFFFF;flex-shrink:0;margin-right:60px;"></div>
-    <div>
-      <p style="font-size:13px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#FFFFFF;margin-bottom:24px;font-family:'Plus Jakarta Sans', sans-serif;">Bem-vindo</p>
-      <h1 style="font-size:clamp(48px,7vw,100px);font-weight:800;color:#ffffff;line-height:1.0;margin-bottom:32px;font-family:'Plus Jakarta Sans', sans-serif;">Saude mental com cuidado</h1>
-      <p style="font-size:18px;color:rgba(255,255,255,0.7);margin-bottom:48px;max-width:480px;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Psicologia em Goiânia</p>
-      <a href="https://wa.me/5562996438012" style="border:1px solid #FFFFFF;color:#FFFFFF;padding:14px 32px;font-size:15px;font-weight:600;text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:all 0.3s;">Entrar em contato</a>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Psicologia Clínica · Terapia EMDR · Goiânia</div>
+    <h1 class="hero-title">Cuidado que <em>transforma</em><br>sua história</h1>
+    <p class="hero-subtitle">Especialista em EMDR para trauma, ansiedade e autoestima</p>
+    <p class="hero-desc">Um espaço seguro para processar experiências difíceis, reconectar com sua essência e construir bem-estar genuíno. A terapia EMDR oferece resultados profundos com base científica comprovada.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5562996438012" class="btn-primary">Primeira Consulta</a>
+      <a href="#sobre" class="btn-outline">Saiba Mais</a>
     </div>
   </div>
-</section>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#00695f;font-family:'Plus Jakarta Sans', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#005a51;font-family:'Plus Jakarta Sans', sans-serif;">Terapia Individual</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Plus Jakarta Sans', sans-serif;">Espaco seguro para autoconhecimento e desenvolvimento pessoal.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#005a51;font-family:'Plus Jakarta Sans', sans-serif;">Terapia de Casal</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Plus Jakarta Sans', sans-serif;">Fortalecimento do relacionamento e resolucao de conflitos.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#005a51;font-family:'Plus Jakarta Sans', sans-serif;">Psicologia Infantil</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Plus Jakarta Sans', sans-serif;">Suporte especializado para o desenvolvimento saudavel infantil.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#005a51;font-family:'Plus Jakarta Sans', sans-serif;">Neuropsicologia</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Plus Jakarta Sans', sans-serif;">Avaliacao e reabilitacao das funcoes cognitivas e cerebrais.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#005a51;font-family:'Plus Jakarta Sans', sans-serif;">EMDR</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Plus Jakarta Sans', sans-serif;">Tecnica especializada para processamento de traumas.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#005a51;font-family:'Plus Jakarta Sans', sans-serif;">Terapia Online</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Plus Jakarta Sans', sans-serif;">Atendimento psicologico pelo computador ou smartphone.</p></div><div class="srv-card" style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:all 0.3s;"><div style="width:44px;height:44px;background:#ffffff;border-radius:10px;margin-bottom:20px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2 2"/></svg></div><h3 style="font-size:18px;font-weight:700;margin-bottom:10px;color:#005a51;font-family:'Plus Jakarta Sans', sans-serif;">Avaliacao Psicologica</h3><p style="font-size:14px;color:#666;line-height:1.6;font-family:'Plus Jakarta Sans', sans-serif;">Avaliacao completa para diagnostico e orientacao.</p></div></div><style>.srv-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,0.12)!important;}@media(max-width:768px){.srv-card+.srv-card+.srv-card,.srv-card+.srv-card,.srv-card{}div[style*="repeat(3"]{}}</style>
-  </div>
-</section>
-
-<section id="stats" style="background:#009688;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="1200" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Plus Jakarta Sans', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Plus Jakarta Sans', sans-serif;">Pacientes</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="10" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Plus Jakarta Sans', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Plus Jakarta Sans', sans-serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="7" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Plus Jakarta Sans', sans-serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Plus Jakarta Sans', sans-serif;">Especialidades</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Plus Jakarta Sans', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Plus Jakarta Sans', sans-serif;">Sessoes Realizadas</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:64px;">
-  <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#00695f;margin-bottom:16px;font-family:'Plus Jakarta Sans', sans-serif;">Ana Carolina Psicóloga EMDR</h2>
-  <p style="font-size:16px;color:#555;max-width:640px;margin:0 auto;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Acreditamos que a saude mental e fundamental para uma vida plena e feliz. Nosso trabalho e baseado em escuta ativa, empatia e tecnicas cientificamente comprovadas para ajudar cada pessoa a superar seus desafios.</p>
-</div>
-<div style="position:relative;display:flex;gap:0;margin-top:40px;">
-  <div style="position:absolute;top:8px;left:10%;right:10%;height:2px;background:linear-gradient(to right,#ffffff,#FFFFFF,#ffffff);z-index:1;"></div>
-  <div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#00695f;margin-bottom:8px;font-family:'Plus Jakarta Sans', sans-serif;">Fundacao</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Plus Jakarta Sans', sans-serif;">Inicio das atividades com foco em qualidade e excelencia.</p></div><div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#00695f;margin-bottom:8px;font-family:'Plus Jakarta Sans', sans-serif;">Crescimento</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Plus Jakarta Sans', sans-serif;">Expansao da equipe e dos servicos oferecidos aos clientes.</p></div><div style="flex:1;text-align:center;position:relative;"><div style="width:16px;height:16px;background:#FFFFFF;border-radius:50%;margin:0 auto 20px;position:relative;z-index:2;box-shadow:0 0 0 6px #ffffff;"></div><h4 style="font-size:17px;font-weight:700;color:#00695f;margin-bottom:8px;font-family:'Plus Jakarta Sans', sans-serif;">Referencia</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Plus Jakarta Sans', sans-serif;">Consolidacao como referencia no mercado regional.</p></div>
-</div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#00695f;font-family:'Plus Jakarta Sans', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Plus Jakarta Sans', sans-serif;">"A terapia mudou minha vida. Me sinto muito mais equilibrado."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2dfdb;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#009688;font-size:14px;">C</div><div><div style="font-weight:700;font-size:14px;color:#00695f;font-family:'Plus Jakarta Sans', sans-serif;">Camila B.</div><div style="font-size:12px;color:#888;font-family:'Plus Jakarta Sans', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Plus Jakarta Sans', sans-serif;">"Profissional excepcional com abordagem acolhedora e eficaz."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2dfdb;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#009688;font-size:14px;">T</div><div><div style="font-weight:700;font-size:14px;color:#00695f;font-family:'Plus Jakarta Sans', sans-serif;">Thiago M.</div><div style="font-size:12px;color:#888;font-family:'Plus Jakarta Sans', sans-serif;">Paciente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Plus Jakarta Sans', sans-serif;">"Recomendo de coracao. Espaco seguro e transformador."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b2dfdb;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#009688;font-size:14px;">R</div><div><div style="font-weight:700;font-size:14px;color:#00695f;font-family:'Plus Jakarta Sans', sans-serif;">Renata C.</div><div style="font-size:12px;color:#888;font-family:'Plus Jakarta Sans', sans-serif;">Paciente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#ffffff;">
-  <div class="section-inner reveal">
-    <div style="background:linear-gradient(135deg,#009688 0%,#007066 100%);border-radius:24px;padding:80px 48px;text-align:center;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;opacity:0.03;background-image:url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;200&quot; height=&quot;200&quot;><filter id=&quot;n&quot;><feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.65&quot; numOctaves=&quot;3&quot;/></filter><rect width=&quot;200&quot; height=&quot;200&quot; filter=&quot;url(%23n)&quot;/></svg>');background-size:200px;"></div>
-  <div style="position:relative;z-index:2;color:#ffffff;">
-    <div style="display:inline-block;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:8px 20px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px;font-family:'Plus Jakarta Sans', sans-serif;">Contato</div>
-    <h2 style="font-size:clamp(28px,4.5vw,54px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Plus Jakarta Sans', sans-serif;">Inicie sua jornada</h2>
-    <p style="font-size:18px;opacity:0.85;max-width:520px;margin:0 auto 44px;line-height:1.6;font-family:'Plus Jakarta Sans', sans-serif;">Atendimento especializado para voce.</p>
-    <a href="https://wa.me/5562996438012" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 48px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#00786c;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Plus Jakarta Sans', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">Ana Carolina Psicóloga EMDR</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Setor Oeste, Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562996438012" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/anacarolinapsicologa/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Plus Jakarta Sans', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Plus Jakarta Sans', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Plus Jakarta Sans', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Plus Jakarta Sans', sans-serif;">
-          (62) 99643-8012<br>
-          <a href="https://wa.me/5562996438012" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/anacarolinapsicologa/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
+  <div class="hero-right">
+    <div class="hero-deco"></div>
+    <div class="hero-photo-wrap">
+      <img src="https://placehold.co/340x420/F8F0E3/C8963A?text=Ana+Carolina" alt="Ana Carolina Psicóloga">
+      <div class="hero-badge">
+        <strong>8+</strong>
+        <span>Anos de experiência</span>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Plus Jakarta Sans', sans-serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<div class="cred-bar">
+  <div class="cred-item">
+    <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>CRP 09/00843</span>
+  </div>
+  <div class="cred-sep"></div>
+  <div class="cred-item">
+    <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Certificação EMDR International</span>
+  </div>
+  <div class="cred-sep"></div>
+  <div class="cred-item">
+    <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" stroke="currentColor" stroke-width="2"/><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" stroke="currentColor" stroke-width="2"/></svg>
+    <span>Goiânia, GO</span>
+  </div>
+  <div class="cred-sep"></div>
+  <div class="cred-item">
+    <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Atendimento Presencial e Online</span>
+  </div>
+</div>
+
+<section class="about reveal" id="sobre">
+  <div>
+    <div class="about-label">Sobre</div>
+    <h2 class="about-title">Psicologia com presenca e ciencia</h2>
+    <p class="about-text">Sou Ana Carolina, psicóloga clínica com especializacao em Terapia EMDR — uma das abordagens mais eficazes para o processamento de traumas e memorias adversas, reconhecida pela OMS e pelo CFP.</p>
+    <blockquote class="about-quote">"O EMDR nao apaga o passado. Ele libera o peso que ele colocou em voce."</blockquote>
+    <p class="about-text">Atendo adultos que enfrentam ansiedade, traumas, fobias, baixa autoestima e questoes emocionais que impactam a qualidade de vida. Cada sessao e construida com escuta genuina, tecnica e respeito ao seu ritmo.</p>
+  </div>
+  <div class="about-right">
+    <img class="about-img" src="https://placehold.co/480x480/EFE0C4/C8963A?text=Consultorio" alt="Consultorio">
+    <div class="about-tag">
+      <strong>EMDR</strong>
+      <span>Terapeuta Certificada</span>
+    </div>
+  </div>
+</section>
+
+<section class="emdr reveal">
+  <div class="section-header">
+    <div class="section-label">Terapia EMDR</div>
+    <h2 class="section-title">Como o EMDR transforma sua vida</h2>
+    <p class="section-sub">Dessensibilizacao e Reprocessamento por Movimentos Oculares — uma revolucao no tratamento de traumas e experiencias dolorosas.</p>
+  </div>
+  <div class="emdr-grid">
+    <div class="emdr-card reveal">
+      <div class="emdr-icon">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Processamento de Trauma</h3>
+      <p>O EMDR ajuda o cerebro a reprocessar memorias traumaticas, reduzindo o impacto emocional que elas exercem no presente.</p>
+    </div>
+    <div class="emdr-card reveal">
+      <div class="emdr-icon">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Reducao de Ansiedade</h3>
+      <p>Tecnicas bilaterais ativam a capacidade natural do cerebro de regular emocoes, trazendo alivio duradouro para a ansiedade.</p>
+    </div>
+    <div class="emdr-card reveal">
+      <div class="emdr-icon">
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24"><path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Reconstrucao da Autoestima</h3>
+      <p>Reprocessa crencas negativas sobre si mesmo, construindo uma autoimagem mais saudavel, segura e autentica.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services reveal">
+  <div class="section-header">
+    <div class="section-label">Atendimentos</div>
+    <h2 class="section-title">Areas de atuacao</h2>
+  </div>
+  <div class="services-grid">
+    <div class="svc-item reveal">
+      <div class="svc-num">01</div>
+      <h3>Terapia EMDR</h3>
+      <p>Para traumas, TEPT, fobias e memorias que ainda causam sofrimento emocional.</p>
+    </div>
+    <div class="svc-item reveal">
+      <div class="svc-num">02</div>
+      <h3>Ansiedade e Panico</h3>
+      <p>Tecnicas baseadas em evidencias para reducao de crises e regulacao emocional.</p>
+    </div>
+    <div class="svc-item reveal">
+      <div class="svc-num">03</div>
+      <h3>Autoestima e Identidade</h3>
+      <p>Trabalho profundo com crencas limitantes e padrao de relacionamento consigo mesmo.</p>
+    </div>
+    <div class="svc-item reveal">
+      <div class="svc-num">04</div>
+      <h3>Atendimento Online</h3>
+      <p>Sessoes via plataforma segura, com a mesma qualidade do atendimento presencial.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section reveal">
+  <div class="cta-label">Primeiro Passo</div>
+  <h2 class="cta-title">Sua jornada de cura comeca aqui</h2>
+  <p class="cta-sub">Agende sua consulta inicial e descubra como a Terapia EMDR pode transformar sua relacao com o passado e abrir espaco para um futuro mais leve.</p>
+  <a href="https://wa.me/5562996438012" class="cta-btn">Agendar pelo WhatsApp</a>
+</section>
+
+<footer>
+  <span class="brand">Ana Carolina — Psicóloga EMDR</span>
+  <span class="copy">CRP 09/00843 · Goiânia, GO · © 2026</span>
+  <a href="https://wa.me/5562996438012" class="wa-link">(62) 99643-8012</a>
 </footer>
 
-<a href="https://wa.me/5562996438012" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562996438012" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>

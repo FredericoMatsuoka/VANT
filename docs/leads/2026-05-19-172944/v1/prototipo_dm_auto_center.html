@@ -2,192 +2,286 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>DM Auto Center — Aparecida de Goiânia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DM Auto Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Manrope', sans-serif;line-height:1.6;color:#222;}
-section{position:relative;}
-.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
-.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.visible{opacity:1;transform:none;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
-nav.scrolled{background:#0277BD;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
-.nav-brand{font-family:'Manrope', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Manrope', sans-serif;transition:color 0.2s;}
-.nav-links a:hover{color:#fff;}
-.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Manrope', sans-serif;white-space:nowrap;}
-.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
-@media(max-width:768px){
-  nav{padding:0 20px;}
-  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#0277BD;flex-direction:column;padding:20px;gap:16px;}
-  .nav-links.open{display:flex;}
-  .hamburger{display:flex;}
-  .nav-wa{display:none;}
-  .section-inner{padding:60px 20px;}
+:root {
+  --dm-azul:#0277BD;
+  --dm-azul-claro:#29B6F6;
+  --dm-escuro:#020E18;
+  --dm-neutro:#F5F8FA;
+  --dm-texto:#0D1B2A;
 }
-.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
-.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
-@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
-.float-wa svg{position:relative;z-index:2;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Work Sans',sans-serif;color:var(--dm-texto);background:#fff}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 60px;display:flex;justify-content:space-between;align-items:center;background:rgba(2,14,24,0.96);backdrop-filter:blur(10px)}
+.nav-logo{font-family:'Work Sans',sans-serif;font-size:20px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:8px}
+.logo-dot{width:8px;height:8px;background:var(--dm-azul-claro);border-radius:50%;display:inline-block}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--dm-azul-claro)}
+/* HERO — horizontal split with blue panel left */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-panel-left{background:var(--dm-azul);display:flex;flex-direction:column;justify-content:center;padding:80px 56px;position:relative;z-index:2;overflow:hidden}
+.hero-panel-left::before{content:'DM';position:absolute;right:-40px;bottom:-60px;font-family:'Work Sans',sans-serif;font-size:240px;font-weight:800;color:rgba(255,255,255,0.06);line-height:1}
+.hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:24px}
+.hero h1{font-family:'Work Sans',sans-serif;font-size:clamp(48px,6vw,76px);font-weight:800;line-height:0.95;text-transform:uppercase;color:#fff;margin-bottom:20px}
+.hero h1 span{display:block;font-size:0.65em;font-weight:300;letter-spacing:4px}
+.hero-desc{font-family:'Libre Baskerville',serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.75);line-height:1.8;max-width:400px;margin-bottom:40px}
+.hero-btn{display:inline-flex;align-items:center;gap:12px;background:#fff;color:var(--dm-azul);text-decoration:none;padding:15px 30px;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;transition:background 0.2s,color 0.2s}
+.hero-btn:hover{background:var(--dm-azul-claro);color:#fff}
+.hero-btn svg{width:18px;height:18px;fill:currentColor}
+.hero-panel-right{background:var(--dm-escuro);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:80px 40px;gap:20px;position:relative}
+.hero-panel-right::after{content:'';position:absolute;left:-1px;top:0;bottom:0;width:3px;background:var(--dm-azul-claro)}
+.hero-main-img{width:100%;max-width:440px;height:300px;object-fit:cover}
+.hero-mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;width:100%;max-width:440px;background:rgba(2,119,189,0.15)}
+.mini-stat{background:var(--dm-escuro);padding:20px 16px;text-align:center;border:1px solid rgba(41,182,246,0.1)}
+.mini-stat-num{font-family:'Work Sans',sans-serif;font-size:26px;font-weight:800;color:var(--dm-azul-claro);line-height:1;margin-bottom:4px}
+.mini-stat-lbl{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+/* DIVIDER */
+.divider{height:4px;background:linear-gradient(to right,var(--dm-azul),var(--dm-azul-claro),var(--dm-azul))}
+/* SERVICES */
+.services{padding:100px 60px;background:#fff}
+.section-label{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--dm-azul);margin-bottom:12px}
+.section-title{font-family:'Work Sans',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:800;text-transform:uppercase;color:var(--dm-texto);margin-bottom:60px}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.svc{background:var(--dm-neutro);padding:36px 28px;border-top:4px solid transparent;transition:border-color 0.25s,transform 0.25s}
+.svc:hover{border-top-color:var(--dm-azul);transform:translateY(-4px)}
+.svc-num{font-family:'Work Sans',sans-serif;font-size:42px;font-weight:800;color:var(--dm-azul);opacity:0.2;line-height:1;margin-bottom:12px}
+.svc h3{font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--dm-texto);margin-bottom:10px}
+.svc p{font-family:'Libre Baskerville',serif;font-size:14px;color:#666;line-height:1.7}
+/* PROCESS */
+.process{padding:100px 60px;background:var(--dm-escuro)}
+.process .section-label{color:var(--dm-azul-claro)}
+.process .section-title{color:#fff}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:32px;left:10%;right:10%;height:1px;background:rgba(41,182,246,0.25)}
+.step{text-align:center;padding:0 20px;position:relative;z-index:2}
+.step-circle{width:64px;height:64px;border-radius:50%;background:var(--dm-azul);border:2px solid var(--dm-azul-claro);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Work Sans',sans-serif;font-size:22px;font-weight:800;color:#fff}
+.step h3{font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;margin-bottom:8px}
+.step p{font-family:'Libre Baskerville',serif;font-size:13px;font-style:italic;color:rgba(255,255,255,0.5);line-height:1.6}
+/* ABOUT */
+.about{padding:100px 60px;background:var(--dm-neutro);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-img{width:100%;height:440px;object-fit:cover}
+.about-content .section-title{margin-bottom:24px;color:var(--dm-texto)}
+.about-text{font-family:'Libre Baskerville',serif;font-size:15px;color:#555;line-height:1.9;margin-bottom:28px}
+.about-feats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px}
+.feat{background:#fff;padding:16px 20px;border-left:3px solid var(--dm-azul)}
+.feat p{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--dm-texto)}
+.about-cta{display:inline-flex;align-items:center;gap:10px;background:var(--dm-azul);color:#fff;text-decoration:none;padding:14px 28px;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;transition:background 0.2s}
+.about-cta:hover{background:var(--dm-azul-claro)}
+.about-cta svg{width:18px;height:18px;fill:currentColor}
+/* CONTACT */
+.contact{padding:100px 60px;background:#fff}
+.contact-wrap{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.info-block{display:flex;gap:14px;margin-bottom:24px}
+.info-icon{width:18px;height:18px;margin-top:2px;flex-shrink:0}
+.info-block strong{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--dm-azul);display:block;margin-bottom:4px}
+.info-block p{font-family:'Libre Baskerville',serif;font-size:14px;color:#555;line-height:1.6}
+.cta-card{background:var(--dm-azul);padding:48px 36px}
+.cta-card h3{font-family:'Work Sans',sans-serif;font-size:24px;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:12px}
+.cta-card p{font-family:'Libre Baskerville',serif;font-size:15px;font-style:italic;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:28px}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--dm-azul);text-decoration:none;padding:14px 28px;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;transition:transform 0.2s}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-wa svg{width:18px;height:18px;fill:currentColor}
+/* FOOTER */
+footer{background:var(--dm-escuro);padding:24px 60px;display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--dm-azul)}
+footer p{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.35)}
+footer strong{color:rgba(255,255,255,0.65)}
+/* FLOAT WA */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:9999;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;animation:pulse-wa 2s infinite}
+@keyframes pulse-wa{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.8),0 0 0 10px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.65s,transform 0.65s}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-panel-right{display:none}
+  .hero-panel-left{padding:100px 24px 60px}
+  .services,.about,.process,.contact{padding:60px 24px}
+  .process-steps{grid-template-columns:repeat(2,1fr);gap:32px}
+  .process-steps::before{display:none}
+  .about{grid-template-columns:1fr}
+  .contact-wrap{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:20px 24px}
+}
 </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="#" class="nav-brand">DM Auto Center</a>
-  <div class="nav-links" id="navLinks">
-    <a href="#servicos">Servicos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </div>
-  <a href="https://wa.me/5562996479034" class="nav-wa">WhatsApp</a>
-  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<nav>
+  <div class="nav-logo"><span class="logo-dot"></span>DM Auto Center</div>
+  <ul class="nav-links">
+    <li><a href="#servicos">Servicos</a></li>
+    <li><a href="#processo">Processo</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
 </nav>
 
-
-<section class="hero" id="hero" style="background:#0277BD;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-  <div class="ptcl" style="width:8px;height:8px;left:0%;top:0%;background:rgba(255,255,255,0.15);animation-duration:4s;animation-delay:0.0s;"></div><div class="ptcl" style="width:11px;height:11px;left:37%;top:23%;background:rgba(255,255,255,0.25);animation-duration:5s;animation-delay:0.3s;"></div><div class="ptcl" style="width:14px;height:14px;left:74%;top:46%;background:rgba(255,255,255,0.35);animation-duration:6s;animation-delay:0.6s;"></div><div class="ptcl" style="width:17px;height:17px;left:21%;top:69%;background:rgba(255,255,255,0.15);animation-duration:7s;animation-delay:0.8999999999999999s;"></div><div class="ptcl" style="width:20px;height:20px;left:58%;top:12%;background:rgba(255,255,255,0.25);animation-duration:4s;animation-delay:1.2s;"></div><div class="ptcl" style="width:23px;height:23px;left:5%;top:35%;background:rgba(255,255,255,0.35);animation-duration:5s;animation-delay:1.5s;"></div><div class="ptcl" style="width:26px;height:26px;left:42%;top:58%;background:rgba(255,255,255,0.15);animation-duration:6s;animation-delay:1.7999999999999998s;"></div><div class="ptcl" style="width:29px;height:29px;left:79%;top:1%;background:rgba(255,255,255,0.25);animation-duration:7s;animation-delay:2.1s;"></div><div class="ptcl" style="width:32px;height:32px;left:26%;top:24%;background:rgba(255,255,255,0.35);animation-duration:4s;animation-delay:2.4s;"></div><div class="ptcl" style="width:35px;height:35px;left:63%;top:47%;background:rgba(255,255,255,0.15);animation-duration:5s;animation-delay:2.6999999999999997s;"></div><div class="ptcl" style="width:38px;height:38px;left:10%;top:70%;background:rgba(255,255,255,0.25);animation-duration:6s;animation-delay:3.0s;"></div><div class="ptcl" style="width:41px;height:41px;left:47%;top:13%;background:rgba(255,255,255,0.35);animation-duration:7s;animation-delay:3.3s;"></div><div class="ptcl" style="width:44px;height:44px;left:84%;top:36%;background:rgba(255,255,255,0.15);animation-duration:4s;animation-delay:3.5999999999999996s;"></div><div class="ptcl" style="width:47px;height:47px;left:31%;top:59%;background:rgba(255,255,255,0.25);animation-duration:5s;animation-delay:3.9s;"></div><div class="ptcl" style="width:50px;height:50px;left:68%;top:2%;background:rgba(255,255,255,0.35);animation-duration:6s;animation-delay:4.2s;"></div><div class="ptcl" style="width:53px;height:53px;left:15%;top:25%;background:rgba(255,255,255,0.15);animation-duration:7s;animation-delay:4.5s;"></div><div class="ptcl" style="width:56px;height:56px;left:52%;top:48%;background:rgba(255,255,255,0.25);animation-duration:4s;animation-delay:4.8s;"></div><div class="ptcl" style="width:59px;height:59px;left:89%;top:71%;background:rgba(255,255,255,0.35);animation-duration:5s;animation-delay:5.1s;"></div><div class="ptcl" style="width:62px;height:62px;left:36%;top:14%;background:rgba(255,255,255,0.15);animation-duration:6s;animation-delay:5.3999999999999995s;"></div><div class="ptcl" style="width:65px;height:65px;left:73%;top:37%;background:rgba(255,255,255,0.25);animation-duration:7s;animation-delay:5.7s;"></div>
-  <div style="position:relative;text-align:center;color:#ffffff;padding:40px 24px;z-index:2;max-width:800px;">
-    <h1 style="font-size:clamp(40px,6vw,76px);font-weight:800;line-height:1.1;margin-bottom:24px;font-family:'Manrope', sans-serif;">Seu carro em maos certas</h1>
-    <p style="font-size:20px;line-height:1.6;margin-bottom:48px;opacity:0.85;font-family:'Manrope', sans-serif;">Oficina de confianca em Aparecida de Goiânia</p>
-    <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;">
-      <div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:12px 24px;border-radius:50px;"><span style="font-size:22px;font-weight:800;color:#FFFFFF;">8.000+</span><span style="font-size:13px;margin-left:8px;opacity:0.8;">Veiculos Atendidos</span></div><div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:12px 24px;border-radius:50px;"><span style="font-size:22px;font-weight:800;color:#FFFFFF;">14+</span><span style="font-size:13px;margin-left:8px;opacity:0.8;">Anos no Mercado</span></div><div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:12px 24px;border-radius:50px;"><span style="font-size:22px;font-weight:800;color:#FFFFFF;">12</span><span style="font-size:13px;margin-left:8px;opacity:0.8;">Mecanicos</span></div><div style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);padding:12px 24px;border-radius:50px;"><span style="font-size:22px;font-weight:800;color:#FFFFFF;">97%</span><span style="font-size:13px;margin-left:8px;opacity:0.8;">Satisfacao</span></div>
-    </div>
-    <a href="https://wa.me/5562996479034" style="background:#FFFFFF;color:#0a0a0a;padding:16px 40px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
+<section class="hero">
+  <div class="hero-panel-left">
+    <p class="hero-eyebrow">Centro Automotivo Especializado — Goiania</p>
+    <h1>DM<span>Auto Center</span></h1>
+    <p class="hero-desc">Diagnostico preciso, servicos completos e atendimento personalizado para manter seu veiculo sempre em perfeito estado.</p>
+    <a href="https://wa.me/5562996479034" class="hero-btn">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Agendar Servico
+    </a>
   </div>
-</section>
-<style>
-.ptcl{position:absolute;border-radius:50%;animation:floatPtcl ease-in-out infinite alternate;}
-@keyframes floatPtcl{0%{transform:translateY(0)}100%{transform:translateY(-20px)}}
-</style>
-
-<section id="servicos">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Manrope', sans-serif;">Servicos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#015384;font-family:'Manrope', sans-serif;">O que fazemos</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;"><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#015384;margin-bottom:8px;font-family:'Manrope', sans-serif;">Alinhamento e Balanceamento</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Manrope', sans-serif;">Direcao perfeita e seguranca nas curvas e frenagens.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#015384;margin-bottom:8px;font-family:'Manrope', sans-serif;">Revisao e Troca de Oleo</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Manrope', sans-serif;">Manutencao preventiva com oleo e filtros de qualidade.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#015384;margin-bottom:8px;font-family:'Manrope', sans-serif;">Freios e Suspensao</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Manrope', sans-serif;">Seguranca e conforto com sistema de freios e suspensao.</p></div><div style="text-align:center;padding:24px;"><div style="width:64px;height:64px;background:#ffffff;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><h4 style="font-size:16px;font-weight:700;color:#015384;margin-bottom:8px;font-family:'Manrope', sans-serif;">Motor e Cambio</h4><p style="font-size:13px;color:#666;line-height:1.5;font-family:'Manrope', sans-serif;">Diagnostico e reparo completo do motor e transmissao.</p></div></div>
-  </div>
-</section>
-
-<section id="stats" style="background:#0277BD;">
-  <div class="section-inner reveal">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
-      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="8000" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Manrope', sans-serif;">0.+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Veiculos Atendidos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="14" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Manrope', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Anos no Mercado</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Manrope', sans-serif;">0</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Mecanicos</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="97" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Manrope', sans-serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Manrope', sans-serif;">Satisfacao</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:48px;"><h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#015384;font-family:'Manrope', sans-serif;">DM Auto Center</h2></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#015384;margin-bottom:12px;font-family:'Manrope', sans-serif;">Nossa Missao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Manrope', sans-serif;">Entregar servicos de excelencia que superam expectativas e transformam a experiencia dos nossos clientes.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#015384;margin-bottom:12px;font-family:'Manrope', sans-serif;">Nossa Visao</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Manrope', sans-serif;">Ser referencia de qualidade e inovacao, reconhecida pela excelencia e pelo impacto positivo que geramos.</p></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="height:4px;width:48px;background:#FFFFFF;border-radius:2px;margin-bottom:24px;"></div><div style="margin-bottom:16px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div><h3 style="font-size:20px;font-weight:700;color:#015384;margin-bottom:12px;font-family:'Manrope', sans-serif;">Nossos Valores</h3><p style="font-size:14px;color:#666;line-height:1.7;font-family:'Manrope', sans-serif;">Etica, transparencia e compromisso guiam cada decisao e cada relacionamento que construimos.</p></div></div>
-  </div>
-</section>
-
-<section id="depoimentos" style="background:#f3f4f6;">
-  <div class="section-inner reveal">
-    <div style="text-align:center;margin-bottom:56px;">
-      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Manrope', sans-serif;">Depoimentos</p>
-      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#015384;font-family:'Manrope', sans-serif;">O que dizem nossos clientes</h2>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Honestos e competentes. Nunca cobram o que nao precisa."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b3d6eb;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0277BD;font-size:14px;">J</div><div><div style="font-weight:700;font-size:14px;color:#015384;font-family:'Manrope', sans-serif;">Joao C.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Resolveram o problema do meu carro rapido e com bom preco."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b3d6eb;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0277BD;font-size:14px;">B</div><div><div style="font-weight:700;font-size:14px;color:#015384;font-family:'Manrope', sans-serif;">Beatriz N.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Manrope', sans-serif;">"Confio completamente neles para cuidar do meu veiculo."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b3d6eb;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0277BD;font-size:14px;">R</div><div><div style="font-weight:700;font-size:14px;color:#015384;font-family:'Manrope', sans-serif;">Ricardo S.</div><div style="font-size:12px;color:#888;font-family:'Manrope', sans-serif;">Cliente</div></div></div></div></div>
-  </div>
-</section>
-
-<section id="contato" style="background:#f8f8f8;">
-  <div class="section-inner reveal">
-    <div style="background:#FFFFFF;border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;">
-  <div style="padding:64px 48px;color:#0a0a0a;">
-    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;opacity:0.7;margin-bottom:16px;font-family:'Manrope', sans-serif;">Contato</p>
-    <h2 style="font-size:clamp(26px,3.5vw,44px);font-weight:800;margin-bottom:16px;line-height:1.2;font-family:'Manrope', sans-serif;">Agende sua revisao</h2>
-    <p style="font-size:16px;opacity:0.85;line-height:1.7;font-family:'Manrope', sans-serif;">Entre em contato e receba atendimento personalizado.</p>
-  </div>
-  <div style="background:#fff;padding:48px;display:flex;flex-direction:column;gap:16px;justify-content:center;">
-    <a href="https://wa.me/5562996479034" style="display:block;background:#25D366;color:#fff;padding:16px 24px;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none;text-align:center;">Falar no WhatsApp</a>
-    <a href="https://www.instagram.com/dmautocenter.aparecida/" style="display:block;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;padding:14px 24px;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none;text-align:center;">Instagram</a>
-  </div>
-</div>
-  </div>
-</section>
-
-<footer style="background:#015f97;color:#ffffff;">
-  <div class="section-inner" style="padding:48px 40px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
-      <div>
-        <div style="font-family:'Manrope', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">DM Auto Center</div>
-        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Manrope', sans-serif;">Setor Bela Vista, Aparecida de Goiânia</div>
-        <div style="display:flex;gap:12px;margin-top:16px;">
-          <a href="https://wa.me/5562996479034" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
-          <a href='https://www.instagram.com/dmautocenter.aparecida/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        </div>
+  <div class="hero-panel-right">
+    <img src="https://placehold.co/440x300/0277BD/F5F8FA?text=DM+Auto+Center" alt="DM Auto Center" class="hero-main-img">
+    <div class="hero-mini-stats">
+      <div class="mini-stat">
+        <div class="mini-stat-num">8+</div>
+        <div class="mini-stat-lbl">Anos</div>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Manrope', sans-serif;">Links rapidos</div>
-        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Manrope', sans-serif;font-size:14px;opacity:0.8;">
-          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
-          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
-          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
-        </div>
+      <div class="mini-stat">
+        <div class="mini-stat-num">2K+</div>
+        <div class="mini-stat-lbl">Clientes</div>
       </div>
-      <div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Manrope', sans-serif;">Contato</div>
-        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Manrope', sans-serif;">
-          (62) 99647-9034<br>
-          <a href="https://wa.me/5562996479034" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
-          <a href='https://www.instagram.com/dmautocenter.aparecida/' style='color:inherit;text-decoration:none;'>Instagram</a>
-        </div>
+      <div class="mini-stat">
+        <div class="mini-stat-num">100%</div>
+        <div class="mini-stat-lbl">Garantia</div>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Manrope', sans-serif;">Desenvolvido por VANT Digital Studio</div>
   </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="services" id="servicos">
+  <p class="section-label reveal">O que fazemos</p>
+  <h2 class="section-title reveal">Servicos Completos</h2>
+  <div class="services-grid">
+    <div class="svc reveal">
+      <div class="svc-num">01</div>
+      <h3>Mecanica Geral</h3>
+      <p>Revisao completa, troca de oleo, filtros e manutencao preventiva para prolongar a vida do seu veiculo.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-num">02</div>
+      <h3>Motor e Cambio</h3>
+      <p>Diagnostico eletronico, reparo de motor, retifica e manutencao do sistema de transmissao.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-num">03</div>
+      <h3>Freios e Suspensao</h3>
+      <p>Alinhamento, balanceamento, pastilhas, discos e revisao completa do sistema de seguranca.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-num">04</div>
+      <h3>Ar-Condicionado</h3>
+      <p>Recarga de gas, reparo de compressor e manutencao completa do sistema de climatizacao.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-num">05</div>
+      <h3>Eletrica Automotiva</h3>
+      <p>Reparo de sistema eletrico, bateria, alternador e diagnostico de falhas por scanner OBD.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="svc-num">06</div>
+      <h3>Orcamento Gratis</h3>
+      <p>Diagnostico sem custo e orcamento detalhado antes de qualquer intervencao no veiculo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="processo">
+  <p class="section-label reveal">Como funciona</p>
+  <h2 class="section-title reveal">Nosso Processo</h2>
+  <div class="process-steps">
+    <div class="step reveal">
+      <div class="step-circle">1</div>
+      <h3>Agendamento</h3>
+      <p>Agende pelo WhatsApp em qualquer horario, sem filas e sem espera.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-circle">2</div>
+      <h3>Diagnostico</h3>
+      <p>Analise completa com scanner digital e inspecao visual detalhada.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-circle">3</div>
+      <h3>Orcamento</h3>
+      <p>Orcamento claro e preciso aprovado por voce antes do inicio.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-circle">4</div>
+      <h3>Entrega</h3>
+      <p>Veiculo pronto, com garantia por escrito e satisfacao total.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="sobre">
+  <img src="https://placehold.co/540x440/012A4A/29B6F6?text=DM+Auto" alt="DM Auto Center" class="reveal">
+  <div class="about-content">
+    <p class="section-label reveal">Quem somos</p>
+    <h2 class="section-title reveal">Referencia em<br>Goiania ha<br>mais de 8 anos</h2>
+    <p class="about-text reveal">A DM Auto Center nasceu com o proposito de oferecer servicos automotivos de alto nivel com preco acessivel. Atendemos veiculos nacionais e importados com tecnologia de diagnostico de ultima geracao.</p>
+    <div class="about-feats reveal">
+      <div class="feat"><p>Tecnicos Certificados</p></div>
+      <div class="feat"><p>Pecas com Nota Fiscal</p></div>
+      <div class="feat"><p>Garantia por Escrito</p></div>
+      <div class="feat"><p>Atendimento Premium</p></div>
+    </div>
+    <a href="https://wa.me/5562996479034" class="about-cta reveal">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Conhecer a DM
+    </a>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="contact-wrap">
+    <div class="reveal">
+      <p class="section-label">Fale conosco</p>
+      <h2 class="section-title">Agende seu<br>Atendimento</h2>
+      <div class="info-block">
+        <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M10 2C6.686 2 4 4.686 4 8c0 5 6 10 6 10s6-5 6-10c0-3.314-2.686-6-6-6zm0 8a2 2 0 110-4 2 2 0 010 4z" fill="#0277BD"/></svg>
+        <div><strong>Endereco</strong><p>Av. Digital Motors, 340 — Jardim Americas<br>Goiania, GO</p></div>
+      </div>
+      <div class="info-block">
+        <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" fill="#0277BD"/></svg>
+        <div><strong>Telefone</strong><p>(62) 99647-9034</p></div>
+      </div>
+      <div class="info-block">
+        <svg class="info-icon" viewBox="0 0 20 20" fill="none"><path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm3 1v2h10V5H5zm0 4v2h10V9H5zm0 4v2h6v-2H5z" fill="#0277BD"/></svg>
+        <div><strong>Horario</strong><p>Seg a Sex: 07h30 — 18h30<br>Sabado: 08h00 — 13h00</p></div>
+      </div>
+    </div>
+    <div class="cta-card reveal">
+      <h3>Fale pelo<br>WhatsApp</h3>
+      <p>Atendimento rapido e orcamento sem compromisso. Nossa equipe esta pronta para voce.</p>
+      <a href="https://wa.me/5562996479034" class="btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Chamar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>DM Auto Center</strong> — Av. Digital Motors, 340 — Goiania, GO</p>
+  <p>Desenvolvido por <strong>VANT Digital Studio</strong></p>
 </footer>
 
-<a href="https://wa.me/5562996479034" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+<a href="https://wa.me/5562996479034" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.562 4.14 1.541 5.876L0 24l6.31-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.016-1.378l-.36-.214-3.737.897.943-3.63-.234-.374A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+</a>
 
 <script>
-(function(){
-  var nav = document.getElementById('mainNav');
-  var hero = document.getElementById('hero');
-  var obs = new IntersectionObserver(function(entries){
-    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
-  }, {threshold:0.1});
-  if(hero) obs.observe(hero);
-
-  var revealObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
-
-  var counters = document.querySelectorAll('.counter');
-  var counterObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var el = e.target;
-      var target = parseInt(el.getAttribute('data-target')) || 0;
-      var suffix = el.textContent.replace(/[0-9]/g,'');
-      var start = 0;
-      var duration = 1500;
-      var step = target / (duration / 16);
-      var timer = setInterval(function(){
-        start += step;
-        if(start >= target){ start = target; clearInterval(timer); }
-        el.textContent = Math.floor(start) + suffix;
-      }, 16);
-      counterObs.unobserve(el);
-    });
-  }, {threshold:0.3});
-  counters.forEach(function(c){counterObs.observe(c);});
-})();
+const obs = new IntersectionObserver(e => e.forEach(i => {
+  if(i.isIntersecting) i.target.classList.add('visible');
+}), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
