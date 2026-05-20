@@ -1,97 +1,207 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TechConstrução Civil — Engenharia em Goiânia</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TechConstrução Civil — Goiânia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--c1:#0D47A1;--acc:#0D47A1}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:#0f172a;color:#e2e8f0;overflow-x:hidden}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans', sans-serif;line-height:1.6;color:#222;}
+section{position:relative;}
+.section-inner{max-width:1200px;margin:0 auto;padding:80px 40px;}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;padding:0 40px;transition:all 0.4s;}
+nav.scrolled{background:#0D47A1;box-shadow:0 2px 20px rgba(0,0,0,0.15);}
+.nav-brand{font-family:'Plus Jakarta Sans', sans-serif;font-weight:800;font-size:20px;color:#fff;text-decoration:none;flex:1;}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:14px;font-weight:600;font-family:'Plus Jakarta Sans', sans-serif;transition:color 0.2s;}
+.nav-links a:hover{color:#fff;}
+.nav-wa{background:#FFFFFF;color:#0a0a0a;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;margin-left:24px;font-family:'Plus Jakarta Sans', sans-serif;white-space:nowrap;}
+.hamburger{display:none;background:none;border:none;cursor:pointer;color:#fff;flex-direction:column;gap:5px;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:currentColor;border-radius:2px;transition:all 0.3s;}
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;position:fixed;top:72px;left:0;right:0;background:#0D47A1;flex-direction:column;padding:20px;gap:16px;}
+  .nav-links.open{display:flex;}
+  .hamburger{display:flex;}
+  .nav-wa{display:none;}
+  .section-inner{padding:60px 20px;}
+}
+.float-wa{position:fixed;bottom:28px;right:28px;z-index:9999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.5);}
+.float-wa::before{content:'';position:absolute;width:100%;height:100%;border-radius:50%;background:#25D366;animation:waPulse 2s ease-out infinite;}
+@keyframes waPulse{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.8);opacity:0;}}
+.float-wa svg{position:relative;z-index:2;}
+</style>
+</head>
+<body>
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(15,23,42,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
-.logo{font-size:1rem;font-weight:700;color:#e2e8f0;letter-spacing:-.01em}.logo span{color:var(--c1)}
-.nav-cta{background:var(--c1);color:#0f172a;padding:9px 22px;border-radius:6px;font-size:.8rem;font-weight:700;text-decoration:none;transition:opacity .2s}.nav-cta:hover{opacity:.88}
-
-.hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:100px 48px 60px;background:#0f172a;position:relative;overflow:hidden;gap:56px}
-.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
-.acc-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:var(--c1)}
-.d1{top:120px;left:48px}.d2{top:200px;right:200px}.d3{bottom:150px;left:300px}
-.hero-text{position:relative;z-index:2}
-.spec-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);color:var(--c1);border-radius:6px;padding:5px 14px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px}
-.spec-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--c1);animation:blink 1.5s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.hero-text h1{font-size:clamp(2.4rem,4vw,4rem);font-weight:700;color:#f8fafc;line-height:1.08;margin-bottom:18px;letter-spacing:-.02em}
-.hero-text h1 em{color:var(--c1);font-style:normal}
-.hero-text p{font-size:.95rem;color:#94a3b8;line-height:1.78;max-width:420px;margin-bottom:32px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;font-weight:600;font-size:.84rem;text-decoration:none;transition:all .2s;border-radius:6px}
-.btn-acc{background:var(--c1);color:#0f172a}.btn-acc:hover{opacity:.88;transform:translateY(-1px)}
-.btn-out{border:1px solid rgba(255,255,255,.2);color:#e2e8f0}.btn-out:hover{border-color:var(--c1);color:var(--c1)}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
-.hero-img{position:relative;z-index:2}
-.img-frame{border-radius:12px;overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(255,255,255,.08)}
-.img-frame img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.9)}
-.tag-row{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
-.tag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:4px 10px;font-size:.7rem;color:#94a3b8;font-family:monospace}
-
-section{padding:96px 48px}.inner{max-width:1120px;margin:auto}
-.s-label{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--c1);margin-bottom:10px}
-.s-title{font-size:clamp(1.8rem,2.8vw,2.6rem);font-weight:700;color:#f8fafc;margin-bottom:14px;line-height:1.2;letter-spacing:-.02em}
-.s-sub{font-size:.92rem;color:#94a3b8;line-height:1.75;max-width:500px}
-
-.srv-sec{background:#0a1120;border-top:1px solid rgba(255,255,255,.06)}
-.spec-list{margin-top:48px;display:flex;flex-direction:column;gap:1px}
-.spec{display:flex;gap:24px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.06);transition:all .3s}
-.spec:hover{padding-left:8px}
-.spec-n{font-size:2rem;font-weight:700;color:rgba(249,115,22,.2);flex-shrink:0;min-width:52px;line-height:1;font-family:monospace}
-.spec h3{font-size:.98rem;font-weight:600;color:#e2e8f0;margin-bottom:6px}
-.spec p{font-size:.83rem;color:#64748b;line-height:1.65}
-
-.about-sec{background:#111827}
-.about-split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.about-img{border-radius:12px;overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(255,255,255,.08)}
-.about-img img{width:100%;height:100%;object-fit:cover;display:block}
-.about-text .s-sub{max-width:100%;color:#94a3b8}
-.about-text p{font-size:.88rem;color:#64748b;line-height:1.85;margin-top:14px}
-.data-row{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap}
-.dr{text-align:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:16px 20px;min-width:90px}
-.dr .n{font-size:1.6rem;font-weight:700;color:var(--c1);font-family:monospace}.dr .l{font-size:.68rem;color:#64748b;text-transform:uppercase;letter-spacing:.08em}
-
-.cta-sec{background:var(--c1);text-align:center}
-.cta-sec .s-label{color:rgba(0,0,0,.5)}.cta-sec .s-title{color:#0f172a}.cta-sec .s-sub{color:rgba(0,0,0,.6);margin:0 auto}
-.cta-row{display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap}
-.btn-dark{background:#0f172a;color:#fff}.btn-dark:hover{opacity:.85}
-
-footer{background:#050a14;color:rgba(255,255,255,.25);text-align:center;padding:22px 40px;font-size:.73rem;border-top:1px solid rgba(255,255,255,.06)}
-footer a{color:rgba(255,255,255,.4);text-decoration:none}
-
-.reveal{opacity:0;clip-path:inset(0 0 100% 0);transition:opacity .75s,clip-path .75s cubic-bezier(0.16,1,0.3,1);transition-delay:var(--d,0s)}.reveal.in{opacity:1;clip-path:inset(0 0 0% 0)}
-@media(max-width:768px){nav{padding:0 20px}.hero{grid-template-columns:1fr;padding:90px 20px 50px}.hero-img{display:none}.about-split{grid-template-columns:1fr}.about-img{display:none}section{padding:60px 20px}}
-</style></head><body>
-<nav><div class="logo">Civil <span>&middot;</span> Eng.</div><a href="https://wa.me/5562998362047" class="nav-cta">Orçamento</a></nav>
-<section class="hero">
-  <div class="grid-bg"></div>
-  <div class="acc-dot d1"></div><div class="acc-dot d2"></div><div class="acc-dot d3"></div>
-  <div class="hero-text">
-    <div class="spec-badge">Engenharia &middot; Goiânia</div>
-    <h1>Projetos que<br><em>Transformam</em><br>Espaços</h1>
-    <p>Engenharia e arquitetura de excelência, do projeto à execução.</p>
-    <div class="hero-btns"><a href="https://wa.me/5562998362047" class="btn btn-acc"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.5 2C6.262 2 2 6.262 2 11.5c0 1.687.437 3.27 1.203 4.645L2 22l6.015-1.176C9.35 21.576 10.408 22 11.5 22 16.738 22 21 17.738 21 12.5S16.738 2 11.5 2z"/></svg> WhatsApp</a><a href="https://www.instagram.com/techconstrucao.go/" class="btn btn-out"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> Instagram</a></div>
+<nav id="mainNav">
+  <a href="#" class="nav-brand">TechConstrução Civil</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#servicos">Servicos</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
   </div>
-  <div class="hero-img">
-    <div class="img-frame"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=700&h=900&fit=crop&q=80" alt="TechConstrução Civil" loading="eager" fetchpriority="high"></div>
-    <div class="tag-row"><span class="tag">CREA</span><span class="tag">NBR 6118</span><span class="tag">Goiás</span></div>
+  <a href="https://wa.me/5562998362047" class="nav-wa">WhatsApp</a>
+  <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+
+<section class="hero" id="hero" style="background:#093578;min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+  <div class="blob b1" style="background:rgba(255,255,255,0.35);"></div>
+  <div class="blob b2" style="background:rgba(13,71,161,0.5);"></div>
+  <div class="blob b3" style="background:rgba(204,204,204,0.25);"></div>
+  <div style="position:relative;z-index:2;text-align:center;max-width:700px;padding:60px 40px;background:rgba(255,255,255,0.08);backdrop-filter:blur(40px);border-radius:28px;border:1px solid rgba(255,255,255,0.12);">
+    <h1 style="font-size:clamp(36px,5vw,64px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:20px;font-family:'Plus Jakarta Sans', sans-serif;">Engenharia com precisao</h1>
+    <p style="font-size:18px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:40px;font-family:'Plus Jakarta Sans', sans-serif;">Engenharia civil em Goiânia</p>
+    <div style="display:flex;gap:24px;justify-content:center;margin-bottom:36px;flex-wrap:wrap;">
+      <div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#FFFFFF;">180+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Obras Realizadas</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#FFFFFF;">12+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Anos de Experiencia</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#FFFFFF;">50.000+ m2</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Area Projetada</div></div><div style="text-align:center;"><div style="font-size:26px;font-weight:800;color:#FFFFFF;">100%</div><div style="font-size:12px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;">Satisfacao</div></div>
+    </div>
+    <a href="https://wa.me/5562998362047" style="background:#FFFFFF;color:#0a0a0a;padding:16px 40px;border-radius:10px;font-size:16px;font-weight:700;text-decoration:none;">Falar no WhatsApp</a>
   </div>
 </section>
-<section class="srv-sec"><div class="inner"><div class="s-label reveal">Atuação</div><h2 class="s-title reveal">Áreas de Serviço</h2><p class="s-sub reveal">Soluções técnicas completas com responsabilidade e inovação.</p><div class="spec-list"><div class="spec reveal" style="--d:0.0s"><div class="spec-n">01</div><div class="spec-body"><h3>Projetos Residenciais</h3><p>Execução técnica com precisão, dentro do prazo e do orçamento.</p></div></div><div class="spec reveal" style="--d:0.08s"><div class="spec-n">02</div><div class="spec-body"><h3>Laudos Técnicos</h3><p>Execução técnica com precisão, dentro do prazo e do orçamento.</p></div></div><div class="spec reveal" style="--d:0.16s"><div class="spec-n">03</div><div class="spec-body"><h3>Reforma e Ampliação</h3><p>Execução técnica com precisão, dentro do prazo e do orçamento.</p></div></div><div class="spec reveal" style="--d:0.24s"><div class="spec-n">04</div><div class="spec-body"><h3>Fiscalização de Obras</h3><p>Execução técnica com precisão, dentro do prazo e do orçamento.</p></div></div><div class="spec reveal" style="--d:0.32s"><div class="spec-n">05</div><div class="spec-body"><h3>Projetos Comerciais</h3><p>Execução técnica com precisão, dentro do prazo e do orçamento.</p></div></div><div class="spec reveal" style="--d:0.4s"><div class="spec-n">06</div><div class="spec-body"><h3>Consultoria</h3><p>Execução técnica com precisão, dentro do prazo e do orçamento.</p></div></div></div></div></section>
-<section class="about-sec"><div class="inner"><div class="about-split"><div class="about-img reveal"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=600&fit=crop&q=80" alt="Sobre" loading="lazy"></div><div><div class="s-label reveal">O Profissional</div><h2 class="s-title reveal">TechConstrução Civil</h2><p class="s-sub reveal">Empresa de engenharia com 4.1K seguidores.</p><p class="reveal">Atuamos em Goiânia com rigor técnico e compromisso com cada obra.</p><div class="data-row"><div class="dr reveal"><div class="n" data-to="50" data-suf="+">0</div><div class="l">Obras</div></div><div class="dr reveal" style="--d:.1s"><div class="n">GYN</div><div class="l">Região</div></div><div class="dr reveal" style="--d:.15s"><div class="n">Ativo</div><div class="l">Status</div></div></div></div></div></div></section>
-<section class="cta-sec"><div class="inner"><div class="s-label">Contato</div><h2 class="s-title">Solicite um Orçamento</h2><p class="s-sub">Análise técnica gratuita para o seu projeto.</p><div class="cta-row"><a href="https://wa.me/5562998362047" class="btn btn-dark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.5 2C6.262 2 2 6.262 2 11.5c0 1.687.437 3.27 1.203 4.645L2 22l6.015-1.176C9.35 21.576 10.408 22 11.5 22 16.738 22 21 17.738 21 12.5S16.738 2 11.5 2z"/></svg> WhatsApp</a><a href="https://www.instagram.com/techconstrucao.go/" class="btn btn-dark"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg> Instagram</a></div></div></section>
-<footer><p>&copy; 2026 TechConstrução Civil &middot; Goiânia &mdash; Protótipo por <a href="https://vant-studio.web.app/">VANT Digital Studio</a></p></footer>
+<style>
+.blob{position:absolute;border-radius:50%;filter:blur(80px);animation:blobAnim 10s ease-in-out infinite alternate;}
+.b1{width:500px;height:500px;top:-100px;left:-100px;animation-duration:12s;}
+.b2{width:400px;height:400px;bottom:-80px;right:-80px;animation-duration:9s;animation-delay:-3s;}
+.b3{width:350px;height:350px;top:30%;left:30%;animation-duration:14s;animation-delay:-6s;}
+@keyframes blobAnim{0%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%;transform:translate(0,0)}100%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%;transform:translate(30px,-20px)}}
+</style>
+
+<section id="servicos">
+  <div class="section-inner reveal">
+    <div style="text-align:center;margin-bottom:56px;">
+      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Servicos</p>
+      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#093170;font-family:'Plus Jakarta Sans', sans-serif;">O que fazemos</h2>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px;"><button class="srv-pill" onclick="showPill(this,0)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #0D47A1;background:#0D47A1;color:#ffffff;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Projetos Residenciais</button><button class="srv-pill" onclick="showPill(this,1)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Projetos Comerciais</button><button class="srv-pill" onclick="showPill(this,2)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Laudos Tecnicos</button><button class="srv-pill" onclick="showPill(this,3)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Fiscalizacao de Obras</button><button class="srv-pill" onclick="showPill(this,4)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Reforma e Retrofit</button><button class="srv-pill" onclick="showPill(this,5)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Consultoria Estrutural</button><button class="srv-pill" onclick="showPill(this,6)" style="border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;border:2px solid #ddd;background:transparent;color:#333;cursor:pointer;transition:all 0.3s;font-family:'Plus Jakarta Sans', sans-serif;">Regularizacao de Imoveis</button></div><div class="srv-panel" style="display:block;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#093170;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Projetos Residenciais</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Projetos estruturais e arquitetonicos para residencias.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#093170;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Projetos Comerciais</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Solucoes de engenharia para empresas e estabelecimentos.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#093170;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Laudos Tecnicos</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Laudos estruturais, de vistoria e conformidade tecnica.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#093170;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Fiscalizacao de Obras</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Acompanhamento e controle de qualidade na execucao.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#093170;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Reforma e Retrofit</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Modernizacao e adequacao de edificacoes existentes.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#093170;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Consultoria Estrutural</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Analise e solucao de problemas estruturais.</p></div><div class="srv-panel" style="display:none;padding:32px;background:#f8f8f8;border-radius:16px;margin-top:16px;"><h3 style="font-size:22px;font-weight:700;color:#093170;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Regularizacao de Imoveis</h3><p style="font-size:16px;color:#555;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Regularizacao junto aos orgaos competentes.</p></div><script>var srvPrimary="#0D47A1",srvAccent="#ffffff";function showPill(el,idx){document.querySelectorAll(".srv-pill").forEach(function(p,i){p.style.background=i===idx?srvPrimary:"transparent";p.style.color=i===idx?srvAccent:"#333";p.style.borderColor=i===idx?srvPrimary:"#ddd";});document.querySelectorAll(".srv-panel").forEach(function(p,i){p.style.display=i===idx?"block":"none";});}</script>
+  </div>
+</section>
+
+<section id="stats" style="background:#0D47A1;">
+  <div class="section-inner reveal">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;">
+      <div class="stat-item" style="text-align:center;"><div class="counter" data-target="180" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Plus Jakarta Sans', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Plus Jakarta Sans', sans-serif;">Obras Realizadas</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="12" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Plus Jakarta Sans', sans-serif;">0+</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Plus Jakarta Sans', sans-serif;">Anos de Experiencia</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="500002" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Plus Jakarta Sans', sans-serif;">0.+ m</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Plus Jakarta Sans', sans-serif;">Area Projetada</div></div><div class="stat-item" style="text-align:center;"><div class="counter" data-target="100" style="font-size:clamp(32px,4vw,52px);font-weight:800;color:#FFFFFF;font-family:'Plus Jakarta Sans', sans-serif;">0%</div><div style="font-size:14px;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-family:'Plus Jakarta Sans', sans-serif;">Satisfacao</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" style="background:#f8f8f8;">
+  <div class="section-inner reveal">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;">
+<img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=800&fit=crop&q=80" alt="TechConstrução Civil" style="border-radius:20px;width:100%;height:480px;object-fit:cover;">
+<div>
+  <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Sobre nos</p>
+  <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#093170;margin-bottom:20px;line-height:1.2;font-family:'Plus Jakarta Sans', sans-serif;">TechConstrução Civil</h2>
+  <p style="font-size:16px;color:#555;line-height:1.8;margin-bottom:28px;font-family:'Plus Jakarta Sans', sans-serif;">Nosso escritorio de engenharia civil oferece solucoes tecnicas completas com rigor, precisao e compromisso com a qualidade. Desenvolvemos projetos inovadores e acompanhamos cada etapa com dedicacao total.</p>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;">
+    <div style="background:#ffffff;color:#cccccc;padding:10px 20px;border-radius:50px;font-size:13px;font-weight:700;">180+ Obras Realizadas</div>
+    <div style="background:#dae3f0;color:#0a3880;padding:10px 20px;border-radius:50px;font-size:13px;font-weight:700;">12+ Anos de Experiencia</div>
+  </div>
+</div></div>
+  </div>
+</section>
+
+<section id="depoimentos" style="background:#f3f4f6;">
+  <div class="section-inner reveal">
+    <div style="text-align:center;margin-bottom:56px;">
+      <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:12px;font-family:'Plus Jakarta Sans', sans-serif;">Depoimentos</p>
+      <h2 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;color:#093170;font-family:'Plus Jakarta Sans', sans-serif;">O que dizem nossos clientes</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;"><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Plus Jakarta Sans', sans-serif;">"Projeto entregue no prazo e com qualidade superior ao esperado."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b6c7e2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0D47A1;font-size:14px;">F</div><div><div style="font-weight:700;font-size:14px;color:#093170;font-family:'Plus Jakarta Sans', sans-serif;">Fabio N.</div><div style="font-size:12px;color:#888;font-family:'Plus Jakarta Sans', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Plus Jakarta Sans', sans-serif;">"Profissional serio e extremamente competente. Recomendo."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b6c7e2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0D47A1;font-size:14px;">S</div><div><div style="font-weight:700;font-size:14px;color:#093170;font-family:'Plus Jakarta Sans', sans-serif;">Sandra L.</div><div style="font-size:12px;color:#888;font-family:'Plus Jakarta Sans', sans-serif;">Cliente</div></div></div></div><div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,0.06);"><div style="display:flex;gap:4px;margin-bottom:16px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><p style="font-size:15px;color:#444;line-height:1.7;margin-bottom:20px;font-family:'Plus Jakarta Sans', sans-serif;">"Laudo tecnico preciso que resolveu todos os problemas."</p><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;background:#b6c7e2;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#0D47A1;font-size:14px;">M</div><div><div style="font-weight:700;font-size:14px;color:#093170;font-family:'Plus Jakarta Sans', sans-serif;">Marcos A.</div><div style="font-size:12px;color:#888;font-family:'Plus Jakarta Sans', sans-serif;">Cliente</div></div></div></div></div>
+  </div>
+</section>
+
+<section id="contato" style="background:#f8f8f8;">
+  <div class="section-inner reveal">
+    <div style="position:relative;">
+  <svg style="display:block;width:100%;" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 0C360 80 720 0 1080 80L1440 0V80H0V0Z" fill="#0D47A1"/></svg>
+  <div style="background:#0D47A1;padding:40px 40px 80px;text-align:center;color:#ffffff;">
+    <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#FFFFFF;margin-bottom:16px;font-family:'Plus Jakarta Sans', sans-serif;">Pronto para comecar?</p>
+    <h2 style="font-size:clamp(28px,4vw,52px);font-weight:800;margin-bottom:16px;font-family:'Plus Jakarta Sans', sans-serif;">Solicite um orcamento</h2>
+    <p style="font-size:18px;opacity:0.8;max-width:520px;margin:0 auto 40px;line-height:1.6;font-family:'Plus Jakarta Sans', sans-serif;">Entre em contato e descubra como podemos ajudar voce.</p>
+    <a href="https://wa.me/5562998362047" style="display:inline-block;background:#FFFFFF;color:#0a0a0a;padding:18px 44px;border-radius:10px;font-size:17px;font-weight:700;text-decoration:none;margin-right:16px;margin-bottom:16px;">Falar no WhatsApp</a>
+    <a href="https://www.instagram.com/techconstrucao.go/" style="display:inline-block;border:2px solid rgba(255,255,255,0.3);color:#ffffff;padding:16px 32px;border-radius:10px;font-size:16px;font-weight:600;text-decoration:none;vertical-align:middle;">Instagram</a>
+  </div>
+</div>
+  </div>
+</section>
+
+<footer style="background:#0a3880;color:#ffffff;">
+  <div class="section-inner" style="padding:48px 40px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
+      <div>
+        <div style="font-family:'Plus Jakarta Sans', sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;">TechConstrução Civil</div>
+        <div style="font-size:14px;opacity:0.7;line-height:1.7;font-family:'Plus Jakarta Sans', sans-serif;">Setor Leste, Goiânia</div>
+        <div style="display:flex;gap:12px;margin-top:16px;">
+          <a href="https://wa.me/5562998362047" style="color:#25D366;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
+          <a href='https://www.instagram.com/techconstrucao.go/' style='color:#E1306C;'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Plus Jakarta Sans', sans-serif;">Links rapidos</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-family:'Plus Jakarta Sans', sans-serif;font-size:14px;opacity:0.8;">
+          <a href="#servicos" style="color:inherit;text-decoration:none;">Servicos</a>
+          <a href="#sobre" style="color:inherit;text-decoration:none;">Sobre nos</a>
+          <a href="#contato" style="color:inherit;text-decoration:none;">Contato</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:700;font-size:15px;margin-bottom:16px;font-family:'Plus Jakarta Sans', sans-serif;">Contato</div>
+        <div style="font-size:14px;opacity:0.8;line-height:1.9;font-family:'Plus Jakarta Sans', sans-serif;">
+          (62) 99836-2047<br>
+          <a href="https://wa.me/5562998362047" style="color:inherit;text-decoration:none;">WhatsApp</a><br>
+          <a href='https://www.instagram.com/techconstrucao.go/' style='color:inherit;text-decoration:none;'>Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;text-align:center;font-size:13px;opacity:0.6;font-family:'Plus Jakarta Sans', sans-serif;">Desenvolvido por VANT Digital Studio</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5562998362047" class="float-wa" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.523 5.845L.057 23.571a.75.75 0 00.923.899l5.909-1.881A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.663-.522-5.176-1.427l-.367-.22-3.508 1.117 1.075-3.42-.24-.38A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg></a>
 
 <script>
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:0.12});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-const cobs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){animCount(e.target);cobs.unobserve(e.target);}});},{threshold:0.4});
-document.querySelectorAll('[data-to]').forEach(el=>cobs.observe(el));
-function animCount(el){const to=+el.dataset.to,suf=el.dataset.suf||'',dur=1800,step=to/(dur/16);let n=0;const t=setInterval(()=>{n=Math.min(n+step,to);el.textContent=Math.floor(n)+suf;if(n>=to)clearInterval(t);},16);}
+(function(){
+  var nav = document.getElementById('mainNav');
+  var hero = document.getElementById('hero');
+  var obs = new IntersectionObserver(function(entries){
+    nav.classList.toggle('scrolled', !entries[0].isIntersecting);
+  }, {threshold:0.1});
+  if(hero) obs.observe(hero);
+
+  var revealObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');}} );
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(function(el){revealObs.observe(el);});
+
+  var counters = document.querySelectorAll('.counter');
+  var counterObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target;
+      var target = parseInt(el.getAttribute('data-target')) || 0;
+      var suffix = el.textContent.replace(/[0-9]/g,'');
+      var start = 0;
+      var duration = 1500;
+      var step = target / (duration / 16);
+      var timer = setInterval(function(){
+        start += step;
+        if(start >= target){ start = target; clearInterval(timer); }
+        el.textContent = Math.floor(start) + suffix;
+      }, 16);
+      counterObs.unobserve(el);
+    });
+  }, {threshold:0.3});
+  counters.forEach(function(c){counterObs.observe(c);});
+})();
 </script>
-</body></html>
+</body>
+</html>
